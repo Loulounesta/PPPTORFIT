@@ -1250,17 +1250,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div style="font-size:12px;color:var(--tx2);margin-top:4px">Outil de relevé terrain PPPT / DPE copropriété</div>
     <a href="https://www.eti360.fr" target="_blank" style="font-size:12px;color:var(--eti-orange);font-weight:600;text-decoration:none;margin-top:4px;display:block">www.eti360.fr</a>
   </div>
-  <div class="sl" style="margin-top:24px">Installer sur iPhone (PWA)</div>
-  <div class="card" style="margin-bottom:10px">
-    <div style="font-size:13px;color:var(--tx);line-height:1.7">
-      <strong style="color:var(--eti-orange)">Option 1 — GitHub Pages (recommandé)</strong><br>
-      1. Créez un compte gratuit sur <a href="https://github.com" target="_blank" style="color:var(--acc)">github.com</a><br>
-      2. Nouveau dépôt public → uploadez <code>PPPT_Terrain.html</code> renommé en <code>index.html</code><br>
-      3. Settings → Pages → Branch: main → Save<br>
-      4. Sur iPhone : ouvrez l'URL <code>https://[vous].github.io/[depot]</code><br>
-      5. Safari → Partager → <strong>Sur l'écran d'accueil</strong> ✓
-    </div>
-  </div>
   <div class="card">
     <div style="font-size:13px;color:var(--tx);line-height:1.7">
       <strong style="color:var(--eti-orange)">Option 2 — Netlify Drop (encore plus simple)</strong><br>
@@ -3614,7 +3603,7 @@ async function ouvrirDTGHtml(){
   const grp={};
   converted.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
   const tagColors={'Défaut / Problème':'#A32D2D','Vétusté':'#854F0B','À remplacer':'#854F0B','Urgence':'#c0392b','Non-conformité':'#185FA5','Bon état':'#3B6D11'};
-  const ref=(copro&&copro.nom)?copro.nom:'Copropriété';
+  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'Copropriété';
   const date=new Date().toLocaleDateString('fr-FR');
   const sectionsHtml=DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
     const photos=grp[cat];
@@ -3650,7 +3639,7 @@ async function ouvrirDTGHtml(){
   // Sur iOS Safari, ouvrir dans un nouvel onglet fonctionne mieux que le téléchargement
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Photos_DTG_'+ref.replace(/[^a-zA-Z0-9]/g,'-')+'.html';
+  a.download = 'DTG_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
   a.target = '_blank';
   a.click();
   URL.revokeObjectURL(url);
@@ -3673,7 +3662,7 @@ async function exportDTGHtml(){
   const grp={};
   converted.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
   const tagColors={'Défaut / Problème':'#A32D2D','Vétusté':'#854F0B','À remplacer':'#854F0B','Urgence':'#c0392b','Non-conformité':'#185FA5','Bon état':'#3B6D11'};
-  const ref=(copro&&copro.nom)?copro.nom:'Copropriété';
+  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'Copropriété';
   const date=new Date().toLocaleDateString('fr-FR');
   const sectionsHtml=DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
     const photos=grp[cat];
@@ -3709,7 +3698,7 @@ async function exportDTGHtml(){
   // Sur iOS Safari, ouvrir dans un nouvel onglet fonctionne mieux que le téléchargement
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Photos_DTG_'+ref.replace(/[^a-zA-Z0-9]/g,'-')+'.html';
+  a.download = 'DTG_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
   a.target = '_blank';
   a.click();
   URL.revokeObjectURL(url);
