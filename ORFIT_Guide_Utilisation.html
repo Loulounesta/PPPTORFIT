@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ORFIT PPPT v2.0 — Guide d'utilisation ETI</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#F0F3F4; color:#435459; line-height:1.6; }
+  .hd { background:#435459; border-bottom:3px solid #D2703C; padding:16px 24px; display:flex; align-items:center; gap:16px; position:sticky; top:0; z-index:10; }
+  .hd img { height:36px; }
+  .hd-title { color:#fff; font-size:22px; font-weight:800; }
+  .hd-sub { color:#E8B69C; font-size:12px; font-weight:600; letter-spacing:.8px; text-transform:uppercase; margin-top:2px; }
+  .wrap { max-width:820px; margin:0 auto; padding:32px 20px 80px; }
+  .intro { background:#435459; color:#fff; border-radius:16px; padding:28px; margin-bottom:32px; }
+  .intro h2 { font-size:20px; font-weight:700; margin-bottom:12px; color:#E8B69C; }
+  .intro p { font-size:15px; line-height:1.7; opacity:.9; margin-top:8px; }
+  .compat { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+  .compat-badge { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:10px; padding:8px 14px; font-size:13px; color:#fff; display:flex; align-items:center; gap:6px; }
+  .compat-badge strong { color:#E8B69C; }
+  .step { background:#fff; border-radius:16px; padding:24px; margin-bottom:20px; border:.5px solid rgba(67,84,89,.15); box-shadow:0 2px 8px rgba(67,84,89,.08); }
+  .step-hd { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+  .step-num { width:44px; height:44px; border-radius:50%; background:#D2703C; color:#fff; font-size:20px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .step-title { font-size:18px; font-weight:700; color:#435459; }
+  .step-sub { font-size:12px; color:#A4B8BE; font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
+  .step p { font-size:15px; line-height:1.7; color:#444; margin-bottom:10px; }
+  .step p:last-child { margin-bottom:0; }
+  /* OS tabs */
+  .os-tabs { display:flex; gap:6px; margin:14px 0 10px; }
+  .os-tab { padding:7px 14px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; border:1.5px solid var(--c); color:var(--c); background:transparent; font-family:inherit; }
+  .os-tab.active { background:var(--c); color:#fff; }
+  .os-tab.ios { --c: #007AFF; }
+  .os-tab.android { --c: #3DDC84; }
+  .os-tab.windows { --c: #D2703C; }
+  .os-block { display:none; background:#F8F9FA; border-radius:12px; padding:16px; }
+  .os-block.active { display:block; }
+  .steps-list { counter-reset:step-counter; list-style:none; margin-top:8px; }
+  .steps-list li { counter-increment:step-counter; position:relative; padding-left:38px; margin-bottom:14px; font-size:15px; line-height:1.65; }
+  .steps-list li::before { content:counter(step-counter); position:absolute; left:0; top:2px; width:26px; height:26px; border-radius:50%; background:var(--eti-xlight); color:var(--eti-dark); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .alert { background:#FFF8F4; border:1.5px solid #D2703C; border-radius:12px; padding:14px 16px; margin:12px 0; display:flex; gap:10px; align-items:flex-start; }
+  .alert p { font-size:14px; line-height:1.6; color:#435459; margin:0; }
+  .info { background:#DCE8EB; border-radius:12px; padding:14px 16px; margin:12px 0; display:flex; gap:10px; align-items:flex-start; }
+  .info p { font-size:14px; line-height:1.6; color:#435459; margin:0; }
+  .url { background:#435459; color:#E8B69C; padding:10px 16px; border-radius:10px; font-family:monospace; font-size:14px; display:block; margin:10px 0; word-break:break-all; text-align:center; font-weight:600; }
+  .section-title { font-size:13px; font-weight:700; color:#D2703C; text-transform:uppercase; letter-spacing:.8px; margin:32px 0 12px; padding-left:12px; border-left:4px solid #D2703C; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; border-radius:10px; overflow:hidden; }
+  th { background:#435459; color:#A4B8BE; padding:10px 12px; text-align:left; font-weight:700; }
+  td { padding:10px 12px; border-bottom:.5px solid rgba(67,84,89,.12); }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:rgba(67,84,89,.03); }
+  .footer { text-align:center; margin-top:40px; padding-top:20px; border-top:.5px solid rgba(67,84,89,.2); }
+  .footer p { font-size:13px; color:#A4B8BE; line-height:1.8; }
+  .footer a { color:#D2703C; font-weight:600; text-decoration:none; }
+  @media print {
+    body { background:#fff; font-size:12px; }
+    .step { box-shadow:none; break-inside:avoid; page-break-inside:avoid; }
+    .hd { position:static; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .os-block { display:block !important; background:#f5f5f5; }
+    .os-tabs { display:none; }
+  }
+  @media (max-width:600px) {
+    .wrap { padding:16px 12px 60px; }
+    .step { padding:18px 16px; }
+    .step-title { font-size:16px; }
+    .compat { gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <img src="data:image/png;base64,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" alt="ETI">
+  <div>
+    <div class="hd-title">ORFIT PPPT v2.0</div>
+    <div class="hd-sub">Guide d'utilisation — Relevé terrain copropriété</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    <h2>📱 Bienvenue dans ORFIT PPPT</h2>
+    <p style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">ORFIT, c'est ton carnet technique numérique ! 📋</p>
+    <p>Fini les feuilles volantes, les relevés illisibles et les photos perdues dans la pellicule. Tu saisies tout sur place — murs, fenêtres, chauffage, photos DTG — et tu rentres au bureau avec un dossier béton.</p>
+    <p>Fonctionne sur iPhone, Android et PC. Aucune installation depuis un store.</p>
+    <div class="compat">
+      <div class="compat-badge">🍎 <strong>iPhone / iPad</strong> — Safari</div>
+      <div class="compat-badge">🤖 <strong>Android</strong> — Chrome</div>
+      <div class="compat-badge">🖥️ <strong>PC / Mac</strong> — tout navigateur</div>
+      <div class="compat-badge">📡 <strong>Hors-ligne</strong> — fonctionne sans internet</div>
+    </div>
+  </div>
+
+  <!-- ══ ÉTAPE 1 ══ -->
+  <div class="section-title">Étape 1 — Installer l'application</div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Ouvrir l'application</div>
+        <div class="step-sub">iPhone · Android · PC · Mac</div>
+      </div>
+    </div>
+    <p>Ouvrez le navigateur de votre appareil et tapez l'adresse :</p>
+    <span class="url">https://loulounesta.github.io/PPPTORFIT/</span>
+    <div class="alert">
+      <div>⚠️</div>
+      <p><strong>iPhone/iPad :</strong> utilisez <strong>Safari</strong> (boussole bleue), pas Chrome.<br>
+      <strong>Android :</strong> utilisez <strong>Chrome</strong> (cercle coloré), pas Samsung Internet.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Installer sur l'écran d'accueil</div>
+        <div class="step-sub">À faire une seule fois — comme une vraie app</div>
+      </div>
+    </div>
+    <p>Choisissez votre appareil :</p>
+
+    <div class="os-tabs">
+      <button class="os-tab ios active" onclick="showOS(this,'ios')">🍎 iPhone / iPad</button>
+      <button class="os-tab android" onclick="showOS(this,'android')">🤖 Android</button>
+      <button class="os-tab windows" onclick="showOS(this,'windows')">🖥️ PC / Mac</button>
+    </div>
+
+    <div class="os-block active" id="ios">
+      <ol class="steps-list">
+        <li>Une fois la page ouverte dans <strong>Safari</strong>, appuyez sur l'icône <strong>Partager</strong> ↑ (carré avec une flèche en bas de l'écran)</li>
+        <li>Faites défiler le menu vers le bas</li>
+        <li>Appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
+        <li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
+        <li>L'icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+      </ol>
+    </div>
+
+    <div class="os-block" id="android">
+      <ol class="steps-list">
+        <li>Une fois la page ouverte dans <strong>Chrome</strong>, appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
+        <li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
+        <li>Confirmez en appuyant sur <strong>« Ajouter »</strong></li>
+        <li>L'icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+      </ol>
+      <div class="info">
+        <div>💡</div>
+        <p>Sur certains Android, Chrome affiche directement une bannière en bas de l'écran : <em>« Ajouter ORFIT PPPT à l'écran d'accueil »</em>. Appuyez dessus.</p>
+      </div>
+    </div>
+
+    <div class="os-block" id="windows">
+      <ol class="steps-list">
+        <li>Sur PC ou Mac, ouvrez la page dans <strong>n'importe quel navigateur</strong></li>
+        <li>Mettez-la en <strong>favori</strong> (Ctrl+D ou Cmd+D) pour la retrouver facilement</li>
+        <li>Les données sont sauvegardées dans le navigateur — ne changez pas de navigateur entre les sessions</li>
+      </ol>
+      <div class="info">
+        <div>💡</div>
+        <p>Sur PC, vous pouvez aussi utiliser la tablette Windows avec la caméra intégrée — un sélecteur de fichiers s'ouvrira pour choisir vos photos.</p>
+      </div>
+    </div>
+
+    <div class="info" style="margin-top:12px">
+      <div>💡</div>
+      <p>Une fois installée, l'app fonctionne <strong>sans connexion internet</strong>. Idéal en immeuble avec mauvais réseau.</p>
+    </div>
+  </div>
+
+  <!-- ══ ÉTAPE 2 ══ -->
+  <div class="section-title">Étape 2 — Préparer la visite (au bureau)</div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Renseigner la copropriété</div>
+        <div class="step-sub">Onglet Copropriété — avant de partir</div>
+      </div>
+    </div>
+    <p>Ouvrez l'appli et remplissez l'onglet <strong>Copropriété</strong> :</p>
+    <table>
+      <tr><th>Champ</th><th>Exemple</th></tr>
+      <tr><td>Nom / Référence</td><td>Résidence Les Pins</td></tr>
+      <tr><td>Adresse</td><td>12 rue de la Paix, Lyon</td></tr>
+      <tr><td>Année de construction</td><td>1975</td></tr>
+      <tr><td>Date de visite</td><td>28/03/2025</td></tr>
+      <tr><td>Chargé d'affaire</td><td>Votre nom</td></tr>
+      <tr><td>Réf. dossier / RDV</td><td>ETI-2025-042</td></tr>
+      <tr><td>Nb de lots</td><td>24</td></tr>
+    </table>
+    <p>Appuyez sur <strong>Enregistrer</strong>. Les données sont sauvegardées automatiquement.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Renseigner les équipements collectifs</div>
+        <div class="step-sub">VMC, chauffage et ECS collectifs</div>
+      </div>
+    </div>
+    <p>Toujours dans l'onglet <strong>Copropriété</strong>, descendez pour remplir :</p>
+    <ol class="steps-list">
+      <li><strong>Ventilation collective</strong> — choisissez le type de VMC dans la liste</li>
+      <li><strong>Chauffage collectif</strong> — renseignez énergie, générateur, marque, année → appuyez sur <strong>« ✓ Appliquer à tous les appartements »</strong></li>
+      <li><strong>ECS collective</strong> — même procédure → <strong>« ✓ Appliquer à tous les appartements »</strong></li>
+    </ol>
+    <div class="info">
+      <div>💡</div>
+      <p>En appuyant sur <strong>Appliquer à tous</strong>, tous les appartements créés seront automatiquement renseignés avec ces équipements collectifs. Gain de temps considérable.</p>
+    </div>
+  </div>
+
+  <!-- ══ ÉTAPE 3 ══ -->
+  <div class="section-title">Étape 3 — Pendant la visite</div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">Créer les appartements</div>
+        <div class="step-sub">Onglet Appartements</div>
+      </div>
+    </div>
+    <p>Pour chaque logement visité :</p>
+    <ol class="steps-list">
+      <li>Appuyez sur <strong>« + Nouveau »</strong> en haut à droite</li>
+      <li>Choisissez le <strong>N° échantillon</strong> (E01, E02…) dans le menu déroulant</li>
+      <li>Remplissez étage, position, surface hab., HSP, occupant</li>
+      <li>Appuyez sur <strong>Enregistrer</strong></li>
+    </ol>
+    <p>L'appartement apparaît dans la liste. Tapez dessus pour le déplier et voir le détail.</p>
+    <div class="info">
+      <div>💡</div>
+      <p>Utilisez le bouton <strong>Dupliquer</strong> si plusieurs appartements sont identiques — modifiez ensuite seulement ce qui diffère.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">6</div>
+      <div>
+        <div class="step-title">Saisir les éléments du logement</div>
+        <div class="step-sub">Murs · Fenêtres · Plancher · Plafond · Porte</div>
+      </div>
+    </div>
+    <p>Depuis la fiche d'un appartement déplié, utilisez les boutons rapides :</p>
+    <table>
+      <tr><th>Bouton</th><th>Ce qu'il fait</th></tr>
+      <tr><td>+ Mur</td><td>Aller saisir un mur (orientation, matière, dimensions)</td></tr>
+      <tr><td>+ Fenêtre</td><td>Aller saisir une fenêtre (type, matière, vitrage)</td></tr>
+      <tr><td>+ Plancher</td><td>Aller saisir le plancher bas</td></tr>
+      <tr><td>+ Plafond</td><td>Aller saisir le plafond</td></tr>
+      <tr><td>+ Porte</td><td>Aller saisir la porte palière</td></tr>
+    </table>
+    <div class="info">
+      <div>💡</div>
+      <p>Les boutons <strong style="font-size:16px">−</strong> et <strong style="font-size:16px">+</strong> ajustent les dimensions par pas de <strong>5 cm</strong>. Rapide et précis, même avec des gants.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">7</div>
+      <div>
+        <div class="step-title">Prendre les photos DTG</div>
+        <div class="step-sub">Onglet 📷 DTG</div>
+      </div>
+    </div>
+    <p>Pour photographier les désordres et équipements :</p>
+    <ol class="steps-list">
+      <li>Allez dans l'onglet <strong>📷 DTG</strong></li>
+      <li>Choisissez la <strong>catégorie</strong> (façades, chauffage, escaliers…)</li>
+      <li>Tapez un <strong>titre court</strong> (ex : "Fissure façade Nord")</li>
+      <li>Cochez les <strong>tags</strong> si nécessaire : Défaut, Urgence, Vétusté, Bon état…</li>
+      <li>Appuyez sur la <strong>grande zone 📷</strong></li>
+    </ol>
+
+    <div class="os-tabs" style="margin-top:12px">
+      <button class="os-tab ios active" onclick="showOS2(this,'ios2')">🍎 iPhone</button>
+      <button class="os-tab android" onclick="showOS2(this,'android2')">🤖 Android</button>
+      <button class="os-tab windows" onclick="showOS2(this,'windows2')">🖥️ Tablette PC</button>
+    </div>
+    <div class="os-block active" id="ios2">
+      <p>L'<strong>appareil photo</strong> s'ouvre directement. Prenez la photo puis validez. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+    <div class="os-block" id="android2">
+      <p>L'<strong>appareil photo</strong> s'ouvre directement (ou un choix entre caméra et galerie). Prenez la photo puis validez. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+    <div class="os-block" id="windows2">
+      <p>L'<strong>explorateur de fichiers Windows</strong> s'ouvre. Sélectionnez une photo existante. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+
+    <div class="alert" style="margin-top:12px">
+      <div>📸</div>
+      <p>Les photos sont stockées <strong>dans l'application</strong> — elles n'apparaissent pas dans votre pellicule. Elles sont incluses dans tous les exports.</p>
+    </div>
+  </div>
+
+  <!-- ══ ÉTAPE 4 ══ -->
+  <div class="section-title">Étape 4 — Sauvegarder et exporter</div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">8</div>
+      <div>
+        <div class="step-title">Sauvegarder régulièrement</div>
+        <div class="step-sub">Bouton 💾 — visible sur tous les onglets</div>
+      </div>
+    </div>
+    <p>Le bouton <strong>💾</strong> en haut à droite est toujours visible. Il génère un fichier <strong>ORFIT_NomCopro_date.html</strong> contenant toutes les données et photos.</p>
+    <ol class="steps-list">
+      <li>Appuyez sur <strong>💾</strong></li>
+      <li>Le fichier se télécharge dans vos <strong>Fichiers</strong> (iOS) ou <strong>Téléchargements</strong> (Android/PC)</li>
+      <li>Envoyez-le par mail ou AirDrop pour le partager ou l'archiver</li>
+    </ol>
+    <div class="alert">
+      <div>⚠️</div>
+      <p>Sauvegardez <strong>après chaque appartement</strong>. En cas de batterie morte ou redémarrage, vous retrouvez toutes vos données en rouvrant le fichier .html sauvegardé.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">9</div>
+      <div>
+        <div class="step-title">Reprendre une visite sur un autre appareil</div>
+        <div class="step-sub">Transfert iPhone → PC ou Android → iPhone</div>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li>Appuyez sur <strong>💾</strong> sur l'appareil d'origine</li>
+      <li>Envoyez le fichier .html par <strong>mail, AirDrop ou WhatsApp</strong> au destinataire</li>
+      <li>Sur le nouvel appareil : ouvrez le fichier dans <strong>Safari (iOS)</strong> ou <strong>Chrome (Android)</strong></li>
+      <li>Toutes les données et photos se restaurent automatiquement ✓</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-hd">
+      <div class="step-num">10</div>
+      <div>
+        <div class="step-title">Préparer les données pour ANNALYSSIMO</div>
+        <div class="step-sub">Onglet Export — au bureau, avant saisie dans ANNALYSSIMO</div>
+      </div>
+    </div>
+    <table>
+      <tr><th>Bouton</th><th>Usage</th></tr>
+      <tr><td>Export ORFIT (.xlsx)</td><td>Fichier Excel avec toutes les données, pour faciliter la saisie dans ANNALYSSIMO</td></tr>
+      <tr><td>⬇ ZIP photos PNG</td><td>Photos DTG en PNG nommées + Excel légendes</td></tr>
+      <tr><td>👁 Ouvrir DTG</td><td>Rapport photos DTG dans le navigateur (imprimable PDF)</td></tr>
+      <tr><td>💾 Sauvegarder projet</td><td>Archiver ou transmettre le dossier complet</td></tr>
+    </table>
+    <div class="alert">
+      <div>⚠️</div>
+      <p>ANNALYSSIMO accepte les images <strong>PNG uniquement, pas JPEG</strong>. L'export ZIP convertit automatiquement toutes vos photos en PNG.</p>
+    </div>
+  </div>
+
+  <!-- ══ FAQ ══ -->
+  <div class="section-title">Questions fréquentes</div>
+
+  <div class="step">
+    <p><strong>❓ J'ai fermé l'app par erreur — ai-je perdu mes données ?</strong><br>
+    Non. Les données sont sauvegardées automatiquement à chaque saisie. Rouvrez l'icône ORFIT sur votre écran d'accueil et tout est là.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>❓ Ça ne marche pas sur mon iPhone — l'icône ne s'installe pas ?</strong><br>
+    Vérifiez que vous utilisez bien <strong>Safari</strong> (pas Chrome, pas Firefox). Sur iPhone, seul Safari permet l'installation sur l'écran d'accueil.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>❓ Le bouton photo ne lance pas l'appareil photo sur Android ?</strong><br>
+    Vérifiez que Chrome a l'autorisation d'accéder à la caméra : <em>Réglages Android → Apps → Chrome → Autorisations → Appareil photo → Autoriser</em>.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>❓ L'application est lente avec beaucoup de photos ?</strong><br>
+    Les photos sont stockées dans la mémoire de l'appli (IndexedDB). Pour libérer de la place, exportez le ZIP puis supprimez les photos via le bouton ✕ dans la galerie DTG.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>❓ Je veux transmettre le dossier à un collègue ?</strong><br>
+    Appuyez sur 💾 → envoyez le fichier .html par mail ou AirDrop → votre collègue l'ouvre dans Safari (iOS) ou Chrome (Android) → toutes les données et photos s'affichent immédiatement.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>❓ Est-ce que ça marche sans connexion internet ?</strong><br>
+    Oui. Une fois installée sur l'écran d'accueil, l'application fonctionne entièrement hors-ligne. Aucune connexion réseau n'est nécessaire pendant la visite.</p>
+  </div>
+
+  <div class="footer">
+    <p><strong style="color:#435459">ORFIT PPPT v2.0</strong><br>
+    Développé par <strong>Cyril LOUIS</strong> pour <a href="https://www.eti360.fr">ETI360 — eti360.fr</a><br>
+    Reims · Nancy · Épinal · Vesoul · Mulhouse</p>
+  </div>
+
+</div>
+
+<script>
+function showOS(btn, id) {
+  btn.closest('.step').querySelectorAll('.os-tab').forEach(t=>t.classList.remove('active'));
+  btn.closest('.step').querySelectorAll('.os-block').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+function showOS2(btn, id) {
+  btn.closest('.step').querySelectorAll('.os-tab').forEach(t=>t.classList.remove('active'));
+  btn.closest('.step').querySelectorAll('.os-block').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
