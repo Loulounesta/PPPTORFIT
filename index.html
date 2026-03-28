@@ -181,6 +181,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .tot-table .subtot td{color:var(--ok)}
 .tot-num{text-align:right;font-variant-numeric:tabular-nums}
 .tot-surf{text-align:right;font-weight:600;color:var(--acc)}
+
+/* Stepper mobile +/- */
+.stepper{display:flex;align-items:center;gap:0;border:.5px solid var(--bor);border-radius:var(--rs);overflow:hidden;background:var(--bg)}
+.stepper-btn{width:40px;height:40px;border:none;background:var(--eti-xlight);color:var(--eti-dark);font-size:20px;font-weight:700;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.stepper-btn:active{background:var(--eti-light)}
+.stepper input[type=number]{flex:1;border:none;background:transparent;text-align:center;font-size:16px;font-weight:600;color:var(--tx);padding:0;height:40px;outline:none;font-family:inherit;min-width:0;-webkit-appearance:none;appearance:none}
+.stepper input[type=number]::-webkit-inner-spin-button,
+.stepper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+.stepper-unit{font-size:11px;color:var(--tx2);padding:0 8px;white-space:nowrap;border-left:.5px solid var(--bor);height:40px;display:flex;align-items:center;background:var(--bg)}
 </style>
 </head>
 <body>
@@ -400,7 +409,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <div id="new-apt-form" style="display:none">
     <div class="sl">Nouvel appartement</div>
     <div class="card">
-      <div class="fr"><span class="fl">N° échantillon</span><input type="text" id="apt-num" placeholder="E01, E02…"></div>
+      <div class="fr"><span class="fl">N° échantillon</span>
+        <div style="display:flex;gap:6px;flex:1;justify-content:flex-end;align-items:center">
+          <select id="apt-num-sel" onchange="aptNumSelChange()" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none;font-family:inherit">
+            <option value="">— Choisir ou saisir —</option><option value="E01">E01</option><option value="E02">E02</option><option value="E03">E03</option><option value="E04">E04</option><option value="E05">E05</option><option value="E06">E06</option><option value="E07">E07</option><option value="E08">E08</option><option value="E09">E09</option><option value="E10">E10</option><option value="E11">E11</option><option value="E12">E12</option><option value="E13">E13</option><option value="E14">E14</option><option value="E15">E15</option><option value="E16">E16</option><option value="E17">E17</option><option value="E18">E18</option><option value="E19">E19</option><option value="E20">E20</option><option value="E21">E21</option><option value="E22">E22</option><option value="E23">E23</option><option value="E24">E24</option><option value="E25">E25</option><option value="E26">E26</option><option value="E27">E27</option><option value="E28">E28</option><option value="E29">E29</option><option value="E30">E30</option><option value="T01">T01</option><option value="T02">T02</option><option value="T03">T03</option><option value="T04">T04</option><option value="T05">T05</option><option value="T06">T06</option><option value="T07">T07</option><option value="T08">T08</option><option value="T09">T09</option><option value="T10">T10</option><option value="C01">C01</option><option value="C02">C02</option><option value="C03">C03</option><option value="C04">C04</option><option value="C05">C05</option><option value="C06">C06</option><option value="C07">C07</option><option value="C08">C08</option><option value="C09">C09</option><option value="C10">C10</option><option value="__libre__">✏ Saisie libre…</option>
+          </select>
+          <input type="text" id="apt-num" placeholder="ex: E03" style="display:none;flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit;color:var(--acc)">
+        </div>
+      </div>
       <div class="fr"><span class="fl">Étage</span>
         <select id="apt-etage">
           <option value="">—</option>
@@ -423,7 +439,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </div>
       <div class="fr"><span class="fl">Surface hab. (m²)</span><input type="number" id="apt-surf" placeholder="ex: 68" inputmode="decimal" min="0" step="0.1"></div>
       <div class="fr"><span class="fl">HSP (m)</span>
-        <input type="number" id="apt-hsp" placeholder="ex: 2.50" inputmode="decimal" min="1.5" max="6" step="0.05" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('apt-hsp',0.05)">−</button><input type="number" id="apt-hsp" placeholder="2.50" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('apt-hsp',0.05)">+</button></div>
       </div>
       <div class="fr"><span class="fl">Occupant</span><input type="text" id="apt-occupant" placeholder="Nom de l'occupant"></div>
     </div>
@@ -505,12 +521,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </select>
       </div>
       <div class="fr"><span class="fl">Épaisseur (cm)</span><input type="number" id="mur-ep" placeholder="20" inputmode="numeric" min="0"></div>
-      <div class="fr"><span class="fl">L × H (m)</span>
-        <div class="dg">
-          <input type="number" id="mur-l" placeholder="L" inputmode="decimal" min="0" step="0.1">
-          <span class="ds">×</span>
-          <input type="number" id="mur-h" placeholder="H" inputmode="decimal" min="0" step="0.1">
-        </div>
+      <div class="fr"><span class="fl">L (m)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('mur-l',0.05)">−</button><input type="number" id="mur-l" placeholder="0.00" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('mur-l',0.05)">+</button></div>
+      </div>
+      <div class="fr"><span class="fl">H (m)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('mur-h',0.05)">−</button><input type="number" id="mur-h" placeholder="0.00" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('mur-h',0.05)">+</button></div>
       </div>
     </div>
     <div class="sl">Doublage / Isolation</div>
@@ -526,6 +541,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option>Indéterminé avec lame d'air de plus de 15mm</option>
           <option>Connu (plâtre, brique, bois)</option>
         </select>
+        </div>
+        <div class="fr"><span class="fl">Type isolation</span>
+          <select id="mur-iso-type" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none;font-family:inherit">
+            <option value="">—</option>
+            <option value="ITI">ITI — Isolation par l'intérieur</option>
+            <option value="ITE">ITE — Isolation par l'extérieur</option>
+          </select>
         </div>
         <div class="fr"><span class="fl">Ép. isolant (cm)</span><input type="number" id="mur-iso-ep" placeholder="6" inputmode="numeric" min="0"></div>
       </div>
@@ -719,12 +741,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="HB">Hb — Hublot</option>
       </select>
       </div>
-      <div class="fr"><span class="fl">L × h (cm)</span>
-        <div class="dg">
-          <input type="number" id="fen-l" placeholder="L" inputmode="numeric" min="0" step="5">
-          <span class="ds">×</span>
-          <input type="number" id="fen-h" placeholder="h" inputmode="numeric" min="0" step="5">
-        </div>
+      <div class="fr"><span class="fl">L (cm)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('fen-l',5)">−</button><input type="number" id="fen-l" placeholder="ex: 120" inputmode="decimal" min="0" step="5" ><span class="stepper-unit">cm</span><button type="button" class="stepper-btn" onclick="stepperInc('fen-l',5)">+</button></div>
+      </div>
+      <div class="fr"><span class="fl">h (cm)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('fen-h',5)">−</button><input type="number" id="fen-h" placeholder="ex: 115" inputmode="decimal" min="0" step="5" ><span class="stepper-unit">cm</span><button type="button" class="stepper-btn" onclick="stepperInc('fen-h',5)">+</button></div>
       </div>
       <div class="fr"><span class="fl">Matière</span>
         <select id="fen-mat">
@@ -796,12 +817,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           </label>
         </div>
         <div id="fen-d-dims" style="display:none">
-          <div class="fr"><span class="fl">L × h (cm)</span>
-            <div class="dg">
-              <input type="number" id="fen-d-l" placeholder="L" inputmode="decimal" min="0" step="0.01">
-              <span class="ds">×</span>
-              <input type="number" id="fen-d-h" placeholder="h" inputmode="decimal" min="0" step="0.01">
-            </div>
+          <div class="fr"><span class="fl">L (cm)</span>
+            <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('fen-d-l',5)">−</button><input type="number" id="fen-d-l" placeholder="ex: 120" inputmode="decimal" min="0" step="5" ><span class="stepper-unit">cm</span><button type="button" class="stepper-btn" onclick="stepperInc('fen-d-l',5)">+</button></div>
+          </div>
+          <div class="fr"><span class="fl">h (cm)</span>
+            <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('fen-d-h',5)">−</button><input type="number" id="fen-d-h" placeholder="ex: 115" inputmode="decimal" min="0" step="5" ><span class="stepper-unit">cm</span><button type="button" class="stepper-btn" onclick="stepperInc('fen-d-h',5)">+</button></div>
           </div>
         </div>
         <div class="fr"><span class="fl">Matière</span>
@@ -884,12 +904,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option>Local tertiaire à l'intérieur de l'immeuble</option>
       </select>
       </div>
-      <div class="fr"><span class="fl">L × l (m)</span>
-        <div class="dg">
-          <input type="number" id="pla-l" placeholder="L" inputmode="decimal" min="0" step="0.01">
-          <span class="ds">×</span>
-          <input type="number" id="pla-li" placeholder="l" inputmode="decimal" min="0" step="0.01">
-        </div>
+      <div class="fr"><span class="fl">L (m)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('pla-l',0.05)">−</button><input type="number" id="pla-l" placeholder="0.00" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('pla-l',0.05)">+</button></div>
+      </div>
+      <div class="fr"><span class="fl">l (m)</span>
+        <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('pla-li',0.05)">−</button><input type="number" id="pla-li" placeholder="0.00" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('pla-li',0.05)">+</button></div>
       </div>
     </div>
     <div class="sl">Isolation</div>
@@ -954,12 +973,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </select>
       </div>
       <div id="plf-plat-fields">
-        <div class="fr"><span class="fl">L × l (m)</span>
-          <div class="dg">
-            <input type="number" id="plf-l" placeholder="L" inputmode="decimal" min="0" step="0.01">
-            <span class="ds">×</span>
-            <input type="number" id="plf-li" placeholder="l" inputmode="decimal" min="0" step="0.01">
-          </div>
+        <div class="fr"><span class="fl">L (m)</span>
+          <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('plf-l',0.05)">−</button><input type="number" id="plf-l" placeholder="0.00" inputmode="decimal" min="0" step="0.05"><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('plf-l',0.05)">+</button></div>
+        </div>
+        <div class="fr"><span class="fl">l (m)</span>
+          <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('plf-li',0.05)">−</button><input type="number" id="plf-li" placeholder="0.00" inputmode="decimal" min="0" step="0.05"><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('plf-li',0.05)">+</button></div>
         </div>
       </div>
       <div id="plf-rampant-fields" style="display:none">
@@ -1277,7 +1295,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div class="modal-handle"></div>
     <div class="modal-title">Modifier l'appartement</div>
     <div class="card">
-      <div class="fr"><span class="fl">N° échantillon</span><input type="text" id="ed-apt-num" placeholder="E01…"></div>
+      <div class="fr"><span class="fl">N° échantillon</span>
+        <div style="display:flex;gap:6px;flex:1;justify-content:flex-end;align-items:center">
+          <select id="ed-apt-num-sel" onchange="edAptNumSelChange()" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none;font-family:inherit">
+            <option value="">— Choisir ou saisir —</option><option value="E01">E01</option><option value="E02">E02</option><option value="E03">E03</option><option value="E04">E04</option><option value="E05">E05</option><option value="E06">E06</option><option value="E07">E07</option><option value="E08">E08</option><option value="E09">E09</option><option value="E10">E10</option><option value="E11">E11</option><option value="E12">E12</option><option value="E13">E13</option><option value="E14">E14</option><option value="E15">E15</option><option value="E16">E16</option><option value="E17">E17</option><option value="E18">E18</option><option value="E19">E19</option><option value="E20">E20</option><option value="E21">E21</option><option value="E22">E22</option><option value="E23">E23</option><option value="E24">E24</option><option value="E25">E25</option><option value="E26">E26</option><option value="E27">E27</option><option value="E28">E28</option><option value="E29">E29</option><option value="E30">E30</option><option value="T01">T01</option><option value="T02">T02</option><option value="T03">T03</option><option value="T04">T04</option><option value="T05">T05</option><option value="T06">T06</option><option value="T07">T07</option><option value="T08">T08</option><option value="T09">T09</option><option value="T10">T10</option><option value="C01">C01</option><option value="C02">C02</option><option value="C03">C03</option><option value="C04">C04</option><option value="C05">C05</option><option value="C06">C06</option><option value="C07">C07</option><option value="C08">C08</option><option value="C09">C09</option><option value="C10">C10</option><option value="__libre__">✏ Saisie libre…</option>
+          </select>
+          <input type="text" id="ed-apt-num" placeholder="ex: E03" style="display:none;flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit;color:var(--acc)">
+        </div>
+      </div>
       <div class="fr"><span class="fl">Étage</span>
         <select id="ed-apt-etage"><option value="">—</option><option>Sous-sol</option><option>RDC</option><option>R+1</option><option>R+2</option><option>R+3</option><option>R+4</option><option>R+5</option><option>Combles</option></select>
       </div>
@@ -1369,6 +1394,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option>Indéterminé avec lame d'air de plus de 15mm</option>
           <option>Connu (plâtre, brique, bois)</option>
         </select></div>
+        <div class="fr"><span class="fl">Type isolation</span>
+          <select id="ed-mur-iso-type" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none;font-family:inherit">
+            <option value="">—</option>
+            <option value="ITI">ITI — Isolation par l'intérieur</option>
+            <option value="ITE">ITE — Isolation par l'extérieur</option>
+          </select>
+        </div>
         <div class="fr"><span class="fl">Ép. isolant (cm)</span><input type="number" id="ed-mur-iso-ep" inputmode="numeric" min="0"></div>
       </div>
     </div>
@@ -3936,6 +3968,65 @@ self.addEventListener('fetch', e=>{
   navigator.serviceWorker.register(swUrl).then(()=>{
     console.log('[ORFIT] Service Worker enregistré');
   }).catch(e=>console.warn('[ORFIT] SW non disponible (fichier local):', e.message));
+}
+
+
+// ══════════════════════════════════════════════
+// Widget Stepper mobile +/-
+// ══════════════════════════════════════════════
+function stepperInc(id, step){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = parseFloat(el.value)||0;
+  el.value = Math.round((v + step) * 1000) / 1000;
+  el.dispatchEvent(new Event('input', {bubbles:true}));
+  el.dispatchEvent(new Event('change', {bubbles:true}));
+}
+function stepperDec(id, step){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = parseFloat(el.value)||0;
+  const newVal = Math.round((v - step) * 1000) / 1000;
+  el.value = newVal < 0 ? 0 : newVal;
+  el.dispatchEvent(new Event('input', {bubbles:true}));
+  el.dispatchEvent(new Event('change', {bubbles:true}));
+}
+
+
+// ══════════════════════════════════════════════
+// Sélecteur numéro d'échantillon
+// ══════════════════════════════════════════════
+function aptNumSelChange(){
+  const sel = document.getElementById('apt-num-sel');
+  const inp = document.getElementById('apt-num');
+  if(!sel||!inp) return;
+  if(sel.value==='__libre__'){
+    inp.style.display='block'; sel.style.display='none';
+    inp.focus(); inp.value='';
+  } else {
+    inp.value = sel.value;
+  }
+}
+function edAptNumSelChange(){
+  const sel = document.getElementById('ed-apt-num-sel');
+  const inp = document.getElementById('ed-apt-num');
+  if(!sel||!inp) return;
+  if(sel.value==='__libre__'){
+    inp.style.display='block'; sel.style.display='none';
+    inp.focus(); inp.value='';
+  } else {
+    inp.value = sel.value;
+  }
+}
+// Initialiser le select sur la valeur actuelle lors de l'édition
+function initAptNumSel(val, selId, inpId){
+  const sel=document.getElementById(selId);
+  const inp=document.getElementById(inpId);
+  if(!sel||!inp) return;
+  // Vérifier si la valeur est dans la liste
+  const opt = Array.from(sel.options).find(o=>o.value===val);
+  if(opt){ sel.value=val; inp.value=val; inp.style.display='none'; sel.style.display=''; }
+  else { sel.style.display='none'; inp.style.display='block'; inp.value=val||''; }
 }
 
 // ══════════════════════════════════════════════
