@@ -48,8 +48,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .bdg{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--acc-l);color:var(--acc)}
 
 .tabs{background:var(--eti-dark);border-bottom:3px solid var(--eti-orange);display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;position:sticky;top:45px;z-index:19;scrollbar-width:none}
-.tab{flex:0 0 auto;padding:11px 14px;font-size:13px;font-weight:600;color:rgba(210,232,238,.82);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s,background .15s;margin-bottom:-3px;letter-spacing:.1px;border-radius:6px 6px 0 0}
-.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:700;background:rgba(210,112,60,.18);text-shadow:0 1px 4px rgba(0,0,0,.3)
+.tab{flex:0 0 auto;padding:10px 16px;font-size:13px;font-weight:500;color:rgba(164,184,190,.75);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-3px}
+.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:700}
 
 .vw{display:none;padding:16px}
 .vw.on{display:block}
@@ -208,7 +208,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   #hd-bdg + button { padding: 8px 12px; font-size: 13px; min-height: 44px; }
 
   /* ── Onglets mobile ── */
-  .tab { font-size: 14px; padding: 12px 13px; min-height: 48px; }
+  .tab { font-size: 14px; padding: 11px 14px; min-height: 46px; }
 
   /* ── Onglets ── */
   .tab { font-size: 15px; padding: 12px 16px; min-height: 48px; }
@@ -382,16 +382,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <div class="tabs" id="tab-bar">
-  <div class="tab on" onclick="goTab('copro')">🏢 Copro</div>
-  <div class="tab" onclick="goTab('appts')">🏠 Appts</div>
-  <div class="tab" onclick="goTab('murs')">🧱 Murs</div>
-  <div class="tab" onclick="goTab('fen')">🪟 Fen.</div>
-  <div class="tab" onclick="goTab('planchers')">⏫ Planch.</div>
-  <div class="tab" onclick="goTab('plafonds')">⬆️ Plaf.</div>
-  <div class="tab" onclick="goTab('portes')">🚶 Portes</div>
-  <div class="tab" onclick="goTab('totaux')">📊 Totaux</div>
+  <div class="tab on" onclick="goTab('copro')">Copropriété</div>
+  <div class="tab" onclick="goTab('appts')">Appartements</div>
+  <div class="tab" onclick="goTab('murs')">Murs</div>
+  <div class="tab" onclick="goTab('fen')">Fenêtres</div>
+  <div class="tab" onclick="goTab('planchers')">Planchers</div>
+  <div class="tab" onclick="goTab('plafonds')">Plafonds</div>
+  <div class="tab" onclick="goTab('portes')">Portes</div>
+  <div class="tab" onclick="goTab('totaux')">Totaux</div>
   <div class="tab" onclick="goTab('dtg')">📷 DTG</div>
-  <div class="tab" onclick="goTab('export')">📤 Export</div>
+  <div class="tab" onclick="goTab('export')">Export</div>
 </div>
 
 <!-- ══════════════════════════════════════════════
@@ -628,7 +628,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
 
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <span class="sl" style="margin:0" id="appts-count-lbl">🏠 Appts</span>
+    <span class="sl" style="margin:0" id="appts-count-lbl">Appartements</span>
     <button class="btn btn-p" style="width:auto;padding:8px 16px;font-size:13px" onclick="showNouvelAppt()">+ Nouveau</button>
   </div>
 
@@ -972,7 +972,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       <div class="fr" style="background:var(--acc-l)" id="fen-total-row">
         <span class="fl" style="color:var(--acc);font-weight:600">Total</span>
         <span id="fen-total-val" style="flex:1;text-align:right;font-size:16px;font-weight:700;color:var(--acc)">1</span>
-        <span style="font-size:12px;color:var(--acc);margin:0 6px">🪟 Fen.</span>
+        <span style="font-size:12px;color:var(--acc);margin:0 6px">fenêtres</span>
       </div>
       <!-- Doublage -->
       <div class="fr" style="background:var(--bg)">
@@ -1261,11 +1261,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <!-- Sélecteur de poste -->
   <div style="display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px">
     <button class="tot-tab on" data-poste="appts" onclick="setTotPoste(this)">Appts</button>
-    <button class="tot-tab" data-poste="murs" onclick="setTotPoste(this)">🧱 Murs</button>
-    <button class="tot-tab" data-poste="fen" onclick="setTotPoste(this)">🪟 Fen.</button>
-    <button class="tot-tab" data-poste="planchers" onclick="setTotPoste(this)">⏫ Planch.</button>
-    <button class="tot-tab" data-poste="plafonds" onclick="setTotPoste(this)">⬆️ Plaf.</button>
-    <button class="tot-tab" data-poste="portes" onclick="setTotPoste(this)">🚶 Portes</button>
+    <button class="tot-tab" data-poste="murs" onclick="setTotPoste(this)">Murs</button>
+    <button class="tot-tab" data-poste="fen" onclick="setTotPoste(this)">Fenêtres</button>
+    <button class="tot-tab" data-poste="planchers" onclick="setTotPoste(this)">Planchers</button>
+    <button class="tot-tab" data-poste="plafonds" onclick="setTotPoste(this)">Plafonds</button>
+    <button class="tot-tab" data-poste="portes" onclick="setTotPoste(this)">Portes</button>
     <button class="tot-tab" data-poste="chauf" onclick="setTotPoste(this)">Chauffages</button>
     <button class="tot-tab" data-poste="ecs" onclick="setTotPoste(this)">ECS</button>
   </div>
@@ -1307,7 +1307,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option value="Charpente">Charpente</option>
           <option value="Balcons">Balcons</option>
           <option value="Fenêtres et occultations">Fenêtres et occultations</option>
-          <option value="Portes">🚶 Portes</option>
+          <option value="Portes">Portes</option>
         </optgroup>
         <optgroup label="Sous-sols">
           <option value="Caves">Caves</option>
@@ -1420,12 +1420,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 <div id="vw-export" class="vw">
   <div class="sl">Résumé chantier</div>
   <div class="card">
-    <div class="fr"><span class="fl">🏢 Copro</span><input type="text" id="exp-ref" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🏠 Appts</span><input type="text" id="exp-apts" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🧱 Murs</span><input type="text" id="exp-murs" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🪟 Fen.</span><input type="text" id="exp-fens" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">⏫ Planch.</span><input type="text" id="exp-plas" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">⬆️ Plaf.</span><input type="text" id="exp-plfs" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Copropriété</span><input type="text" id="exp-ref" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Appartements</span><input type="text" id="exp-apts" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Murs</span><input type="text" id="exp-murs" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Fenêtres</span><input type="text" id="exp-fens" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Planchers</span><input type="text" id="exp-plas" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Plafonds</span><input type="text" id="exp-plfs" readonly style="color:var(--tx2)"></div>
     <div class="fr"><span class="fl">Ventilation</span><input type="text" id="exp-vmc" readonly style="color:var(--tx2)"></div>
   </div>
   <div class="sl">Exporter</div>
@@ -2020,7 +2020,7 @@ function renderApptsList(){
           +(np2?'<span class="st st-neu">'+np2+' porte'+(np2>1?'s':'')+'</span>':'')
         +'</div>'
         // Fenêtres
-        +(nf?'<div class="sl" style="margin-top:8px">🪟 Fen.</div>'+fenHtml:'')
+        +(nf?'<div class="sl" style="margin-top:8px">Fenêtres</div>'+fenHtml:'')
         // Portes
         +(myPor.length?'<div class="sl" style="margin-top:8px">Porte'+(myPor.length>1?'s palières':'  palière')+'</div>'+porteHtml:'')
         // Chauffages
