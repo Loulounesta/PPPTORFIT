@@ -2838,7 +2838,7 @@ function exportOrfit(){
   if(!appts.length){ toast('Aucune donnée à exporter'); return; }
   const wb=XLSX.utils.book_new();
   // Echantillons
-  const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
+  const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Réf. dossier','Date visite','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
   const aptRows=appts.map(a=>[a.num,a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',copro.ref||'',copro.dateVisite||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
   const wsApt=XLSX.utils.aoa_to_sheet([aptHd,...aptRows]); wsApt['!cols']=[14,10,18,14,20,14,22,10,10,12,12,12,8,20].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsApt,'Echantillons');
