@@ -478,7 +478,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <div class="tabs" id="tab-bar">
-  <div class="tab on" onclick="goTab('copro')">🏢 Copropriété</div>
+                <div class="tab on" onclick="goTab('aide')">❓ Aide</div>
+        <div class="tab" onclick="goTab('copro')">🏢 Copropriété</div>
   <div class="tab" onclick="goTab('appts')">🚪 Appartements</div>
   <div class="tab" onclick="goTab('murs')">🧱 Murs</div>
   <div class="tab" onclick="goTab('fen')">🪟 Fenêtres</div>
@@ -488,13 +489,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <div class="tab" onclick="goTab('totaux')">📊 Totaux</div>
   <div class="tab" onclick="goTab('dtg')">📷 DTG Photos</div>
   <div class="tab" onclick="goTab('export')">💾 Export</div>
-  <div class="tab" onclick="goTab('aide')">❓ Aide</div>
 </div>
 
 <!-- ══════════════════════════════════════════════
      VUE : COPROPRIÉTÉ
 ══════════════════════════════════════════════ -->
-<div id="vw-copro" class="vw on">
+<div id="vw-copro" class="vw">
   <div class="sl">Identification</div>
   <div class="card">
     <div class="fr"><span class="fl">Nom / Référence</span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
@@ -1823,7 +1823,7 @@ function save(){
 // ══════════════════════════════════════════════
 // Navigation
 // ══════════════════════════════════════════════
-const TAB_NAMES = ['copro','appts','murs','fen','planchers','plafonds','portes','totaux','dtg','export'];
+const TAB_NAMES = ['aide','copro','appts','murs','fen','planchers','plafonds','portes','totaux','dtg','export'];
 
 function goTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on', TAB_NAMES[i]===name));
@@ -4599,12 +4599,11 @@ async function exportDTGHtml(){
     +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
     +sectionsHtml
     +'
-  <div <div id="vw-aide" class="vw" style="display:none">
+  <div id="vw-aide" class="vw on">
     
 
 <div class="hd-sub">Guide d'utilisation — Relevé terrain copropriété</div>
-  </div>
-</div>
+      </div>
 
 <div class="gd-wrap">
 
