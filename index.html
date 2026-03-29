@@ -48,8 +48,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .bdg{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--acc-l);color:var(--acc)}
 
 .tabs{background:var(--eti-dark);border-bottom:3px solid var(--eti-orange);display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;position:sticky;top:45px;z-index:19;scrollbar-width:none}
-.tab{flex:0 0 auto;padding:10px 16px;font-size:13px;font-weight:500;color:rgba(164,184,190,.75);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-3px}
-.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:700}
+.tab{flex:0 0 auto;padding:11px 18px;font-size:14px;font-weight:600;color:rgba(164,184,190,.8);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-3px;letter-spacing:.1px}
+.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:800}
 
 .vw{display:none;padding:16px}
 .vw.on{display:block}
@@ -125,7 +125,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .grp-hd span{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--tx2);text-transform:uppercase}
 .grp-val{font-size:13px;font-weight:600;color:var(--acc);background:var(--acc-l);padding:2px 10px;border-radius:10px}
 
-/* Item list (murs, 🪟 Fenêtres…) */
+/* Item list (murs, fenêtres…) */
 .item{background:var(--sur);border-radius:var(--r);border:.5px solid var(--bor);padding:11px 14px;margin-bottom:8px;overflow:hidden}
 .item-head{font-size:15px;font-weight:600;color:var(--tx);margin-bottom:4px}
 .item-sub{font-size:12px;color:var(--tx2);margin-bottom:6px}
@@ -138,7 +138,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .btn-copy{width:100%;padding:7px;border-radius:var(--rs);border:.5px solid #FAC775;background:var(--warn-l);color:var(--warn);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-copy.ok{background:var(--ok-l);color:var(--ok);border-color:#C0DD97}
 
-/* 📊 Totaux */
+/* Totaux */
 .total-bloc{background:var(--sur);border-radius:var(--r);border:.5px solid var(--bor);overflow:hidden;margin-bottom:8px}
 .total-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--acc-l)}
 .total-hd span{font-size:14px;font-weight:600;color:var(--acc)}
@@ -167,7 +167,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1}
 
-/* 📊 Totaux tableau */
+/* Totaux tableau */
 .tot-tab{padding:8px 16px;border-radius:20px;border:.5px solid var(--bor);background:var(--sur);color:var(--tx2);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0;transition:all .15s}
 .tot-tab.on{background:var(--eti-orange);color:#fff;border-color:var(--eti-orange)}
 .tot-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--sur);border-radius:var(--r);overflow:hidden;border:.5px solid var(--bor)}
@@ -208,7 +208,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   #hd-bdg + button { padding: 8px 12px; font-size: 13px; min-height: 44px; }
 
   /* ── Onglets mobile ── */
-  .tab { font-size: 14px; padding: 11px 14px; min-height: 46px; }
+  .tab { font-size: 15px; padding: 12px 16px; min-height: 50px; font-weight: 600; }
 
   /* ── Onglets ── */
   .tab { font-size: 15px; padding: 12px 16px; min-height: 48px; }
@@ -247,7 +247,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .st { font-size: 12px; padding: 4px 10px; }
   .bdg { font-size: 12px; padding: 4px 10px; }
 
-  /* ── Items (murs, 🪟 Fenêtres, etc.) ── */
+  /* ── Items (murs, fenêtres, etc.) ── */
   .item-head { font-size: 17px; font-weight: 700; }
   .item-sub  { font-size: 14px; }
   .item-foot { padding: 10px 16px; gap: 10px; }
@@ -257,7 +257,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .sub-head { font-size: 16px; font-weight: 700; }
   .sub-foot { padding: 10px 14px; gap: 8px; }
 
-  /* ── 🏠 Appts accordéon ── */
+  /* ── Appartements accordéon ── */
   .appt-num  { font-size: 19px; }
   .appt-meta { font-size: 14px; }
   .appt-header { padding: 16px; min-height: 64px; }
@@ -268,7 +268,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .qbtn { font-size: 15px; padding: 14px 8px; min-height: 52px; border-radius: 12px; }
   .quick-btns { gap: 8px; margin: 12px 0 6px; }
 
-  /* ── 📊 Totaux tableau ── */
+  /* ── Totaux tableau ── */
   .tot-tab { font-size: 14px; padding: 10px 16px; min-height: 44px; }
   .tot-table { font-size: 14px; }
   .tot-table th { padding: 12px 10px; font-size: 13px; }
@@ -285,12 +285,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .modal-title { font-size: 20px; margin-bottom: 16px; }
   .modal-handle { width: 48px; height: 5px; margin-bottom: 14px; }
 
-  /* ── 📷 Photos photos ── */
-  #📷 Photos-galerie .item-head { font-size: 15px; }
-  #📷 Photos-drop-zone { padding: 24px; }
-  #📷 Photos-drop-zone span:first-child { font-size: 42px; }
-  #📷 Photos-drop-zone div div:first-child { font-size: 16px; }
-  #📷 Photos-drop-zone div div:last-child  { font-size: 14px; }
+  /* ── DTG photos ── */
+  #dtg-galerie .item-head { font-size: 15px; }
+  #dtg-drop-zone { padding: 24px; }
+  #dtg-drop-zone span:first-child { font-size: 42px; }
+  #dtg-drop-zone div div:first-child { font-size: 16px; }
+  #dtg-drop-zone div div:last-child  { font-size: 14px; }
 
   /* ── Textes secondaires ── */
   .empty { font-size: 15px; padding: 30px 16px; }
@@ -302,7 +302,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   /* ── Toast ── */
   #toast { font-size: 15px; padding: 14px 24px; border-radius: 24px; }
 
-  /* ── Total row dans 🪟 Fenêtres ── */
+  /* ── Total row dans fenêtres ── */
   #fen-total-row { padding: 12px 16px; }
   #fen-total-row span:last-child { font-size: 14px; }
   #fen-total-val { font-size: 20px; }
@@ -322,7 +322,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   /* ── Code ANNALYSSIMO ── */
   .code-txt { font-size: 13px; line-height: 1.6; }
 
-  /* ── Scroll horizontal tableau 📊 Totaux ── */
+  /* ── Scroll horizontal tableau totaux ── */
   #tot-table-wrap { -webkit-overflow-scrolling: touch; }
 }
 
@@ -382,31 +382,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <div class="tabs" id="tab-bar">
-  <div class="tab on" onclick="goTab('copro')">🏢 Copro</div>
-  <div class="tab" onclick="goTab('appts')">🏠 Appts</div>
+  <div class="tab on" onclick="goTab('copro')">🏢 Copropriété</div>
+  <div class="tab" onclick="goTab('appts')">🚪 Appartements</div>
   <div class="tab" onclick="goTab('murs')">🧱 Murs</div>
-  <div class="tab" onclick="goTab('fen')">🪟 🪟 Fenêtres</div>
-  <div class="tab" onclick="goTab('⬇️ Planchers')">⏬ ⬇️ Planchers</div>
-  <div class="tab" onclick="goTab('⬆️ Plafonds')">⏫ ⬆️ Plafonds</div>
-  <div class="tab" onclick="goTab('🚪 Portes')">🚪 🚪 Portes</div>
-  <div class="tab" onclick="goTab('📊 Totaux')">📊 📊 Totaux</div>
-  <div class="tab" onclick="goTab('📷 Photos')">📷 📷 Photos</div>
+  <div class="tab" onclick="goTab('fen')">🪟 Fenêtres</div>
+  <div class="tab" onclick="goTab('planchers')">🪨 Planchers</div>
+  <div class="tab" onclick="goTab('plafonds')">☁️ Plafonds</div>
+  <div class="tab" onclick="goTab('portes')">🔑 Portes</div>
+  <div class="tab" onclick="goTab('totaux')">📊 Totaux</div>
+  <div class="tab" onclick="goTab('dtg')">📷 DTG Photos</div>
   <div class="tab" onclick="goTab('export')">💾 Export</div>
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : 🏢 Copro
+     VUE : COPROPRIÉTÉ
 ══════════════════════════════════════════════ -->
 <div id="vw-copro" class="vw on">
   <div class="sl">Identification</div>
   <div class="card">
-    <div class="fr"><span class="fl">Nom / Référence<span class="tip" tabindex="0" data-tip="Nom complet de la 🏢 Copro tel qu'il apparaîtra dans l'export ORFIT et sur l'étiquette de dossier.">i</span></span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
+    <div class="fr"><span class="fl">Nom / Référence<span class="tip" tabindex="0" data-tip="Nom complet de la copropriété tel qu'il apparaîtra dans l'export ORFIT et sur l'étiquette de dossier.">i</span></span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
     <div class="fr"><span class="fl">Adresse</span><input type="text" id="copro-adresse" placeholder="ex: 12 rue de la Paix, Lyon"></div>
     <div class="fr"><span class="fl">Année de construction<span class="tip" tabindex="0" data-tip="Utilisée pour déterminer la réglementation thermique applicable (avant/après 1948, 1975, 1989…).">i</span></span><input type="number" id="copro-annee" placeholder="ex: 1975" inputmode="numeric" min="1800" max="2099"></div>
     <div class="fr"><span class="fl">Date de visite</span><input type="date" id="copro-date-visite" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;padding:10px 0;font-family:inherit"></div>
     <div class="fr"><span class="fl">Chargé d'affaire</span><input type="text" id="copro-charge" placeholder="ex: Martin Pierre"></div>
     <div class="fr"><span class="fl">Réf. dossier / RDV<span class="tip" tabindex="0" data-tip="Numéro de dossier ETI ou référence du rendez-vous dans l'agenda. Apparaît dans le badge de l'en-tête.">i</span></span><input type="text" id="copro-ref" placeholder="ex: ETI-2025-042 ou N° Outlook"></div>
-    <div class="fr"><span class="fl">Nb de lots<span class="tip" tabindex="0" data-tip="Nombre total de lots privatifs de la 🏢 Copro (🏠 Appts + commerces).">i</span></span><input type="number" id="copro-lots" placeholder="ex: 24" inputmode="numeric" min="1"></div>
+    <div class="fr"><span class="fl">Nb de lots<span class="tip" tabindex="0" data-tip="Nombre total de lots privatifs de la copropriété (appartements + commerces).">i</span></span><input type="number" id="copro-lots" placeholder="ex: 24" inputmode="numeric" min="1"></div>
   </div>
   <div class="btn-row"><button class="btn btn-p" onclick="saveCopro()">Enregistrer</button></div>
 
@@ -468,7 +468,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option>Ventilation naturelle par conduit</option>
           <option>Ventilation naturelle par conduit avec entrées d'air hygro</option>
           <option>Ventilation par entrées d'air hautes et basses</option>
-          <option>Ventilation par ouverture de 🪟 Fenêtres</option>
+          <option>Ventilation par ouverture de fenêtres</option>
         </optgroup>
         <option>Autre</option>
       </select>
@@ -521,7 +521,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
     <button class="btn btn-s" style="flex:0 0 auto" onclick="clearColChauf()">Effacer</button>
-    <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColChauf()">✓ Appliquer à tous les 🏠 Appts</button>
+    <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColChauf()">✓ Appliquer à tous les appartements</button>
   </div>
 
   <div class="sl" style="margin-top:16px">ECS collective <span class="sl-note">— optionnel</span></div>
@@ -552,7 +552,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
     <button class="btn btn-s" style="flex:0 0 auto" onclick="clearColEcs()">Effacer</button>
-    <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColEcs()">✓ Appliquer à tous les 🏠 Appts</button>
+    <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColEcs()">✓ Appliquer à tous les appartements</button>
   </div>
 
   <!-- HSP Moyenne -->
@@ -572,14 +572,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <button class="btn btn-p" onclick="goTab('appts');showNouvelAppt()">+ Ajouter un appartement</button>
   </div>
 
-  <div class="sl" style="margin-top:20px">🏠 Appts saisis</div>
+  <div class="sl" style="margin-top:20px">Appartements saisis</div>
   <div id="copro-appts-recap">
     <div class="empty" style="padding:20px">Aucun appartement créé.</div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : 🏠 Appts
+     VUE : APPARTEMENTS
 ══════════════════════════════════════════════ -->
 <div id="vw-appts" class="vw">
   <!-- Formulaire nouvel appartement -->
@@ -628,12 +628,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
 
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <span class="sl" style="margin:0" id="appts-count-lbl">🏠 Appts</span>
+    <span class="sl" style="margin:0" id="appts-count-lbl">Appartements</span>
     <button class="btn btn-p" style="width:auto;padding:8px 16px;font-size:13px" onclick="showNouvelAppt()">+ Nouveau</button>
   </div>
 
   <div id="appts-liste">
-    <div class="empty">Aucun appartement.<br>Commencez par la 🏢 Copro.</div>
+    <div class="empty">Aucun appartement.<br>Commencez par la Copropriété.</div>
   </div>
 </div>
 
@@ -641,7 +641,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
      VUE : MURS
 ══════════════════════════════════════════════ -->
 <div id="vw-murs" class="vw">
-  <div id="murs-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet 🏠 Appts.</div>
+  <div id="murs-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet Appartements.</div>
   <div id="murs-content" style="display:none">
     <div id="murs-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
     <div class="sl">Nouveau mur</div>
@@ -856,15 +856,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : 🪟 Fenêtres
+     VUE : FENÊTRES
 ══════════════════════════════════════════════ -->
 <div id="vw-fen" class="vw">
-  <div id="fen-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet 🏠 Appts.</div>
+  <div id="fen-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet Appartements.</div>
   <div id="fen-content" style="display:none">
     <div id="fen-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
 
     <!-- Liste en haut -->
-    <div class="sl">🪟 Fenêtres saisies</div>
+    <div class="sl">Fenêtres saisies</div>
     <div class="fbar">
       <span class="fbar-lbl">Filtrer</span>
       <select id="fen-f-apt" onchange="renderFenView()"><option value="">Tous appts</option></select>
@@ -894,9 +894,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div id="fen-count-lbl" style="font-size:12px;color:var(--tx2);margin-bottom:6px"></div>
     <div id="fen-liste" style="margin-bottom:16px"></div>
 
-    <!-- Modèles depuis autres 🏠 Appts -->
+    <!-- Modèles depuis autres appartements -->
     <div id="fen-modeles-bloc" style="display:none">
-      <div class="sl">Réutiliser un modèle <span class="sl-note">— 🪟 Fenêtres déjà saisies dans la copro</span></div>
+      <div class="sl">Réutiliser un modèle <span class="sl-note">— fenêtres déjà saisies dans la copro</span></div>
       <div id="fen-modeles-liste" style="margin-bottom:12px"></div>
     </div>
 
@@ -960,19 +960,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </select>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de 🪟 Fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 🪟 Fenêtres côte à côte de même type).">i</span></span>
+        <span class="fl">Nbre de fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 fenêtres côte à côte de même type).">i</span></span>
         <input type="number" id="fen-nb" placeholder="1" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit" oninput="updateFenTotal()">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">unités</span>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de 🪟 Fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
+        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
         <input type="number" id="fen-motifs" placeholder="1" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit" oninput="updateFenTotal()">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">motifs</span>
       </div>
       <div class="fr" style="background:var(--acc-l)" id="fen-total-row">
         <span class="fl" style="color:var(--acc);font-weight:600">Total</span>
         <span id="fen-total-val" style="flex:1;text-align:right;font-size:16px;font-weight:700;color:var(--acc)">1</span>
-        <span style="font-size:12px;color:var(--acc);margin:0 6px">🪟 🪟 Fenêtres</span>
+        <span style="font-size:12px;color:var(--acc);margin:0 6px">fenêtres</span>
       </div>
       <!-- Doublage -->
       <div class="fr" style="background:var(--bg)">
@@ -1037,13 +1037,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : ⬇️ Planchers
+     VUE : PLANCHERS
 ══════════════════════════════════════════════ -->
-<div id="vw-⬇️ Planchers" class="vw">
-  <div id="pla-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet 🏠 Appts.</div>
+<div id="vw-planchers" class="vw">
+  <div id="pla-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet Appartements.</div>
   <div id="pla-content" style="display:none">
     <div id="pla-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
-    <div class="sl">⬇️ Planchers saisis</div>
+    <div class="sl">Planchers saisis</div>
     <div id="pla-liste" style="margin-bottom:16px"><div class="empty" style="padding:16px">Aucun plancher pour cet appartement.</div></div>
     <div class="sl">Nouveau plancher</div>
     <div class="card">
@@ -1103,13 +1103,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : ⬆️ Plafonds
+     VUE : PLAFONDS
 ══════════════════════════════════════════════ -->
-<div id="vw-⬆️ Plafonds" class="vw">
-  <div id="plf-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet 🏠 Appts.</div>
+<div id="vw-plafonds" class="vw">
+  <div id="plf-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet Appartements.</div>
   <div id="plf-content" style="display:none">
     <div id="plf-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
-    <div class="sl">⬆️ Plafonds saisis</div>
+    <div class="sl">Plafonds saisis</div>
     <div id="plf-liste" style="margin-bottom:16px"><div class="empty" style="padding:16px">Aucun plafond pour cet appartement.</div></div>
     <div class="sl">Nouveau plafond</div>
     <div class="card">
@@ -1182,18 +1182,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <!-- ══════════════════════════════════════════════
-     VUE : 📊 Totaux
+     VUE : TOTAUX
 ══════════════════════════════════════════════ -->
 
 <!-- ══════════════════════════════════════════════
-     VUE : 🚪 Portes PALIÈRES
+     VUE : PORTES PALIÈRES
 ══════════════════════════════════════════════ -->
-<div id="vw-🚪 Portes" class="vw">
-  <div id="por-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet 🏠 Appts.</div>
+<div id="vw-portes" class="vw">
+  <div id="por-apt-warning" class="empty" style="display:none">Sélectionnez un appartement<br>dans l'onglet Appartements.</div>
   <div id="por-content" style="display:none">
     <div id="por-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
 
-    <div class="sl">🚪 Portes saisies</div>
+    <div class="sl">Portes saisies</div>
     <div id="por-liste" style="margin-bottom:16px"><div class="empty" style="padding:16px">Aucune porte pour cet appartement.</div></div>
 
     <div class="sl">Nouvelle porte palière</div>
@@ -1256,24 +1256,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
 </div>
 
-<div id="vw-📊 Totaux" class="vw" style="padding:12px 8px">
+<div id="vw-totaux" class="vw" style="padding:12px 8px">
 
   <!-- Sélecteur de poste -->
   <div style="display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px">
     <button class="tot-tab on" data-poste="appts" onclick="setTotPoste(this)">Appts</button>
-    <button class="tot-tab" data-poste="murs" onclick="setTotPoste(this)">🧱 Murs</button>
-    <button class="tot-tab" data-poste="fen" onclick="setTotPoste(this)">🪟 🪟 Fenêtres</button>
-    <button class="tot-tab" data-poste="⬇️ Planchers" onclick="setTotPoste(this)">⏬ ⬇️ Planchers</button>
-    <button class="tot-tab" data-poste="⬆️ Plafonds" onclick="setTotPoste(this)">⏫ ⬆️ Plafonds</button>
-    <button class="tot-tab" data-poste="🚪 Portes" onclick="setTotPoste(this)">🚪 🚪 Portes</button>
+    <button class="tot-tab" data-poste="murs" onclick="setTotPoste(this)">Murs</button>
+    <button class="tot-tab" data-poste="fen" onclick="setTotPoste(this)">Fenêtres</button>
+    <button class="tot-tab" data-poste="planchers" onclick="setTotPoste(this)">Planchers</button>
+    <button class="tot-tab" data-poste="plafonds" onclick="setTotPoste(this)">Plafonds</button>
+    <button class="tot-tab" data-poste="portes" onclick="setTotPoste(this)">Portes</button>
     <button class="tot-tab" data-poste="chauf" onclick="setTotPoste(this)">Chauffages</button>
     <button class="tot-tab" data-poste="ecs" onclick="setTotPoste(this)">ECS</button>
   </div>
 
   <!-- Filtre appartement + infos -->
   <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
-    <select id="tot-apt-filter" onchange="render📊 Totaux()" style="flex:1;min-width:120px;border:.5px solid var(--bor);border-radius:var(--rs);background:var(--bg);font-size:13px;color:var(--tx);padding:5px 8px;outline:none;font-family:inherit;-webkit-appearance:none">
-      <option value="">Tous les 🏠 Appts</option>
+    <select id="tot-apt-filter" onchange="renderTotaux()" style="flex:1;min-width:120px;border:.5px solid var(--bor);border-radius:var(--rs);background:var(--bg);font-size:13px;color:var(--tx);padding:5px 8px;outline:none;font-family:inherit;-webkit-appearance:none">
+      <option value="">Tous les appartements</option>
     </select>
     <span id="tot-info" style="font-size:12px;color:var(--tx2);white-space:nowrap"></span>
   </div>
@@ -1289,25 +1289,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 ══════════════════════════════════════════════ -->
 
 <!-- ══════════════════════════════════════════════
-     VUE : PHOTOS 📷 Photos
+     VUE : PHOTOS DTG
 ══════════════════════════════════════════════ -->
-<div id="vw-📷 Photos" class="vw">
-  <div class="sl">Photos 📷 Photos <span class="sl-note">— classées par catégorie</span></div>
+<div id="vw-dtg" class="vw">
+  <div class="sl">Photos DTG <span class="sl-note">— classées par catégorie</span></div>
 
   <!-- Saisie -->
   <div class="card" style="margin-bottom:12px">
     <div class="fr"><span class="fl">Catégorie</span>
-      <select id="📷 Photos-cat" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none">
+      <select id="dtg-cat" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none">
         <option value="">— Choisir —</option>
         <optgroup label="Enveloppe et structure">
           <option value="Fondations">Fondations</option>
-          <option value="⬇️ Planchers bas">⬇️ Planchers bas</option>
+          <option value="Planchers bas">Planchers bas</option>
           <option value="Murs, refends et façades">Murs, refends et façades</option>
           <option value="Couverture">Couverture</option>
           <option value="Charpente">Charpente</option>
           <option value="Balcons">Balcons</option>
-          <option value="🪟 Fenêtres et occultations">🪟 Fenêtres et occultations</option>
-          <option value="🚪 Portes">🚪 🚪 Portes</option>
+          <option value="Fenêtres et occultations">Fenêtres et occultations</option>
+          <option value="Portes">Portes</option>
         </optgroup>
         <optgroup label="Sous-sols">
           <option value="Caves">Caves</option>
@@ -1368,64 +1368,64 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </select>
     </div>
     <div class="fr"><span class="fl">Titre / légende</span>
-      <input type="text" id="📷 Photos-titre" placeholder="ex: Hall d'entrée, état général" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
+      <input type="text" id="dtg-titre" placeholder="ex: Hall d'entrée, état général" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
     </div>
     <div style="padding:10px 14px;border-top:.5px solid var(--bor)">
       <div style="font-size:11px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Tags qualification</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #F7C1C1;background:#FCEBEB;cursor:pointer;font-size:12px;font-weight:600;color:#A32D2D;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="Défaut / Problème" style="width:15px;height:15px;accent-color:#A32D2D;cursor:pointer">Défaut / Problème</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #FAC775;background:#FAEEDA;cursor:pointer;font-size:12px;font-weight:600;color:#854F0B;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="Vétusté" style="width:15px;height:15px;accent-color:#854F0B;cursor:pointer">Vétusté</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #FAC775;background:#FAEEDA;cursor:pointer;font-size:12px;font-weight:600;color:#854F0B;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="À remplacer" style="width:15px;height:15px;accent-color:#854F0B;cursor:pointer">À remplacer</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #F7C1C1;background:#FCEBEB;cursor:pointer;font-size:12px;font-weight:600;color:#A32D2D;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="Urgence" style="width:15px;height:15px;accent-color:#A32D2D;cursor:pointer">Urgence</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #B5D4F4;background:#E6F1FB;cursor:pointer;font-size:12px;font-weight:600;color:#185FA5;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="Non-conformité" style="width:15px;height:15px;accent-color:#185FA5;cursor:pointer">Non-conformité</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #C0DD97;background:#EAF3DE;cursor:pointer;font-size:12px;font-weight:600;color:#3B6D11;white-space:nowrap"><input type="checkbox" class="📷 Photos-tag-cb" value="Bon état" style="width:15px;height:15px;accent-color:#3B6D11;cursor:pointer">Bon état</label>
+        <label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #F7C1C1;background:#FCEBEB;cursor:pointer;font-size:12px;font-weight:600;color:#A32D2D;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="Défaut / Problème" style="width:15px;height:15px;accent-color:#A32D2D;cursor:pointer">Défaut / Problème</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #FAC775;background:#FAEEDA;cursor:pointer;font-size:12px;font-weight:600;color:#854F0B;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="Vétusté" style="width:15px;height:15px;accent-color:#854F0B;cursor:pointer">Vétusté</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #FAC775;background:#FAEEDA;cursor:pointer;font-size:12px;font-weight:600;color:#854F0B;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="À remplacer" style="width:15px;height:15px;accent-color:#854F0B;cursor:pointer">À remplacer</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #F7C1C1;background:#FCEBEB;cursor:pointer;font-size:12px;font-weight:600;color:#A32D2D;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="Urgence" style="width:15px;height:15px;accent-color:#A32D2D;cursor:pointer">Urgence</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #B5D4F4;background:#E6F1FB;cursor:pointer;font-size:12px;font-weight:600;color:#185FA5;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="Non-conformité" style="width:15px;height:15px;accent-color:#185FA5;cursor:pointer">Non-conformité</label><label style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;border:.5px solid #C0DD97;background:#EAF3DE;cursor:pointer;font-size:12px;font-weight:600;color:#3B6D11;white-space:nowrap"><input type="checkbox" class="dtg-tag-cb" value="Bon état" style="width:15px;height:15px;accent-color:#3B6D11;cursor:pointer">Bon état</label>
       </div>
     </div>
   </div>
 
   <!-- Zone photo -->
-  <label style="display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;background:var(--sur);border:1.5px dashed var(--bor);border-radius:var(--r);cursor:pointer;margin-bottom:12px;transition:border-color .2s" id="📷 Photos-drop-zone">
+  <label style="display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;background:var(--sur);border:1.5px dashed var(--bor);border-radius:var(--r);cursor:pointer;margin-bottom:12px;transition:border-color .2s" id="dtg-drop-zone">
     <span style="font-size:32px">📷</span>
     <div>
       <div style="font-size:14px;font-weight:600;color:var(--tx)">Ajouter une photo</div>
       <div style="font-size:12px;color:var(--tx2);margin-top:2px">Tap pour ouvrir l'appareil photo</div>
     </div>
-    <input type="file" id="📷 Photos-file" accept="image/*" multiple style="display:none" onchange="ajouterPhotos📷 Photos(this)">
+    <input type="file" id="dtg-file" accept="image/*" multiple style="display:none" onchange="ajouterPhotosDTG(this)">
   </label>
 
   <!-- Photos en attente (avant validation) -->
-  <div id="📷 Photos-pending" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px"></div>
-  <div id="📷 Photos-pending-actions" style="display:none;margin-bottom:16px">
+  <div id="dtg-pending" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px"></div>
+  <div id="dtg-pending-actions" style="display:none;margin-bottom:16px">
     <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="annulerPhotos📷 Photos()">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="validerPhotos📷 Photos()">✓ Enregistrer ces photos</button>
+      <button class="btn btn-s" style="flex:0 0 80px" onclick="annulerPhotosDTG()">Annuler</button>
+      <button class="btn btn-p" style="flex:1" onclick="validerPhotosDTG()">✓ Enregistrer ces photos</button>
     </div>
   </div>
 
   <!-- Galerie par catégorie -->
-  <div id="📷 Photos-galerie"></div>
+  <div id="dtg-galerie"></div>
 
   <!-- Export -->
-  <div id="📷 Photos-export-bloc" style="display:none;margin-top:16px;padding-top:16px;border-top:.5px solid var(--bor)">
-    <div class="sl">Exporter les photos 📷 Photos</div>
+  <div id="dtg-export-bloc" style="display:none;margin-top:16px;padding-top:16px;border-top:.5px solid var(--bor)">
+    <div class="sl">Exporter les photos DTG</div>
     <div style="font-size:13px;color:var(--tx2);margin-bottom:10px">
       Photos converties en <strong>PNG</strong> (compatible ANNALYSSIMO) + Excel des légendes.<br>
       Nommage : <code style="font-size:11px;background:var(--bg);padding:2px 5px;border-radius:4px">01_Façades_Hall-entrée.png</code>
     </div>
-    <button class="btn btn-ok" onclick="export📷 PhotosZip()">⬇ Télécharger le ZIP (photos PNG + Excel)</button>
+    <button class="btn btn-ok" onclick="exportDTGZip()">⬇ Télécharger le ZIP (photos PNG + Excel)</button>
     <div class="btn-row" style="margin-top:8px;gap:8px">
-      <button class="btn btn-p" style="flex:1" onclick="export📷 PhotosHtml()">📱 Exporter HTML</button>
-      <button class="btn btn-ok" style="flex:1" onclick="ouvrir📷 PhotosHtml()">👁 Ouvrir maintenant</button>
+      <button class="btn btn-p" style="flex:1" onclick="exportDTGHtml()">📱 Exporter HTML</button>
+      <button class="btn btn-ok" style="flex:1" onclick="ouvrirDTGHtml()">👁 Ouvrir maintenant</button>
     </div>
     <div style="font-size:12px;color:var(--tx2);margin-top:6px">"Ouvrir" affiche le rapport dans un nouvel onglet. "Exporter" télécharge le fichier .html.</div>
-    <div id="📷 Photos-export-progress" style="display:none;margin-top:10px;font-size:13px;color:var(--acc);text-align:center"></div>
+    <div id="dtg-export-progress" style="display:none;margin-top:10px;font-size:13px;color:var(--acc);text-align:center"></div>
   </div>
 </div>
 
 <div id="vw-export" class="vw">
   <div class="sl">Résumé chantier</div>
   <div class="card">
-    <div class="fr"><span class="fl">🏢 Copro</span><input type="text" id="exp-ref" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🏠 Appts</span><input type="text" id="exp-apts" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🧱 Murs</span><input type="text" id="exp-murs" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">🪟 🪟 Fenêtres</span><input type="text" id="exp-fens" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">⏬ ⬇️ Planchers</span><input type="text" id="exp-plas" readonly style="color:var(--tx2)"></div>
-    <div class="fr"><span class="fl">⏫ ⬆️ Plafonds</span><input type="text" id="exp-plfs" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Copropriété</span><input type="text" id="exp-ref" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Appartements</span><input type="text" id="exp-apts" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Murs</span><input type="text" id="exp-murs" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Fenêtres</span><input type="text" id="exp-fens" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Planchers</span><input type="text" id="exp-plas" readonly style="color:var(--tx2)"></div>
+    <div class="fr"><span class="fl">Plafonds</span><input type="text" id="exp-plfs" readonly style="color:var(--tx2)"></div>
     <div class="fr"><span class="fl">Ventilation</span><input type="text" id="exp-vmc" readonly style="color:var(--tx2)"></div>
   </div>
   <div class="sl">Exporter</div>
@@ -1433,8 +1433,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <button class="btn btn-ok" onclick="exportOrfit()">Export format ORFIT (.xlsx)</button>
     <button class="btn btn-s" onclick="exportCSV()">Export CSV complet</button>
     <div class="btn-row" style="margin-top:4px;gap:8px">
-      <button class="btn btn-s" style="flex:1" onclick="export📷 PhotosHtml()" id="exp-📷 Photos-btn">📷 Exporter 📷 Photos (HTML)</button>
-      <button class="btn btn-s" style="flex:1" onclick="ouvrir📷 PhotosHtml()">👁 Ouvrir 📷 Photos</button>
+      <button class="btn btn-s" style="flex:1" onclick="exportDTGHtml()" id="exp-dtg-btn">📷 Exporter DTG (HTML)</button>
+      <button class="btn btn-s" style="flex:1" onclick="ouvrirDTGHtml()">👁 Ouvrir DTG</button>
     </div>
     <button class="btn btn-p" style="margin-top:8px;background:var(--ok);border-color:var(--ok)" onclick="sauvegarderProjet()">💾 Sauvegarder le projet (HTML complet)</button>
     <div style="font-size:12px;color:var(--tx2);margin-top:4px;margin-bottom:8px">Génère un fichier HTML autonome avec toutes les données et photos intégrées — ouvrable sur n'importe quel appareil.</div>
@@ -1442,10 +1442,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
   <div style="text-align:center;margin-top:24px;padding-top:16px;border-top:.5px solid var(--bor)">
     <div style="font-size:18px;font-weight:700;color:var(--eti-dark);font-size:18px;font-weight:700">ORFIT PPPT <span style="color:var(--eti-orange)">v2.0</span></div>
-    <div style="font-size:12px;color:var(--tx2);margin-top:4px">Ton carnet technique numérique pour la 🏢 Copro 📋</div>
+    <div style="font-size:12px;color:var(--tx2);margin-top:4px">Ton carnet technique numérique pour la copropriété 📋</div>
     <div style="font-size:11px;color:var(--eti-light);margin-top:3px;font-style:italic">Fini les feuilles volantes, les relevés illisibles et les photos introuvables.</div>
     <div style="font-size:12px;color:var(--tx2);margin-top:4px">Développé par <strong style="color:var(--eti-dark)">Cyril LOUIS</strong> pour ETI360</div>
     <a href="https://www.eti360.fr" target="_blank" style="font-size:12px;color:var(--eti-orange);font-weight:600;text-decoration:none;margin-top:4px;display:block">www.eti360.fr</a>
+  </div>
+  <div class="card">
+    <div style="font-size:13px;color:var(--tx);line-height:1.7">
+      <strong style="color:var(--eti-orange)">Option 2 — Netlify Drop (encore plus simple)</strong><br>
+      1. Sur Mac : allez sur <a href="https://app.netlify.com/drop" target="_blank" style="color:var(--acc)">app.netlify.com/drop</a><br>
+      2. Glissez le fichier <code>index.html</code> dans la zone<br>
+      3. Netlify vous donne une URL en 10 secondes<br>
+      4. Sur iPhone : ouvrez l'URL → Partager → <strong>Sur l'écran d'accueil</strong> ✓
+    </div>
   </div>
   <div class="card">
     <div style="padding:14px;font-size:13px;line-height:1.9;color:var(--tx2)">
@@ -1638,12 +1647,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="PSH">Protection solaire hors fermeture</option>
       </select></div>
       <div class="fr">
-        <span class="fl">Nbre de 🪟 Fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 🪟 Fenêtres côte à côte de même type).">i</span></span>
+        <span class="fl">Nbre de fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 fenêtres côte à côte de même type).">i</span></span>
         <input type="number" id="ed-fen-nb" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">unités</span>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de 🪟 Fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
+        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
         <input type="number" id="ed-fen-motifs" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">motifs</span>
       </div>
@@ -1671,8 +1680,8 @@ let plfs    = JSON.parse(_get('pppt_plfs',   '[]'));
 let chaufs  = JSON.parse(_get('pppt_chaufs', '[]'));
 let ecss    = JSON.parse(_get('pppt_ecss',   '[]'));
 let photos  = JSON.parse(_get('pppt_photos', '{}'));
-let 🚪 Portes    = JSON.parse(_get('pppt_🚪 Portes',  '[]'));
-let 📷 PhotosPhotos = JSON.parse(_get('pppt_📷 Photos',     '[]'));
+let portes    = JSON.parse(_get('pppt_portes',  '[]'));
+let dtgPhotos = JSON.parse(_get('pppt_dtg',     '[]'));
 let vmc     = JSON.parse(_get('pppt_vmc',    '{}'));
 let copro   = JSON.parse(_get('pppt_copro',  '{}'));
 let curAppt = _get('pppt_cur', null) || null;
@@ -1688,8 +1697,8 @@ function save(){
   _set('pppt_chaufs', JSON.stringify(chaufs));
   _set('pppt_ecss',   JSON.stringify(ecss));
   _set('pppt_photos', JSON.stringify(photos));
-  _set('pppt_🚪 Portes', JSON.stringify(🚪 Portes));
-  _set('pppt_📷 Photos',    JSON.stringify(📷 PhotosPhotos));
+  _set('pppt_portes', JSON.stringify(portes));
+  _set('pppt_dtg',    JSON.stringify(dtgPhotos));
   _set('pppt_vmc',    JSON.stringify(vmc));
   _set('pppt_copro',  JSON.stringify(copro));
   _set('pppt_cur',    curAppt || '');
@@ -1701,7 +1710,7 @@ function save(){
 // ══════════════════════════════════════════════
 // Navigation
 // ══════════════════════════════════════════════
-const TAB_NAMES = ['copro','appts','murs','fen','⬇️ Planchers','⬆️ Plafonds','🚪 Portes','📊 Totaux','📷 Photos','export'];
+const TAB_NAMES = ['copro','appts','murs','fen','planchers','plafonds','portes','totaux','dtg','export'];
 
 function goTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on', TAB_NAMES[i]===name));
@@ -1711,16 +1720,16 @@ function goTab(name){
   if(name==='appts')     renderApptsList();
   if(name==='murs')      renderMursView();
   if(name==='fen')       renderFenView();
-  if(name==='⬇️ Planchers') renderPlaView();
-  if(name==='⬆️ Plafonds')  renderPlfView();
-  if(name==='🚪 Portes')    render🚪 PortesView();
-  if(name==='📊 Totaux')    render📊 Totaux();
-  if(name==='📷 Photos')       render📷 Photos();
+  if(name==='planchers') renderPlaView();
+  if(name==='plafonds')  renderPlfView();
+  if(name==='portes')    renderPortesView();
+  if(name==='totaux')    renderTotaux();
+  if(name==='dtg')       renderDTG();
   if(name==='export')    { updateExportView(); updateStorageInfo(); }
 }
 
 // ══════════════════════════════════════════════
-// 🏢 Copro
+// Copropriété
 // ══════════════════════════════════════════════
 function saveCopro(){
   copro = {
@@ -1733,7 +1742,7 @@ function saveCopro(){
     lots:       document.getElementById('copro-lots').value,
   };
   save();
-  toast('🏢 Copro enregistrée ✓');
+  toast('Copropriété enregistrée ✓');
 }
 function loadCopro(){
   if(!copro.nom) return;
@@ -1744,7 +1753,7 @@ function loadCopro(){
 }
 
 // ══════════════════════════════════════════════
-// 🏠 Appts — liste avec accordéon
+// Appartements — liste avec accordéon
 // ══════════════════════════════════════════════
 function showNouvelAppt(){
   document.getElementById('new-apt-form').style.display='block';
@@ -1798,7 +1807,7 @@ function suppAppt(id){
   fens   = fens.filter(f=>f.aptId!==id);
   plas   = plas.filter(p=>p.aptId!==id);
   plfs   = plfs.filter(p=>p.aptId!==id);
-  🚪 Portes = 🚪 Portes.filter(p=>p.aptId!==id);
+  portes = portes.filter(p=>p.aptId!==id);
   chaufs = chaufs.filter(c=>c.aptId!==id);
   ecss   = ecss.filter(e=>e.aptId!==id);
   delete photos[id+'_chauf']; delete photos[id+'_ecs'];
@@ -1831,7 +1840,7 @@ function renderApptsList(){
   const lbl = document.getElementById('appts-count-lbl');
   lbl.textContent = appts.length + ' appartement' + (appts.length>1?'s':'');
   if(!appts.length){
-    c.innerHTML='<div class="empty">Aucun appartement.<br>Commencez par la 🏢 Copro.</div>'; return;
+    c.innerHTML='<div class="empty">Aucun appartement.<br>Commencez par la Copropriété.</div>'; return;
   }
   // Calcul HSP moyenne
   const hspData = appts.filter(a=>a.hsp&&parseFloat(a.hsp)>0);
@@ -1854,7 +1863,7 @@ function renderApptsList(){
     const np  = plas.filter(p=>p.aptId===id).length;
     const nplf= plfs.filter(p=>p.aptId===id).length;
     const nc  = chaufs.filter(c=>c.aptId===id).length;
-    const np2 = 🚪 Portes.filter(p=>p.aptId===id).length;
+    const np2 = portes.filter(p=>p.aptId===id).length;
     const ne  = ecss.filter(e=>e.aptId===id).length;
     const stChauf = nc ? `<span class="st st-ok">${nc} chauf.</span>` : `<span class="st st-warn">⚠ chauf.</span>`;
     const stEcs   = ne ? `<span class="st st-ok">${ne} ECS</span>`   : `<span class="st st-warn">⚠ ECS</span>`;
@@ -1862,7 +1871,7 @@ function renderApptsList(){
 
     let body = '';
     if(isExp){
-      // Inline 🪟 Fenêtres
+      // Inline fenêtres
       const myF = fens.filter(x=>x.aptId===id);
       const fenHtml = myF.map(f=>{
         const sid=String(f.id).replace('.','_');
@@ -1895,8 +1904,8 @@ function renderApptsList(){
           +'</div>';
       }).join('');
 
-      // Inline 🚪 Portes
-      const myPor = 🚪 Portes.filter(x=>x.aptId===id);
+      // Inline portes
+      const myPor = portes.filter(x=>x.aptId===id);
       const porteHtml = myPor.map(p=>{
         const sid=String(p.id).replace('.','_');
         const opts=[p.optIsolee?'Isolée':'',p.optSas?'Sas':'',p.optDV?'DV':'',p.optAutre?'Autre':''].filter(Boolean).join(' · ');
@@ -1909,7 +1918,7 @@ function renderApptsList(){
             +(p.obs?'<span class="tag">'+p.obs+'</span>':'')
           +'</div>'
           +'<div class="sub-foot">'
-            +'<button class="btn-xs edit" data-aptid="'+id+'" onclick="setCur(this.dataset.aptid);goTab(\'🚪 Portes\')">Modifier</button>'
+            +'<button class="btn-xs edit" data-aptid="'+id+'" onclick="setCur(this.dataset.aptid);goTab(\'portes\')">Modifier</button>'
             +'<button class="btn-xs del" data-id="'+sid+'" onclick="suppPorteInAppt(this.dataset.id)">Supprimer</button>'
           +'</div>'
           +'</div>';
@@ -2006,9 +2015,9 @@ function renderApptsList(){
         +'<div class="quick-btns">'
           +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'murs\')">+ Mur</button>'
           +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'fen\')">+ Fenêtre</button>'
-          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'⬇️ Planchers\')">+ Plancher</button>'
-          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'⬆️ Plafonds\')">+ Plafond</button>'
-          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'🚪 Portes\')" style="color:var(--dan);border-color:#F7C1C1;background:var(--dan-l)">+ Porte</button>'
+          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'planchers\')">+ Plancher</button>'
+          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'plafonds\')">+ Plafond</button>'
+          +'<button class="qbtn" onclick="setCur(\''+id+'\');goTab(\'portes\')" style="color:var(--dan);border-color:#F7C1C1;background:var(--dan-l)">+ Porte</button>'
           +'<button class="qbtn" onclick="dupAppt(\''+id+'\')" style="color:var(--ok)">Dupliquer</button>'
         +'</div>'
         // Stats
@@ -2019,9 +2028,9 @@ function renderApptsList(){
           +(nplf?'<span class="st st-neu">'+nplf+' plaf.</span>':'')
           +(np2?'<span class="st st-neu">'+np2+' porte'+(np2>1?'s':'')+'</span>':'')
         +'</div>'
-        // 🪟 Fenêtres
-        +(nf?'<div class="sl" style="margin-top:8px">🪟 🪟 Fenêtres</div>'+fenHtml:'')
-        // 🚪 Portes
+        // Fenêtres
+        +(nf?'<div class="sl" style="margin-top:8px">Fenêtres</div>'+fenHtml:'')
+        // Portes
         +(myPor.length?'<div class="sl" style="margin-top:8px">Porte'+(myPor.length>1?'s palières':'  palière')+'</div>'+porteHtml:'')
         // Chauffages
         +'<div class="sl" style="margin-top:8px">Chauffage(s)</div>'
@@ -2338,7 +2347,7 @@ function murCard(m){
 }
 
 // ══════════════════════════════════════════════
-// 🪟 Fenêtres
+// Fenêtres
 // ══════════════════════════════════════════════
 function toggleFenDoublee(checked){
   document.getElementById('fen-doublee-form').style.display = checked ? 'block' : 'none';
@@ -2526,7 +2535,7 @@ function fenCard(f){
     +'<span>'+(f.rep||'?')+' — '+(f.type||'—')+(f.ori?' ('+f.ori+')':'')+(ap?' · <span style="font-size:12px;font-weight:400;color:var(--tx2)">'+ap.num+'</span>':'')+'</span>'
     +(f.total&&f.total>1?'<span style="font-size:13px;font-weight:700;color:var(--acc);background:var(--acc-l);padding:2px 10px;border-radius:10px">×'+f.total+'</span>':(f.nb>1||f.motifs>1?'<span style="font-size:11px;color:var(--tx2)">'+f.nb+'×'+f.motifs+'</span>':''))
     +'</div>'
-    +'<div style="font-size:11px;color:var(--tx2);margin-top:2px">'+(f.nb>1||f.motifs>1?f.nb+' fen. × '+f.motifs+' motif'+(f.motifs>1?'s identiques':'identique')+(f.total?' = <strong>'+f.total+' 🪟 Fenêtres</strong>':''):'')+'</div>'
+    +'<div style="font-size:11px;color:var(--tx2);margin-top:2px">'+(f.nb>1||f.motifs>1?f.nb+' fen. × '+f.motifs+' motif'+(f.motifs>1?'s identiques':'identique')+(f.total?' = <strong>'+f.total+' fenêtres</strong>':''):'')+'</div>'
 
     +'<div class="tags">'+(f.mat?'<span class="tag">'+f.mat+'</span>':'')+(f.vit?'<span class="tag">'+f.vit+'</span>':'')+(f.l&&f.h?'<span class="tag">'+f.l+'×'+f.h+' cm</span>':'')+(f.ep?'<span class="tag">lame '+f.ep+' mm</span>':'')+(f.fer?'<span class="tag">'+f.fer+'</span>':'')+'</div>'
     +dblBadge
@@ -2542,7 +2551,7 @@ function fenCard(f){
 }
 
 // ══════════════════════════════════════════════
-// ⬇️ Planchers
+// Planchers
 // ══════════════════════════════════════════════
 function resetPla(){ ['pla-type','pla-donne','pla-iso-type'].forEach(id=>document.getElementById(id).value=''); ['pla-l','pla-li','pla-iso-ep'].forEach(id=>document.getElementById(id).value=''); }
 function nextPlaNum(){
@@ -2583,11 +2592,11 @@ function renderPlaView(){
   const c=document.getElementById('pla-liste');
   if(!myPlas.length){ c.innerHTML='<div class="empty">Aucun plancher pour cet appartement.</div>'; return; }
   const tot=myPlas.filter(p=>p.surf).reduce((s,p)=>s+p.surf,0);
-  c.innerHTML=(tot?'<div class="grp-hd"><span>Total ⬇️ Planchers</span><span class="grp-val">'+Math.round(tot*100)/100+' m²</span></div>':'')+[...myPlas].reverse().map(p=>'<div class="item"><div class="item-head">'+(p.num?plaTitre(p):(p.type||'—'))+'</div><div class="item-sub">'+(p.donne?p.donne+' · ':''+(p.l&&p.li?p.l+'m × '+p.li+'m':''))+'</div><div class="tags">'+(p.surf?'<span class="tag tag-col">'+p.surf+' m²</span>':'')+(p.isoType?'<span class="tag">'+p.isoType+(p.isoEp?' '+p.isoEp+'cm':'')+'</span>':'')+'</div><div class="item-foot"><button class="btn-xs edit" onclick="editPla('+p.id+')">Modifier</button><button class="btn-xs" style="color:var(--ok);border-color:#C0DD97;background:var(--ok-l)" onclick="clonerPla('+p.id+')">Cloner</button><button class="btn-xs del" onclick="suppPla('+p.id+')">Supprimer</button></div></div>').join('');
+  c.innerHTML=(tot?'<div class="grp-hd"><span>Total planchers</span><span class="grp-val">'+Math.round(tot*100)/100+' m²</span></div>':'')+[...myPlas].reverse().map(p=>'<div class="item"><div class="item-head">'+(p.num?plaTitre(p):(p.type||'—'))+'</div><div class="item-sub">'+(p.donne?p.donne+' · ':''+(p.l&&p.li?p.l+'m × '+p.li+'m':''))+'</div><div class="tags">'+(p.surf?'<span class="tag tag-col">'+p.surf+' m²</span>':'')+(p.isoType?'<span class="tag">'+p.isoType+(p.isoEp?' '+p.isoEp+'cm':'')+'</span>':'')+'</div><div class="item-foot"><button class="btn-xs edit" onclick="editPla('+p.id+')">Modifier</button><button class="btn-xs" style="color:var(--ok);border-color:#C0DD97;background:var(--ok-l)" onclick="clonerPla('+p.id+')">Cloner</button><button class="btn-xs del" onclick="suppPla('+p.id+')">Supprimer</button></div></div>').join('');
 }
 
 // ══════════════════════════════════════════════
-// ⬆️ Plafonds
+// Plafonds
 // ══════════════════════════════════════════════
 function toggleRampant(val){ document.getElementById('plf-plat-fields').style.display=val==='rampant'?'none':'block'; document.getElementById('plf-rampant-fields').style.display=val==='rampant'?'block':'none'; }
 function resetPlf(){ ['plf-type','plf-donne','plf-ori','plf-iso-type'].forEach(id=>document.getElementById(id).value=''); ['plf-l','plf-li','plf-rl','plf-rli','plf-rh','plf-rH','plf-iso-ep'].forEach(id=>document.getElementById(id).value=''); document.getElementById('plf-plat-fields').style.display='block'; document.getElementById('plf-rampant-fields').style.display='none'; }
@@ -2632,16 +2641,16 @@ function renderPlfView(){
   const c=document.getElementById('plf-liste');
   if(!myPlfs.length){ c.innerHTML='<div class="empty">Aucun plafond pour cet appartement.</div>'; return; }
   const tot=myPlfs.filter(p=>p.surf).reduce((s,p)=>s+p.surf,0);
-  c.innerHTML=(tot?'<div class="grp-hd"><span>Total ⬆️ Plafonds</span><span class="grp-val">'+Math.round(tot*100)/100+' m²</span></div>':'')+[...myPlfs].reverse().map(p=>'<div class="item"><div class="item-head">'+(p.num?plfTitre(p):(p.type||'—')+(p.ori?' ('+p.ori+')':''))+'</div><div class="item-sub">'+(p.donne?p.donne+' · ':''+(p.l&&p.li?p.l+'m × '+p.li+'m':''+(p.longRampant?' Rampant '+p.longRampant+'m':'')))+'</div><div class="tags">'+(p.surf?'<span class="tag tag-col">'+p.surf+' m²</span>':'')+(p.isoType?'<span class="tag">'+p.isoType+(p.isoEp?' '+p.isoEp+'cm':'')+'</span>':'')+'</div><div class="item-foot"><button class="btn-xs del" onclick="suppPlf('+p.id+')">Supprimer</button></div></div>').join('');
+  c.innerHTML=(tot?'<div class="grp-hd"><span>Total plafonds</span><span class="grp-val">'+Math.round(tot*100)/100+' m²</span></div>':'')+[...myPlfs].reverse().map(p=>'<div class="item"><div class="item-head">'+(p.num?plfTitre(p):(p.type||'—')+(p.ori?' ('+p.ori+')':''))+'</div><div class="item-sub">'+(p.donne?p.donne+' · ':''+(p.l&&p.li?p.l+'m × '+p.li+'m':''+(p.longRampant?' Rampant '+p.longRampant+'m':'')))+'</div><div class="tags">'+(p.surf?'<span class="tag tag-col">'+p.surf+' m²</span>':'')+(p.isoType?'<span class="tag">'+p.isoType+(p.isoEp?' '+p.isoEp+'cm':'')+'</span>':'')+'</div><div class="item-foot"><button class="btn-xs del" onclick="suppPlf('+p.id+')">Supprimer</button></div></div>').join('');
 }
 
 // ══════════════════════════════════════════════
-// 📊 Totaux
+// Totaux
 // ══════════════════════════════════════════════
 function setTotPoste(btn){
   document.querySelectorAll('.tot-tab').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-  render📊 Totaux();
+  renderTotaux();
 }
 
 let totSortCol = -1;
@@ -2650,15 +2659,15 @@ let totSortAsc = true;
 function sortTotTable(col){
   if(totSortCol===col){ totSortAsc=!totSortAsc; }
   else { totSortCol=col; totSortAsc=true; }
-  render📊 Totaux();
+  renderTotaux();
 }
 
-function render📊 Totaux(){
+function renderTotaux(){
   // Rebuild apt filter
   const aptFilter = document.getElementById('tot-apt-filter');
   if(aptFilter){
     const cur = aptFilter.value;
-    aptFilter.innerHTML = '<option value="">Tous les 🏠 Appts</option>';
+    aptFilter.innerHTML = '<option value="">Tous les appartements</option>';
     appts.forEach(a=>{ const o=document.createElement('option'); o.value=String(a.id); o.textContent=a.num+(a.etage?' — '+a.etage:''); if(String(a.id)===cur) o.selected=true; aptFilter.appendChild(o); });
   }
 
@@ -2708,7 +2717,7 @@ function render📊 Totaux(){
 
   if(poste==='appts'){
     const list = aptId ? appts.filter(a=>String(a.id)===aptId) : appts;
-    const hd = ['Échantillon','Niveau','Étage','Position','Surface m²','HSP m','Occupant','Murs','🪟 Fenêtres','⬇️ Planchers','⬆️ Plafonds','🚪 Portes','Chauf.','ECS'];
+    const hd = ['Échantillon','Niveau','Étage','Position','Surface m²','HSP m','Occupant','Murs','Fenêtres','Planchers','Plafonds','Portes','Chauf.','ECS'];
     const rows = list.map(a=>[
       a.num, a.niveau||'', a.etage||'', a.pos||'',
       a.surf?parseFloat(a.surf):'', a.hsp?parseFloat(a.hsp):'',
@@ -2717,7 +2726,7 @@ function render📊 Totaux(){
       fens.filter(f=>f.aptId===String(a.id)).length,
       plas.filter(p=>p.aptId===String(a.id)).length,
       plfs.filter(p=>p.aptId===String(a.id)).length,
-      🚪 Portes.filter(p=>p.aptId===String(a.id)).length,
+      portes.filter(p=>p.aptId===String(a.id)).length,
       chaufs.filter(c=>c.aptId===String(a.id)).length,
       ecss.filter(e=>e.aptId===String(a.id)).length
     ]);
@@ -2744,7 +2753,7 @@ function render📊 Totaux(){
     out = makeTable(hd, rows, subtot);
   }
 
-  else if(poste==='⬇️ Planchers'){
+  else if(poste==='planchers'){
     const myP = filterApt(plas);
     const hd = ['Titre','Échantillon','Type','Donne sur','L m','l m','Surface m²','Isolation','Ép. iso cm'];
     const rows = myP.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [p.num?plaTitre(p):(p.type||'—'),a?a.num:'',p.type||'',p.donne||'',p.l||'',p.li||'',R(p.surf),p.isoType||'',p.isoEp||'']; });
@@ -2753,7 +2762,7 @@ function render📊 Totaux(){
     out = makeTable(hd, rows, subtot);
   }
 
-  else if(poste==='⬆️ Plafonds'){
+  else if(poste==='plafonds'){
     const myP = filterApt(plfs);
     const hd = ['Titre','Échantillon','Type','Donne sur','Orientation','L m','l m','Surface m²','Isolation','Ép. iso cm'];
     const rows = myP.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [p.num?plfTitre(p):(p.type||'—'),a?a.num:'',p.type||'',p.donne||'',p.ori||'',p.l||'',p.li||'',R(p.surf),p.isoType||'',p.isoEp||'']; });
@@ -2762,8 +2771,8 @@ function render📊 Totaux(){
     out = makeTable(hd, rows, subtot);
   }
 
-  else if(poste==='🚪 Portes'){
-    const myP = filterApt(🚪 Portes);
+  else if(poste==='portes'){
+    const myP = filterApt(portes);
     const hd = ['Repère','Échantillon','Menuiserie','Type porte','L cm','H cm','Isolée','Sas','DV isolée','Observations'];
     const rows = myP.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [p.rep||'',a?a.num:'',p.mat||'',p.type||'',p.l||'',p.h||'',p.optIsolee?'✓':'',p.optSas?'✓':'',p.optDV?'✓':'',p.obs||'']; });
     const subtot = r=>['TOTAL '+r.length,'','','','','','','','',''];
@@ -2838,38 +2847,38 @@ function exportOrfit(){
   if(!appts.length){ toast('Aucune donnée à exporter'); return; }
   const wb=XLSX.utils.book_new();
   // Echantillons
-  const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','🏢 Copro','Réf. dossier','Date visite','Nb murs','Nb 🪟 Fenêtres','Nb ⬇️ Planchers','Nb ⬆️ Plafonds','Nb chauffages','Nb ECS','Date'];
+  const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
   const aptRows=appts.map(a=>[a.num,a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',copro.ref||'',copro.dateVisite||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
   const wsApt=XLSX.utils.aoa_to_sheet([aptHd,...aptRows]); wsApt['!cols']=[14,10,18,14,20,14,22,10,10,12,12,12,8,20].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsApt,'Echantillons');
   // Murs
   const murHd=['Echantillon','Étage','Orientation','Donne sur','Matière','Ep (cm)','L (m)','H (m)','Surface (m²)','Doublage','Matière doublage','Ep isolant (cm)'];
   const murRows=murs.map(m=>{ const a=appts.find(x=>String(x.id)===m.aptId); return [a?a.num:'',a?a.etage:'',m.ori,m.donne,m.mat,m.ep?parseFloat(m.ep):'',m.l?parseFloat(m.l):'',m.h?parseFloat(m.h):'',m.surf||'',m.dbl,m.dblMat,m.isoEp?parseFloat(m.isoEp):'']; });
-  const ORI=['N','NE','E','SE','S','SO','O','NO']; murRows.push([]); murRows.push(['📊 Totaux PAR ORIENTATION']);
+  const ORI=['N','NE','E','SE','S','SO','O','NO']; murRows.push([]); murRows.push(['TOTAUX PAR ORIENTATION']);
   ORI.forEach(o=>{ const ms=murs.filter(m=>m.ori===o&&m.surf); if(!ms.length) return; murRows.push(['Façade '+o,'','','','','','','',Math.round(ms.reduce((s,m)=>s+m.surf,0)*100)/100]); });
   const wsMur=XLSX.utils.aoa_to_sheet([murHd,...murRows]); wsMur['!cols']=[14,10,12,18,14,8,8,8,12,10,16,14].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsMur,'Murs');
-  // 🪟 Fenêtres
+  // Fenêtres
   const fenHd=['Fenêtre','Orientation','L','h','Type','d','Mat','Vitrage','Ep lame','Gaz','Fermeture','Nombre','Echantillon','Texte à Copier/Coller'];
   const fenRows=fens.map((f,i)=>{ const a=appts.find(x=>String(x.id)===f.aptId); return [f.rep||(i+1),f.ori,f.l?parseFloat(f.l):'',f.h?parseFloat(f.h):'',f.type,f.ep?parseFloat(f.ep):'',f.mat,f.vit,f.ep?parseFloat(f.ep):'','',f.fer,f.total||f.nb||1,a?a.num:'',genCodeAnnalyssimo(f)]; });
   const wsFen=XLSX.utils.aoa_to_sheet([fenHd,...fenRows]); wsFen['!cols']=[10,12,8,8,8,8,10,10,10,8,14,8,14,55].map(w=>({wch:w}));
-  XLSX.utils.book_append_sheet(wb,wsFen,'🪟 Fenêtres');
-  // 📊 Totaux murs
+  XLSX.utils.book_append_sheet(wb,wsFen,'Fenêtres');
+  // Totaux murs
   const totHd=['Orientation','Nb murs','Surface totale (m²)']; const totRows=[];
   ORI.forEach(o=>{ const ms=murs.filter(m=>m.ori===o&&m.surf); if(!ms.length) return; totRows.push([o,ms.length,Math.round(ms.reduce((s,m)=>s+m.surf,0)*100)/100]); });
   totRows.push(['TOTAL',murs.filter(m=>m.surf).length,Math.round(murs.filter(m=>m.surf).reduce((s,m)=>s+m.surf,0)*100)/100]);
   const wsTot=XLSX.utils.aoa_to_sheet([totHd,...totRows]); wsTot['!cols']=[14,10,20].map(w=>({wch:w}));
-  XLSX.utils.book_append_sheet(wb,wsTot,'📊 Totaux murs');
-  // ⬇️ Planchers
+  XLSX.utils.book_append_sheet(wb,wsTot,'Totaux murs');
+  // Planchers
   const plaHd=['Echantillon','Étage','Type','Donne sur','L (m)','l (m)','Surface (m²)','Isolation','Ép. isolant (cm)'];
   const plaRows=plas.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [a?a.num:'',a?a.etage:'',p.type,p.donne,p.l?parseFloat(p.l):'',p.li?parseFloat(p.li):'',p.surf||'',p.isoType,p.isoEp?parseFloat(p.isoEp):'']; });
   const wsPla=XLSX.utils.aoa_to_sheet([plaHd,...plaRows]); wsPla['!cols']=[14,10,18,20,8,8,12,14,14].map(w=>({wch:w}));
-  XLSX.utils.book_append_sheet(wb,wsPla,'⬇️ Planchers');
-  // ⬆️ Plafonds
+  XLSX.utils.book_append_sheet(wb,wsPla,'Planchers');
+  // Plafonds
   const plfHd=['Echantillon','Étage','Type','Donne sur','Orientation','L (m)','l (m)','h (m)','H (m)','Long. rampant (m)','Surface (m²)','Isolation','Ép. isolant (cm)'];
   const plfRows=plfs.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [a?a.num:'',a?a.etage:'',p.type,p.donne,p.ori,p.l?parseFloat(p.l):'',p.li?parseFloat(p.li):'',p.rh?parseFloat(p.rh):'',p.rH?parseFloat(p.rH):'',p.longRampant||'',p.surf||'',p.isoType,p.isoEp?parseFloat(p.isoEp):'']; });
   const wsPlf=XLSX.utils.aoa_to_sheet([plfHd,...plfRows]); wsPlf['!cols']=[14,10,16,20,12,8,8,8,8,16,12,14,14].map(w=>({wch:w}));
-  XLSX.utils.book_append_sheet(wb,wsPlf,'⬆️ Plafonds');
+  XLSX.utils.book_append_sheet(wb,wsPlf,'Plafonds');
   // Chauffage
   const chaufHd=['Echantillon','Étage','Distribution','Énergie','Générateur','Marque/modèle','Année','Puissance (kW)','Émetteur'];
   const chaufRows=appts.map(a=>{ const cs=chaufs.filter(x=>x.aptId===String(a.id)); if(!cs.length) return [[a.num,a.etage,'','','','','','','']]; return cs.map(c=>[a.num,a.etage,c.distrib,c.energie,c.gen,c.marque,c.annee,c.puissance,c.emetteur]); }).flat();
@@ -2880,22 +2889,22 @@ function exportOrfit(){
   const ecsRows=appts.map(a=>{ const es=ecss.filter(x=>x.aptId===String(a.id)); if(!es.length) return [[a.num,a.etage,'','','','','','','']]; return es.map(e=>[a.num,a.etage,e.prod,e.type,e.energie,e.marque,e.annee,e.volume,e.categorie]); }).flat();
   const wsEcs=XLSX.utils.aoa_to_sheet([ecsHd,...ecsRows]); wsEcs['!cols']=[14,10,14,28,16,24,8,10,10].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsEcs,'ECS');
-  // 🚪 Portes
-  if(🚪 Portes.length){
+  // Portes
+  if(portes.length){
     const porHd=['Echantillon','Étage','Repère','Menuiserie','Type porte','L (cm)','H (cm)','Isolée','Sas','DV isolée','Autre','Observations'];
-    const porRows=🚪 Portes.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [a?a.num:'',a?a.etage:'',p.rep,p.mat,p.type,p.l?parseFloat(p.l):'',p.h?parseFloat(p.h):'',p.optIsolee?'Oui':'',p.optSas?'Oui':'',p.optDV?'Oui':'',p.optAutre?'Oui':'',p.obs]; });
+    const porRows=portes.map(p=>{ const a=appts.find(x=>String(x.id)===p.aptId); return [a?a.num:'',a?a.etage:'',p.rep,p.mat,p.type,p.l?parseFloat(p.l):'',p.h?parseFloat(p.h):'',p.optIsolee?'Oui':'',p.optSas?'Oui':'',p.optDV?'Oui':'',p.optAutre?'Oui':'',p.obs]; });
     const wsPor=XLSX.utils.aoa_to_sheet([porHd,...porRows]); wsPor['!cols']=[14,10,8,14,30,8,8,8,8,10,8,25].map(w=>({wch:w}));
-    XLSX.utils.book_append_sheet(wb,wsPor,'🚪 Portes');
+    XLSX.utils.book_append_sheet(wb,wsPor,'Portes');
   }
   // VMC
   if(vmc.type){ const vmcHd=['Type ventilation','Période','État','Observations']; const vmcRows=[[vmc.type||'',vmc.periode||'',vmc.etat||'',vmc.obs||'']]; const wsVmc=XLSX.utils.aoa_to_sheet([vmcHd,...vmcRows]); wsVmc['!cols']=[35,18,14,30].map(w=>({wch:w})); XLSX.utils.book_append_sheet(wb,wsVmc,'Ventilation'); }
-  // Photos 📷 Photos — feuille texte avec toutes les métadonnées
-  if(📷 PhotosPhotos.length){
-    const 📷 PhotosHd=['N°','Catégorie','Titre / Légende','Tags','Date'];
-    const 📷 PhotosRows=📷 PhotosPhotos.map((p,i)=>[i+1,p.cat,p.titre||'',(p.tags||[]).join(', '),p.date||'']);
-    const ws📷 Photos=XLSX.utils.aoa_to_sheet([📷 PhotosHd,...📷 PhotosRows]);
-    ws📷 Photos['!cols']=[6,22,40,40,20].map(w=>({wch:w}));
-    XLSX.utils.book_append_sheet(wb,ws📷 Photos,'Photos 📷 Photos');
+  // Photos DTG — feuille texte avec toutes les métadonnées
+  if(dtgPhotos.length){
+    const dtgHd=['N°','Catégorie','Titre / Légende','Tags','Date'];
+    const dtgRows=dtgPhotos.map((p,i)=>[i+1,p.cat,p.titre||'',(p.tags||[]).join(', '),p.date||'']);
+    const wsDtg=XLSX.utils.aoa_to_sheet([dtgHd,...dtgRows]);
+    wsDtg['!cols']=[6,22,40,40,20].map(w=>({wch:w}));
+    XLSX.utils.book_append_sheet(wb,wsDtg,'Photos DTG');
   }
   const ref=copro.nom||'chantier';
   XLSX.writeFile(wb,'ORFIT_'+ref+'.xlsx');
@@ -2933,11 +2942,11 @@ function updateExportView(){
   document.getElementById('exp-fens').value = fens.length;
   document.getElementById('exp-plas').value = plas.length;
   document.getElementById('exp-plfs').value = plfs.length;
-  const expPor=document.getElementById('exp-por'); if(expPor) expPor.value=🚪 Portes.length;
+  const expPor=document.getElementById('exp-por'); if(expPor) expPor.value=portes.length;
   document.getElementById('exp-vmc').value  = vmc.type||'—';
 }
 function resetTout(){
-  if(!confirm('Effacer TOUTES les données de cette 🏢 Copro ?\nCette action est irréversible.')) return;
+  if(!confirm('Effacer TOUTES les données de cette copropriété ?\nCette action est irréversible.')) return;
   // Proposer l'export avant suppression
   if(appts.length){
     const doExport = confirm('Voulez-vous exporter les données en Excel (ORFIT) avant de tout effacer ?');
@@ -2954,7 +2963,7 @@ function resetTout(){
 }
 function _resetToutConfirme(){
   idbClear().catch(()=>{});
-  appts=[]; murs=[]; fens=[]; plas=[]; plfs=[]; 🚪 Portes=[]; chaufs=[]; ecss=[]; photos={}; 📷 PhotosPhotos=[]; vmc={}; copro={}; curAppt=null; expanded={};
+  appts=[]; murs=[]; fens=[]; plas=[]; plfs=[]; portes=[]; chaufs=[]; ecss=[]; photos={}; dtgPhotos=[]; vmc={}; copro={}; curAppt=null; expanded={};
   // Vider les champs copro
   ['copro-nom','copro-adresse','copro-annee'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
   ['vmc-type','vmc-periode','vmc-etat'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
@@ -3093,13 +3102,13 @@ function ajouterDepuisRampant(type){
       isoType: '', isoEp: ''
     };
     plfs.push(p); save(); renderPlfView();
-    toast('Rampant ' + _rcSurf.rampant + ' m² ajouté dans ⬆️ Plafonds ✓');
+    toast('Rampant ' + _rcSurf.rampant + ' m² ajouté dans Plafonds ✓');
   }
 }
 
 
 // ══════════════════════════════════════════════
-// 🚪 Portes palières
+// Portes palières
 // ══════════════════════════════════════════════
 const PORTE_TYPES = {
   'Bois': [
@@ -3147,7 +3156,7 @@ function resetPorte(){
 }
 
 function nextPorteNum(){
-  const existing = 🚪 Portes.filter(p=>p.aptId===curAppt).map(p=>parseInt(p.num)||0);
+  const existing = portes.filter(p=>p.aptId===curAppt).map(p=>parseInt(p.num)||0);
   return existing.length ? Math.max(...existing)+1 : 1;
 }
 function ajouterPorte(){
@@ -3170,23 +3179,23 @@ function ajouterPorte(){
     optAutre:  document.getElementById('por-opt-autre').checked,
     obs:       document.getElementById('por-obs').value.trim()
   };
-  🚪 Portes.push(p); save(); render🚪 PortesView(); resetPorte();
+  portes.push(p); save(); renderPortesView(); resetPorte();
   toast('Porte '+num+' ajoutée ✓');
 }
 
 function suppPorte(id){
-  🚪 Portes = 🚪 Portes.filter(p=>String(p.id)!==String(id));
-  save(); render🚪 PortesView();
+  portes = portes.filter(p=>String(p.id)!==String(id));
+  save(); renderPortesView();
 }
 
-function render🚪 PortesView(){
+function renderPortesView(){
   const hasApt = !!curAppt;
   document.getElementById('por-apt-warning').style.display = hasApt?'none':'block';
   document.getElementById('por-content').style.display     = hasApt?'block':'none';
   if(!hasApt) return;
   const a = appts.find(x=>String(x.id)===curAppt);
   document.getElementById('por-apt-label').textContent = a ? a.num+(a.etage?' — '+a.etage:'') : '';
-  const myP = 🚪 Portes.filter(p=>p.aptId===curAppt);
+  const myP = portes.filter(p=>p.aptId===curAppt);
   const c = document.getElementById('por-liste');
   if(!myP.length){ c.innerHTML='<div class="empty">Aucune porte pour cet appartement.</div>'; return; }
   c.innerHTML = [...myP].reverse().map(p=>{
@@ -3210,7 +3219,7 @@ function render🚪 PortesView(){
 
 
 // ══════════════════════════════════════════════
-// Édition ⬇️ Planchers
+// Édition planchers
 // ══════════════════════════════════════════════
 function editPla(id){
   const p=plas.find(x=>String(x.id)===String(id)); if(!p) return;
@@ -3236,7 +3245,7 @@ function savePla(){
 }
 
 // ══════════════════════════════════════════════
-// Édition ⬆️ Plafonds
+// Édition plafonds
 // ══════════════════════════════════════════════
 function editPlf(id){
   const p=plfs.find(x=>String(x.id)===String(id)); if(!p) return;
@@ -3262,7 +3271,7 @@ function savePlf(){
 }
 
 // ══════════════════════════════════════════════
-// Édition 🚪 Portes
+// Édition portes
 // ══════════════════════════════════════════════
 function updatePorteTypesEdit(){
   const mat=document.getElementById('ed-por-mat').value;
@@ -3271,7 +3280,7 @@ function updatePorteTypesEdit(){
   if(mat&&PORTE_TYPES[mat]) PORTE_TYPES[mat].forEach(t=>{ const o=document.createElement('option'); o.value=o.textContent=t; sel.appendChild(o); });
 }
 function editPor(id){
-  const p=🚪 Portes.find(x=>String(x.id)===String(id)); if(!p) return;
+  const p=portes.find(x=>String(x.id)===String(id)); if(!p) return;
   editId=String(id);
   const s=(eid,v)=>{ const el=document.getElementById(eid); if(el) el.value=v||''; };
   const c=(eid,v)=>{ const el=document.getElementById(eid); if(el) el.checked=!!v; };
@@ -3284,7 +3293,7 @@ function editPor(id){
 }
 function savePor(){
   if(!editId) return;
-  const p=🚪 Portes.find(x=>String(x.id)===editId); if(!p) return;
+  const p=portes.find(x=>String(x.id)===editId); if(!p) return;
   p.rep      = document.getElementById('ed-por-rep').value.trim();
   p.mat      = document.getElementById('ed-por-mat').value;
   p.type     = document.getElementById('ed-por-type').value;
@@ -3295,11 +3304,11 @@ function savePor(){
   p.optSas   = document.getElementById('ed-por-opt-sas').checked;
   p.optDV    = document.getElementById('ed-por-opt-dv').checked;
   p.optAutre = document.getElementById('ed-por-opt-autre').checked;
-  closeModal('modal-por'); save(); render🚪 PortesView(); toast('Porte modifiée ✓');
+  closeModal('modal-por'); save(); renderPortesView(); toast('Porte modifiée ✓');
 }
 
 // ══════════════════════════════════════════════
-// Édition chauffage (dans liste 🏠 Appts)
+// Édition chauffage (dans liste appartements)
 // ══════════════════════════════════════════════
 function editChaufInList(sid){
   const rid=sid.replace('_','.');
@@ -3327,7 +3336,7 @@ function saveChaufEdit(){
 }
 
 // ══════════════════════════════════════════════
-// Édition ECS (dans liste 🏠 Appts)
+// Édition ECS (dans liste appartements)
 // ══════════════════════════════════════════════
 function editEcsInList(sid){
   const rid=sid.replace('_','.');
@@ -3426,14 +3435,14 @@ function saveReattrFen(){
 
 
 // ══════════════════════════════════════════════
-// Modèles 🪟 Fenêtres depuis autres 🏠 Appts
+// Modèles fenêtres depuis autres appartements
 // ══════════════════════════════════════════════
 function renderFenModeles(){
   const bloc = document.getElementById('fen-modeles-bloc');
   const liste = document.getElementById('fen-modeles-liste');
   if(!bloc||!liste||!curAppt) return;
 
-  // 🪟 Fenêtres des autres 🏠 Appts — dédoublonner par signature
+  // Fenêtres des autres appartements — dédoublonner par signature
   const autresFens = fens.filter(f=>f.aptId!==curAppt);
   if(!autresFens.length){ bloc.style.display='none'; return; }
 
@@ -3519,11 +3528,11 @@ function updateFenTotal(){
 
 
 // ══════════════════════════════════════════════
-// Photos 📷 Photos
+// Photos DTG
 // ══════════════════════════════════════════════
-const 📷 Photos_CATS = [
+const DTG_CATS = [
   // Enveloppe et structure
-  'Fondations','⬇️ Planchers bas','Murs, refends et façades','Couverture','Charpente','Balcons','🪟 Fenêtres et occultations','🚪 Portes',
+  'Fondations','Planchers bas','Murs, refends et façades','Couverture','Charpente','Balcons','Fenêtres et occultations','Portes',
   // Sous-sols
   'Caves','Parking en sous-sol',
   // Ventilation
@@ -3549,71 +3558,71 @@ const 📷 Photos_CATS = [
   // Autre
   'Autre'
 ];
-let 📷 PhotosPendingBuf = []; // buffer avant validation
+let dtgPendingBuf = []; // buffer avant validation
 
-function ajouterPhotos📷 Photos(input){
+function ajouterPhotosDTG(input){
   const files = Array.from(input.files);
   let done = 0;
   files.forEach(file=>{
     const r = new FileReader();
     r.onload = e=>{
-      📷 PhotosPendingBuf.push(e.target.result);
+      dtgPendingBuf.push(e.target.result);
       done++;
-      if(done===files.length) render📷 PhotosPending();
+      if(done===files.length) renderDTGPending();
     };
     r.readAsDataURL(file);
   });
   input.value='';
 }
 
-function render📷 PhotosPending(){
-  const c = document.getElementById('📷 Photos-pending');
-  const actions = document.getElementById('📷 Photos-pending-actions');
-  if(!📷 PhotosPendingBuf.length){ c.innerHTML=''; if(actions) actions.style.display='none'; return; }
-  c.innerHTML = 📷 PhotosPendingBuf.map((src,i)=>
+function renderDTGPending(){
+  const c = document.getElementById('dtg-pending');
+  const actions = document.getElementById('dtg-pending-actions');
+  if(!dtgPendingBuf.length){ c.innerHTML=''; if(actions) actions.style.display='none'; return; }
+  c.innerHTML = dtgPendingBuf.map((src,i)=>
     '<div style="position:relative;width:90px;height:90px;border-radius:var(--rs);overflow:hidden;border:.5px solid var(--bor)">'
     +'<img src="'+src+'" style="width:100%;height:100%;object-fit:cover">'
-    +'<button onclick="supp📷 PhotosPending('+i+')" style="position:absolute;top:3px;right:3px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;line-height:20px;text-align:center;padding:0">×</button>'
+    +'<button onclick="suppDTGPending('+i+')" style="position:absolute;top:3px;right:3px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;line-height:20px;text-align:center;padding:0">×</button>'
     +'</div>'
   ).join('');
   if(actions) actions.style.display='block';
 }
 
-function supp📷 PhotosPending(idx){
-  📷 PhotosPendingBuf.splice(idx,1);
-  render📷 PhotosPending();
+function suppDTGPending(idx){
+  dtgPendingBuf.splice(idx,1);
+  renderDTGPending();
 }
 
-function annulerPhotos📷 Photos(){
-  📷 PhotosPendingBuf=[];
-  render📷 PhotosPending();
+function annulerPhotosDTG(){
+  dtgPendingBuf=[];
+  renderDTGPending();
 }
 
-function get📷 PhotosTags(){
-  return Array.from(document.querySelectorAll('.📷 Photos-tag-cb:checked')).map(cb=>cb.value);
+function getDTGTags(){
+  return Array.from(document.querySelectorAll('.dtg-tag-cb:checked')).map(cb=>cb.value);
 }
-function reset📷 PhotosTags(){
-  document.querySelectorAll('.📷 Photos-tag-cb').forEach(cb=>cb.checked=false);
+function resetDTGTags(){
+  document.querySelectorAll('.dtg-tag-cb').forEach(cb=>cb.checked=false);
 }
-async function validerPhotos📷 Photos(){
-  const cat   = document.getElementById('📷 Photos-cat').value;
-  const titre = document.getElementById('📷 Photos-titre').value.trim();
-  const tags  = get📷 PhotosTags();
+async function validerPhotosDTG(){
+  const cat   = document.getElementById('dtg-cat').value;
+  const titre = document.getElementById('dtg-titre').value.trim();
+  const tags  = getDTGTags();
   if(!cat){ toast('Choisissez une catégorie'); return; }
-  if(!📷 PhotosPendingBuf.length){ toast('Aucune photo à enregistrer'); return; }
-  const n = 📷 PhotosPendingBuf.length;
-  for(let i=0; i<📷 PhotosPendingBuf.length; i++){
-    const src = 📷 PhotosPendingBuf[i];
-    // Stocker la photo dans IndexedDB, garder seulement l'id dans 📷 PhotosPhotos
+  if(!dtgPendingBuf.length){ toast('Aucune photo à enregistrer'); return; }
+  const n = dtgPendingBuf.length;
+  for(let i=0; i<dtgPendingBuf.length; i++){
+    const src = dtgPendingBuf[i];
+    // Stocker la photo dans IndexedDB, garder seulement l'id dans dtgPhotos
     let photoRef;
     try {
-      photoRef = await save📷 PhotosPhoto(src);
+      photoRef = await saveDTGPhoto(src);
     } catch(e){
       // Fallback localStorage si IDB indisponible
       photoRef = src;
       console.warn('[ORFIT] IDB indisponible, fallback localStorage:', e);
     }
-    📷 PhotosPhotos.push({
+    dtgPhotos.push({
       id: Date.now()+Math.random(),
       cat,
       titre: titre || (cat+(n>1?' '+(i+1):'')),
@@ -3622,30 +3631,30 @@ async function validerPhotos📷 Photos(){
       date: new Date().toLocaleString('fr-FR')
     });
   }
-  📷 PhotosPendingBuf=[];
-  save(); render📷 PhotosPending(); render📷 Photos();
-  document.getElementById('📷 Photos-titre').value='';
-  reset📷 PhotosTags();
+  dtgPendingBuf=[];
+  save(); renderDTGPending(); renderDTG();
+  document.getElementById('dtg-titre').value='';
+  resetDTGTags();
   toast(n+' photo'+(n>1?'s':'')+' enregistrée'+(n>1?'s':'')+'  ✓');
 }
 
-function suppPhoto📷 Photos(id){
-  const p = 📷 PhotosPhotos.find(x=>String(x.id)===String(id));
+function suppPhotoDTG(id){
+  const p = dtgPhotos.find(x=>String(x.id)===String(id));
   if(p && p.src && !p.src.startsWith('data:')) idbDel(p.src).catch(()=>{});
-  📷 PhotosPhotos = 📷 PhotosPhotos.filter(p=>String(p.id)!==String(id));
-  save(); render📷 Photos();
+  dtgPhotos = dtgPhotos.filter(p=>String(p.id)!==String(id));
+  save(); renderDTG();
 }
 
-const 📷 Photos_TAG_COLORS={'Défaut / Problème':{col:'#A32D2D',bg:'#FCEBEB'},'Vétusté':{col:'#854F0B',bg:'#FAEEDA'},'À remplacer':{col:'#854F0B',bg:'#FAEEDA'},'Urgence':{col:'#A32D2D',bg:'#FCEBEB'},'Non-conformité':{col:'#185FA5',bg:'#E6F1FB'},'Bon état':{col:'#3B6D11',bg:'#EAF3DE'}};
-let 📷 PhotosFilterTag='';
-function set📷 PhotosFilter(tag){ 📷 PhotosFilterTag=(📷 PhotosFilterTag===tag)?'':tag; render📷 Photos(); }
+const DTG_TAG_COLORS={'Défaut / Problème':{col:'#A32D2D',bg:'#FCEBEB'},'Vétusté':{col:'#854F0B',bg:'#FAEEDA'},'À remplacer':{col:'#854F0B',bg:'#FAEEDA'},'Urgence':{col:'#A32D2D',bg:'#FCEBEB'},'Non-conformité':{col:'#185FA5',bg:'#E6F1FB'},'Bon état':{col:'#3B6D11',bg:'#EAF3DE'}};
+let dtgFilterTag='';
+function setDTGFilter(tag){ dtgFilterTag=(dtgFilterTag===tag)?'':tag; renderDTG(); }
 
-function render📷 Photos(){
-  const c=document.getElementById('📷 Photos-galerie');
+function renderDTG(){
+  const c=document.getElementById('dtg-galerie');
   if(!c) return;
-  const exportBloc=document.getElementById('📷 Photos-export-bloc');
-  if(!📷 PhotosPhotos.length){
-    c.innerHTML='<div class="empty">Aucune photo 📷 Photos enregistrée.</div>';
+  const exportBloc=document.getElementById('dtg-export-bloc');
+  if(!dtgPhotos.length){
+    c.innerHTML='<div class="empty">Aucune photo DTG enregistrée.</div>';
     if(exportBloc) exportBloc.style.display='none';
     return;
   }
@@ -3653,34 +3662,34 @@ function render📷 Photos(){
 
   // Barre filtre par tag
   const allTags=['Défaut / Problème','Vétusté','À remplacer','Urgence','Non-conformité','Bon état'];
-  const usedTags=allTags.filter(t=>📷 PhotosPhotos.some(p=>p.tags&&p.tags.includes(t)));
+  const usedTags=allTags.filter(t=>dtgPhotos.some(p=>p.tags&&p.tags.includes(t)));
   let filterBar='';
   if(usedTags.length){
         filterBar='<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;align-items:center">'
       +'<span style="font-size:11px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap">Filtrer :</span>'
       +usedTags.map(t=>{
-        const tc=📷 Photos_TAG_COLORS[t]||{col:'#666',bg:'#eee'};
-        const act=📷 PhotosFilterTag===t;
-        return '<button data-tag="'+t+'" onclick="set📷 PhotosFilter(this.dataset.tag)" style="padding:4px 10px;border-radius:20px;border:.5px solid '+tc.col+';background:'+(act?tc.col:tc.bg)+';color:'+(act?'#fff':tc.col)+';font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">'+t+'</button>';
+        const tc=DTG_TAG_COLORS[t]||{col:'#666',bg:'#eee'};
+        const act=dtgFilterTag===t;
+        return '<button data-tag="'+t+'" onclick="setDTGFilter(this.dataset.tag)" style="padding:4px 10px;border-radius:20px;border:.5px solid '+tc.col+';background:'+(act?tc.col:tc.bg)+';color:'+(act?'#fff':tc.col)+';font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">'+t+'</button>';
       }).join('')
-      +(📷 PhotosFilterTag?'<button onclick="set📷 PhotosFilter(\'\')" style="padding:4px 10px;border-radius:20px;border:.5px solid var(--bor);background:var(--bg);color:var(--tx2);font-size:11px;cursor:pointer;font-family:inherit">&#10005; Tout</button>':'')
+      +(dtgFilterTag?'<button onclick="setDTGFilter(\'\')" style="padding:4px 10px;border-radius:20px;border:.5px solid var(--bor);background:var(--bg);color:var(--tx2);font-size:11px;cursor:pointer;font-family:inherit">&#10005; Tout</button>':'')
       +'</div>';
   }
 
   // Photo count total
-  const nbTotal=📷 PhotosPhotos.length;
-  const filterHdr='<div style="font-size:12px;color:var(--tx2);margin-bottom:10px">'+nbTotal+' photo'+(nbTotal>1?'s':'')+' au total'+(📷 PhotosFilterTag?' — filtré : <strong>'+📷 PhotosFilterTag+'</strong>':'')+'</div>';
+  const nbTotal=dtgPhotos.length;
+  const filterHdr='<div style="font-size:12px;color:var(--tx2);margin-bottom:10px">'+nbTotal+' photo'+(nbTotal>1?'s':'')+' au total'+(dtgFilterTag?' — filtré : <strong>'+dtgFilterTag+'</strong>':'')+'</div>';
 
   // Filtrer
-  let filtered=📷 PhotosPhotos;
-  if(📷 PhotosFilterTag) filtered=📷 PhotosPhotos.filter(p=>p.tags&&p.tags.includes(📷 PhotosFilterTag));
+  let filtered=dtgPhotos;
+  if(dtgFilterTag) filtered=dtgPhotos.filter(p=>p.tags&&p.tags.includes(dtgFilterTag));
 
   // Grouper par catégorie
   const grp={};
   filtered.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
   if(!filtered.length){ c.innerHTML=filterBar+'<div class="empty">Aucune photo avec ce tag.</div>'; return; }
 
-  c.innerHTML=filterBar+filterHdr+📷 Photos_CATS.filter(cat=>grp[cat]).map(cat=>{
+  c.innerHTML=filterBar+filterHdr+DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
     const photos=grp[cat];
     return '<div style="margin-bottom:20px">'
       +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">'
@@ -3691,14 +3700,14 @@ function render📷 Photos(){
       +photos.map(p=>{
         const sid=String(p.id).replace('.','_');
         // Badges tags
-        const tagBadges=(p.tags&&p.tags.length)?p.tags.map(t=>{ const tc=📷 Photos_TAG_COLORS[t]||{col:'#666',bg:'#eee'}; return '<span style="font-size:9px;font-weight:700;padding:1px 5px;border-radius:6px;background:'+tc.col+';color:#fff;display:inline-block;margin:1px 1px 0 0">'+t+'</span>'; }).join(''):'';
+        const tagBadges=(p.tags&&p.tags.length)?p.tags.map(t=>{ const tc=DTG_TAG_COLORS[t]||{col:'#666',bg:'#eee'}; return '<span style="font-size:9px;font-weight:700;padding:1px 5px;border-radius:6px;background:'+tc.col+';color:#fff;display:inline-block;margin:1px 1px 0 0">'+t+'</span>'; }).join(''):'';
         return '<div style="position:relative;border-radius:var(--rs);overflow:hidden;border:.5px solid var(--bor);background:var(--sur)">'
           +'<img src="'+p.src+'" style="width:100%;aspect-ratio:1;object-fit:cover;display:block">'
           +'<div style="padding:4px 6px">'
             +'<div style="font-size:11px;font-weight:600;color:var(--tx);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+p.titre+'">'+p.titre+'</div>'
             +(tagBadges?'<div style="margin-top:3px;display:flex;flex-wrap:wrap">'+tagBadges+'</div>':'')
           +'</div>'
-          +'<button data-id="'+sid+'" onclick="suppPhoto📷 Photos(this.dataset.id)" style="position:absolute;top:4px;right:4px;background:rgba(163,45,45,.85);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:13px;cursor:pointer;line-height:22px;text-align:center;padding:0">×</button>'
+          +'<button data-id="'+sid+'" onclick="suppPhotoDTG(this.dataset.id)" style="position:absolute;top:4px;right:4px;background:rgba(163,45,45,.85);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:13px;cursor:pointer;line-height:22px;text-align:center;padding:0">×</button>'
           +'</div>';
       }).join('')
       +'</div></div>';
@@ -3707,17 +3716,17 @@ function render📷 Photos(){
 
 
 // ══════════════════════════════════════════════
-// Export 📷 Photos — ZIP photos PNG + Excel légendes
+// Export DTG — ZIP photos PNG + Excel légendes
 // ══════════════════════════════════════════════
-async function export📷 PhotosZip(){
-  if(!📷 PhotosPhotos.length){ toast('Aucune photo à exporter'); return; }
+async function exportDTGZip(){
+  if(!dtgPhotos.length){ toast('Aucune photo à exporter'); return; }
   if(typeof JSZip === 'undefined'){ toast('JSZip non chargé — vérifiez la connexion'); return; }
 
-  const prog = document.getElementById('📷 Photos-export-progress');
+  const prog = document.getElementById('dtg-export-progress');
   if(prog){ prog.style.display='block'; prog.textContent='Préparation des photos…'; }
 
   const zip = new JSZip();
-  const folder = zip.folder('Photos_📷 Photos');
+  const folder = zip.folder('Photos_DTG');
 
   // Convertir base64 JPEG → PNG via canvas
   function toPNG(src){
@@ -3746,10 +3755,10 @@ async function export📷 PhotosZip(){
   }
 
   // Trier par catégorie puis par date
-  const 📷 Photos_CATS_ORDER = 📷 Photos_CATS;
-  const sorted = [...📷 PhotosPhotos].sort((a,b)=>{
-    const ia = 📷 Photos_CATS_ORDER.indexOf(a.cat);
-    const ib = 📷 Photos_CATS_ORDER.indexOf(b.cat);
+  const DTG_CATS_ORDER = DTG_CATS;
+  const sorted = [...dtgPhotos].sort((a,b)=>{
+    const ia = DTG_CATS_ORDER.indexOf(a.cat);
+    const ib = DTG_CATS_ORDER.indexOf(b.cat);
     return ia!==ib ? ia-ib : 0;
   });
 
@@ -3791,12 +3800,12 @@ async function export📷 PhotosZip(){
     const cell = ws[XLSX.utils.encode_cell({r:0,c:i})];
     if(cell) cell.s = hdrStyle;
   });
-  XLSX.utils.book_append_sheet(wb, ws, 'Photos 📷 Photos');
+  XLSX.utils.book_append_sheet(wb, ws, 'Photos DTG');
 
   // Écrire Excel en base64 et l'ajouter au ZIP
   const xlsB64 = XLSX.write(wb, {bookType:'xlsx', type:'base64'});
   const ref = (typeof copro !== 'undefined' && copro.nom) ? copro.nom : 'chantier';
-  zip.file('Legendes_📷 Photos_'+slug(ref)+'.xlsx', xlsB64, {base64:true});
+  zip.file('Legendes_DTG_'+slug(ref)+'.xlsx', xlsB64, {base64:true});
 
   if(prog) prog.textContent = 'Génération du ZIP…';
 
@@ -3805,7 +3814,7 @@ async function export📷 PhotosZip(){
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = '📷 Photos_Photos_'+slug(ref)+'.zip';
+  a.download = 'DTG_Photos_'+slug(ref)+'.zip';
   a.click();
   URL.revokeObjectURL(url);
 
@@ -3815,17 +3824,17 @@ async function export📷 PhotosZip(){
 
 
 // ══════════════════════════════════════════════
-// Export HTML photos 📷 Photos (compatible Safari iOS)
+// Export HTML photos DTG (compatible Safari iOS)
 // ══════════════════════════════════════════════
-async function ouvrir📷 PhotosHtml(){
-  if(!📷 PhotosPhotos.length){ toast('Aucune photo 📷 Photos à afficher'); return; }
-  const prog = document.getElementById('📷 Photos-export-progress');
+async function ouvrirDTGHtml(){
+  if(!dtgPhotos.length){ toast('Aucune photo DTG à afficher'); return; }
+  const prog = document.getElementById('dtg-export-progress');
   if(prog){ prog.style.display='block'; prog.textContent='Préparation du rapport…'; }
 
   // Résoudre srcs IDB
-  let _resolved=📷 PhotosPhotos;
-  try{ _resolved=await Promise.all(📷 PhotosPhotos.map(async p=>{ if(!p.src||p.src.startsWith('data:')) return p; const s=await idbGet(p.src); return {...p,src:s||p.src}; })); }catch(e){}
-  const sorted=[..._resolved].sort((a,b)=>📷 Photos_CATS.indexOf(a.cat)-📷 Photos_CATS.indexOf(b.cat));
+  let _resolved=dtgPhotos;
+  try{ _resolved=await Promise.all(dtgPhotos.map(async p=>{ if(!p.src||p.src.startsWith('data:')) return p; const s=await idbGet(p.src); return {...p,src:s||p.src}; })); }catch(e){}
+  const sorted=[..._resolved].sort((a,b)=>DTG_CATS.indexOf(a.cat)-DTG_CATS.indexOf(b.cat));
   const converted=[];
   for(let i=0;i<sorted.length;i++){
     if(prog) prog.textContent='Conversion '+(i+1)+'/'+sorted.length+'…';
@@ -3834,9 +3843,9 @@ async function ouvrir📷 PhotosHtml(){
   const grp={};
   converted.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
   const tagColors={'Défaut / Problème':'#A32D2D','Vétusté':'#854F0B','À remplacer':'#854F0B','Urgence':'#c0392b','Non-conformité':'#185FA5','Bon état':'#3B6D11'};
-  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'🏢 Copro';
+  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'Copropriété';
   const date=new Date().toLocaleDateString('fr-FR');
-  const sectionsHtml=📷 Photos_CATS.filter(cat=>grp[cat]).map(cat=>{
+  const sectionsHtml=DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
     const photos=grp[cat];
     return '<div style="margin-bottom:28px">'
       +'<h2 style="font-size:15px;font-weight:700;color:#185FA5;border-bottom:2px solid #185FA5;padding-bottom:6px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px">'+cat+' <span style="font-size:12px;font-weight:400;color:#888">('+photos.length+')</span></h2>'
@@ -3853,13 +3862,13 @@ async function ouvrir📷 PhotosHtml(){
       }).join('')
       +'</div></div>';
   }).join('');
-  const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos 📷 Photos — '+ref+'</title>'
+  const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos DTG — '+ref+'</title>'
     +'<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#f5f5f5;color:#1a1a1a}'
     +'.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}'
     +'.hd h1{font-size:20px;margin:0 0 4px},.hd p{font-size:13px;margin:0;opacity:.8}'
     +'@media print{body{background:#fff}.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}}'
     +'</style></head><body>'
-    +'<div class="hd"><h1>Photos 📷 Photos — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
+    +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
     +sectionsHtml
     +'</body></html>';
 
@@ -3870,7 +3879,7 @@ async function ouvrir📷 PhotosHtml(){
   // Sur iOS Safari, ouvrir dans un nouvel onglet fonctionne mieux que le téléchargement
   const a = document.createElement('a');
   a.href = url;
-  a.download = '📷 Photos_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
+  a.download = 'DTG_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
   a.target = '_blank';
   a.click();
   URL.revokeObjectURL(url);
@@ -3879,15 +3888,15 @@ async function ouvrir📷 PhotosHtml(){
   toast('Fichier HTML généré ✓ — partagez-le par AirDrop ou Mail');
 }
 
-async function export📷 PhotosHtml(){
-  if(!📷 PhotosPhotos.length){ toast('Aucune photo 📷 Photos à afficher'); return; }
-  const prog = document.getElementById('📷 Photos-export-progress');
+async function exportDTGHtml(){
+  if(!dtgPhotos.length){ toast('Aucune photo DTG à afficher'); return; }
+  const prog = document.getElementById('dtg-export-progress');
   if(prog){ prog.style.display='block'; prog.textContent='Préparation du rapport…'; }
 
   // Résoudre srcs IDB
-  let _resolved=📷 PhotosPhotos;
-  try{ _resolved=await Promise.all(📷 PhotosPhotos.map(async p=>{ if(!p.src||p.src.startsWith('data:')) return p; const s=await idbGet(p.src); return {...p,src:s||p.src}; })); }catch(e){}
-  const sorted=[..._resolved].sort((a,b)=>📷 Photos_CATS.indexOf(a.cat)-📷 Photos_CATS.indexOf(b.cat));
+  let _resolved=dtgPhotos;
+  try{ _resolved=await Promise.all(dtgPhotos.map(async p=>{ if(!p.src||p.src.startsWith('data:')) return p; const s=await idbGet(p.src); return {...p,src:s||p.src}; })); }catch(e){}
+  const sorted=[..._resolved].sort((a,b)=>DTG_CATS.indexOf(a.cat)-DTG_CATS.indexOf(b.cat));
   const converted=[];
   for(let i=0;i<sorted.length;i++){
     if(prog) prog.textContent='Conversion '+(i+1)+'/'+sorted.length+'…';
@@ -3896,9 +3905,9 @@ async function export📷 PhotosHtml(){
   const grp={};
   converted.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
   const tagColors={'Défaut / Problème':'#A32D2D','Vétusté':'#854F0B','À remplacer':'#854F0B','Urgence':'#c0392b','Non-conformité':'#185FA5','Bon état':'#3B6D11'};
-  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'🏢 Copro';
+  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'Copropriété';
   const date=new Date().toLocaleDateString('fr-FR');
-  const sectionsHtml=📷 Photos_CATS.filter(cat=>grp[cat]).map(cat=>{
+  const sectionsHtml=DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
     const photos=grp[cat];
     return '<div style="margin-bottom:28px">'
       +'<h2 style="font-size:15px;font-weight:700;color:#185FA5;border-bottom:2px solid #185FA5;padding-bottom:6px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px">'+cat+' <span style="font-size:12px;font-weight:400;color:#888">('+photos.length+')</span></h2>'
@@ -3915,13 +3924,13 @@ async function export📷 PhotosHtml(){
       }).join('')
       +'</div></div>';
   }).join('');
-  const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos 📷 Photos — '+ref+'</title>'
+  const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos DTG — '+ref+'</title>'
     +'<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#f5f5f5;color:#1a1a1a}'
     +'.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}'
     +'.hd h1{font-size:20px;margin:0 0 4px},.hd p{font-size:13px;margin:0;opacity:.8}'
     +'@media print{body{background:#fff}.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}}'
     +'</style></head><body>'
-    +'<div class="hd"><h1>Photos 📷 Photos — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
+    +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
     +sectionsHtml
     +'</body></html>';
 
@@ -3932,7 +3941,7 @@ async function export📷 PhotosHtml(){
   // Sur iOS Safari, ouvrir dans un nouvel onglet fonctionne mieux que le téléchargement
   const a = document.createElement('a');
   a.href = url;
-  a.download = '📷 Photos_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
+  a.download = 'DTG_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
   a.target = '_blank';
   a.click();
   URL.revokeObjectURL(url);
@@ -4021,7 +4030,7 @@ function clonerFenInAppt(sid){
 
 function suppPorteInAppt(sid){
   const rid=sid.replace('_','.');
-  🚪 Portes=🚪 Portes.filter(p=>String(p.id)!==rid&&String(p.id).replace('.','_')!==sid);
+  portes=portes.filter(p=>String(p.id)!==rid&&String(p.id).replace('.','_')!==sid);
   save(); renderApptsList();
 }
 
@@ -4071,12 +4080,12 @@ function clonerPlf(id){
   toast(plfTitre(clone)+' cloné ✓');
 }
 function clonerPorte(id){
-  const p = 🚪 Portes.find(x=>String(x.id)===String(id));
+  const p = portes.find(x=>String(x.id)===String(id));
   if(!p) return;
   const num = nextPorteNum();
   const clone = {...p, id:Date.now(), num, rep:'Porte '+num};
-  🚪 Portes.push(clone);
-  save(); render🚪 PortesView(); renderApptsList();
+  portes.push(clone);
+  save(); renderPortesView(); renderApptsList();
   toast('Porte '+num+' clonée ✓');
 }
 
@@ -4089,9 +4098,9 @@ async function sauvegarderProjet(){
   const date = new Date().toLocaleDateString('fr-FR').replace(/\//g,'-');
 
   // Snapshot JSON — résoudre les photos IDB avant export
-  let 📷 PhotosPhotosResolved = 📷 PhotosPhotos;
+  let dtgPhotosResolved = dtgPhotos;
   try {
-    📷 PhotosPhotosResolved = await Promise.all(📷 PhotosPhotos.map(async p=>{
+    dtgPhotosResolved = await Promise.all(dtgPhotos.map(async p=>{
       if(!p.src || p.src.startsWith('data:')) return p;
       const src = await idbGet(p.src);
       return {...p, src: src||''};
@@ -4099,9 +4108,9 @@ async function sauvegarderProjet(){
   } catch(e){ console.warn('[ORFIT] Export IDB:', e); }
 
   const snap = JSON.stringify({
-    appts, murs, fens, plas, plfs, 🚪 Portes,
+    appts, murs, fens, plas, plfs, portes,
     chaufs, ecss, photos,
-    📷 PhotosPhotos: 📷 PhotosPhotosResolved,
+    dtgPhotos: dtgPhotosResolved,
     vmc, copro
   });
 
@@ -4117,11 +4126,11 @@ async function sauvegarderProjet(){
     + 'localStorage.setItem(\'pppt_fens\',JSON.stringify(d.fens||[]));'
     + 'localStorage.setItem(\'pppt_plas\',JSON.stringify(d.plas||[]));'
     + 'localStorage.setItem(\'pppt_plfs\',JSON.stringify(d.plfs||[]));'
-    + 'localStorage.setItem(\'pppt_🚪 Portes\',JSON.stringify(d.🚪 Portes||[]));'
+    + 'localStorage.setItem(\'pppt_portes\',JSON.stringify(d.portes||[]));'
     + 'localStorage.setItem(\'pppt_chaufs\',JSON.stringify(d.chaufs||[]));'
     + 'localStorage.setItem(\'pppt_ecss\',JSON.stringify(d.ecss||[]));'
     + 'localStorage.setItem(\'pppt_photos\',JSON.stringify(d.photos||{}));'
-    + 'localStorage.setItem(\'pppt_📷 Photos\',JSON.stringify(d.📷 PhotosPhotos||[]));'
+    + 'localStorage.setItem(\'pppt_dtg\',JSON.stringify(d.dtgPhotos||[]));'
     + 'localStorage.setItem(\'pppt_vmc\',JSON.stringify(d.vmc||{}));'
     + 'localStorage.setItem(\'pppt_copro\',JSON.stringify(d.copro||{}));'
     + 'if(d.appts&&d.appts.length)localStorage.setItem(\'pppt_cur\',String(d.appts[0].id));'
@@ -4143,7 +4152,7 @@ async function sauvegarderProjet(){
     lbl.style.display='inline'; btn.style.background='#3B6D11';
     setTimeout(()=>{ lbl.style.display='none'; btn.style.background='var(--eti-orange)'; }, 2500);
   }
-  const nb = Object.keys(photos||{}).length + (📷 PhotosPhotos||[]).length;
+  const nb = Object.keys(photos||{}).length + (dtgPhotos||[]).length;
   toast('Sauvegardé — ' + appts.length + ' appts · ' + nb + ' photos ✓');
 }
 
@@ -4329,9 +4338,9 @@ function idbClear(){
   }));
 }
 
-// Sauvegarder une photo 📷 Photos dans IDB, retourner l'id
-async function save📷 PhotosPhoto(src){
-  const id = '📷 Photos_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+// Sauvegarder une photo DTG dans IDB, retourner l'id
+async function saveDTGPhoto(src){
+  const id = 'dtg_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
   await idbSet(id, src);
   return id;
 }
@@ -4343,8 +4352,8 @@ async function loadPhotoSrc(idOrSrc){
   return await idbGet(idOrSrc);
 }
 
-// Résoudre toutes les srcs d'un tableau de photos 📷 Photos
-async function resolve📷 PhotosSrcs(photos){
+// Résoudre toutes les srcs d'un tableau de photos DTG
+async function resolveDTGSrcs(photos){
   return Promise.all(photos.map(async p=>{
     if(!p.src || p.src.startsWith('data:')) return p;
     const src = await idbGet(p.src);
@@ -4384,12 +4393,12 @@ async function updateStorageInfo(){
   const el = document.getElementById('storage-info');
   if(!el) return;
   const info = await estimerStockage();
-  const nb📷 Photos = 📷 PhotosPhotos.length;
+  const nbDTG = dtgPhotos.length;
   const nbChEcs = Object.keys(photos||{}).length;
   if(info){
-    el.innerHTML = '📦 Stockage : <strong>'+info.usageMB+' MB</strong> utilisés sur '+info.quotaMB+' MB disponibles ('+info.pct+'%) · '+nb📷 Photos+' photo'+(nb📷 Photos>1?'s':'')+' 📷 Photos';
+    el.innerHTML = '📦 Stockage : <strong>'+info.usageMB+' MB</strong> utilisés sur '+info.quotaMB+' MB disponibles ('+info.pct+'%) · '+nbDTG+' photo'+(nbDTG>1?'s':'')+' DTG';
   } else {
-    el.innerHTML = '📦 '+nb📷 Photos+' photo'+(nb📷 Photos>1?'s':'')+' 📷 Photos · stockage IndexedDB';
+    el.innerHTML = '📦 '+nbDTG+' photo'+(nbDTG>1?'s':'')+' DTG · stockage IndexedDB';
   }
 }
 
@@ -4400,7 +4409,7 @@ loadCopro();
 loadVMC();
 renderApptsList();
 renderCoproRecap();
-render📷 Photos();
+renderDTG();
 updateHeader();
 updateExportView();
 </script>
