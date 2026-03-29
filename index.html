@@ -243,6 +243,51 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .acc-stat-val{font-size:22px}
 }
 
+
+/* ── Vue Aide ── */
+.aide-intro{background:var(--eti-dark);border-radius:14px;padding:20px;margin-bottom:16px;color:#fff}
+.aide-tagline{font-size:15px;font-weight:800;color:#fff;margin-bottom:4px}
+.aide-intro p{font-size:13px;line-height:1.6;opacity:.88;margin-top:8px}
+.aide-compat{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.aide-compat-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:4px 10px;font-size:12px;color:#fff}
+.aide-section-title{font-size:11px;font-weight:700;color:var(--eti-orange);text-transform:uppercase;letter-spacing:.8px;margin:20px 0 8px;padding-left:10px;border-left:4px solid var(--eti-orange)}
+.aide-step{background:var(--sur);border-radius:14px;padding:16px;margin-bottom:10px;border:.5px solid var(--bor)}
+.aide-step-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.aide-step-num{width:36px;height:36px;border-radius:50%;background:var(--eti-orange);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aide-step-title{font-size:15px;font-weight:700;color:var(--eti-dark)}
+.aide-step-sub{font-size:11px;color:var(--eti-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:1px}
+.aide-step p{font-size:14px;line-height:1.65;color:#444;margin-bottom:8px}
+.aide-step p:last-child{margin-bottom:0}
+.aide-list{list-style:none;counter-reset:aide-c;margin:8px 0;padding:0}
+.aide-list li{counter-increment:aide-c;position:relative;padding-left:32px;margin-bottom:9px;font-size:14px;line-height:1.6;color:#444}
+.aide-list li::before{content:counter(aide-c);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--eti-xlight);color:var(--eti-dark);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center}
+.aide-alert{background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:10px;padding:11px 13px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+.aide-info{background:var(--eti-xlight);border-radius:10px;padding:11px 13px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+.aide-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;border-radius:8px;overflow:hidden}
+.aide-table th{background:var(--eti-dark);color:var(--eti-light);padding:8px 10px;text-align:left;font-weight:700}
+.aide-table td{padding:8px 10px;border-bottom:.5px solid var(--bor)}
+.aide-table tr:last-child td{border-bottom:none}
+.aide-table tr:nth-child(even) td{background:rgba(67,84,89,.03)}
+.aide-os-tabs{display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap}
+.aide-os-tab{padding:6px 11px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:transparent;font-family:inherit;transition:all .15s}
+.aide-os-tab.active{background:var(--c);color:#fff}
+.aide-os-tab.ios{--c:#007AFF}
+.aide-os-tab.android{--c:#3DDC84}
+.aide-os-tab.windows{--c:var(--eti-orange)}
+.aide-os-block{display:none;background:var(--bg);border-radius:10px;padding:11px;font-size:14px;line-height:1.65;color:#444}
+.aide-os-block.active{display:block}
+.aide-faq-q{font-size:14px;font-weight:700;color:var(--eti-dark);margin-bottom:5px}
+.aide-faq-a{font-size:13px;line-height:1.65;color:#555}
+.aide-footer{text-align:center;margin-top:20px;padding-top:14px;border-top:.5px solid var(--bor)}
+.aide-footer p{font-size:12px;color:var(--eti-light);line-height:1.8}
+.aide-footer a{color:var(--eti-orange);font-weight:600;text-decoration:none}
+@media(max-width:768px){
+  .aide-step{padding:14px}
+  .aide-step-title{font-size:16px}
+  .aide-step p,.aide-list li{font-size:15px}
+  .aide-alert,.aide-info{font-size:14px}
+}
+
 </style>
 </head>
 <body>
@@ -279,183 +324,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 <!-- ================================
      VUE : ACCUEIL (GUIDE)
      ================================ -->
-<div id="idvw-accueil" class="vw on">
-<style>
-.guide-wrap{max-width:820px;margin:0 auto;padding:20px 16px 80px;}
-.guide-intro{background:var(--eti-dark);color:#fff;border-radius:16px;padding:24px;margin-bottom:24px;}
-.guide-intro h2{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--eti-peach);}
-.guide-intro p{font-size:14px;line-height:1.7;opacity:.9;margin-top:6px;}
-.guide-compat{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
-.guide-compat-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:6px 12px;font-size:12px;color:#fff;display:flex;align-items:center;gap:5px;}
-.guide-compat-badge strong{color:var(--eti-peach);}
-.guide-step{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:.5px solid rgba(67,84,89,.15);box-shadow:0 2px 8px rgba(67,84,89,.08);}
-.guide-step-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.guide-step-num{width:40px;height:40px;border-radius:50%;background:var(--eti-orange);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.guide-step-title{font-size:16px;font-weight:700;color:var(--eti-dark);}
-.guide-step-sub{font-size:11px;color:#A4B8BE;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
-.guide-step p{font-size:14px;line-height:1.7;color:#444;margin-bottom:8px;}
-.guide-os-tabs{display:flex;gap:6px;margin:12px 0 8px;flex-wrap:wrap;}
-.guide-os-tab{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:transparent;font-family:inherit;}
-.guide-os-tab.active{background:var(--c);color:#fff;}
-.guide-os-tab.ios{--c:#007AFF;}
-.guide-os-tab.android{--c:#3DDC84;}
-.guide-os-tab.windows{--c:var(--eti-orange);}
-.guide-os-block{display:none;background:#F8F9FA;border-radius:12px;padding:14px;}
-.guide-os-block.active{display:block;}
-.guide-steps-list{counter-reset:gs;list-style:none;margin-top:8px;padding:0;}
-.guide-steps-list li{counter-increment:gs;position:relative;padding-left:34px;margin-bottom:12px;font-size:14px;line-height:1.6;}
-.guide-steps-list li::before{content:counter(gs);position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;background:var(--eti-xlight);color:var(--eti-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
-.guide-alert{background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:12px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;align-items:flex-start;}
-.guide-alert p{font-size:13px;line-height:1.6;color:var(--eti-dark);margin:0;}
-.guide-info{background:#DCE8EB;border-radius:12px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;align-items:flex-start;}
-.guide-info p{font-size:13px;line-height:1.6;color:var(--eti-dark);margin:0;}
-.guide-url{background:var(--eti-dark);color:var(--eti-peach);padding:8px 14px;border-radius:10px;font-family:monospace;font-size:13px;display:block;margin:8px 0;word-break:break-all;text-align:center;font-weight:600;}
-.guide-section-title{font-size:12px;font-weight:700;color:var(--eti-orange);text-transform:uppercase;letter-spacing:.8px;margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--eti-orange);}
-.guide-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;border-radius:10px;overflow:hidden;}
-.guide-table th{background:var(--eti-dark);color:#A4B8BE;padding:8px 10px;text-align:left;font-weight:700;}
-.guide-table td{padding:8px 10px;border-bottom:.5px solid rgba(67,84,89,.12);}
-.guide-table tr:last-child td{border-bottom:none;}
-.guide-faq{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:.5px solid rgba(67,84,89,.15);box-shadow:0 2px 8px rgba(67,84,89,.08);}
-.guide-faq-q{font-size:14px;font-weight:700;color:var(--eti-dark);margin-bottom:8px;}
-.guide-faq-a{font-size:13px;line-height:1.6;color:#444;}
-</style>
-<div class="guide-wrap">
 
-<div class="guide-intro">
-  <h2>📱 Bienvenue dans ORFIT PPPT</h2>
-  <p>ORFIT, c’est ton carnet technique numérique ! 📋</p>
-  <p>Fini les feuilles volantes, les relevés illisibles et les photos perdues dans la pellicule. Tu saisies tout sur place — murs, fenêtres, chauffage, photos DTG — et tu rentres au bureau avec un dossier béton.</p>
-  <p>Fonctionne sur iPhone, Android et PC. Aucune installation depuis un store.</p>
-  <div class="guide-compat">
-    <div class="guide-compat-badge">🍎 <strong>iPhone / iPad</strong> — Safari</div>
-    <div class="guide-compat-badge">🤖 <strong>Android</strong> — Chrome</div>
-    <div class="guide-compat-badge">🖥️ <strong>PC / Mac</strong> — tout navigateur</div>
-    <div class="guide-compat-badge">📡 <strong>Hors-ligne</strong> — fonctionne sans internet</div>
-  </div>
-</div>
-
-<div class="guide-section-title">Étape 1 — Installer l’application</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">1</div>
-    <div><div class="guide-step-title">Ouvrir l’application</div><div class="guide-step-sub">iPhone · Android · PC · Mac</div></div>
-  </div>
-  <p>Ouvrez le navigateur de votre appareil et tapez l’adresse :</p>
-  <code class="guide-url">https://loulounesta.github.io/PPPTORFIT/</code>
-  <div class="guide-alert"><span>⚠️</span><p><strong>iPhone/iPad :</strong> utilisez <strong>Safari</strong> (boussole bleue), pas Chrome.<br><strong>Android :</strong> utilisez <strong>Chrome</strong> (cercle coloré), pas Samsung Internet.</p></div>
-</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">2</div>
-    <div><div class="guide-step-title">Installer sur l’écran d’accueil</div><div class="guide-step-sub">À faire une seule fois — comme une vraie app</div></div>
-  </div>
-  <p>Choisissez votre appareil :</p>
-  <div class="guide-os-tabs">
-    <button class="guide-os-tab ios active" onclick="guideShowOS(this,'gos-ios')">🍎 iPhone / iPad</button>
-    <button class="guide-os-tab android" onclick="guideShowOS(this,'gos-android')">🤖 Android</button>
-    <button class="guide-os-tab windows" onclick="guideShowOS(this,'gos-windows')">🖥️ PC / Mac</button>
-  </div>
-  <div id="gos-ios" class="guide-os-block active">
-    <ol class="guide-steps-list">
-      <li>Une fois la page ouverte dans <strong>Safari</strong>, appuyez sur l’icône <strong>Partager</strong> ↑ (carré avec une flèche en bas de l’écran)</li>
-      <li>Faites défiler le menu vers le bas</li>
-      <li>Appuyez sur <strong>« Sur l’écran d’accueil »</strong></li>
-      <li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
-      <li>L’icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
-    </ol>
-  </div>
-  <div id="gos-android" class="guide-os-block">
-    <ol class="guide-steps-list">
-      <li>Une fois la page ouverte dans <strong>Chrome</strong>, appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
-      <li>Appuyez sur <strong>« Ajouter à l’écran d’accueil »</strong></li>
-      <li>Confirmez en appuyant sur <strong>« Ajouter »</strong></li>
-      <li>L’icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
-    </ol>
-    <div class="guide-info"><span>💡</span><p>Sur certains Android, Chrome affiche directement une bannière en bas de l’écran : « Ajouter ORFIT PPPT à l’écran d’accueil ». Appuyez dessus.</p></div>
-  </div>
-  <div id="gos-windows" class="guide-os-block">
-    <ol class="guide-steps-list">
-      <li>Sur PC ou Mac, ouvrez la page dans <strong>n’importe quel navigateur</strong></li>
-      <li>Mettez-la en <strong>favori</strong> (Ctrl+D ou Cmd+D) pour la retrouver facilement</li>
-      <li>Les données sont sauvegardées dans le navigateur — ne changez pas de navigateur entre les sessions</li>
-    </ol>
-  </div>
-  <div class="guide-info"><span>💡</span><p>Une fois installée, l’app fonctionne <strong>sans connexion internet</strong>. Idéal en immeuble avec mauvais réseau.</p></div>
-</div>
-
-<div class="guide-section-title">Étape 2 — Utilisation</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">3</div>
-    <div><div class="guide-step-title">Renseigner la copropriété</div><div class="guide-step-sub">Onglet Copropriété — avant de partir</div></div>
-  </div>
-  <p>Ouvrez l’appli et remplissez l’onglet <strong>Copropriété</strong> avec les informations de base (nom, adresse, année, date de visite, etc.). Appuyez sur <strong>Enregistrer</strong>.</p>
-</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">4</div>
-    <div><div class="guide-step-title">Saisir les appartements</div><div class="guide-step-sub">Onglet Appartements</div></div>
-  </div>
-  <p>Créez les appartements avec le bouton <strong>+ Nouveau</strong>. Pour chaque logement, saisissez les éléments : murs, fenêtres, plancher, plafond, porte. Les boutons − et + ajustent les dimensions par pas de 5 cm.</p>
-</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">5</div>
-    <div><div class="guide-step-title">Prendre les photos DTG</div><div class="guide-step-sub">Onglet 📷 DTG</div></div>
-  </div>
-  <p>Allez dans l’onglet <strong>📷 DTG</strong>, choisissez la catégorie, tapez un titre court, cochez les tags si nécessaire, puis appuyez sur la zone 📷 pour prendre la photo. Les photos sont stockées dans l’application.</p>
-</div>
-
-<div class="guide-section-title">Étape 3 — Sauvegarde & Export</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">6</div>
-    <div><div class="guide-step-title">Sauvegarder régulièrement</div><div class="guide-step-sub">Bouton 💾</div></div>
-  </div>
-  <p>Le bouton <strong>💾</strong> en haut à droite génère un fichier .html contenant toutes les données et photos. Sauvegardez après chaque appartement pour ne rien perdre.</p>
-  <div class="guide-alert"><span>⚠️</span><p>En cas de batterie morte ou redémarrage, rouvrez le fichier .html sauvegardé pour retrouver toutes vos données.</p></div>
-</div>
-
-<div class="guide-step">
-  <div class="guide-step-hd">
-    <div class="guide-step-num">7</div>
-    <div><div class="guide-step-title">Exporter pour ANNALYSSIMO</div><div class="guide-step-sub">Onglet Export</div></div>
-  </div>
-  <p>Dans l’onglet <strong>Export</strong>, utilisez <strong>Export ORFIT (.xlsx)</strong> pour un fichier Excel facilitant la saisie dans ANNALYSSIMO. Utilisez <strong>⬇ ZIP photos PNG</strong> pour obtenir les photos DTG au format PNG (ANNALYSSIMO accepte uniquement PNG).</p>
-</div>
-
-<div class="guide-section-title">Questions fréquentes</div>
-
-<div class="guide-faq">
-  <div class="guide-faq-q">❓ J’ai fermé l’app par erreur — ai-je perdu mes données ?</div>
-  <div class="guide-faq-a">Non. Les données sont sauvegardées automatiquement à chaque saisie. Rouvrez l’icône ORFIT sur votre écran d’accueil et tout est là.</div>
-</div>
-
-<div class="guide-faq">
-  <div class="guide-faq-q">❓ Ça ne marche pas sur mon iPhone — l’icône ne s’installe pas ?</div>
-  <div class="guide-faq-a">Vérifiez que vous utilisez bien <strong>Safari</strong> (pas Chrome, pas Firefox). Sur iPhone, seul Safari permet l’installation sur l’écran d’accueil.</div>
-</div>
-
-<div class="guide-faq">
-  <div class="guide-faq-q">❓ Est-ce que ça marche sans connexion internet ?</div>
-  <div class="guide-faq-a">Oui. Une fois installée sur l’écran d’accueil, l’application fonctionne entièrement hors-ligne. Aucune connexion réseau n’est nécessaire pendant la visite.</div>
-</div>
-
-</div>
-</div>
-<script>
-function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide-os-tab').forEach(t=>t.classList.remove('active'));btn.closest('.guide-step').querySelectorAll('.guide-os-block').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
-</script>
-
-<!-- ══════════════════════════════════════════════
-     VUE : COPROPRIÉTÉ
-══════════════════════════════════════════════ -->
 <div id="vw-accueil" class="vw on">
 
   <!-- ── Hero copro ── -->
@@ -572,57 +441,6 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
     </button>
   </div>
 
-  <!-- ── Nouvelles fonctionnalités ── -->
-  <div class="acc-section-title" style="margin-top:20px">Fonctionnalités</div>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:4px">
-
-    <!-- Partager -->
-    <div style="background:var(--sur);border-radius:14px;padding:16px;border:.5px solid var(--bor)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <span style="font-size:26px">📤</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:var(--eti-dark)">Partager le projet</div>
-          <div style="font-size:11px;color:var(--eti-light);text-transform:uppercase;letter-spacing:.5px">Onglet Export</div>
-        </div>
-      </div>
-      <p style="font-size:13px;line-height:1.65;color:#444;margin:0 0 8px">
-        Génère le fichier complet du projet (données + photos) et l'envoie directement via la feuille de partage de votre appareil — AirDrop, Mail, WhatsApp, etc.
-      </p>
-      <div style="background:var(--eti-xlight);border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.6;color:var(--eti-dark)">
-        💡 Sur iPhone &amp; Android, le fichier est joint automatiquement.<br>
-        Sur PC / Mac, il se télécharge pour être partagé manuellement.
-      </div>
-    </div>
-
-    <!-- Demande de visite -->
-    <div style="background:var(--sur);border-radius:14px;padding:16px;border:.5px solid var(--bor)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <span style="font-size:26px">📧</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:var(--eti-dark)">Demander des visites complémentaires</div>
-          <div style="font-size:11px;color:var(--eti-light);text-transform:uppercase;letter-spacing:.5px">Onglet Export</div>
-        </div>
-      </div>
-      <p style="font-size:13px;line-height:1.65;color:#444;margin:0 0 8px">
-        Ouvre automatiquement un mail pré-rempli à destination du service administratif pour signaler les niveaux d'échantillon manquants.
-      </p>
-      <div style="font-size:12px;line-height:1.7;color:#444;margin-bottom:8px">
-        Le mail contient automatiquement :
-        <ul style="margin:4px 0 0;padding-left:18px">
-          <li>La <strong>référence de la copropriété</strong> dans l'objet</li>
-          <li>Le <strong>bilan par niveau</strong> (RDC · Intermédiaire · Dernier étage)</li>
-          <li>Les appartements déjà visités avec leur <strong>étage et position</strong></li>
-          <li>Un <strong>avertissement ⚠️</strong> pour les niveaux sans aucun appartement saisi</li>
-        </ul>
-      </div>
-      <div style="background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.6;color:var(--eti-dark)">
-        ⚠️ Le mail est adressé à <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="23400d4f4c564a506346574a1015130d4551">[email&#160;protected]</a></strong> — pensez à saisir la copropriété avant d'envoyer.
-      </div>
-    </div>
-
-  </div>
-
-
   <!-- ── État vierge ── -->
   <div class="acc-empty" id="acc-empty-state">
     <div style="font-size:48px">📋</div>
@@ -632,9 +450,8 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
 
 </div>
 
-<div id="vw-aide" class="vw" style="display:none">
+<div id="vw-aide" class="vw">
 
-  <!-- ── Intro ── -->
   <div class="aide-intro">
     <div class="aide-tagline">ORFIT, c'est ton carnet technique numérique ! 📋</div>
     <p>Saisis tout sur place — murs, fenêtres, chauffage, photos DTG — et rentre au bureau avec un dossier béton.</p>
@@ -646,58 +463,44 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
     </div>
   </div>
 
-  <!-- ══ INSTALLATION ══ -->
   <div class="aide-section-title">Installation — à faire une seule fois</div>
-
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">1</div>
-      <div>
-        <div class="aide-step-title">Installer sur l'écran d'accueil</div>
-        <div class="aide-step-sub">Choisissez votre appareil</div>
-      </div>
+      <div><div class="aide-step-title">Installer sur l'écran d'accueil</div>
+      <div class="aide-step-sub">Choisissez votre appareil</div></div>
     </div>
     <div class="aide-os-tabs">
       <button class="aide-os-tab ios active" onclick="aideOS(this,'a-ios')">🍎 iPhone / iPad</button>
       <button class="aide-os-tab android" onclick="aideOS(this,'a-android')">🤖 Android</button>
       <button class="aide-os-tab windows" onclick="aideOS(this,'a-windows')">🖥️ PC / Mac</button>
     </div>
-    <div class="aide-os-block active" id="a-ios">
-      <ol class="aide-list">
-        <li>Ouvrez <strong>Safari</strong> et tapez l'URL de l'appli</li>
-        <li>Appuyez sur l'icône <strong>Partager ↑</strong> (bas de l'écran)</li>
-        <li>Appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
-        <li>Appuyez sur <strong>« Ajouter »</strong> → l'icône ORFIT apparaît 🎉</li>
-      </ol>
-    </div>
-    <div class="aide-os-block" id="a-android">
-      <ol class="aide-list">
-        <li>Ouvrez <strong>Chrome</strong> et tapez l'URL de l'appli</li>
-        <li>Appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
-        <li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
-        <li>Confirmez → l'icône ORFIT apparaît 🎉</li>
-      </ol>
-    </div>
-    <div class="aide-os-block" id="a-windows">
-      <ol class="aide-list">
-        <li>Ouvrez la page dans n'importe quel navigateur</li>
-        <li>Mettez-la en <strong>favori</strong> (Ctrl+D / Cmd+D)</li>
-        <li>Les données sont sauvegardées dans le navigateur</li>
-      </ol>
-    </div>
-    <div class="aide-info">💡 <span>Une fois installée, l'appli fonctionne <strong>sans connexion internet</strong>. Idéal en immeuble.</span></div>
+    <div class="aide-os-block active" id="a-ios"><ol class="aide-list">
+      <li>Ouvrez <strong>Safari</strong> et tapez l'URL de l'appli</li>
+      <li>Appuyez sur l'icône <strong>Partager ↑</strong> (bas de l'écran)</li>
+      <li>Appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
+      <li>Appuyez sur <strong>« Ajouter »</strong> → l'icône ORFIT apparaît 🎉</li>
+    </ol></div>
+    <div class="aide-os-block" id="a-android"><ol class="aide-list">
+      <li>Ouvrez <strong>Chrome</strong> et tapez l'URL de l'appli</li>
+      <li>Appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
+      <li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
+      <li>Confirmez → l'icône ORFIT apparaît 🎉</li>
+    </ol></div>
+    <div class="aide-os-block" id="a-windows"><ol class="aide-list">
+      <li>Ouvrez la page dans n'importe quel navigateur</li>
+      <li>Mettez-la en <strong>favori</strong> (Ctrl+D / Cmd+D)</li>
+      <li>Les données sont sauvegardées dans le navigateur</li>
+    </ol></div>
+    <div class="aide-info">💡 <span>Une fois installée, l'appli fonctionne <strong>sans connexion internet</strong>.</span></div>
   </div>
 
-  <!-- ══ AVANT LA VISITE ══ -->
   <div class="aide-section-title">Avant la visite</div>
-
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">2</div>
-      <div>
-        <div class="aide-step-title">🏢 Onglet Copropriété</div>
-        <div class="aide-step-sub">À remplir avant de partir</div>
-      </div>
+      <div><div class="aide-step-title">🏢 Onglet Copropriété</div>
+      <div class="aide-step-sub">À remplir avant de partir</div></div>
     </div>
     <table class="aide-table">
       <tr><th>Champ</th><th>Exemple</th></tr>
@@ -710,16 +513,12 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
     <p>Renseignez aussi <strong>VMC</strong>, <strong>🔥 Chauffage collectif</strong> et <strong>🚿 ECS collective</strong> — appuyez sur les barres pour les déplier, puis <strong>✓ Appliquer à tous les appartements</strong>.</p>
   </div>
 
-  <!-- ══ PENDANT LA VISITE ══ -->
   <div class="aide-section-title">Pendant la visite</div>
-
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">3</div>
-      <div>
-        <div class="aide-step-title">🚪 Créer les appartements</div>
-        <div class="aide-step-sub">Onglet Appartements</div>
-      </div>
+      <div><div class="aide-step-title">🚪 Créer les appartements</div>
+      <div class="aide-step-sub">Onglet Appartements</div></div>
     </div>
     <ol class="aide-list">
       <li>Appuyez sur <strong>« + Nouveau »</strong></li>
@@ -733,22 +532,24 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">4</div>
-      <div>
-        <div class="aide-step-title">🧱 🪟 🪨 ☁️ 🔑 Saisir les éléments</div>
-        <div class="aide-step-sub">Murs · Fenêtres · Planchers · Plafonds · Portes</div>
-      </div>
+      <div><div class="aide-step-title">🧱 🪟 🪨 ☁️ 🔑 Saisir les éléments</div>
+      <div class="aide-step-sub">Murs · Fenêtres · Planchers · Plafonds · Portes</div></div>
     </div>
-    <p>Depuis la fiche d'un appartement déplié, utilisez les boutons rapides <strong>+ Mur</strong>, <strong>+ Fenêtre</strong>… pour aller directement au bon onglet.</p>
+    <p>Depuis la fiche d'un appartement déplié, utilisez les boutons <strong>+ Mur</strong>, <strong>+ Fenêtre</strong>… pour aller directement au bon onglet.</p>
     <div class="aide-info">💡 <span>Les boutons <strong>−</strong> et <strong>+</strong> ajustent les dimensions par pas de <strong>5 cm</strong>.</span></div>
+    <p style="margin-top:10px">N'oubliez pas également de saisir les systèmes :</p>
+    <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.8;color:#444">
+      <li><strong>🔥 Chauffage individuel</strong> — énergie, émetteur, marque, année, puissance</li>
+      <li><strong>🚿 ECS individuelle</strong> — type, énergie, marque, année, volume, catégorie</li>
+    </ul>
+    <div class="aide-info" style="margin-top:10px">💡 <span>Pour le chauffage et l'ECS <strong>collectifs</strong>, saisissez-les une seule fois dans l'onglet <strong>🏢 Copropriété</strong> et appuyez sur <strong>✓ Appliquer à tous les appartements</strong>.</span></div>
   </div>
 
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">5</div>
-      <div>
-        <div class="aide-step-title">📷 Photos DTG</div>
-        <div class="aide-step-sub">Onglet DTG Photos</div>
-      </div>
+      <div><div class="aide-step-title">📷 Photos DTG</div>
+      <div class="aide-step-sub">Onglet DTG Photos</div></div>
     </div>
     <ol class="aide-list">
       <li>Choisissez la <strong>catégorie</strong> (façades, chauffage, escaliers…)</li>
@@ -764,19 +565,15 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
     <div class="aide-os-block active" id="b-ios"><p>L'<strong>appareil photo</strong> s'ouvre directement → <strong>« ✓ Enregistrer »</strong></p></div>
     <div class="aide-os-block" id="b-android"><p>L'<strong>appareil photo</strong> s'ouvre → <strong>« ✓ Enregistrer »</strong></p></div>
     <div class="aide-os-block" id="b-windows"><p>L'<strong>explorateur Windows</strong> s'ouvre → sélectionnez une photo → <strong>« ✓ Enregistrer »</strong></p></div>
-    <div class="aide-alert">📸 <span>Les photos sont stockées <strong>dans l'application</strong> — pas dans la pellicule. Incluses dans tous les exports.</span></div>
+    <div class="aide-alert">📸 <span>Les photos sont dans <strong>l'application</strong> — pas dans la pellicule. Incluses dans tous les exports.</span></div>
   </div>
 
-  <!-- ══ SAUVEGARDER ══ -->
   <div class="aide-section-title">Sauvegarder &amp; Exporter</div>
-
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">6</div>
-      <div>
-        <div class="aide-step-title">💾 Sauvegarder pendant la visite</div>
-        <div class="aide-step-sub">Bouton 💾 visible en permanence en haut à droite</div>
-      </div>
+      <div><div class="aide-step-title">💾 Sauvegarder pendant la visite</div>
+      <div class="aide-step-sub">Bouton 💾 en haut à droite — toujours visible</div></div>
     </div>
     <p>Génère un fichier <code>ORFIT_NomCopro_date.html</code> avec toutes les données et photos.</p>
     <div class="aide-alert">⚠️ <span>Sauvegardez <strong>après chaque appartement</strong>. En cas de batterie morte, rouvrez le fichier .html — tout est là.</span></div>
@@ -785,10 +582,8 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
   <div class="aide-step">
     <div class="aide-step-hd">
       <div class="aide-step-num">7</div>
-      <div>
-        <div class="aide-step-title">💾 Exporter au bureau</div>
-        <div class="aide-step-sub">Onglet Export</div>
-      </div>
+      <div><div class="aide-step-title">💾 Exporter au bureau</div>
+      <div class="aide-step-sub">Onglet Export</div></div>
     </div>
     <table class="aide-table">
       <tr><th>Bouton</th><th>Usage</th></tr>
@@ -799,55 +594,42 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
     </table>
   </div>
 
-  <!-- ══ NOUVELLES FONCTIONNALITÉS ══ -->
   <div class="aide-section-title">Nouvelles fonctionnalités</div>
-
   <div class="aide-step">
     <div class="aide-step-hd">
-      <div class="aide-step-num" style="background:var(--eti-dark)">📤</div>
-      <div>
-        <div class="aide-step-title">Partager le projet</div>
-        <div class="aide-step-sub">Onglet Export</div>
-      </div>
+      <div class="aide-step-num" style="background:var(--eti-dark);font-size:18px">📤</div>
+      <div><div class="aide-step-title">Partager le projet</div>
+      <div class="aide-step-sub">Onglet Export</div></div>
     </div>
-    <p>Génère le fichier complet (données + photos) et ouvre la feuille de partage native — AirDrop, Mail, WhatsApp…</p>
-    <div class="aide-info">💡 <span>Sur iPhone &amp; Android : le fichier est joint automatiquement. Sur PC/Mac : il se télécharge pour être partagé manuellement.</span></div>
+    <p>Génère le fichier complet et ouvre la feuille de partage native — AirDrop, Mail, WhatsApp…</p>
+    <div class="aide-info">💡 <span>Sur iPhone &amp; Android : fichier joint automatiquement. Sur PC/Mac : téléchargement manuel.</span></div>
   </div>
 
   <div class="aide-step">
     <div class="aide-step-hd">
-      <div class="aide-step-num" style="background:#c0392b">📧</div>
-      <div>
-        <div class="aide-step-title">Demander des visites complémentaires</div>
-        <div class="aide-step-sub">Onglet Export</div>
-      </div>
+      <div class="aide-step-num" style="background:#c0392b;font-size:18px">📧</div>
+      <div><div class="aide-step-title">Demander des visites complémentaires</div>
+      <div class="aide-step-sub">Onglet Export</div></div>
     </div>
     <p>Ouvre un mail pré-rempli pour signaler les niveaux d'échantillon manquants au service administratif.</p>
     <table class="aide-table">
       <tr><th>Contenu du mail</th><th></th></tr>
       <tr><td>Objet</td><td>Référence copropriété + N° dossier</td></tr>
       <tr><td>Bilan par niveau</td><td>RDC · Intermédiaire · Dernier étage</td></tr>
-      <tr><td>Appartements visités</td><td>Étage, position</td></tr>
-      <tr><td>Avertissement ⚠️</td><td>Niveaux sans aucun appartement saisi</td></tr>
+      <tr><td>Avertissement ⚠️</td><td>Niveaux sans appartement saisi</td></tr>
     </table>
-    <div class="aide-alert">⚠️ <span>Pensez à saisir la <strong>copropriété</strong> avant d'envoyer — la référence dossier apparaît dans l'objet du mail.</span></div>
+    <div class="aide-alert">⚠️ <span>Pensez à saisir la <strong>copropriété</strong> avant d'envoyer — la référence dossier apparaît dans l'objet.</span></div>
   </div>
 
-  <!-- ══ FAQ ══ -->
   <div class="aide-section-title">Questions fréquentes</div>
-
   <div class="aide-step"><div class="aide-faq-q">❓ J'ai fermé l'app — ai-je perdu mes données ?</div>
-  <div class="aide-faq-a">Non. Les données sont sauvegardées automatiquement. Rouvrez l'icône ORFIT — tout est là.</div></div>
-
+  <div class="aide-faq-a">Non. Les données sont sauvegardées automatiquement. Rouvrez l'icône ORFIT.</div></div>
   <div class="aide-step"><div class="aide-faq-q">❓ L'installation ne fonctionne pas sur iPhone ?</div>
-  <div class="aide-faq-a">Vérifiez que vous utilisez <strong>Safari</strong> (pas Chrome ni Firefox). Seul Safari permet d'installer une PWA sur iPhone.</div></div>
-
+  <div class="aide-faq-a">Utilisez <strong>Safari</strong> (pas Chrome ni Firefox). Seul Safari permet d'installer une PWA sur iPhone.</div></div>
   <div class="aide-step"><div class="aide-faq-q">❓ Le bouton photo ne fonctionne pas sur tablette Windows ?</div>
-  <div class="aide-faq-a">Sur Windows, l'explorateur de fichiers s'ouvre à la place. Sélectionnez vos photos normalement.</div></div>
-
+  <div class="aide-faq-a">Sur Windows, l'explorateur de fichiers s'ouvre. Sélectionnez vos photos normalement.</div></div>
   <div class="aide-step"><div class="aide-faq-q">❓ Je veux continuer sur un autre appareil ?</div>
-  <div class="aide-faq-a">Appuyez sur 💾 → envoyez le fichier .html par mail ou AirDrop → ouvrez dans Safari (iOS) ou Chrome (Android) → tout se restaure.</div></div>
-
+  <div class="aide-faq-a">💾 → envoyez le .html par mail ou AirDrop → ouvrez dans Safari (iOS) ou Chrome (Android) → tout se restaure.</div></div>
   <div class="aide-step"><div class="aide-faq-q">❓ Ça marche sans internet ?</div>
   <div class="aide-faq-a">Oui. Une fois installée, l'appli fonctionne entièrement hors-ligne.</div></div>
 
@@ -858,6 +640,7 @@ function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide
   </div>
 
 </div>
+
 <div id="vw-copro" class="vw">
   <div class="sl">Identification</div>
   <div class="card">
@@ -4289,9 +4072,9 @@ async function ouvrirDTGHtml(){
   }).join('');
   const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos DTG — '+ref+'</title>'
     +'<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#f5f5f5;color:#1a1a1a}'
-    +'.hd{background:#185FA5;color:#fff;padding:16px 20px;border-radius:10px;margin-bottom:24px}'
+    +'.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}'
     +'.hd h1{font-size:20px;margin:0 0 4px},.hd p{font-size:13px;margin:0;opacity:.8}'
-    +'@media print{body{background:#fff}.hd{border-radius:0}}'
+    +'@media print{body{background:#fff}.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}}'
     +'</style></head><body>'
     +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
     +sectionsHtml
@@ -4348,9 +4131,9 @@ async function exportDTGHtml(){
   }).join('');
   const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos DTG — '+ref+'</title>'
     +'<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#f5f5f5;color:#1a1a1a}'
-    +'.hd{background:#185FA5;color:#fff;padding:16px 20px;border-radius:10px;margin-bottom:24px}'
+    +'.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}'
     +'.hd h1{font-size:20px;margin:0 0 4px},.hd p{font-size:13px;margin:0;opacity:.8}'
-    +'@media print{body{background:#fff}.hd{border-radius:0}}'
+    +'@media print{body{background:#fff}.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}}'
     +'</style></head><body>'
     +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
     +sectionsHtml
