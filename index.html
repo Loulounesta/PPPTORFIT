@@ -209,7 +209,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 </div>
 
 <div class="tabs" id="tab-bar">
-  <div class="tab on" onclick="goTab('copro')">Copropriété</div>
+<div class="tab on" id="btn-accueil" onclick="goTab('accueil')">💡 Accueil</div>
+          <div class="tab" onclick="goTab('copro')">Copropriété</div>
   <div class="tab" onclick="goTab('appts')">Appartements</div>
   <div class="tab" onclick="goTab('murs')">Murs</div>
   <div class="tab" onclick="goTab('fen')">Fenêtres</div>
@@ -221,10 +222,187 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <div class="tab" onclick="goTab('export')">Export</div>
 </div>
 
+<!-- ================================
+     VUE : ACCUEIL (GUIDE)
+     ================================ -->
+<div id="idvw-accueil" class="vw on">
+<style>
+.guide-wrap{max-width:820px;margin:0 auto;padding:20px 16px 80px;}
+.guide-intro{background:var(--eti-dark);color:#fff;border-radius:16px;padding:24px;margin-bottom:24px;}
+.guide-intro h2{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--eti-peach);}
+.guide-intro p{font-size:14px;line-height:1.7;opacity:.9;margin-top:6px;}
+.guide-compat{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.guide-compat-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:6px 12px;font-size:12px;color:#fff;display:flex;align-items:center;gap:5px;}
+.guide-compat-badge strong{color:var(--eti-peach);}
+.guide-step{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:.5px solid rgba(67,84,89,.15);box-shadow:0 2px 8px rgba(67,84,89,.08);}
+.guide-step-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.guide-step-num{width:40px;height:40px;border-radius:50%;background:var(--eti-orange);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.guide-step-title{font-size:16px;font-weight:700;color:var(--eti-dark);}
+.guide-step-sub{font-size:11px;color:#A4B8BE;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+.guide-step p{font-size:14px;line-height:1.7;color:#444;margin-bottom:8px;}
+.guide-os-tabs{display:flex;gap:6px;margin:12px 0 8px;flex-wrap:wrap;}
+.guide-os-tab{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:transparent;font-family:inherit;}
+.guide-os-tab.active{background:var(--c);color:#fff;}
+.guide-os-tab.ios{--c:#007AFF;}
+.guide-os-tab.android{--c:#3DDC84;}
+.guide-os-tab.windows{--c:var(--eti-orange);}
+.guide-os-block{display:none;background:#F8F9FA;border-radius:12px;padding:14px;}
+.guide-os-block.active{display:block;}
+.guide-steps-list{counter-reset:gs;list-style:none;margin-top:8px;padding:0;}
+.guide-steps-list li{counter-increment:gs;position:relative;padding-left:34px;margin-bottom:12px;font-size:14px;line-height:1.6;}
+.guide-steps-list li::before{content:counter(gs);position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;background:var(--eti-xlight);color:var(--eti-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
+.guide-alert{background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:12px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;align-items:flex-start;}
+.guide-alert p{font-size:13px;line-height:1.6;color:var(--eti-dark);margin:0;}
+.guide-info{background:#DCE8EB;border-radius:12px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;align-items:flex-start;}
+.guide-info p{font-size:13px;line-height:1.6;color:var(--eti-dark);margin:0;}
+.guide-url{background:var(--eti-dark);color:var(--eti-peach);padding:8px 14px;border-radius:10px;font-family:monospace;font-size:13px;display:block;margin:8px 0;word-break:break-all;text-align:center;font-weight:600;}
+.guide-section-title{font-size:12px;font-weight:700;color:var(--eti-orange);text-transform:uppercase;letter-spacing:.8px;margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--eti-orange);}
+.guide-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;border-radius:10px;overflow:hidden;}
+.guide-table th{background:var(--eti-dark);color:#A4B8BE;padding:8px 10px;text-align:left;font-weight:700;}
+.guide-table td{padding:8px 10px;border-bottom:.5px solid rgba(67,84,89,.12);}
+.guide-table tr:last-child td{border-bottom:none;}
+.guide-faq{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:.5px solid rgba(67,84,89,.15);box-shadow:0 2px 8px rgba(67,84,89,.08);}
+.guide-faq-q{font-size:14px;font-weight:700;color:var(--eti-dark);margin-bottom:8px;}
+.guide-faq-a{font-size:13px;line-height:1.6;color:#444;}
+</style>
+<div class="guide-wrap">
+
+<div class="guide-intro">
+  <h2>📱 Bienvenue dans ORFIT PPPT</h2>
+  <p>ORFIT, c’est ton carnet technique numérique ! 📋</p>
+  <p>Fini les feuilles volantes, les relevés illisibles et les photos perdues dans la pellicule. Tu saisies tout sur place — murs, fenêtres, chauffage, photos DTG — et tu rentres au bureau avec un dossier béton.</p>
+  <p>Fonctionne sur iPhone, Android et PC. Aucune installation depuis un store.</p>
+  <div class="guide-compat">
+    <div class="guide-compat-badge">🍎 <strong>iPhone / iPad</strong> — Safari</div>
+    <div class="guide-compat-badge">🤖 <strong>Android</strong> — Chrome</div>
+    <div class="guide-compat-badge">🖥️ <strong>PC / Mac</strong> — tout navigateur</div>
+    <div class="guide-compat-badge">📡 <strong>Hors-ligne</strong> — fonctionne sans internet</div>
+  </div>
+</div>
+
+<div class="guide-section-title">Étape 1 — Installer l’application</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">1</div>
+    <div><div class="guide-step-title">Ouvrir l’application</div><div class="guide-step-sub">iPhone · Android · PC · Mac</div></div>
+  </div>
+  <p>Ouvrez le navigateur de votre appareil et tapez l’adresse :</p>
+  <code class="guide-url">https://loulounesta.github.io/PPPTORFIT/</code>
+  <div class="guide-alert"><span>⚠️</span><p><strong>iPhone/iPad :</strong> utilisez <strong>Safari</strong> (boussole bleue), pas Chrome.<br><strong>Android :</strong> utilisez <strong>Chrome</strong> (cercle coloré), pas Samsung Internet.</p></div>
+</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">2</div>
+    <div><div class="guide-step-title">Installer sur l’écran d’accueil</div><div class="guide-step-sub">À faire une seule fois — comme une vraie app</div></div>
+  </div>
+  <p>Choisissez votre appareil :</p>
+  <div class="guide-os-tabs">
+    <button class="guide-os-tab ios active" onclick="guideShowOS(this,'gos-ios')">🍎 iPhone / iPad</button>
+    <button class="guide-os-tab android" onclick="guideShowOS(this,'gos-android')">🤖 Android</button>
+    <button class="guide-os-tab windows" onclick="guideShowOS(this,'gos-windows')">🖥️ PC / Mac</button>
+  </div>
+  <div id="gos-ios" class="guide-os-block active">
+    <ol class="guide-steps-list">
+      <li>Une fois la page ouverte dans <strong>Safari</strong>, appuyez sur l’icône <strong>Partager</strong> ↑ (carré avec une flèche en bas de l’écran)</li>
+      <li>Faites défiler le menu vers le bas</li>
+      <li>Appuyez sur <strong>« Sur l’écran d’accueil »</strong></li>
+      <li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
+      <li>L’icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+    </ol>
+  </div>
+  <div id="gos-android" class="guide-os-block">
+    <ol class="guide-steps-list">
+      <li>Une fois la page ouverte dans <strong>Chrome</strong>, appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
+      <li>Appuyez sur <strong>« Ajouter à l’écran d’accueil »</strong></li>
+      <li>Confirmez en appuyant sur <strong>« Ajouter »</strong></li>
+      <li>L’icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+    </ol>
+    <div class="guide-info"><span>💡</span><p>Sur certains Android, Chrome affiche directement une bannière en bas de l’écran : « Ajouter ORFIT PPPT à l’écran d’accueil ». Appuyez dessus.</p></div>
+  </div>
+  <div id="gos-windows" class="guide-os-block">
+    <ol class="guide-steps-list">
+      <li>Sur PC ou Mac, ouvrez la page dans <strong>n’importe quel navigateur</strong></li>
+      <li>Mettez-la en <strong>favori</strong> (Ctrl+D ou Cmd+D) pour la retrouver facilement</li>
+      <li>Les données sont sauvegardées dans le navigateur — ne changez pas de navigateur entre les sessions</li>
+    </ol>
+  </div>
+  <div class="guide-info"><span>💡</span><p>Une fois installée, l’app fonctionne <strong>sans connexion internet</strong>. Idéal en immeuble avec mauvais réseau.</p></div>
+</div>
+
+<div class="guide-section-title">Étape 2 — Utilisation</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">3</div>
+    <div><div class="guide-step-title">Renseigner la copropriété</div><div class="guide-step-sub">Onglet Copropriété — avant de partir</div></div>
+  </div>
+  <p>Ouvrez l’appli et remplissez l’onglet <strong>Copropriété</strong> avec les informations de base (nom, adresse, année, date de visite, etc.). Appuyez sur <strong>Enregistrer</strong>.</p>
+</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">4</div>
+    <div><div class="guide-step-title">Saisir les appartements</div><div class="guide-step-sub">Onglet Appartements</div></div>
+  </div>
+  <p>Créez les appartements avec le bouton <strong>+ Nouveau</strong>. Pour chaque logement, saisissez les éléments : murs, fenêtres, plancher, plafond, porte. Les boutons − et + ajustent les dimensions par pas de 5 cm.</p>
+</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">5</div>
+    <div><div class="guide-step-title">Prendre les photos DTG</div><div class="guide-step-sub">Onglet 📷 DTG</div></div>
+  </div>
+  <p>Allez dans l’onglet <strong>📷 DTG</strong>, choisissez la catégorie, tapez un titre court, cochez les tags si nécessaire, puis appuyez sur la zone 📷 pour prendre la photo. Les photos sont stockées dans l’application.</p>
+</div>
+
+<div class="guide-section-title">Étape 3 — Sauvegarde & Export</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">6</div>
+    <div><div class="guide-step-title">Sauvegarder régulièrement</div><div class="guide-step-sub">Bouton 💾</div></div>
+  </div>
+  <p>Le bouton <strong>💾</strong> en haut à droite génère un fichier .html contenant toutes les données et photos. Sauvegardez après chaque appartement pour ne rien perdre.</p>
+  <div class="guide-alert"><span>⚠️</span><p>En cas de batterie morte ou redémarrage, rouvrez le fichier .html sauvegardé pour retrouver toutes vos données.</p></div>
+</div>
+
+<div class="guide-step">
+  <div class="guide-step-hd">
+    <div class="guide-step-num">7</div>
+    <div><div class="guide-step-title">Exporter pour ANNALYSSIMO</div><div class="guide-step-sub">Onglet Export</div></div>
+  </div>
+  <p>Dans l’onglet <strong>Export</strong>, utilisez <strong>Export ORFIT (.xlsx)</strong> pour un fichier Excel facilitant la saisie dans ANNALYSSIMO. Utilisez <strong>⬇ ZIP photos PNG</strong> pour obtenir les photos DTG au format PNG (ANNALYSSIMO accepte uniquement PNG).</p>
+</div>
+
+<div class="guide-section-title">Questions fréquentes</div>
+
+<div class="guide-faq">
+  <div class="guide-faq-q">❓ J’ai fermé l’app par erreur — ai-je perdu mes données ?</div>
+  <div class="guide-faq-a">Non. Les données sont sauvegardées automatiquement à chaque saisie. Rouvrez l’icône ORFIT sur votre écran d’accueil et tout est là.</div>
+</div>
+
+<div class="guide-faq">
+  <div class="guide-faq-q">❓ Ça ne marche pas sur mon iPhone — l’icône ne s’installe pas ?</div>
+  <div class="guide-faq-a">Vérifiez que vous utilisez bien <strong>Safari</strong> (pas Chrome, pas Firefox). Sur iPhone, seul Safari permet l’installation sur l’écran d’accueil.</div>
+</div>
+
+<div class="guide-faq">
+  <div class="guide-faq-q">❓ Est-ce que ça marche sans connexion internet ?</div>
+  <div class="guide-faq-a">Oui. Une fois installée sur l’écran d’accueil, l’application fonctionne entièrement hors-ligne. Aucune connexion réseau n’est nécessaire pendant la visite.</div>
+</div>
+
+</div>
+</div>
+<script>
+function guideShowOS(btn,id){btn.closest('.guide-step').querySelectorAll('.guide-os-tab').forEach(t=>t.classList.remove('active'));btn.closest('.guide-step').querySelectorAll('.guide-os-block').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
+</script>
+
 <!-- ══════════════════════════════════════════════
      VUE : COPROPRIÉTÉ
 ══════════════════════════════════════════════ -->
-<div id="vw-copro" class="vw on">
+<div id="vw-copro" class="vw">
   <div class="sl">Identification</div>
   <div class="card">
     <div class="fr"><span class="fl">Nom / Référence</span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
@@ -1531,12 +1709,12 @@ function save(){
 // ══════════════════════════════════════════════
 // Navigation
 // ══════════════════════════════════════════════
-const TAB_NAMES = ['copro','appts','murs','fen','planchers','plafonds','portes','totaux','dtg','export'];
+const TAB_NAMES = ['accueil','copro','appts','murs','fen','planchers','plafonds','portes','totaux','dtg','export'];
 
 function goTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on', TAB_NAMES[i]===name));
   document.querySelectorAll('.vw').forEach(v=>v.classList.remove('on'));
-  document.getElementById('vw-'+name).classList.add('on');
+  const elVw=document.getElementById('vw-'+name)||document.getElementById('idvw-'+name); if(elVw)elVw.classList.add('on');
   if(name==='copro')     renderCoproRecap();
   if(name==='appts')     renderApptsList();
   if(name==='murs')      renderMursView();
