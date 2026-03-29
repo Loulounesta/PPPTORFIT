@@ -49,7 +49,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 
 .tabs{background:var(--eti-dark);border-bottom:3px solid var(--eti-orange);display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;position:sticky;top:45px;z-index:19;scrollbar-width:none}
 .tab{flex:0 0 auto;padding:11px 18px;font-size:14px;font-weight:600;color:rgba(164,184,190,.8);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-3px;letter-spacing:.1px}
-.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:800}
+.tab.on{color:#fff;border-bottom-color:var(--eti-orange);font-weight:700}
 
 .vw{display:none;padding:16px}
 .vw.on{display:block}
@@ -208,7 +208,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   #hd-bdg + button { padding: 8px 12px; font-size: 13px; min-height: 44px; }
 
   /* ── Onglets mobile ── */
-  .tab { font-size: 15px; padding: 12px 16px; min-height: 50px; font-weight: 600; }
+  .tab { font-size: 14px; padding: 11px 14px; min-height: 46px; }
 
   /* ── Onglets ── */
   .tab { font-size: 15px; padding: 12px 16px; min-height: 48px; }
@@ -341,26 +341,112 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 }
 
 
-/* ── Tooltips champs ── */
-.tip { display:inline-flex; align-items:center; justify-content:center;
-  width:16px; height:16px; border-radius:50%; background:var(--eti-light);
-  color:var(--eti-dark); font-size:10px; font-weight:700; cursor:help;
-  margin-left:5px; flex-shrink:0; vertical-align:middle; position:relative; }
-.tip::after { content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 6px);
-  transform:translateX(-50%); background:var(--eti-dark); color:#fff;
-  padding:6px 10px; border-radius:8px; font-size:12px; font-weight:400;
-  white-space:normal; width:220px; line-height:1.5; z-index:100;
-  box-shadow:0 4px 12px rgba(0,0,0,.2); pointer-events:none;
-  opacity:0; transition:opacity .15s; }
-.tip::before { content:''; position:absolute; left:50%; bottom:calc(100% + 1px);
-  transform:translateX(-50%); border:5px solid transparent;
-  border-top-color:var(--eti-dark); opacity:0; transition:opacity .15s;
-  pointer-events:none; z-index:101; }
-.tip:hover::after, .tip:hover::before,
-.tip:focus::after, .tip:focus::before { opacity:1; }
-@media (max-width:768px){
-  .tip { width:20px; height:20px; font-size:11px; }
-  .tip::after { width:200px; font-size:13px; }
+/* ── Guide intégré (onglet Aide) ── */
+.gd-wrap{max-width:720px;margin:0 auto;padding:0 0 40px}
+.gd-intro{background:var(--eti-dark);border-radius:16px;padding:22px;margin-bottom:24px}
+.gd-intro h2{font-size:18px;font-weight:700;color:var(--eti-peach);margin-bottom:10px}
+.gd-intro p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.88);margin-top:6px}
+.gd-compat{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.gd-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:6px 12px;font-size:12px;color:#fff;display:flex;align-items:center;gap:5px}
+.gd-badge strong{color:var(--eti-peach)}
+.gd-step{background:var(--sur);border-radius:14px;padding:18px;margin-bottom:14px;border:.5px solid var(--bor);box-shadow:0 2px 8px rgba(67,84,89,.07)}
+.gd-step-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.gd-step-num{width:38px;height:38px;border-radius:50%;background:var(--eti-orange);color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gd-step-title{font-size:16px;font-weight:700;color:var(--eti-dark);line-height:1.2}
+.gd-step-sub{font-size:11px;color:var(--eti-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.gd-step p{font-size:14px;line-height:1.7;color:#444;margin-bottom:8px}
+.gd-step p:last-child{margin-bottom:0}
+.gd-ol{list-style:none;margin:8px 0 0;padding:0;counter-reset:gd-counter}
+.gd-ol li{counter-increment:gd-counter;position:relative;padding-left:34px;margin-bottom:10px;font-size:14px;line-height:1.65;color:#444}
+.gd-ol li::before{content:counter(gd-counter);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--eti-xlight);color:var(--eti-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.gd-alert{background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:10px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+.gd-info{background:var(--eti-xlight);border-radius:10px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+.gd-url{background:var(--eti-dark);color:var(--eti-peach);padding:8px 14px;border-radius:8px;font-family:monospace;font-size:13px;display:block;margin:8px 0;word-break:break-all;text-align:center;font-weight:600}
+.gd-section-title{font-size:12px;font-weight:700;color:var(--eti-orange);text-transform:uppercase;letter-spacing:.8px;margin:22px 0 10px;padding-left:10px;border-left:3px solid var(--eti-orange)}
+.gd-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;border-radius:10px;overflow:hidden}
+.gd-table th{background:var(--eti-dark);color:var(--eti-light);padding:9px 10px;text-align:left;font-weight:700}
+.gd-table td{padding:9px 10px;border-bottom:.5px solid rgba(67,84,89,.12)}
+.gd-table tr:last-child td{border-bottom:none}
+.gd-table tr:nth-child(even) td{background:rgba(67,84,89,.03)}
+.gd-faq{background:var(--sur);border-radius:12px;padding:16px;margin-bottom:10px;border:.5px solid var(--bor)}
+.gd-faq p{font-size:14px;line-height:1.7;color:#444}
+.gd-faq strong{color:var(--eti-dark)}
+/* OS tabs dans guide */
+.gd-os-tabs{display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap}
+.gd-os-tab{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--c,#888);color:var(--c,#888);background:transparent;font-family:inherit;transition:all .15s}
+.gd-os-tab.ios{--c:#007AFF}
+.gd-os-tab.android{--c:#3DDC84}
+.gd-os-tab.windows{--c:var(--eti-orange)}
+.gd-os-tab.active{background:var(--c);color:#fff}
+.gd-os-block{display:none;background:#F8F9FA;border-radius:10px;padding:12px}
+.gd-os-block.active{display:block}
+/* Mobile */
+@media(max-width:768px){
+  .gd-step{padding:16px 14px}
+  .gd-step-title{font-size:17px}
+  .gd-ol li{font-size:15px}
+  .gd-step p{font-size:15px}
+  .gd-alert,.gd-info{font-size:14px}
+  .gd-table{font-size:13px}
+  .gd-faq p{font-size:15px}
+}
+
+
+/* ── Vue Aide / Tutoriel ── */
+.aide-intro{background:var(--eti-dark);border-radius:14px;padding:20px;margin-bottom:20px;color:#fff}
+.aide-intro h2{font-size:17px;font-weight:800;color:var(--eti-peach);margin-bottom:8px}
+.aide-intro p{font-size:14px;line-height:1.65;opacity:.9;margin-top:6px}
+.aide-tagline{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
+.aide-compat{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.aide-compat-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:5px 10px;font-size:12px;color:#fff}
+
+.aide-step{background:var(--sur);border-radius:14px;padding:18px;margin-bottom:12px;border:.5px solid var(--bor);box-shadow:0 2px 8px rgba(67,84,89,.07)}
+.aide-step-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.aide-step-num{width:38px;height:38px;border-radius:50%;background:var(--eti-orange);color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aide-step-title{font-size:16px;font-weight:700;color:var(--eti-dark)}
+.aide-step-sub{font-size:11px;color:var(--eti-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.aide-step p{font-size:14px;line-height:1.65;color:#444;margin-bottom:8px}
+.aide-step p:last-child{margin-bottom:0}
+
+.aide-list{list-style:none;counter-reset:aide-c;margin:8px 0}
+.aide-list li{counter-increment:aide-c;position:relative;padding-left:34px;margin-bottom:10px;font-size:14px;line-height:1.6;color:#444}
+.aide-list li::before{content:counter(aide-c);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--eti-xlight);color:var(--eti-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+
+.aide-alert{background:#FFF8F4;border:1.5px solid var(--eti-orange);border-radius:10px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+.aide-info{background:var(--eti-xlight);border-radius:10px;padding:12px 14px;margin:10px 0;display:flex;gap:8px;font-size:13px;line-height:1.6;color:var(--eti-dark)}
+
+.aide-section-title{font-size:12px;font-weight:700;color:var(--eti-orange);text-transform:uppercase;letter-spacing:.8px;margin:24px 0 10px;padding-left:10px;border-left:4px solid var(--eti-orange)}
+
+.aide-url{background:var(--eti-dark);color:var(--eti-peach);padding:9px 14px;border-radius:8px;font-family:monospace;font-size:13px;display:block;margin:8px 0;word-break:break-all;text-align:center;font-weight:600}
+
+.aide-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;border-radius:8px;overflow:hidden}
+.aide-table th{background:var(--eti-dark);color:var(--eti-light);padding:8px 10px;text-align:left;font-weight:700}
+.aide-table td{padding:8px 10px;border-bottom:.5px solid var(--bor)}
+.aide-table tr:last-child td{border-bottom:none}
+.aide-table tr:nth-child(even) td{background:rgba(67,84,89,.03)}
+
+/* OS tabs dans aide */
+.aide-os-tabs{display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap}
+.aide-os-tab{padding:6px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:transparent;font-family:inherit;transition:all .15s}
+.aide-os-tab.active{background:var(--c);color:#fff}
+.aide-os-tab.ios{--c:#007AFF}
+.aide-os-tab.android{--c:#3DDC84}
+.aide-os-tab.windows{--c:var(--eti-orange)}
+.aide-os-block{display:none;background:var(--bg);border-radius:10px;padding:12px}
+.aide-os-block.active{display:block}
+
+.aide-faq-q{font-size:14px;font-weight:700;color:var(--eti-dark);margin-bottom:6px}
+.aide-faq-a{font-size:13px;line-height:1.65;color:#555}
+
+.aide-footer{text-align:center;margin-top:24px;padding-top:16px;border-top:.5px solid var(--bor)}
+.aide-footer p{font-size:12px;color:var(--eti-light);line-height:1.8}
+.aide-footer a{color:var(--eti-orange);font-weight:600;text-decoration:none}
+
+@media(max-width:768px){
+  .aide-step{padding:16px 14px}
+  .aide-step-title{font-size:15px}
+  .aide-step p,.aide-list li{font-size:15px}
+  .aide-alert,.aide-info{font-size:14px}
 }
 
 </style>
@@ -392,6 +478,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <div class="tab" onclick="goTab('totaux')">📊 Totaux</div>
   <div class="tab" onclick="goTab('dtg')">📷 DTG Photos</div>
   <div class="tab" onclick="goTab('export')">💾 Export</div>
+  <div class="tab" onclick="goTab('aide')">❓ Aide</div>
 </div>
 
 <!-- ══════════════════════════════════════════════
@@ -400,13 +487,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 <div id="vw-copro" class="vw on">
   <div class="sl">Identification</div>
   <div class="card">
-    <div class="fr"><span class="fl">Nom / Référence<span class="tip" tabindex="0" data-tip="Nom complet de la copropriété tel qu'il apparaîtra dans l'export ORFIT et sur l'étiquette de dossier.">i</span></span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
+    <div class="fr"><span class="fl">Nom / Référence</span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
     <div class="fr"><span class="fl">Adresse</span><input type="text" id="copro-adresse" placeholder="ex: 12 rue de la Paix, Lyon"></div>
-    <div class="fr"><span class="fl">Année de construction<span class="tip" tabindex="0" data-tip="Utilisée pour déterminer la réglementation thermique applicable (avant/après 1948, 1975, 1989…).">i</span></span><input type="number" id="copro-annee" placeholder="ex: 1975" inputmode="numeric" min="1800" max="2099"></div>
-    <div class="fr"><span class="fl">Date de visite</span><input type="date" id="copro-date-visite" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;padding:10px 0;font-family:inherit"></div>
-    <div class="fr"><span class="fl">Chargé d'affaire</span><input type="text" id="copro-charge" placeholder="ex: Martin Pierre"></div>
-    <div class="fr"><span class="fl">Réf. dossier / RDV<span class="tip" tabindex="0" data-tip="Numéro de dossier ETI ou référence du rendez-vous dans l'agenda. Apparaît dans le badge de l'en-tête.">i</span></span><input type="text" id="copro-ref" placeholder="ex: ETI-2025-042 ou N° Outlook"></div>
-    <div class="fr"><span class="fl">Nb de lots<span class="tip" tabindex="0" data-tip="Nombre total de lots privatifs de la copropriété (appartements + commerces).">i</span></span><input type="number" id="copro-lots" placeholder="ex: 24" inputmode="numeric" min="1"></div>
+    <div class="fr"><span class="fl">Année de construction</span><input type="number" id="copro-annee" placeholder="ex: 1975" inputmode="numeric" min="1800" max="2099"></div>
   </div>
   <div class="btn-row"><button class="btn btn-p" onclick="saveCopro()">Enregistrer</button></div>
 
@@ -491,8 +574,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
   <div class="btn-row"><button class="btn btn-p" onclick="saveVMC()">Enregistrer la ventilation</button></div>
 
-  <div class="sl" style="margin-top:16px">Chauffage collectif <span class="sl-note">— optionnel</span></div>
-  <div class="card">
+  <div class="coll-acc-hd" onclick="toggleCollAcc('chauf-acc')">
+    <div class="coll-acc-left">
+      <span style="font-size:18px">🔥</span>
+      <div>
+        <div class="coll-acc-label">Chauffage collectif</div>
+        <div class="coll-acc-note">Optionnel — appuyez pour saisir</div>
+      </div>
+    </div>
+    <span class="coll-acc-chevron" id="chauf-acc-chev">▶</span>
+  </div>
+  <div class="coll-acc-body" id="chauf-acc">
+  <div class="card" style="margin-top:6px">
     <div class="fr"><span class="fl">Énergie</span>
       <select id="col-chauf-energie" onchange="updateColChaufGen()">
         <option value="">—</option>
@@ -523,9 +616,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <button class="btn btn-s" style="flex:0 0 auto" onclick="clearColChauf()">Effacer</button>
     <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColChauf()">✓ Appliquer à tous les appartements</button>
   </div>
+  </div><!-- /chauf-acc-body -->
 
-  <div class="sl" style="margin-top:16px">ECS collective <span class="sl-note">— optionnel</span></div>
-  <div class="card">
+  <div class="coll-acc-hd" onclick="toggleCollAcc('ecs-acc')">
+    <div class="coll-acc-left">
+      <span style="font-size:18px">🚿</span>
+      <div>
+        <div class="coll-acc-label">ECS collective</div>
+        <div class="coll-acc-note">Optionnel — cliquer pour saisir</div>
+      </div>
+    </div>
+    <span class="coll-acc-chevron" id="ecs-acc-chev">▶</span>
+  </div>
+  <div class="coll-acc-body" id="ecs-acc">
+  <div class="card" style="margin-top:6px">
     <div class="fr"><span class="fl">Type</span>
       <select id="col-ecs-type"><option value="">— choisir énergie d\'abord —</option></select>
     </div>
@@ -554,6 +658,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <button class="btn btn-s" style="flex:0 0 auto" onclick="clearColEcs()">Effacer</button>
     <button class="btn btn-ok" style="flex:1;min-width:200px" onclick="appliquerColEcs()">✓ Appliquer à tous les appartements</button>
   </div>
+  </div><!-- /ecs-acc-body -->
 
   <!-- HSP Moyenne -->
   <div id="copro-hsp-bloc" style="display:none;margin-top:16px">
@@ -601,7 +706,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option>R+3</option><option>R+4</option><option>R+5</option><option>Combles</option>
         </select>
       </div>
-      <div class="fr"><span class="fl">Niveau ANNALYSSIMO<span class="tip" tabindex="0" data-tip="Position de l'appartement dans le bâtiment : RDC, Intermédiaire ou Dernier étage. Utilisé par ANNALYSSIMO pour les calculs thermiques.">i</span></span>
+      <div class="fr"><span class="fl">Niveau ANNALYSSIMO</span>
         <select id="apt-niveau">
           <option value="">—</option>
           <option>RDC</option><option>Intermédiaire</option><option>Dernier étage</option>
@@ -614,8 +719,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <option>Angle gauche</option><option>Angle droit</option>
         </select>
       </div>
-      <div class="fr"><span class="fl">Surface hab. (m²)<span class="tip" tabindex="0" data-tip="Surface habitable déclarée (hors murs, caves, balcons). Saisie en m² avec décimales.">i</span></span><input type="number" id="apt-surf" placeholder="ex: 68" inputmode="decimal" min="0" step="0.1"></div>
-      <div class="fr"><span class="fl">HSP (m)<span class="tip" tabindex="0" data-tip="Hauteur sous plafond mesurée en mètres. Typiquement entre 2.20 m et 2.80 m. Utilisée pour calculer les surfaces de murs.">i</span></span>
+      <div class="fr"><span class="fl">Surface hab. (m²)</span><input type="number" id="apt-surf" placeholder="ex: 68" inputmode="decimal" min="0" step="0.1"></div>
+      <div class="fr"><span class="fl">HSP (m)</span>
         <div class="stepper"><button type="button" class="stepper-btn" onclick="stepperDec('apt-hsp',0.05)">−</button><input type="number" id="apt-hsp" placeholder="2.50" inputmode="decimal" min="0" step="0.05" ><span class="stepper-unit">m</span><button type="button" class="stepper-btn" onclick="stepperInc('apt-hsp',0.05)">+</button></div>
       </div>
       <div class="fr"><span class="fl">Occupant</span><input type="text" id="apt-occupant" placeholder="Nom de l'occupant"></div>
@@ -646,10 +751,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div id="murs-apt-label" class="bdg" style="display:inline-block;margin-bottom:12px;font-size:12px"></div>
     <div class="sl">Nouveau mur</div>
     <div class="card">
-      <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span>
+      <div class="fr"><span class="fl">Orientation</span>
         <select id="mur-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select>
       </div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span>
+      <div class="fr"><span class="fl">Donne sur</span>
         <select id="mur-donne">
         <option value="">—</option>
         <option>Extérieur</option>
@@ -707,7 +812,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     </div>
     <div class="sl">Doublage / Isolation</div>
     <div class="card">
-      <div class="fr"><span class="fl">Doublage<span class="tip" tabindex="0" data-tip="Présence d'un doublage isolant intérieur. Si oui, précisez la nature (plâtre connu, indéterminé…) et l'épaisseur estimée.">i</span></span>
+      <div class="fr"><span class="fl">Doublage</span>
         <select id="mur-dbl" onchange="toggleDoublage(this.value)"><option value="non">Non</option><option value="oui">Oui</option></select>
       </div>
       <div id="dbl-fields" style="display:none">
@@ -817,7 +922,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </div>
       <!-- Orientation commune -->
       <div style="border-top:.5px solid var(--bor)">
-        <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span>
+        <div class="fr"><span class="fl">Orientation</span>
           <select id="rc-ori" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none">
             <option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option>
           </select>
@@ -902,7 +1007,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
 
     <div class="sl">Nouvelle fenêtre</div>
     <div class="card">
-      <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span>
+      <div class="fr"><span class="fl">Orientation</span>
         <select id="fen-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select>
       </div>
       <div class="fr"><span class="fl">Repère</span><input type="text" id="fen-rep" placeholder="auto — ou saisie libre"></div>
@@ -946,7 +1051,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="PC">Polycarbonate</option>
       </select>
       </div>
-      <div class="fr"><span class="fl">Ép. lame (mm)<span class="tip" tabindex="0" data-tip="Épaisseur de la lame d'air entre les vitrages en mm. Typiquement 6, 12 ou 16 mm pour un double vitrage.">i</span></span><input type="number" id="fen-ep" placeholder="12" inputmode="numeric" min="0"></div>
+      <div class="fr"><span class="fl">Ép. lame (mm)</span><input type="number" id="fen-ep" placeholder="12" inputmode="numeric" min="0"></div>
       <div class="fr"><span class="fl">Fermeture</span>
         <select id="fen-fer">
         <option value="">—</option>
@@ -960,12 +1065,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       </select>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 fenêtres côte à côte de même type).">i</span></span>
+        <span class="fl">Nbre de fenêtres</span>
         <input type="number" id="fen-nb" placeholder="1" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit" oninput="updateFenTotal()">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">unités</span>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
+        <span class="fl">Nbre de même motifs</span>
         <input type="number" id="fen-motifs" placeholder="1" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit" oninput="updateFenTotal()">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">motifs</span>
       </div>
@@ -1023,7 +1128,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="PC">Polycarbonate</option>
       </select>
         </div>
-        <div class="fr"><span class="fl">Ép. lame (mm)<span class="tip" tabindex="0" data-tip="Épaisseur de la lame d'air entre les vitrages en mm. Typiquement 6, 12 ou 16 mm pour un double vitrage.">i</span></span>
+        <div class="fr"><span class="fl">Ép. lame (mm)</span>
           <input type="number" id="fen-d-ep" placeholder="— même —" inputmode="numeric" min="0" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0">
         </div>
       </div>
@@ -1065,7 +1170,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option>Autre type de plancher non répertorié</option>
       </select>
       </div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span>
+      <div class="fr"><span class="fl">Donne sur</span>
         <select id="pla-donne">
         <option value="">—</option>
         <option>Terre-plein</option>
@@ -1133,7 +1238,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="autre">Autre type de plafond non répertorié</option>
       </select>
       </div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span>
+      <div class="fr"><span class="fl">Donne sur</span>
         <select id="plf-donne">
         <option value="">—</option>
         <option>Terrasse</option>
@@ -1158,7 +1263,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         </div>
       </div>
       <div id="plf-rampant-fields" style="display:none">
-        <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span>
+        <div class="fr"><span class="fl">Orientation</span>
           <select id="plf-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select>
         </div>
         <div class="fr"><span class="fl">L rampant (m)</span><input type="number" id="plf-rl" placeholder="longueur" inputmode="decimal" min="0" step="0.01"></div>
@@ -1442,14 +1547,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
   <div style="text-align:center;margin-top:24px;padding-top:16px;border-top:.5px solid var(--bor)">
     <div style="font-size:18px;font-weight:700;color:var(--eti-dark);font-size:18px;font-weight:700">ORFIT PPPT <span style="color:var(--eti-orange)">v2.0</span></div>
-    <div style="font-size:12px;color:var(--tx2);margin-top:4px">Ton carnet technique numérique pour la copropriété 📋</div>
-    <div style="font-size:11px;color:var(--eti-light);margin-top:3px;font-style:italic">Fini les feuilles volantes, les relevés illisibles et les photos introuvables.</div>
-    <div style="font-size:12px;color:var(--tx2);margin-top:4px">Développé par <strong style="color:var(--eti-dark)">Cyril LOUIS</strong> pour ETI360</div>
+    <div style="font-size:12px;color:var(--tx2);margin-top:4px">Outil de relevé terrain PPPT / DPE copropriété</div>
     <a href="https://www.eti360.fr" target="_blank" style="font-size:12px;color:var(--eti-orange);font-weight:600;text-decoration:none;margin-top:4px;display:block">www.eti360.fr</a>
   </div>
   <div class="card">
+    <div style="font-size:13px;color:var(--tx);line-height:1.7">
+      <strong style="color:var(--eti-orange)">Option 2 — Netlify Drop (encore plus simple)</strong><br>
+      1. Sur Mac : allez sur <a href="https://app.netlify.com/drop" target="_blank" style="color:var(--acc)">app.netlify.com/drop</a><br>
+      2. Glissez le fichier <code>index.html</code> dans la zone<br>
+      3. Netlify vous donne une URL en 10 secondes<br>
+      4. Sur iPhone : ouvrez l'URL → Partager → <strong>Sur l'écran d'accueil</strong> ✓
+    </div>
+  </div>
+  <div class="card">
     <div style="padding:14px;font-size:13px;line-height:1.9;color:var(--tx2)">
-      1. Ouvrez dans <strong>Safari (ios) ou Chrome (Android)</strong><br>
+      1. Ouvrez dans <strong>Safari</strong><br>
       2. Appuyez sur <strong>Partager</strong> (icône bas)<br>
       3. Choisissez <strong>Sur l'écran d'accueil</strong><br>
       4. Appuyez sur <strong>Ajouter</strong>
@@ -1476,14 +1588,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       <div class="fr"><span class="fl">Étage</span>
         <select id="ed-apt-etage"><option value="">—</option><option>Sous-sol</option><option>RDC</option><option>R+1</option><option>R+2</option><option>R+3</option><option>R+4</option><option>R+5</option><option>Combles</option></select>
       </div>
-      <div class="fr"><span class="fl">Niveau ANNALYSSIMO<span class="tip" tabindex="0" data-tip="Position de l'appartement dans le bâtiment : RDC, Intermédiaire ou Dernier étage. Utilisé par ANNALYSSIMO pour les calculs thermiques.">i</span></span>
+      <div class="fr"><span class="fl">Niveau ANNALYSSIMO</span>
         <select id="ed-apt-niveau"><option value="">—</option><option>RDC</option><option>Intermédiaire</option><option>Dernier étage</option></select>
       </div>
       <div class="fr"><span class="fl">Position</span>
         <select id="ed-apt-pos"><option value="">—</option><option>Gauche</option><option>Centre</option><option>Droite</option><option>Angle gauche</option><option>Angle droit</option></select>
       </div>
-      <div class="fr"><span class="fl">Surface hab. (m²)<span class="tip" tabindex="0" data-tip="Surface habitable déclarée (hors murs, caves, balcons). Saisie en m² avec décimales.">i</span></span><input type="number" id="ed-apt-surf" inputmode="decimal" min="0" step="0.1"></div>
-      <div class="fr"><span class="fl">HSP (m)<span class="tip" tabindex="0" data-tip="Hauteur sous plafond mesurée en mètres. Typiquement entre 2.20 m et 2.80 m. Utilisée pour calculer les surfaces de murs.">i</span></span><input type="number" id="ed-apt-hsp" inputmode="decimal" min="1.5" max="6" step="0.05"></div>
+      <div class="fr"><span class="fl">Surface hab. (m²)</span><input type="number" id="ed-apt-surf" inputmode="decimal" min="0" step="0.1"></div>
+      <div class="fr"><span class="fl">HSP (m)</span><input type="number" id="ed-apt-hsp" inputmode="decimal" min="1.5" max="6" step="0.05"></div>
       <div class="fr"><span class="fl">Occupant</span><input type="text" id="ed-apt-occupant"></div>
     </div>
     <div class="btn-row">
@@ -1499,8 +1611,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div class="modal-handle"></div>
     <div class="modal-title">Modifier le mur</div>
     <div class="card">
-      <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span><select id="ed-mur-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select></div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span><select id="ed-mur-donne">
+      <div class="fr"><span class="fl">Orientation</span><select id="ed-mur-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select></div>
+      <div class="fr"><span class="fl">Donne sur</span><select id="ed-mur-donne">
         <option value="">—</option>
         <option>Extérieur</option>
         <option>Local non chauffé (autre que véranda)</option>
@@ -1552,7 +1664,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <input type="number" id="ed-mur-h" placeholder="H" inputmode="decimal" min="0" step="0.1">
         </div>
       </div>
-      <div class="fr"><span class="fl">Doublage<span class="tip" tabindex="0" data-tip="Présence d'un doublage isolant intérieur. Si oui, précisez la nature (plâtre connu, indéterminé…) et l'épaisseur estimée.">i</span></span>
+      <div class="fr"><span class="fl">Doublage</span>
         <select id="ed-mur-dbl" onchange="document.getElementById('ed-dbl-fields').style.display=this.value==='oui'?'block':'none'">
           <option value="non">Non</option><option value="oui">Oui</option>
         </select>
@@ -1587,7 +1699,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div class="modal-handle"></div>
     <div class="modal-title">Modifier la fenêtre</div>
     <div class="card">
-      <div class="fr"><span class="fl">Orientation<span class="tip" tabindex="0" data-tip="Orientation de la face extérieure du mur. Nord, Sud, Est ou Ouest. Détermine les déperditions thermiques.">i</span></span><select id="ed-fen-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select></div>
+      <div class="fr"><span class="fl">Orientation</span><select id="ed-fen-ori"><option value="">—</option><option value="Nord">Nord</option><option value="Est">Est</option><option value="Sud">Sud</option><option value="Ouest">Ouest</option></select></div>
       <div class="fr"><span class="fl">Repère</span><input type="text" id="ed-fen-rep"></div>
       <div class="fr"><span class="fl">Type</span>
         <select id="ed-fen-type">
@@ -1626,7 +1738,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="BVC">Brique de verre creuse</option>
         <option value="PC">Polycarbonate</option>
       </select></div>
-      <div class="fr"><span class="fl">Ép. lame (mm)<span class="tip" tabindex="0" data-tip="Épaisseur de la lame d'air entre les vitrages en mm. Typiquement 6, 12 ou 16 mm pour un double vitrage.">i</span></span><input type="number" id="ed-fen-ep" inputmode="numeric" min="0"></div>
+      <div class="fr"><span class="fl">Ép. lame (mm)</span><input type="number" id="ed-fen-ep" inputmode="numeric" min="0"></div>
       <div class="fr"><span class="fl">Fermeture</span><select id="ed-fen-fer">
         <option value="">—</option>
         <option value="SF">Sans fermeture</option>
@@ -1638,12 +1750,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
         <option value="PSH">Protection solaire hors fermeture</option>
       </select></div>
       <div class="fr">
-        <span class="fl">Nbre de fenêtres<span class="tip" tabindex="0" data-tip="Nombre d'unités physiques dans ce motif (ex: 2 fenêtres côte à côte de même type).">i</span></span>
+        <span class="fl">Nbre de fenêtres</span>
         <input type="number" id="ed-fen-nb" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">unités</span>
       </div>
       <div class="fr">
-        <span class="fl">Nbre de même motifs<span class="tip" tabindex="0" data-tip="Nombre de fois où ce groupe de fenêtres se répète (ex: 4 étages identiques). Total = Nbre × Motifs.">i</span></span>
+        <span class="fl">Nbre de même motifs</span>
         <input type="number" id="ed-fen-motifs" inputmode="numeric" min="1" value="1" style="flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit">
         <span style="font-size:11px;color:var(--tx2);margin:0 6px">motifs</span>
       </div>
@@ -1724,13 +1836,9 @@ function goTab(name){
 // ══════════════════════════════════════════════
 function saveCopro(){
   copro = {
-    nom:        document.getElementById('copro-nom').value.trim(),
-    adresse:    document.getElementById('copro-adresse').value.trim(),
-    annee:      document.getElementById('copro-annee').value.trim(),
-    dateVisite: document.getElementById('copro-date-visite').value,
-    charge:     document.getElementById('copro-charge').value.trim(),
-    ref:        document.getElementById('copro-ref').value.trim(),
-    lots:       document.getElementById('copro-lots').value,
+    nom:    document.getElementById('copro-nom').value.trim(),
+    adresse:document.getElementById('copro-adresse').value.trim(),
+    annee:  document.getElementById('copro-annee').value.trim(),
   };
   save();
   toast('Copropriété enregistrée ✓');
@@ -1739,8 +1847,6 @@ function loadCopro(){
   if(!copro.nom) return;
   const s=(id,v)=>{ const el=document.getElementById(id); if(el) el.value=v||''; };
   s('copro-nom',copro.nom); s('copro-adresse',copro.adresse); s('copro-annee',copro.annee);
-  s('copro-date-visite',copro.dateVisite); s('copro-charge',copro.charge);
-  s('copro-ref',copro.ref); s('copro-lots',copro.lots);
 }
 
 // ══════════════════════════════════════════════
@@ -2839,7 +2945,7 @@ function exportOrfit(){
   const wb=XLSX.utils.book_new();
   // Echantillons
   const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
-  const aptRows=appts.map(a=>[a.num,a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',copro.ref||'',copro.dateVisite||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
+  const aptRows=appts.map(a=>[a.num,a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
   const wsApt=XLSX.utils.aoa_to_sheet([aptHd,...aptRows]); wsApt['!cols']=[14,10,18,14,20,14,22,10,10,12,12,12,8,20].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsApt,'Echantillons');
   // Murs
@@ -2918,14 +3024,7 @@ function exportCSV(){
 // Utilitaires
 // ══════════════════════════════════════════════
 function v(id){ return document.getElementById(id).value.trim(); }
-function updateHeader(){
-  const el=document.getElementById('hd-bdg');
-  if(!el) return;
-  const n=appts.length;
-  const date=copro.dateVisite?new Date(copro.dateVisite).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'}):'';
-  el.textContent=n+' appt'+(n>1?'s':'')+(date?' · '+date:'');
-  if(copro.ref) el.title='Réf: '+copro.ref;
-}
+function updateHeader(){ document.getElementById('hd-bdg').textContent=appts.length+' appt'+(appts.length>1?'s':''); }
 function updateExportView(){
   document.getElementById('exp-ref').value  = copro.nom||'—';
   document.getElementById('exp-apts').value = appts.length;
@@ -4393,6 +4492,27 @@ async function updateStorageInfo(){
   }
 }
 
+
+
+// ── OS tabs dans l'aide ──
+function aideOS(btn, id){
+  const step = btn.closest('.aide-step');
+  step.querySelectorAll('.aide-os-tab').forEach(t=>t.classList.remove('active'));
+  step.querySelectorAll('.aide-os-block').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+
+// ── Accordéon Chauffage/ECS collectif ──
+function toggleCollAcc(id){
+  const body = document.getElementById(id);
+  const chev = document.getElementById(id+'-chev');
+  if(!body) return;
+  const open = body.classList.toggle('open');
+  if(chev){ chev.textContent = open ? '▼' : '▶'; chev.classList.toggle('open', open); }
+}
+
 // ══════════════════════════════════════════════
 // Init
 // ══════════════════════════════════════════════
@@ -4405,203 +4525,402 @@ updateHeader();
 updateExportView();
 </script>
 
-<!-- ══ Modal édition plancher ══ -->
-<div class="modal-bg" id="modal-pla">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Modifier le plancher</div>
-    <div class="card">
-      <div class="fr"><span class="fl">Type</span>
-        <select id="ed-pla-type"><option value="">—</option><option>Inconnu</option><option>Inconnu avec ou sans remplissage</option><option>Entre solives bois avec ou sans remplissage</option><option>Bardeaux et remplissage</option><option>Bois sur solives bois</option><option>Entre solives métallique avec ou sans remplissage</option><option>Bois sur solives métalliques</option><option>Voutains sur solives métallique</option><option>Entrevous terre-cuite, poutrelles béton</option><option>Dalle béton</option><option>Voutains en brique ou moellons</option><option>Entrevous isolants</option><option>Autre type de plancher non répertorié</option></select>
-      </div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span>
-        <select id="ed-pla-donne"><option value="">—</option><option>Terre-plein</option><option>Vide-sanitaire</option><option>Local non chauffé</option><option>Local non chauffé et non accessible</option><option>Bâtiment autre que d'habitation</option><option>Local chauffé</option><option>Extérieur</option><option>Circulations communes</option><option>Terre (paroi enterrée)</option><option>Sous-sol non chauffé</option><option>Local tertiaire à l'intérieur de l'immeuble</option></select>
-      </div>
-      <div class="fr"><span class="fl">L × l (m)</span>
-        <div class="dg">
-          <input type="number" id="ed-pla-l" placeholder="L" inputmode="decimal" min="0" step="0.01">
-          <span class="ds">×</span>
-          <input type="number" id="ed-pla-li" placeholder="l" inputmode="decimal" min="0" step="0.01">
-        </div>
-      </div>
-      <div class="fr"><span class="fl">Type isolation</span>
-        <select id="ed-pla-iso-type"><option value="">Aucune</option><option>ITE</option><option>ITI</option><option>Sous dalle</option></select>
-      </div>
-      <div class="fr"><span class="fl">Ép. isolant (cm)</span><input type="number" id="ed-pla-iso-ep" inputmode="numeric" min="0"></div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-pla')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="savePla()">Enregistrer</button>
-    </div>
+  </div>
+</body></html>';
+
+  // Créer un blob HTML et l'ouvrir / télécharger
+  const blob = new Blob([pageHtml], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+
+  // Sur iOS Safari, ouvrir dans un nouvel onglet fonctionne mieux que le téléchargement
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'DTG_'+(ref||'Copro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'_'+new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')+'.html';
+  a.target = '_blank';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  if(prog){ prog.textContent = converted.length+' photos exportées en PNG ✓'; setTimeout(()=>prog.style.display='none',3000); }
+  toast('Fichier HTML généré ✓ — partagez-le par AirDrop ou Mail');
+}
+
+async function exportDTGHtml(){
+  if(!dtgPhotos.length){ toast('Aucune photo DTG à afficher'); return; }
+  const prog = document.getElementById('dtg-export-progress');
+  if(prog){ prog.style.display='block'; prog.textContent='Préparation du rapport…'; }
+
+  // Résoudre srcs IDB
+  let _resolved=dtgPhotos;
+  try{ _resolved=await Promise.all(dtgPhotos.map(async p=>{ if(!p.src||p.src.startsWith('data:')) return p; const s=await idbGet(p.src); return {...p,src:s||p.src}; })); }catch(e){}
+  const sorted=[..._resolved].sort((a,b)=>DTG_CATS.indexOf(a.cat)-DTG_CATS.indexOf(b.cat));
+  const converted=[];
+  for(let i=0;i<sorted.length;i++){
+    if(prog) prog.textContent='Conversion '+(i+1)+'/'+sorted.length+'…';
+    converted.push({...sorted[i], pngSrc: await toPNGDataUrl(sorted[i].src)});
+  }
+  const grp={};
+  converted.forEach(p=>{ if(!grp[p.cat]) grp[p.cat]=[]; grp[p.cat].push(p); });
+  const tagColors={'Défaut / Problème':'#A32D2D','Vétusté':'#854F0B','À remplacer':'#854F0B','Urgence':'#c0392b','Non-conformité':'#185FA5','Bon état':'#3B6D11'};
+  const ref=(copro&&copro.nom)?copro.nom.replace(/[^a-zA-Z0-9\u00C0-\u017E ]/g,'-').trim():'Copropriété';
+  const date=new Date().toLocaleDateString('fr-FR');
+  const sectionsHtml=DTG_CATS.filter(cat=>grp[cat]).map(cat=>{
+    const photos=grp[cat];
+    return '<div style="margin-bottom:28px">'
+      +'<h2 style="font-size:15px;font-weight:700;color:#185FA5;border-bottom:2px solid #185FA5;padding-bottom:6px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px">'+cat+' <span style="font-size:12px;font-weight:400;color:#888">('+photos.length+')</span></h2>'
+      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">'
+      +photos.map(p=>{
+        const tags=(p.tags&&p.tags.length)?p.tags.map(t=>'<span style="display:inline-block;padding:2px 8px;border-radius:10px;background:'+(tagColors[t]||'#666')+';color:#fff;font-size:10px;font-weight:700;margin:2px 2px 0 0">'+t+'</span>').join(''):'';
+        return '<div style="break-inside:avoid;border:1px solid #ddd;border-radius:8px;overflow:hidden">'
+          +'<img src="'+p.pngSrc+'" style="width:100%;display:block;max-height:280px;object-fit:cover">'
+          +'<div style="padding:8px 10px;background:#fff">'
+            +'<div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px">'+p.titre+'</div>'
+            +(tags?'<div style="margin-bottom:4px">'+tags+'</div>':'')
+            +'<div style="font-size:10px;color:#999">'+p.date+'</div>'
+          +'</div></div>';
+      }).join('')
+      +'</div></div>';
+  }).join('');
+  const pageHtml='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photos DTG — '+ref+'</title>'
+    +'<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#f5f5f5;color:#1a1a1a}'
+    +'.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}'
+    +'.hd h1{font-size:20px;margin:0 0 4px},.hd p{font-size:13px;margin:0;opacity:.8}'
+    +'@media print{body{background:#fff}.hd{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between}}'
+    +'</style></head><body>'
+    +'<div class="hd"><h1>Photos DTG — '+ref+'</h1><p>Généré le '+date+' · '+converted.length+' photos</p></div>'
+    +sectionsHtml
+    +'
+  <div <div id="vw-aide" class="vw" style="display:none">
+    
+
+<div class="hd-sub">Guide d'utilisation — Relevé terrain copropriété</div>
   </div>
 </div>
 
-<!-- ══ Modal édition plafond ══ -->
-<div class="modal-bg" id="modal-plf">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Modifier le plafond</div>
-    <div class="card">
-      <div class="fr"><span class="fl">Type</span>
-        <select id="ed-plf-type"><option value="">—</option><option value="inconnu">Inconnu</option><option value="inconnu_rempl">Inconnu avec ou sans remplissage</option><option value="bois_solives">Bois sous solives bois</option><option value="bois_sur_solives">Bois sur solives bois</option><option value="bardeaux">Bardeaux et remplissage</option><option value="solives_metal">Entre solives métallique avec ou sans remplissage</option><option value="bois_metal">Bois sur solives métallique</option><option value="bois_sous_metal">Bois sous solives métallique</option><option value="entrevous">Entrevous, terre-cuite, poutrelles béton</option><option value="dalle">Dalle béton</option><option value="rampant">Combles aménagés sous rampants</option><option value="chaume">Toit de chaume</option><option value="plaques_platre">Plaques de plâtre</option><option value="bac_acier">Toiture en bac acier</option><option value="autre">Autre type de plafond non répertorié</option></select>
-      </div>
-      <div class="fr"><span class="fl">Donne sur<span class="tip" tabindex="0" data-tip="Ce qui se trouve de l'autre côté du mur : extérieur, sous-sol, local non chauffé… Détermine le coefficient de réduction des déperditions (btr).">i</span></span>
-        <select id="ed-plf-donne"><option value="">—</option><option>Terrasse</option><option>Combles aménagés</option><option>Combles perdus</option><option>Local chauffé</option><option>Local non chauffé</option><option>Local non chauffé et non accessible</option><option>Circulations communes</option><option>Extérieur</option><option>Bâtiment autre qu'habitation</option><option>Véranda non chauffée / loggia fermée</option><option>Local tertiaire à l'intérieur de l'immeuble</option></select>
-      </div>
-      <div class="fr"><span class="fl">L × l (m)</span>
-        <div class="dg">
-          <input type="number" id="ed-plf-l" placeholder="L" inputmode="decimal" min="0" step="0.01">
-          <span class="ds">×</span>
-          <input type="number" id="ed-plf-li" placeholder="l" inputmode="decimal" min="0" step="0.01">
-        </div>
-      </div>
-      <div class="fr"><span class="fl">Type isolation</span>
-        <select id="ed-plf-iso-type"><option value="">Aucune</option><option>ITE</option><option>ITI</option><option>Sous rampant</option><option>Soufflée</option></select>
-      </div>
-      <div class="fr"><span class="fl">Ép. isolant (cm)</span><input type="number" id="ed-plf-iso-ep" inputmode="numeric" min="0"></div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-plf')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="savePlf()">Enregistrer</button>
+<div class="gd-wrap">
+
+  <div class="gd-intro">
+    <h2>📱 Bienvenue dans ORFIT PPPT</h2>
+    <p style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">ORFIT, c'est ton carnet technique numérique ! 📋</p>
+    <p>Fini les feuilles volantes, les relevés illisibles et les photos perdues dans la pellicule. Tu saisies tout sur place — murs, fenêtres, chauffage, photos DTG — et tu rentres au bureau avec un dossier béton.</p>
+    <p>Fonctionne sur iPhone, Android et PC. Aucune installation depuis un store.</p>
+    <div class="gd-compat">
+      <div class="gd-compat-badge">🍎 <strong>iPhone / iPad</strong> — Safari</div>
+      <div class="gd-compat-badge">🤖 <strong>Android</strong> — Chrome</div>
+      <div class="gd-compat-badge">🖥️ <strong>PC / Mac</strong> — tout navigateur</div>
+      <div class="gd-compat-badge">📡 <strong>Hors-ligne</strong> — fonctionne sans internet</div>
     </div>
   </div>
-</div>
 
-<!-- ══ Modal édition porte ══ -->
-<div class="modal-bg" id="modal-por">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Modifier la porte</div>
-    <div class="card">
-      <div class="fr"><span class="fl">Numéro</span><input type="text" id="ed-por-rep"></div>
-      <div class="fr"><span class="fl">Menuiserie</span>
-        <select id="ed-por-mat" onchange="updatePorteTypesEdit()">
-          <option value="">—</option><option value="Bois">Bois</option><option value="Métallique">Métallique</option><option value="PVC">PVC</option>
-        </select>
-      </div>
-      <div class="fr"><span class="fl">Type</span><select id="ed-por-type"><option value="">—</option></select></div>
-      <div class="fr"><span class="fl">L × H (cm)</span>
-        <div class="dg">
-          <input type="number" id="ed-por-l" placeholder="L" inputmode="decimal" min="0" step="0.1">
-          <span class="ds">×</span>
-          <input type="number" id="ed-por-h" placeholder="H" inputmode="decimal" min="0" step="0.1">
-        </div>
+  <!-- ══ ÉTAPE 1 ══ -->
+  <div class="gd-section-title">Étape 1 — Installer l'application</div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">1</div>
+      <div>
+        <div class="gd-step-title">Ouvrir l'application</div>
+        <div class="gd-step-sub">iPhone · Android · PC · Mac</div>
       </div>
     </div>
-    <div class="card">
-      <div class="fr" style="flex-wrap:wrap;gap:10px;padding:12px 14px">
-        <label style="display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;min-width:140px"><input type="checkbox" id="ed-por-opt-isolee" style="width:18px;height:18px"> Opaque pleine isolée</label>
-        <label style="display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;min-width:140px"><input type="checkbox" id="ed-por-opt-sas" style="width:18px;height:18px"> Précédée d'un sas</label>
-        <label style="display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;min-width:140px"><input type="checkbox" id="ed-por-opt-dv" style="width:18px;height:18px"> Isolée avec double vitrage</label>
-        <label style="display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;min-width:140px"><input type="checkbox" id="ed-por-opt-autre" style="width:18px;height:18px"> Autre type de porte</label>
-      </div>
-      <div class="fr"><span class="fl">Observations</span><input type="text" id="ed-por-obs" placeholder="état…"></div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-por')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="savePor()">Enregistrer</button>
+    <p>Ouvrez le navigateur de votre appareil et tapez l'adresse :</p>
+    <span class="gd-url">https://loulounesta.github.io/PPPTORFIT/</span>
+    <div class="gd-alert">
+      <div>⚠️</div>
+      <p><strong>iPhone/iPad :</strong> utilisez <strong>Safari</strong> (boussole bleue), pas Chrome.<br>
+      <strong>Android :</strong> utilisez <strong>Chrome</strong> (cercle coloré), pas Samsung Internet.</p>
     </div>
   </div>
-</div>
 
-<!-- ══ Modal édition chauffage ══ -->
-<div class="modal-bg" id="modal-chauf">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Modifier le chauffage</div>
-    <div class="card">
-      <div class="fr"><span class="fl">Énergie</span>
-        <select id="ed-chauf-energie" onchange="updateEdChaufGen()">
-        <option value="">—</option>
-        <option value="Electrique">Electrique</option>
-        <option value="Gaz naturel">Gaz naturel</option>
-        <option value="GPL">GPL</option>
-        <option value="Fioul">Fioul</option>
-        <option value="Bois">Bois</option>
-        <option value="Charbon">Charbon</option>
-        <option value="Réseau de chaleur">Réseau de chaleur</option>
-        </select>
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">2</div>
+      <div>
+        <div class="gd-step-title">Installer sur l'écran d'accueil</div>
+        <div class="gd-step-sub">À faire une seule fois — comme une vraie app</div>
       </div>
-      <div class="fr"><span class="fl">Générateur</span>
-        <select id="ed-chauf-gen"><option value="">— choisir énergie d\'abord —</option></select>
-      </div>
-      <div class="fr"><span class="fl">Émetteur</span>
-        <select id="ed-chauf-emetteur"><option value="">—</option><option>Radiateurs eau chaude</option><option>Plancher chauffant eau</option><option>Convecteurs électriques</option><option>Radiateurs électriques à inertie</option><option>Fan coil</option><option>Plancher chauffant électrique</option><option>Soufflage air chaud</option></select>
-      </div>
-      <div class="fr"><span class="fl">Distribution</span>
-        <select id="ed-chauf-distrib"><option value="">—</option><option>Individuelle</option><option>Collective</option></select>
-      </div>
-      <div class="fr"><span class="fl">Marque / modèle</span><input type="text" id="ed-chauf-marque"></div>
-      <div class="fr"><span class="fl">Année</span><input type="number" id="ed-chauf-annee" inputmode="numeric" min="1900" max="2099"></div>
-      <div class="fr"><span class="fl">Puissance (kW)</span><input type="number" id="ed-chauf-puissance" inputmode="decimal" min="0" step="0.1"></div>
     </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-chauf')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="saveChaufEdit()">Enregistrer</button>
+    <p>Choisissez votre appareil :</p>
+
+    <div class="gd-os-tabs">
+      <button class="gd-os-tab ios active" onclick="aideOS(this,'ios')">🍎 iPhone / iPad</button>
+      <button class="gd-os-tab android" onclick="aideOS(this,'android')">🤖 Android</button>
+      <button class="gd-os-tab windows" onclick="aideOS(this,'windows')">🖥️ PC / Mac</button>
+    </div>
+
+    <div class="gd-os-block active" id="ios">
+      <ol class="gd-steps-list">
+        <li>Une fois la page ouverte dans <strong>Safari</strong>, appuyez sur l'icône <strong>Partager</strong> ↑ (carré avec une flèche en bas de l'écran)</li>
+        <li>Faites défiler le menu vers le bas</li>
+        <li>Appuyez sur <strong>« Sur l'écran d'accueil »</strong></li>
+        <li>Appuyez sur <strong>« Ajouter »</strong> en haut à droite</li>
+        <li>L'icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+      </ol>
+    </div>
+
+    <div class="gd-os-block" id="android">
+      <ol class="gd-steps-list">
+        <li>Une fois la page ouverte dans <strong>Chrome</strong>, appuyez sur les <strong>3 points ⋮</strong> en haut à droite</li>
+        <li>Appuyez sur <strong>« Ajouter à l'écran d'accueil »</strong></li>
+        <li>Confirmez en appuyant sur <strong>« Ajouter »</strong></li>
+        <li>L'icône <strong>ORFIT</strong> apparaît sur votre bureau 🎉</li>
+      </ol>
+      <div class="gd-info">
+        <div>💡</div>
+        <p>Sur certains Android, Chrome affiche directement une bannière en bas de l'écran : <em>« Ajouter ORFIT PPPT à l'écran d'accueil »</em>. Appuyez dessus.</p>
+      </div>
+    </div>
+
+    <div class="gd-os-block" id="windows">
+      <ol class="gd-steps-list">
+        <li>Sur PC ou Mac, ouvrez la page dans <strong>n'importe quel navigateur</strong></li>
+        <li>Mettez-la en <strong>favori</strong> (Ctrl+D ou Cmd+D) pour la retrouver facilement</li>
+        <li>Les données sont sauvegardées dans le navigateur — ne changez pas de navigateur entre les sessions</li>
+      </ol>
+      <div class="gd-info">
+        <div>💡</div>
+        <p>Sur PC, vous pouvez aussi utiliser la tablette Windows avec la caméra intégrée — un sélecteur de fichiers s'ouvrira pour choisir vos photos.</p>
+      </div>
+    </div>
+
+    <div class="gd-info" style="margin-top:12px">
+      <div>💡</div>
+      <p>Une fois installée, l'app fonctionne <strong>sans connexion internet</strong>. Idéal en immeuble avec mauvais réseau.</p>
     </div>
   </div>
-</div>
 
-<!-- ══ Modal édition ECS ══ -->
-<div class="modal-bg" id="modal-ecs">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Modifier l'ECS</div>
-    <div class="card">
-      <div class="fr"><span class="fl">Type</span>
-        <select id="ed-ecs-type"><option value="">— choisir énergie d\'abord —</option></select>
-      </div>
-      <div class="fr"><span class="fl">Énergie</span>
-        <select id="ed-ecs-energie" onchange="updateEdEcsGen()">
-        <option value="">—</option>
-        <option value="Electrique">Electrique</option>
-        <option value="Gaz naturel">Gaz naturel</option>
-        <option value="GPL">GPL</option>
-        <option value="Fioul">Fioul</option>
-        <option value="Bois">Bois</option>
-        <option value="Charbon">Charbon</option>
-        <option value="Réseau de chaleur">Réseau de chaleur</option>
-        </select>
-      </div>
-      <div class="fr"><span class="fl">Production</span>
-        <select id="ed-ecs-prod"><option value="">—</option><option>Individuelle</option><option>Collective</option></select>
-      </div>
-      <div class="fr"><span class="fl">Marque / modèle</span><input type="text" id="ed-ecs-marque"></div>
-      <div class="fr"><span class="fl">Année</span><input type="number" id="ed-ecs-annee" inputmode="numeric" min="1900" max="2099"></div>
-      <div class="fr"><span class="fl">Volume (L)</span><input type="number" id="ed-ecs-volume" inputmode="numeric" min="0"></div>
-      <div class="fr"><span class="fl">Catégorie</span>
-        <select id="ed-ecs-categorie"><option value="">—</option><option>C</option><option>★★</option><option>★★★</option></select>
+  <!-- ══ ÉTAPE 2 ══ -->
+  <div class="gd-section-title">Étape 2 — Préparer la visite (au bureau)</div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">3</div>
+      <div>
+        <div class="gd-step-title">Renseigner la copropriété</div>
+        <div class="gd-step-sub">Onglet Copropriété — avant de partir</div>
       </div>
     </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-ecs')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="saveEcsEdit()">Enregistrer</button>
+    <p>Ouvrez l'appli et remplissez l'onglet <strong>Copropriété</strong> :</p>
+    <table>
+      <tr><th>Champ</th><th>Exemple</th></tr>
+      <tr><td>Nom / Référence</td><td>Résidence Les Pins</td></tr>
+      <tr><td>Adresse</td><td>12 rue de la Paix, Lyon</td></tr>
+      <tr><td>Année de construction</td><td>1975</td></tr>
+      <tr><td>Date de visite</td><td>28/03/2025</td></tr>
+      <tr><td>Chargé d'affaire</td><td>Votre nom</td></tr>
+      <tr><td>Réf. dossier / RDV</td><td>ETI-2025-042</td></tr>
+      <tr><td>Nb de lots</td><td>24</td></tr>
+    </table>
+    <p>Appuyez sur <strong>Enregistrer</strong>. Les données sont sauvegardées automatiquement.</p>
+  </div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">4</div>
+      <div>
+        <div class="gd-step-title">Renseigner les équipements collectifs</div>
+        <div class="gd-step-sub">VMC, chauffage et ECS collectifs</div>
+      </div>
+    </div>
+    <p>Toujours dans l'onglet <strong>Copropriété</strong>, descendez pour remplir :</p>
+    <ol class="gd-steps-list">
+      <li><strong>Ventilation collective</strong> — choisissez le type de VMC dans la liste</li>
+      <li><strong>Chauffage collectif</strong> — renseignez énergie, générateur, marque, année → appuyez sur <strong>« ✓ Appliquer à tous les appartements »</strong></li>
+      <li><strong>ECS collective</strong> — même procédure → <strong>« ✓ Appliquer à tous les appartements »</strong></li>
+    </ol>
+    <div class="gd-info">
+      <div>💡</div>
+      <p>En appuyant sur <strong>Appliquer à tous</strong>, tous les appartements créés seront automatiquement renseignés avec ces équipements collectifs. Gain de temps considérable.</p>
     </div>
   </div>
-</div>
 
+  <!-- ══ ÉTAPE 3 ══ -->
+  <div class="gd-section-title">Étape 3 — Pendant la visite</div>
 
-<!-- ══ Modal réattribution fenêtre ══ -->
-<div class="modal-bg" id="modal-reattr-fen">
-  <div class="modal-box">
-    <div class="modal-handle"></div>
-    <div class="modal-title">Réattribuer la fenêtre</div>
-    <div style="font-size:13px;color:var(--tx2);margin-bottom:12px">
-      Choisissez l'appartement auquel attribuer cette fenêtre.
-    </div>
-    <div class="card">
-      <div class="fr"><span class="fl">Appartement</span>
-        <select id="reattr-fen-apt" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none">
-          <option value="">— Choisir —</option>
-        </select>
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">5</div>
+      <div>
+        <div class="gd-step-title">Créer les appartements</div>
+        <div class="gd-step-sub">Onglet Appartements</div>
       </div>
     </div>
-    <div class="btn-row">
-      <button class="btn btn-s" style="flex:0 0 80px" onclick="closeModal('modal-reattr-fen')">Annuler</button>
-      <button class="btn btn-p" style="flex:1" onclick="saveReattrFen()">Réattribuer</button>
+    <p>Pour chaque logement visité :</p>
+    <ol class="gd-steps-list">
+      <li>Appuyez sur <strong>« + Nouveau »</strong> en haut à droite</li>
+      <li>Choisissez le <strong>N° échantillon</strong> (E01, E02…) dans le menu déroulant</li>
+      <li>Remplissez étage, position, surface hab., HSP, occupant</li>
+      <li>Appuyez sur <strong>Enregistrer</strong></li>
+    </ol>
+    <p>L'appartement apparaît dans la liste. Tapez dessus pour le déplier et voir le détail.</p>
+    <div class="gd-info">
+      <div>💡</div>
+      <p>Utilisez le bouton <strong>Dupliquer</strong> si plusieurs appartements sont identiques — modifiez ensuite seulement ce qui diffère.</p>
     </div>
   </div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">6</div>
+      <div>
+        <div class="gd-step-title">Saisir les éléments du logement</div>
+        <div class="gd-step-sub">Murs · Fenêtres · Plancher · Plafond · Porte</div>
+      </div>
+    </div>
+    <p>Depuis la fiche d'un appartement déplié, utilisez les boutons rapides :</p>
+    <table>
+      <tr><th>Bouton</th><th>Ce qu'il fait</th></tr>
+      <tr><td>+ Mur</td><td>Aller saisir un mur (orientation, matière, dimensions)</td></tr>
+      <tr><td>+ Fenêtre</td><td>Aller saisir une fenêtre (type, matière, vitrage)</td></tr>
+      <tr><td>+ Plancher</td><td>Aller saisir le plancher bas</td></tr>
+      <tr><td>+ Plafond</td><td>Aller saisir le plafond</td></tr>
+      <tr><td>+ Porte</td><td>Aller saisir la porte palière</td></tr>
+    </table>
+    <div class="gd-info">
+      <div>💡</div>
+      <p>Les boutons <strong style="font-size:16px">−</strong> et <strong style="font-size:16px">+</strong> ajustent les dimensions par pas de <strong>5 cm</strong>. Rapide et précis, même avec des gants.</p>
+    </div>
+  </div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">7</div>
+      <div>
+        <div class="gd-step-title">Prendre les photos DTG</div>
+        <div class="gd-step-sub">Onglet 📷 DTG</div>
+      </div>
+    </div>
+    <p>Pour photographier les désordres et équipements :</p>
+    <ol class="gd-steps-list">
+      <li>Allez dans l'onglet <strong>📷 DTG</strong></li>
+      <li>Choisissez la <strong>catégorie</strong> (façades, chauffage, escaliers…)</li>
+      <li>Tapez un <strong>titre court</strong> (ex : "Fissure façade Nord")</li>
+      <li>Cochez les <strong>tags</strong> si nécessaire : Défaut, Urgence, Vétusté, Bon état…</li>
+      <li>Appuyez sur la <strong>grande zone 📷</strong></li>
+    </ol>
+
+    <div class="gd-os-tabs" style="margin-top:12px">
+      <button class="gd-os-tab ios active" onclick="aideOS(this,'ios2')">🍎 iPhone</button>
+      <button class="gd-os-tab android" onclick="aideOS(this,'android2')">🤖 Android</button>
+      <button class="gd-os-tab windows" onclick="aideOS(this,'windows2')">🖥️ Tablette PC</button>
+    </div>
+    <div class="gd-os-block active" id="ios2">
+      <p>L'<strong>appareil photo</strong> s'ouvre directement. Prenez la photo puis validez. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+    <div class="gd-os-block" id="android2">
+      <p>L'<strong>appareil photo</strong> s'ouvre directement (ou un choix entre caméra et galerie). Prenez la photo puis validez. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+    <div class="gd-os-block" id="windows2">
+      <p>L'<strong>explorateur de fichiers Windows</strong> s'ouvre. Sélectionnez une photo existante. Appuyez sur <strong>« ✓ Enregistrer ces photos »</strong>.</p>
+    </div>
+
+    <div class="gd-alert" style="margin-top:12px">
+      <div>📸</div>
+      <p>Les photos sont stockées <strong>dans l'application</strong> — elles n'apparaissent pas dans votre pellicule. Elles sont incluses dans tous les exports.</p>
+    </div>
+  </div>
+
+  <!-- ══ ÉTAPE 4 ══ -->
+  <div class="gd-section-title">Étape 4 — Sauvegarder et exporter</div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">8</div>
+      <div>
+        <div class="gd-step-title">Sauvegarder régulièrement</div>
+        <div class="gd-step-sub">Bouton 💾 — visible sur tous les onglets</div>
+      </div>
+    </div>
+    <p>Le bouton <strong>💾</strong> en haut à droite est toujours visible. Il génère un fichier <strong>ORFIT_NomCopro_date.html</strong> contenant toutes les données et photos.</p>
+    <ol class="gd-steps-list">
+      <li>Appuyez sur <strong>💾</strong></li>
+      <li>Le fichier se télécharge dans vos <strong>Fichiers</strong> (iOS) ou <strong>Téléchargements</strong> (Android/PC)</li>
+      <li>Envoyez-le par mail ou AirDrop pour le partager ou l'archiver</li>
+    </ol>
+    <div class="gd-alert">
+      <div>⚠️</div>
+      <p>Sauvegardez <strong>après chaque appartement</strong>. En cas de batterie morte ou redémarrage, vous retrouvez toutes vos données en rouvrant le fichier .html sauvegardé.</p>
+    </div>
+  </div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">9</div>
+      <div>
+        <div class="gd-step-title">Reprendre une visite sur un autre appareil</div>
+        <div class="gd-step-sub">Transfert iPhone → PC ou Android → iPhone</div>
+      </div>
+    </div>
+    <ol class="gd-steps-list">
+      <li>Appuyez sur <strong>💾</strong> sur l'appareil d'origine</li>
+      <li>Envoyez le fichier .html par <strong>mail, AirDrop ou WhatsApp</strong> au destinataire</li>
+      <li>Sur le nouvel appareil : ouvrez le fichier dans <strong>Safari (iOS)</strong> ou <strong>Chrome (Android)</strong></li>
+      <li>Toutes les données et photos se restaurent automatiquement ✓</li>
+    </ol>
+  </div>
+
+  <div class="gd-step">
+    <div class="gd-step-hd">
+      <div class="gd-step-num">10</div>
+      <div>
+        <div class="gd-step-title">Préparer les données pour ANNALYSSIMO</div>
+        <div class="gd-step-sub">Onglet Export — au bureau, avant saisie dans ANNALYSSIMO</div>
+      </div>
+    </div>
+    <table>
+      <tr><th>Bouton</th><th>Usage</th></tr>
+      <tr><td>Export ORFIT (.xlsx)</td><td>Fichier Excel avec toutes les données, pour faciliter la saisie dans ANNALYSSIMO</td></tr>
+      <tr><td>⬇ ZIP photos PNG</td><td>Photos DTG en PNG nommées + Excel légendes</td></tr>
+      <tr><td>👁 Ouvrir DTG</td><td>Rapport photos DTG dans le navigateur (imprimable PDF)</td></tr>
+      <tr><td>💾 Sauvegarder projet</td><td>Archiver ou transmettre le dossier complet</td></tr>
+    </table>
+    <div class="gd-alert">
+      <div>⚠️</div>
+      <p>ANNALYSSIMO accepte les images <strong>PNG uniquement, pas JPEG</strong>. L'export ZIP convertit automatiquement toutes vos photos en PNG.</p>
+    </div>
+  </div>
+
+  <!-- ══ FAQ ══ -->
+  <div class="gd-section-title">Questions fréquentes</div>
+
+  <div class="gd-step">
+    <p><strong>❓ J'ai fermé l'app par erreur — ai-je perdu mes données ?</strong><br>
+    Non. Les données sont sauvegardées automatiquement à chaque saisie. Rouvrez l'icône ORFIT sur votre écran d'accueil et tout est là.</p>
+  </div>
+
+  <div class="gd-step">
+    <p><strong>❓ Ça ne marche pas sur mon iPhone — l'icône ne s'installe pas ?</strong><br>
+    Vérifiez que vous utilisez bien <strong>Safari</strong> (pas Chrome, pas Firefox). Sur iPhone, seul Safari permet l'installation sur l'écran d'accueil.</p>
+  </div>
+
+  <div class="gd-step">
+    <p><strong>❓ Le bouton photo ne lance pas l'appareil photo sur Android ?</strong><br>
+    Vérifiez que Chrome a l'autorisation d'accéder à la caméra : <em>Réglages Android → Apps → Chrome → Autorisations → Appareil photo → Autoriser</em>.</p>
+  </div>
+
+  <div class="gd-step">
+    <p><strong>❓ L'application est lente avec beaucoup de photos ?</strong><br>
+    Les photos sont stockées dans la mémoire de l'appli (IndexedDB). Pour libérer de la place, exportez le ZIP puis supprimez les photos via le bouton ✕ dans la galerie DTG.</p>
+  </div>
+
+  <div class="gd-step">
+    <p><strong>❓ Je veux transmettre le dossier à un collègue ?</strong><br>
+    Appuyez sur 💾 → envoyez le fichier .html par mail ou AirDrop → votre collègue l'ouvre dans Safari (iOS) ou Chrome (Android) → toutes les données et photos s'affichent immédiatement.</p>
+  </div>
+
+  <div class="gd-step">
+    <p><strong>❓ Est-ce que ça marche sans connexion internet ?</strong><br>
+    Oui. Une fois installée sur l'écran d'accueil, l'application fonctionne entièrement hors-ligne. Aucune connexion réseau n'est nécessaire pendant la visite.</p>
+  </div>
+
+  <div class="gd-footer">
+    <p><strong style="color:#435459">ORFIT PPPT v2.0</strong><br>
+    Développé par <strong>Cyril LOUIS</strong> pour <a href="https://www.eti360.fr">ETI360 — eti360.fr</a><br>
+    Reims · Nancy · Épinal · Vesoul · Mulhouse</p>
+  </div>
+
 </div>
 
+
+  </div>
 </body>
 </html>
