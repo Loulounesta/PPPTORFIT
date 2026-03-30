@@ -288,6 +288,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   .aide-alert,.aide-info{font-size:14px}
 }
 
+
+/* ── Accordéons copropriété ── */
+.coll-acc-hd{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 14px;background:var(--sur);border-radius:var(--r);border:.5px solid var(--bor);margin-top:16px;user-select:none;transition:background .15s}
+.coll-acc-hd:active{background:var(--eti-xlight)}
+.coll-acc-left{display:flex;align-items:center;gap:8px}
+.coll-acc-label{font-size:13px;font-weight:700;color:var(--eti-dark);text-transform:uppercase;letter-spacing:.5px}
+.coll-acc-note{font-size:11px;color:var(--tx2);font-weight:400;margin-top:1px}
+.coll-acc-chevron{font-size:15px;color:var(--eti-orange);transition:transform .2s;flex-shrink:0}
+.coll-acc-chevron.open{transform:rotate(90deg)}
+.coll-acc-body{display:none}
+.coll-acc-body.open{display:block}
+@media(max-width:768px){.coll-acc-hd{padding:14px 16px}.coll-acc-label{font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -647,10 +660,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div class="fr"><span class="fl">Nom / Référence</span><input type="text" id="copro-nom" placeholder="ex: Résidence Les Pins"></div>
     <div class="fr"><span class="fl">Adresse</span><input type="text" id="copro-adresse" placeholder="ex: 12 rue de la Paix, Lyon"></div>
     <div class="fr"><span class="fl">Année de construction</span><input type="number" id="copro-annee" placeholder="ex: 1975" inputmode="numeric" min="1800" max="2099"></div>
+    <div class="fr"><span class="fl">Nbre de bâtiments</span><input type="number" id="copro-batiments" placeholder="ex: 3" inputmode="numeric" min="1" max="99" style="text-align:right"></div>
   </div>
   <div class="btn-row"><button class="btn btn-p" onclick="saveCopro()">Enregistrer</button></div>
 
-  <div class="sl" style="margin-top:16px">Ventilation collective</div>
+  <div class="coll-acc-hd" onclick="toggleCollAcc('vmc-acc')">
+    <div class="coll-acc-left">
+      <span style="font-size:18px">🌀</span>
+      <div>
+        <div class="coll-acc-label">Ventilation collective</div>
+        <div class="coll-acc-note">Optionnel — appuyer pour saisir</div>
+      </div>
+    </div>
+    <span class="coll-acc-chevron" id="vmc-acc-chev">▶</span>
+  </div>
+  <div class="coll-acc-body" id="vmc-acc">
+  <div style="margin-top:8px">
   <div class="card">
     <div class="fr"><span class="fl">Type</span>
       <select id="vmc-type">
@@ -730,8 +755,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <div class="fr"><span class="fl">Observations</span><input type="text" id="vmc-obs" placeholder="conduits obstrués…"></div>
   </div>
   <div class="btn-row"><button class="btn btn-p" onclick="saveVMC()">Enregistrer la ventilation</button></div>
+  </div>
+  </div>
 
-  <div class="sl" style="margin-top:16px">Chauffage collectif <span class="sl-note">— optionnel</span></div>
+  <div class="coll-acc-hd" onclick="toggleCollAcc('chauf-acc')">
+    <div class="coll-acc-left">
+      <span style="font-size:18px">🔥</span>
+      <div>
+        <div class="coll-acc-label">Chauffage collectif</div>
+        <div class="coll-acc-note">Optionnel — appuyer pour saisir</div>
+      </div>
+    </div>
+    <span class="coll-acc-chevron" id="chauf-acc-chev">▶</span>
+  </div>
+  <div class="coll-acc-body" id="chauf-acc">
+  <div style="margin-top:8px">
   <div class="card">
     <div class="fr"><span class="fl">Énergie</span>
       <select id="col-chauf-energie" onchange="updateColChaufGen()">
@@ -763,8 +801,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
     <button class="btn btn-s" style="flex:0 0 auto;padding:13px 16px" onclick="clearColChauf()">Effacer</button>
     <button class="btn btn-ok" style="flex:1" onclick="appliquerColChauf()">Appliquer à tous les échantillons</button>
   </div>
+  </div>
+  </div>
 
-  <div class="sl" style="margin-top:16px">ECS collective <span class="sl-note">— optionnel</span></div>
+  <div class="coll-acc-hd" onclick="toggleCollAcc('ecs-acc')">
+    <div class="coll-acc-left">
+      <span style="font-size:18px">🚿</span>
+      <div>
+        <div class="coll-acc-label">ECS collective</div>
+        <div class="coll-acc-note">Optionnel — appuyer pour saisir</div>
+      </div>
+    </div>
+    <span class="coll-acc-chevron" id="ecs-acc-chev">▶</span>
+  </div>
+  <div class="coll-acc-body" id="ecs-acc">
+  <div style="margin-top:8px">
   <div class="card">
     <div class="fr"><span class="fl">Type</span>
       <select id="col-ecs-type"><option value="">— choisir énergie d\'abord —</option></select>
@@ -793,6 +844,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   <div class="btn-row">
     <button class="btn btn-s" style="flex:0 0 auto;padding:13px 16px" onclick="clearColEcs()">Effacer</button>
     <button class="btn btn-ok" style="flex:1" onclick="appliquerColEcs()">Appliquer à tous les échantillons</button>
+  </div>
+  </div>
   </div>
 
   <!-- HSP Moyenne -->
@@ -1085,6 +1138,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       <select id="mur-f-tri" onchange="renderMursView()">
         <option value="saisie">Ordre de saisie</option>
         <option value="apt">Échantillon</option>
+        <option value="bat">Bâtiment</option>
         <option value="etage">Étage</option>
         <option value="ori">Orientation</option>
       </select>
@@ -1124,6 +1178,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
       <select id="fen-f-tri" onchange="renderFenView()">
         <option value="saisie">Ordre de saisie</option>
         <option value="apt">Échantillon</option>
+        <option value="bat">Bâtiment</option>
         <option value="ori">Orientation</option>
         <option value="mat">Matière</option>
         <option value="type">Type</option>
@@ -1718,8 +1773,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
           <input type="text" id="ed-apt-num" placeholder="ex: E03" style="display:none;flex:1;border:none;background:transparent;font-size:14px;text-align:right;outline:none;padding:10px 0;font-family:inherit;color:var(--acc)">
         </div>
       </div>
+      <div class="fr"><span class="fl">Bâtiment n°</span>
+        <select id="ed-apt-bat" style="flex:1;border:none;background:transparent;font-size:14px;color:var(--acc);text-align:right;outline:none;-webkit-appearance:none;font-family:inherit">
+          <option value="">—</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+        </select>
+      </div>
       <div class="fr"><span class="fl">Étage</span>
-        <select id="ed-apt-etage"><option value="">—</option><option>Sous-sol</option><option>RDC</option><option>R+1</option><option>R+2</option><option>R+3</option><option>R+4</option><option>R+5</option><option>Combles</option></select>
+        <select id="ed-apt-etage"><option value="">—</option><option>Sous-sol</option><option>RDC</option><option>R+1</option><option>R+2</option><option>R+3</option><option>R+4</option><option>R+5</option><option>R+6</option><option>R+7</option><option>R+8</option><option>R+9</option><option>R+10</option><option>R+11</option><option>R+12</option><option>R+13</option><option>R+14</option><option>R+15</option><option>R+16</option><option>R+17</option><option>R+18</option><option>R+19</option><option>R+20</option><option>R+21</option><option>R+22</option><option>R+23</option><option>R+24</option><option>R+25</option><option>Combles</option></select>
       </div>
       <div class="fr"><span class="fl">Niveau ANNALYSSIMO</span>
         <select id="ed-apt-niveau"><option value="">—</option><option>RDC</option><option>Intermédiaire</option><option>Dernier étage</option></select>
@@ -1900,8 +1980,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;ba
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════════
+<script>// ══════════════════════════════════════════════
 // État global
 // ══════════════════════════════════════════════
 const _mem = {};
@@ -1970,9 +2049,10 @@ function goTab(name){
 // ══════════════════════════════════════════════
 function saveCopro(){
   copro = {
-    nom:    document.getElementById('copro-nom').value.trim(),
-    adresse:document.getElementById('copro-adresse').value.trim(),
-    annee:  document.getElementById('copro-annee').value.trim(),
+    nom:      document.getElementById('copro-nom').value.trim(),
+    adresse:  document.getElementById('copro-adresse').value.trim(),
+    annee:    document.getElementById('copro-annee').value.trim(),
+    batiments:document.getElementById('copro-batiments').value.trim(),
   };
   save();
   toast('Copropriété enregistrée ✓');
@@ -1980,7 +2060,7 @@ function saveCopro(){
 function loadCopro(){
   if(!copro.nom) return;
   const s=(id,v)=>{ const el=document.getElementById(id); if(el) el.value=v||''; };
-  s('copro-nom',copro.nom); s('copro-adresse',copro.adresse); s('copro-annee',copro.annee);
+  s('copro-nom',copro.nom); s('copro-adresse',copro.adresse); s('copro-annee',copro.annee); s('copro-batiments',copro.batiments);
 }
 
 // ══════════════════════════════════════════════
@@ -2284,7 +2364,7 @@ function renderApptsList(){
     return '<div class="appt-card" id="appt-card-'+id+'">'
       +'<div class="appt-header" onclick="toggleAppt(\''+id+'\')">'
         +'<div>'
-          +'<div class="appt-num">'+a.num+(a.niveau?' <span style="font-size:11px;font-weight:400;color:var(--tx2)">'+a.niveau+'</span>':'')+' '+(isCur?'<span class="st st-col">En cours</span>':'')+'</div>'
+          +'<div class="appt-num">'+(a.bat?'<span style="font-size:11px;font-weight:600;background:var(--eti-xlight);color:var(--eti-dark);padding:1px 6px;border-radius:5px;margin-right:5px">Bât.'+a.bat+'</span>':'')+a.num+(a.niveau?' <span style="font-size:11px;font-weight:400;color:var(--tx2)">'+a.niveau+'</span>':'')+' '+(isCur?'<span class="st st-col">En cours</span>':'')+'</div>'
           +'<div class="appt-meta">'+[a.etage,a.pos,a.surf?a.surf+' m²':'',a.occupant?'👤 '+a.occupant:''].filter(Boolean).join(' · ')+'</div>'
           +'<div class="appt-status">'+stChauf+stEcs+'</div>'
         +'</div>'
@@ -2399,6 +2479,7 @@ function saveAppt(){
   const num=document.getElementById('ed-apt-num').value.trim();
   if(!num){ toast('N° échantillon obligatoire'); return; }
   a.num     = num;
+  a.bat     = document.getElementById('ed-apt-bat').value;
   a.etage   = document.getElementById('ed-apt-etage').value;
   a.niveau  = document.getElementById('ed-apt-niveau').value;
   a.pos     = document.getElementById('ed-apt-pos').value;
@@ -2527,7 +2608,7 @@ function rebuildMurAptFilter(){
   appts.forEach(a=>{ const o=document.createElement('option'); o.value=String(a.id); o.textContent=a.num+(a.etage?' — '+a.etage:''); if(String(a.id)===cur) o.selected=true; sel.appendChild(o); });
 }
 const ORI_ORDER=['Nord','Est','Sud','Ouest'];
-const ETAGE_ORDER=['Sous-sol','RDC','R+1','R+2','R+3','R+4','R+5','Combles'];
+const ETAGE_ORDER=['Sous-sol','RDC','R+1','R+2','R+3','R+4','R+5','R+6','R+7','R+8','R+9','R+10','R+11','R+12','R+13','R+14','R+15','R+16','R+17','R+18','R+19','R+20','R+21','R+22','R+23','R+24','R+25','Combles'];
 
 function renderMursView(){
   const hasApt=!!curAppt;
@@ -2547,6 +2628,7 @@ function renderMursView(){
   if(fEtage) liste=liste.filter(m=>{ const ap=appts.find(x=>String(x.id)===m.aptId); return ap&&ap.etage===fEtage; });
   if(fOri) liste=liste.filter(m=>m.ori===fOri);
   if(fTri==='apt') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return (aa?.num||'').localeCompare(bb?.num||''); });
+  else if(fTri==='bat') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return (parseInt(aa?.bat)||0)-(parseInt(bb?.bat)||0); });
   else if(fTri==='etage') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return ETAGE_ORDER.indexOf(aa?.etage)-ETAGE_ORDER.indexOf(bb?.etage); });
   else if(fTri==='ori') liste.sort((a,b)=>ORI_ORDER.indexOf(a.ori)-ORI_ORDER.indexOf(b.ori));
   else if(fTri==='mat') liste.sort((a,b)=>(a.mat||'').localeCompare(b.mat||''));
@@ -2728,6 +2810,7 @@ function renderFenView(){
   if(fOri) liste=liste.filter(f=>f.ori===fOri);
   if(fMat) liste=liste.filter(f=>f.mat===fMat);
   if(fTri==='apt') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return (aa?.num||'').localeCompare(bb?.num||''); });
+  else if(fTri==='bat') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return (parseInt(aa?.bat)||0)-(parseInt(bb?.bat)||0); });
   else if(fTri==='etage') liste.sort((a,b)=>{ const aa=appts.find(x=>String(x.id)===a.aptId); const bb=appts.find(x=>String(x.id)===b.aptId); return ETAGE_ORDER.indexOf(aa?.etage)-ETAGE_ORDER.indexOf(bb?.etage); });
   else if(fTri==='ori') liste.sort((a,b)=>ORI_ORDER.indexOf(a.ori)-ORI_ORDER.indexOf(b.ori));
   else if(fTri==='mat') liste.sort((a,b)=>(a.mat||'').localeCompare(b.mat||''));
@@ -3078,8 +3161,8 @@ function exportOrfit(){
   if(!appts.length){ toast('Aucune donnée à exporter'); return; }
   const wb=XLSX.utils.book_new();
   // Echantillons
-  const aptHd=['Echantillon','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
-  const aptRows=appts.map(a=>[a.num,a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
+  const aptHd=['Echantillon','Bâtiment','Étage','Niveau ANNALYSSIMO','Position','Occupant','Surface hab. (m²)','Copropriété','Nb murs','Nb fenêtres','Nb planchers','Nb plafonds','Nb chauffages','Nb ECS','Date'];
+  const aptRows=appts.map(a=>[a.num,a.bat||'',a.etage,a.niveau||'',a.pos,a.occupant||'',a.surf?parseFloat(a.surf):'',copro.nom||'',murs.filter(m=>m.aptId===String(a.id)).length,fens.filter(f=>f.aptId===String(a.id)).length,plas.filter(p=>p.aptId===String(a.id)).length,plfs.filter(p=>p.aptId===String(a.id)).length,chaufs.filter(c=>c.aptId===String(a.id)).length,ecss.filter(e=>e.aptId===String(a.id)).length,a.date]);
   const wsApt=XLSX.utils.aoa_to_sheet([aptHd,...aptRows]); wsApt['!cols']=[14,10,18,14,20,14,22,10,10,12,12,12,8,20].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,wsApt,'Echantillons');
   // Murs
@@ -4298,28 +4381,62 @@ function clonerPorte(id){
 // ══════════════════════════════════════════════
 // Sauvegarde projet — HTML autonome avec données + photos
 // ══════════════════════════════════════════════
-function sauvegarderProjet(){
-  const ref = (copro&&copro.nom) ? copro.nom.replace(/[^a-zA-Z0-9 ]/g,'-').trim() : 'chantier';
-  const date = new Date().toLocaleDateString('fr-FR').replace(/\//g,'-');
 
-  // Snapshot JSON de toutes les données
-  const snap = JSON.stringify({
+// ── Construction du blob de sauvegarde (partagée entre 💾 et 📤) ──
+async function _buildSaveBlob(){
+  // 1. Résoudre les photos DTG depuis IndexedDB
+  let dtgPhotosResolved = [];
+  try {
+    dtgPhotosResolved = await Promise.all(dtgPhotos.map(async p => {
+      if(!p.src || p.src.startsWith('data:')) return p;
+      const s = await idbGet(p.src);
+      return {...p, src: s || p.src};
+    }));
+  } catch(e){ dtgPhotosResolved = dtgPhotos; }
+
+  // 2. Sérialiser toutes les données
+  const escaped = JSON.stringify({
     appts, murs, fens, plas, plfs, portes,
-    chaufs, ecss, photos, dtgPhotos, vmc, copro
-  });
+    chaufs, ecss, photos, dtgPhotos: dtgPhotosResolved, vmc, copro
+  })
+    .replace(/\\/g,'\\\\')
+    .replace(/'/g,"\\'")
+    .replace(/<\/script>/gi,"<\\/sc'+'ript>");
 
-  // Récupérer le HTML source et supprimer snapshot précédent
+  // 3. Injecter le snapshot dans le HTML source
   let src = document.documentElement.outerHTML;
   src = src.replace(/<!--PPPT-SNAP-->[\s\S]*?<!--\/PPPT-SNAP-->/g, '');
 
-  src = src.replace('</head>', snapBlock + '\n</head>');
+  const snapBlock = '<!--PPPT-SNAP-->\n<sc'+'ript>\n(function(){try{var d=JSON.parse(\'' + escaped + '\');'
+    + 'localStorage.setItem(\'pppt_appts\',JSON.stringify(d.appts||[]));'
+    + 'localStorage.setItem(\'pppt_murs\',JSON.stringify(d.murs||[]));'
+    + 'localStorage.setItem(\'pppt_fens\',JSON.stringify(d.fens||[]));'
+    + 'localStorage.setItem(\'pppt_plas\',JSON.stringify(d.plas||[]));'
+    + 'localStorage.setItem(\'pppt_plfs\',JSON.stringify(d.plfs||[]));'
+    + 'localStorage.setItem(\'pppt_portes\',JSON.stringify(d.portes||[]));'
+    + 'localStorage.setItem(\'pppt_chaufs\',JSON.stringify(d.chaufs||[]));'
+    + 'localStorage.setItem(\'pppt_ecss\',JSON.stringify(d.ecss||[]));'
+    + 'localStorage.setItem(\'pppt_photos\',JSON.stringify(d.photos||{}));'
+    + 'localStorage.setItem(\'pppt_dtg\',JSON.stringify(d.dtgPhotos||[]));'
+    + 'localStorage.setItem(\'pppt_vmc\',JSON.stringify(d.vmc||{}));'
+    + 'localStorage.setItem(\'pppt_copro\',JSON.stringify(d.copro||{}));'
+    + '}catch(e){}})();\n<\/sc'+'ript>\n<!--/PPPT-SNAP-->';
 
-  const blob = new Blob([src], {type:'text/html;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'ORFIT_' + ref + '_' + date + '.html';
-  a.click();
+  src = src.replace('</head>', snapBlock + '\n</head>');
+  return new Blob([src], {type:'text/html;charset=utf-8'});
+}
+
+// ── Sauvegarder le projet (téléchargement) ──
+async function sauvegarderProjet(){
+  toast('Préparation…');
+  const ref  = (copro&&copro.nom) ? copro.nom.replace(/[^a-zA-Z0-9 ]/g,'-').trim() : 'chantier';
+  const date = new Date().toLocaleDateString('fr-FR').replace(/\//g,'-');
+  const filename = 'ORFIT_' + ref + '_' + date + '.html';
+
+  const blob = await _buildSaveBlob();
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
   setTimeout(()=>URL.revokeObjectURL(url), 1000);
 
   const lbl = document.getElementById('save-label');
@@ -4330,6 +4447,35 @@ function sauvegarderProjet(){
   }
   const nb = Object.keys(photos||{}).length + (dtgPhotos||[]).length;
   toast('Sauvegardé — ' + appts.length + ' appts · ' + nb + ' photos ✓');
+}
+
+// ── Partager le projet ──
+async function partagerProjet(){
+  toast('Préparation du partage…');
+  const ref  = (copro&&copro.nom) ? copro.nom.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'') : 'Projet';
+  const date = new Date().toLocaleDateString('fr-FR').replace(/\//g,'-');
+  const filename = 'ORFIT_' + ref + '_' + date + '.html';
+
+  const blob = await _buildSaveBlob();
+  const file = new File([blob], filename, {type:'text/html'});
+
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+    try {
+      await navigator.share({
+        title: 'ORFIT — ' + (copro.nom||'Projet'),
+        text:  'Relevé terrain PPPT — ' + (copro.nom||''),
+        files: [file]
+      });
+      toast('Projet partagé ✓');
+      return;
+    } catch(e){ if(e.name !== 'AbortError') console.warn(e); }
+  }
+  // Fallback : téléchargement
+  const url = URL.createObjectURL(blob);
+  const a   = document.createElement('a');
+  a.href = url; a.download = filename; a.target = '_blank';
+  a.click(); URL.revokeObjectURL(url);
+  toast('Fichier prêt — partagez-le manuellement 📤');
 }
 
 
@@ -4430,68 +4576,6 @@ function initAptNumSel(val, selId, inpId){
 
 
 // ── Partager le projet ──
-async function partagerProjet(){
-  // Générer le fichier sauvegarde puis partager via Web Share API ou fallback
-  toast('Préparation du partage…');
-  const ref = (copro&&copro.nom) ? copro.nom.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'') : 'Projet';
-  const date = new Date().toLocaleDateString('fr-FR').replace(/\//g,'-');
-  const filename = 'ORFIT_'+ref+'_'+date+'.html';
-
-  // Sérialiser les données IDB
-  let dtgPhotos2 = [];
-  try {
-    const _resolved = await Promise.all(dtgPhotos.map(async p => {
-      if(!p.src || p.src.startsWith('data:')) return p;
-      const s = await idbGet(p.src); return {...p, src: s||p.src};
-    }));
-    dtgPhotos2 = _resolved;
-  } catch(e){}
-
-  const escaped = JSON.stringify({
-    appts, murs, fens, plas, plfs, portes, chaufs, ecss,
-    photos, dtgPhotos: dtgPhotos2, vmc, copro
-  }).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/<\/script>/gi,'<\/sc'+'ript>');
-
-  let src = document.documentElement.outerHTML;
-  src = src.replace(/<!--PPPT-SNAP-->[\s\S]*?<!--\/PPPT-SNAP-->/g, '');
-  const snapBlock = '<!--PPPT-SNAP-->\n<sc'+'ript>\n(function(){try{var d=JSON.parse(\'' + escaped + '\');'
-    + 'localStorage.setItem(\'pppt_appts\',JSON.stringify(d.appts||[]));'
-    + 'localStorage.setItem(\'pppt_murs\',JSON.stringify(d.murs||[]));'
-    + 'localStorage.setItem(\'pppt_fens\',JSON.stringify(d.fens||[]));'
-    + 'localStorage.setItem(\'pppt_plas\',JSON.stringify(d.plas||[]));'
-    + 'localStorage.setItem(\'pppt_plfs\',JSON.stringify(d.plfs||[]));'
-    + 'localStorage.setItem(\'pppt_portes\',JSON.stringify(d.portes||[]));'
-    + 'localStorage.setItem(\'pppt_chaufs\',JSON.stringify(d.chaufs||[]));'
-    + 'localStorage.setItem(\'pppt_ecss\',JSON.stringify(d.ecss||[]));'
-    + 'localStorage.setItem(\'pppt_photos\',JSON.stringify(d.photos||{}));'
-    + 'localStorage.setItem(\'pppt_dtg\',JSON.stringify(d.dtgPhotos||[]));'
-    + 'localStorage.setItem(\'pppt_vmc\',JSON.stringify(d.vmc||{}));'
-    + 'localStorage.setItem(\'pppt_copro\',JSON.stringify(d.copro||{}));'
-    + '}catch(e){}})();\n<\/sc'+'ript>\n<!--/PPPT-SNAP-->';
-  src = src.replace('</head>', snapBlock + '\n</head>');
-
-  const blob = new Blob([src], {type:'text/html;charset=utf-8'});
-  const file = new File([blob], filename, {type:'text/html'});
-
-  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
-    try {
-      await navigator.share({
-        title: 'ORFIT — ' + (copro.nom||'Projet'),
-        text: 'Relevé terrain PPPT — ' + (copro.nom||''),
-        files: [file]
-      });
-      toast('Projet partagé ✓');
-      return;
-    } catch(e){ if(e.name !== 'AbortError') console.warn(e); }
-  }
-  // Fallback : téléchargement
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename; a.target = '_blank';
-  a.click(); URL.revokeObjectURL(url);
-  toast('Fichier prêt — partagez-le manuellement 📤');
-}
-
 // ── Demander des visites complémentaires ──
 function demanderVisite(){
   const nomCopro = (copro&&copro.nom) ? copro.nom : 'Copropriété inconnue';
@@ -4644,11 +4728,26 @@ function aideOS(btn, id){
   document.getElementById(id).classList.add('active');
 }
 
+
+function toggleCollAcc(id){
+  const body = document.getElementById(id);
+  const chev  = document.getElementById(id+'-chev');
+  if(!body) return;
+  const open = body.classList.toggle('open');
+  if(chev){ chev.textContent = open ? '▼' : '▶'; chev.classList.toggle('open', open); }
+}
+
 // Init
 // ══════════════════════════════════════════════
 loadCopro();
 loadVMC();
 renderApptsList();
+renderCoproRecap();
+renderDTG();
+updateHeader();
+updateExportView();
+renderAccueil();
+st();
 renderCoproRecap();
 renderDTG();
 updateHeader();
