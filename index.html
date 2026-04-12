@@ -122,6 +122,170 @@
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
 
+        /* === SAFE UX PATCH : ONGLET AIDE === */
+.help-hero{
+    background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color:#fff;
+    padding:22px;
+    border-radius:22px;
+    margin-bottom:18px;
+    box-shadow:0 12px 32px rgba(15,23,42,0.18);
+}
+
+.help-hero-title{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-0.5px;
+    margin-bottom:6px;
+}
+
+.help-hero-sub{
+    font-size:14px;
+    color:#CBD5E1;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.help-grid{
+    display:grid;
+    gap:14px;
+}
+
+.help-card{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.help-head{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+.help-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    flex:0 0 42px;
+    box-shadow:0 6px 16px rgba(15,23,42,0.08);
+}
+
+.help-icon-blue{ background:#DBEAFE; color:#1D4ED8; }
+.help-icon-green{ background:#DCFCE7; color:#15803D; }
+.help-icon-orange{ background:#FFEDD5; color:#C2410C; }
+.help-icon-red{ background:#FEE2E2; color:#B91C1C; }
+.help-icon-purple{ background:#EDE9FE; color:#6D28D9; }
+.help-icon-cyan{ background:#CFFAFE; color:#0F766E; }
+.help-icon-yellow{ background:#FEF3C7; color:#B45309; }
+
+.help-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--tx);
+    margin-bottom:2px;
+    letter-spacing:-0.2px;
+}
+
+.help-text{
+    font-size:14px;
+    color:var(--tx2);
+    line-height:1.6;
+}
+
+.help-list{
+    margin-top:10px;
+    padding-left:18px;
+}
+
+.help-list li{
+    margin-bottom:8px;
+    color:var(--tx2);
+    line-height:1.55;
+}
+
+.help-steps{
+    display:grid;
+    gap:8px;
+    margin-top:12px;
+}
+
+.help-step{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#F8FAFC;
+    border:1px solid var(--bor);
+    border-radius:12px;
+    padding:10px 12px;
+}
+
+.help-step-num{
+    width:28px;
+    height:28px;
+    border-radius:999px;
+    background:var(--acc);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:900;
+    flex:0 0 28px;
+}
+
+.help-badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+    background:#EFF6FF;
+    color:#1D4ED8;
+    border:1px solid #BFDBFE;
+}
+
+.help-note{
+    margin-top:10px;
+    background:#F8FAFC;
+    border-left:4px solid var(--acc);
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:var(--tx2);
+    line-height:1.5;
+}
+
+.help-warning{
+    margin-top:10px;
+    background:#FFFBEB;
+    border-left:4px solid #F59E0B;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:#92400E;
+    line-height:1.5;
+}
+
+.help-danger{
+    margin-top:10px;
+    background:#FEF2F2;
+    border-left:4px solid #EF4444;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:#991B1B;
+    line-height:1.5;
+}
+        
         /* === SAFE UX PATCH : EXPORT === */
 .safe-exp-hero{
     background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
@@ -1448,75 +1612,255 @@
 
 <div id="sys-toast" class="toast">Action effectuée ✓</div>
 <div id="vw-aide" class="vw">
-    <div class="card" style="padding:28px; line-height:1.7; background: #fff;">
-        <div style="text-align:center; margin-bottom:30px;">
-            <div style="display:inline-block; position:relative;">
-                <img src="apple-touch-icon.png" style="width:90px; border-radius:20px; box-shadow: 0 10px 25px rgba(37,99,235,0.2);">
-                <div style="position:absolute; bottom:-5px; right:-5px; background:var(--ok); color:white; font-size:10px; padding:3px 8px; border-radius:10px; font-weight:800; border:2px solid white;">PRO</div>
+    <div class="help-hero">
+        <div class="help-hero-title">Aide & méthode terrain</div>
+        <div class="help-hero-sub">
+            MyDiag-DPE est un bloc-notes métier structuré pour la visite terrain, la préparation du dossier et l’intégration dans ADN ANALYSIMMO.
+        </div>
+    </div>
+
+    <div class="help-grid">
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-blue">🧭</div>
+                <div>
+                    <div class="help-title">Logique générale</div>
+                    <div class="help-text">
+                        L’application sert à saisir une seule fois les informations utiles du DPE, dans l’ordre naturel de la visite.
+                    </div>
+                </div>
             </div>
-            <h2 style="color:var(--tx); margin-top:15px; font-size:24px; letter-spacing:-0.5px;">MyDiag-DPE</h2>
-            <div style="font-size:13px; color:var(--tx2); margin-top:5px; font-weight:600;">
-                L'excellence du relevé terrain par <span style="color:var(--acc);">Cyril LOUIS</span><br>
-                <span style="font-weight:400; opacity:0.8;">Disponible sur Mobiles, Tablettes et PC/Mac</span>
+            <div class="help-note">
+                Objectif : limiter les oublis, gagner du temps terrain et préparer un report propre dans le logiciel métier.
             </div>
         </div>
 
-        <div style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); padding:20px; border-radius:16px; margin-bottom:30px; border:1px solid #BFDBFE;">
-            <b style="color:var(--acc); font-size:16px; display:block; margin-bottom:8px;">✨ Pourquoi choisir MyDiag-DPE ?</b>
-            <span style="font-size:14px; color:#1E40AF;">
-                Conçue par un expert pour des experts, cette application transforme la contrainte du relevé en un processus fluide, rapide et 100% sécurisé. 
-                Gagnez jusqu'à 30 minutes par dossier en éliminant la double saisie et les erreurs de calcul manuel.
-            </span>
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-green">✅</div>
+                <div>
+                    <div class="help-title">Ordre recommandé de saisie</div>
+                    <div class="help-text">Travaille toujours dans cette logique :</div>
+                </div>
+            </div>
+            <div class="help-steps">
+                <div class="help-step"><div class="help-step-num">1</div><div>Copropriété</div></div>
+                <div class="help-step"><div class="help-step-num">2</div><div>Lots / appartements</div></div>
+                <div class="help-step"><div class="help-step-num">3</div><div>Parois : murs, fenêtres, portes, plafonds, planchers</div></div>
+                <div class="help-step"><div class="help-step-num">4</div><div>Synthèse BIM / Totaux</div></div>
+                <div class="help-step"><div class="help-step-num">5</div><div>Export</div></div>
+            </div>
+            <div class="help-badge">L’accueil indique la prochaine action automatiquement</div>
         </div>
 
-        <h3 style="color:var(--tx); font-size:18px; margin-bottom:12px; display:flex; align-items:center; gap:10px;">
-            <span style="background:var(--acc); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px;">1</span>
-            Le Tracé "Magique"
-        </h3>
-        <p style="font-size:14px; color:var(--tx2); margin-bottom:15px; padding-left:38px;">
-            Oubliez le papier. Dans l'onglet <b>Murs</b>, dessinez votre plan en temps réel. 
-            <br><br>
-            <b style="color:var(--tx);">💡 Le Secret du schéma parfait :</b> Saisissez toujours vos murs en suivant le <b>sens horaire</b>. Cette méthode permet à l'algorithme de comprendre l'orientation naturelle du logement et de garantir une fermeture parfaite du polygone pour le calcul de surface automatique.
-        </p>
-
-        <h3 style="color:var(--tx); font-size:18px; margin-bottom:12px; display:flex; align-items:center; gap:10px; margin-top:25px;">
-            <span style="background:var(--acc); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px;">2</span>
-            Calculatrice Intelligente Intégrée
-        </h3>
-        <div style="background:#F8FAFC; padding:15px; border-radius:12px; margin-left:38px; border:1px dashed var(--bor);">
-            <p style="font-size:14px; color:var(--tx2);">
-                Plus besoin de calculatrice externe pour les géométries complexes. L'outil intégré automatise les tâches les plus lourdes :
-            </p>
-            <ul style="font-size:13px; color:var(--tx); margin-top:10px; margin-left:20px; font-weight:600;">
-                <li>📐 Calcul automatique des surfaces de Pignons</li>
-                <li>🏠 Déduction précise des surfaces de Rampants</li>
-                <li>📏 Extraction de la Surface Habitable (≥1.80m) sous rampants</li>
-                <li>🔗 Report direct des résultats dans vos fiches parois</li>
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-purple">🏢</div>
+                <div>
+                    <div class="help-title">Onglet Copro</div>
+                    <div class="help-text">
+                        À compléter en premier pour poser le cadre du dossier.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Référence du dossier</li>
+                <li>Nom, adresse, code postal, ville</li>
+                <li>Année de construction</li>
+                <li>Nombre de bâtiments et nombre d’étages</li>
+                <li>VMC, chauffage collectif, ECS collective</li>
+                <li>Photos et documents justificatifs</li>
             </ul>
         </div>
 
-        <h3 style="color:var(--tx); font-size:18px; margin-bottom:12px; display:flex; align-items:center; gap:10px; margin-top:25px;">
-            <span style="background:var(--acc); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px;">3</span>
-            Productivité Maximale
-        </h3>
-        <ul style="font-size:14px; color:var(--tx2); margin-left:58px; margin-bottom:20px;">
-            <li><b>Mémoire de saisie :</b> L'appli retient vos matériaux et isolations d'un élément à l'autre. Ne changez que la longueur !</li>
-            <li><b>Bibliothèque de Modèles :</b> Enregistrez une fenêtre type une seule fois et réutilisez-la sur tout le dossier.</li>
-            <li><b>Duplication 🔄 :</b> Clonez un appartement complet (murs, fenêtres, systèmes) en un clic pour les lots identiques.</li>
-        </ul>
-
-        <h3 style="color:var(--tx); font-size:18px; margin-bottom:12px; display:flex; align-items:center; gap:10px; margin-top:25px;">
-            <span style="background:var(--acc); color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px;">4</span>
-            Export Direct Annalyssimmo
-        </h3>
-        <p style="font-size:14px; color:var(--tx2); margin-bottom:15px; padding-left:38px;">
-            Générez instantanément votre fichier <b>Excel structuré</b>, votre <b>ZIP de photos classées</b> et votre <b>Sauvegarde JSON</b>. Votre dossier est prêt pour la certification avant même d'avoir quitté le terrain.
-        </p>
-
-        <div style="margin-top:40px; padding:20px; background:var(--tx); border-radius:16px; text-align:center;">
-            <div style="color:white; font-weight:700; font-size:15px;">Prêt à révolutionner vos diagnostics ?</div>
-            <div style="color:#94A3B8; font-size:12px; margin-top:5px;">Version 8.12 • L'outil pensé pour le terrain.</div>
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-cyan">🚪</div>
+                <div>
+                    <div class="help-title">Onglet Appartements</div>
+                    <div class="help-text">
+                        Chaque lot créé devient une base de rattachement pour les parois et les équipements.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Numéro d’échantillon</li>
+                <li>Type de lot : plain-pied, duplex, triplex</li>
+                <li>Bâtiment, étage principal, niveau ADN</li>
+                <li>Surface habitable et HSP</li>
+            </ul>
+            <div class="help-note">
+                Tant qu’un lot n’est pas créé, les onglets de parois ne peuvent pas être exploités correctement.
+            </div>
         </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-orange">🧱</div>
+                <div>
+                    <div class="help-title">Onglet Murs</div>
+                    <div class="help-text">
+                        C’est l’onglet central pour structurer l’enveloppe du logement.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Choisir le lot concerné</li>
+                <li>Vérifier le niveau actif</li>
+                <li>Renseigner orientation, donne sur, matériau, épaisseur</li>
+                <li>Entrer les dimensions L × H</li>
+                <li>Compléter isolation et doublage</li>
+            </ul>
+            <div class="help-note">
+                Le calcul intégré permet de préparer rapidement les surfaces de façade, pignon, rampant, plafond plat et surface habitable.
+            </div>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-blue">🪟</div>
+                <div>
+                    <div class="help-title">Onglet Fenêtres</div>
+                    <div class="help-text">
+                        Utilise la bibliothèque de repères pour accélérer la saisie des menuiseries répétitives.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Choisir lot et niveau</li>
+                <li>Orientation, type, matériau, vitrage, fermeture</li>
+                <li>Dimensions L × H ou diamètre selon le type</li>
+                <li>Quantité et nombre de motifs / vantaux</li>
+            </ul>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-yellow">🚪</div>
+                <div>
+                    <div class="help-title">Portes, plafonds et planchers</div>
+                    <div class="help-text">
+                        La logique reste la même : lot, type, dimensions, composition, cohérence thermique.
+                    </div>
+                </div>
+            </div>
+            <div class="help-note">
+                Reste homogène dans la description des éléments pour éviter les incohérences lors de la reprise dans ADN.
+            </div>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-green">🖥️</div>
+                <div>
+                    <div class="help-title">Mode Bureau</div>
+                    <div class="help-text">
+                        Sert à saisir ou compléter rapidement des murs en série, notamment à partir d’un plan ou après la visite.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Choisir le lot cible</li>
+                <li>Garder des paramètres stables</li>
+                <li>Enchaîner les dimensions rapidement</li>
+                <li>Contrôler la liste générée en bas d’écran</li>
+            </ul>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-purple">📊</div>
+                <div>
+                    <div class="help-title">Synthèse BIM et Totaux</div>
+                    <div class="help-text">
+                        Ces onglets servent à contrôler la cohérence globale avant export.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Surfaces et quantités</li>
+                <li>Répartition des éléments</li>
+                <li>Vérification d’ensemble avant clôture</li>
+            </ul>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-red">📤</div>
+                <div>
+                    <div class="help-title">Export du dossier</div>
+                    <div class="help-text">
+                        L’onglet Export permet de générer les livrables de fin de mission.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Export Excel</li>
+                <li>Export ZIP des photos</li>
+                <li>Export JSON de sauvegarde complète</li>
+            </ul>
+            <div class="help-warning">
+                Vérifie les lots, les parois et les systèmes avant export. Le JSON sert aussi de sauvegarde de sécurité.
+            </div>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-cyan">💾</div>
+                <div>
+                    <div class="help-title">Sauvegarde</div>
+                    <div class="help-text">
+                        Le bouton “Sauvegarder” en haut de l’écran enregistre l’état courant du dossier.
+                    </div>
+                </div>
+            </div>
+            <div class="help-note">
+                Pense à sauvegarder régulièrement pendant la visite, surtout avant une pause, un changement de bâtiment ou un export.
+            </div>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-orange">⚠️</div>
+                <div>
+                    <div class="help-title">Erreurs fréquentes à éviter</div>
+                    <div class="help-text">
+                        Quelques points de vigilance pour garder un dossier exploitable.
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Créer des parois sans avoir créé le lot</li>
+                <li>Se tromper de niveau actif</li>
+                <li>Oublier la quantité sur les menuiseries</li>
+                <li>Saisir des dimensions incohérentes</li>
+                <li>Exporter sans contrôle final</li>
+            </ul>
+            <div class="help-danger">
+                L’application aide à structurer, mais elle ne remplace pas la vigilance métier du diagnostiqueur.
+            </div>
+        </div>
+
+        <div class="help-card">
+            <div class="help-head">
+                <div class="help-icon help-icon-blue">💡</div>
+                <div>
+                    <div class="help-title">Bonnes pratiques terrain</div>
+                    <div class="help-text">
+                        Pour gagner du temps sans perdre en qualité :
+                    </div>
+                </div>
+            </div>
+            <ul class="help-list">
+                <li>Saisir au fur et à mesure de la visite</li>
+                <li>Prendre des photos utiles et lisibles</li>
+                <li>Utiliser la calculatrice intégrée</li>
+                <li>Contrôler les totaux avant export</li>
+                <li>Faire un export JSON de sauvegarde avant envoi</li>
+            </ul>
+        </div>
+
     </div>
 </div>
 <script>
