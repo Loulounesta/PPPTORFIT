@@ -2124,10 +2124,29 @@ function renderBureauList() {
         document.getElementById('tdb-sys').textContent = db.chaufs.length + db.ecss.length;
     }
 
-    if(murs.length === 0){
-        txt.innerText = "Saisir les parois";
-        sub.innerText = "Commencez par les murs pour construire la base thermique.";
-        return;
+    function updateHomeNextStep() {
+        let txt = document.getElementById('home-next-text');
+        let sub = document.getElementById('home-next-sub');
+        if(!txt || !sub) return;
+
+        if(!db.copro.ref) {
+            txt.innerText = "Renseigner la copropriété";
+            sub.innerText = "Saisissez l'adresse et les infos générales du bâtiment.";
+            return;
+        }
+        if(db.appts.length === 0) {
+            txt.innerText = "Créer vos lots / appartements";
+            sub.innerText = "Ajoutez au moins un échantillon pour commencer la visite.";
+            return;
+        }
+        if(db.murs.length === 0) {
+            txt.innerText = "Saisir les parois";
+            sub.innerText = "Commencez par les murs pour construire la base thermique.";
+            return;
+        }
+        
+        txt.innerText = "Finaliser le dossier";
+        sub.innerText = "Ajoutez les menuiseries, systèmes et exportez vers ADN.";
     }
 
     txt.innerText = "Finaliser le dossier";
