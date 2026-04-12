@@ -122,6 +122,214 @@
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
 
+        /* === PREMIUM HELP : ONGLET AIDE ACCORDÉONS === */
+.help-hero{
+    background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color:#fff;
+    padding:22px;
+    border-radius:22px;
+    margin-bottom:18px;
+    box-shadow:0 12px 32px rgba(15,23,42,0.18);
+}
+
+.help-hero-title{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-0.5px;
+    margin-bottom:6px;
+}
+
+.help-hero-sub{
+    font-size:14px;
+    color:#CBD5E1;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.help-acc{
+    display:grid;
+    gap:12px;
+}
+
+.help-acc-item{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.help-acc-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px 18px;
+    cursor:pointer;
+    background:#fff;
+}
+
+.help-acc-head:active{
+    background:#F8FAFC;
+}
+
+.help-acc-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.help-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    flex:0 0 42px;
+    box-shadow:0 6px 16px rgba(15,23,42,0.08);
+}
+
+.help-icon-blue{ background:#DBEAFE; color:#1D4ED8; }
+.help-icon-green{ background:#DCFCE7; color:#15803D; }
+.help-icon-orange{ background:#FFEDD5; color:#C2410C; }
+.help-icon-red{ background:#FEE2E2; color:#B91C1C; }
+.help-icon-purple{ background:#EDE9FE; color:#6D28D9; }
+.help-icon-cyan{ background:#CFFAFE; color:#0F766E; }
+.help-icon-yellow{ background:#FEF3C7; color:#B45309; }
+
+.help-acc-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--tx);
+    letter-spacing:-0.2px;
+}
+
+.help-acc-sub{
+    font-size:13px;
+    color:var(--tx2);
+    line-height:1.45;
+    margin-top:2px;
+}
+
+.help-chevron{
+    font-size:18px;
+    font-weight:900;
+    color:#94A3B8;
+    transition:transform 0.2s ease;
+    flex:0 0 auto;
+}
+
+.help-acc-item.open .help-chevron{
+    transform:rotate(180deg);
+}
+
+.help-acc-body{
+    display:none;
+    padding:0 18px 18px 18px;
+    border-top:1px solid var(--bor);
+    background:linear-gradient(180deg, #FFFFFF 0%, #FBFDFF 100%);
+}
+
+.help-acc-item.open .help-acc-body{
+    display:block;
+}
+
+.help-text{
+    font-size:14px;
+    color:var(--tx2);
+    line-height:1.6;
+    margin-top:14px;
+}
+
+.help-list{
+    margin-top:12px;
+    padding-left:18px;
+}
+
+.help-list li{
+    margin-bottom:8px;
+    color:var(--tx2);
+    line-height:1.55;
+}
+
+.help-steps{
+    display:grid;
+    gap:8px;
+    margin-top:14px;
+}
+
+.help-step{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#F8FAFC;
+    border:1px solid var(--bor);
+    border-radius:12px;
+    padding:10px 12px;
+}
+
+.help-step-num{
+    width:28px;
+    height:28px;
+    border-radius:999px;
+    background:var(--acc);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:900;
+    flex:0 0 28px;
+}
+
+.help-badge{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+    background:#EFF6FF;
+    color:#1D4ED8;
+    border:1px solid #BFDBFE;
+}
+
+.help-note{
+    margin-top:12px;
+    background:#F8FAFC;
+    border-left:4px solid var(--acc);
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:var(--tx2);
+    line-height:1.5;
+}
+
+.help-warning{
+    margin-top:12px;
+    background:#FFFBEB;
+    border-left:4px solid #F59E0B;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:#92400E;
+    line-height:1.5;
+}
+
+.help-danger{
+    margin-top:12px;
+    background:#FEF2F2;
+    border-left:4px solid #EF4444;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:13px;
+    color:#991B1B;
+    line-height:1.5;
+}
+        
         /* === SAFE UX PATCH : ONGLET AIDE === */
 .help-hero{
     background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
@@ -1619,246 +1827,296 @@
         </div>
     </div>
 
-    <div class="help-grid">
+    <div class="help-acc">
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-blue">🧭</div>
-                <div>
-                    <div class="help-title">Logique générale</div>
-                    <div class="help-text">
-                        L’application sert à saisir une seule fois les informations utiles du DPE, dans l’ordre naturel de la visite.
+        <div class="help-acc-item open">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-blue">🧭</div>
+                    <div>
+                        <div class="help-acc-title">Logique générale</div>
+                        <div class="help-acc-sub">Comprendre le rôle de l’application et sa méthode.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <div class="help-note">
-                Objectif : limiter les oublis, gagner du temps terrain et préparer un report propre dans le logiciel métier.
+            <div class="help-acc-body">
+                <div class="help-text">
+                    MyDiag-DPE sert à saisir une seule fois les informations utiles du DPE, dans l’ordre naturel de la visite.
+                </div>
+                <div class="help-note">
+                    Objectif : limiter les oublis, gagner du temps terrain et préparer un report propre dans le logiciel métier.
+                </div>
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-green">✅</div>
-                <div>
-                    <div class="help-title">Ordre recommandé de saisie</div>
-                    <div class="help-text">Travaille toujours dans cette logique :</div>
-                </div>
-            </div>
-            <div class="help-steps">
-                <div class="help-step"><div class="help-step-num">1</div><div>Copropriété</div></div>
-                <div class="help-step"><div class="help-step-num">2</div><div>Lots / appartements</div></div>
-                <div class="help-step"><div class="help-step-num">3</div><div>Parois : murs, fenêtres, portes, plafonds, planchers</div></div>
-                <div class="help-step"><div class="help-step-num">4</div><div>Synthèse BIM / Totaux</div></div>
-                <div class="help-step"><div class="help-step-num">5</div><div>Export</div></div>
-            </div>
-            <div class="help-badge">L’accueil indique la prochaine action automatiquement</div>
-        </div>
-
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-purple">🏢</div>
-                <div>
-                    <div class="help-title">Onglet Copro</div>
-                    <div class="help-text">
-                        À compléter en premier pour poser le cadre du dossier.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-green">✅</div>
+                    <div>
+                        <div class="help-acc-title">Ordre recommandé de saisie</div>
+                        <div class="help-acc-sub">Le bon enchaînement pour rester cohérent du début à la fin.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Référence du dossier</li>
-                <li>Nom, adresse, code postal, ville</li>
-                <li>Année de construction</li>
-                <li>Nombre de bâtiments et nombre d’étages</li>
-                <li>VMC, chauffage collectif, ECS collective</li>
-                <li>Photos et documents justificatifs</li>
-            </ul>
-        </div>
-
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-cyan">🚪</div>
-                <div>
-                    <div class="help-title">Onglet Appartements</div>
-                    <div class="help-text">
-                        Chaque lot créé devient une base de rattachement pour les parois et les équipements.
-                    </div>
+            <div class="help-acc-body">
+                <div class="help-steps">
+                    <div class="help-step"><div class="help-step-num">1</div><div>Copropriété</div></div>
+                    <div class="help-step"><div class="help-step-num">2</div><div>Lots / appartements</div></div>
+                    <div class="help-step"><div class="help-step-num">3</div><div>Parois : murs, fenêtres, portes, plafonds, planchers</div></div>
+                    <div class="help-step"><div class="help-step-num">4</div><div>Synthèse BIM / Totaux</div></div>
+                    <div class="help-step"><div class="help-step-num">5</div><div>Export</div></div>
                 </div>
-            </div>
-            <ul class="help-list">
-                <li>Numéro d’échantillon</li>
-                <li>Type de lot : plain-pied, duplex, triplex</li>
-                <li>Bâtiment, étage principal, niveau ADN</li>
-                <li>Surface habitable et HSP</li>
-            </ul>
-            <div class="help-note">
-                Tant qu’un lot n’est pas créé, les onglets de parois ne peuvent pas être exploités correctement.
+                <div class="help-badge">L’accueil indique la prochaine action automatiquement</div>
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-orange">🧱</div>
-                <div>
-                    <div class="help-title">Onglet Murs</div>
-                    <div class="help-text">
-                        C’est l’onglet central pour structurer l’enveloppe du logement.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-purple">🏢</div>
+                    <div>
+                        <div class="help-acc-title">Onglet Copro</div>
+                        <div class="help-acc-sub">Le point de départ de tout le dossier.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Choisir le lot concerné</li>
-                <li>Vérifier le niveau actif</li>
-                <li>Renseigner orientation, donne sur, matériau, épaisseur</li>
-                <li>Entrer les dimensions L × H</li>
-                <li>Compléter isolation et doublage</li>
-            </ul>
-            <div class="help-note">
-                Le calcul intégré permet de préparer rapidement les surfaces de façade, pignon, rampant, plafond plat et surface habitable.
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Référence du dossier</li>
+                    <li>Nom, adresse, code postal, ville</li>
+                    <li>Année de construction</li>
+                    <li>Nombre de bâtiments et d’étages</li>
+                    <li>VMC, chauffage collectif, ECS collective</li>
+                    <li>Photos et documents justificatifs</li>
+                </ul>
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-blue">🪟</div>
-                <div>
-                    <div class="help-title">Onglet Fenêtres</div>
-                    <div class="help-text">
-                        Utilise la bibliothèque de repères pour accélérer la saisie des menuiseries répétitives.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-cyan">🚪</div>
+                    <div>
+                        <div class="help-acc-title">Onglet Appartements</div>
+                        <div class="help-acc-sub">Créer les lots qui serviront de base à toute la saisie.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Choisir lot et niveau</li>
-                <li>Orientation, type, matériau, vitrage, fermeture</li>
-                <li>Dimensions L × H ou diamètre selon le type</li>
-                <li>Quantité et nombre de motifs / vantaux</li>
-            </ul>
-        </div>
-
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-yellow">🚪</div>
-                <div>
-                    <div class="help-title">Portes, plafonds et planchers</div>
-                    <div class="help-text">
-                        La logique reste la même : lot, type, dimensions, composition, cohérence thermique.
-                    </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Numéro d’échantillon</li>
+                    <li>Type de lot : plain-pied, duplex, triplex</li>
+                    <li>Bâtiment, étage principal, niveau ADN</li>
+                    <li>Surface habitable et HSP</li>
+                </ul>
+                <div class="help-note">
+                    Tant qu’un lot n’est pas créé, les onglets de parois ne peuvent pas être exploités correctement.
                 </div>
-            </div>
-            <div class="help-note">
-                Reste homogène dans la description des éléments pour éviter les incohérences lors de la reprise dans ADN.
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-green">🖥️</div>
-                <div>
-                    <div class="help-title">Mode Bureau</div>
-                    <div class="help-text">
-                        Sert à saisir ou compléter rapidement des murs en série, notamment à partir d’un plan ou après la visite.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-orange">🧱</div>
+                    <div>
+                        <div class="help-acc-title">Onglet Murs</div>
+                        <div class="help-acc-sub">L’onglet central pour structurer l’enveloppe du logement.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Choisir le lot cible</li>
-                <li>Garder des paramètres stables</li>
-                <li>Enchaîner les dimensions rapidement</li>
-                <li>Contrôler la liste générée en bas d’écran</li>
-            </ul>
-        </div>
-
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-purple">📊</div>
-                <div>
-                    <div class="help-title">Synthèse BIM et Totaux</div>
-                    <div class="help-text">
-                        Ces onglets servent à contrôler la cohérence globale avant export.
-                    </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Choisir le lot concerné</li>
+                    <li>Vérifier le niveau actif</li>
+                    <li>Renseigner orientation, donne sur, matériau, épaisseur</li>
+                    <li>Entrer les dimensions L × H</li>
+                    <li>Compléter isolation et doublage</li>
+                </ul>
+                <div class="help-note">
+                    Le calcul intégré permet de préparer rapidement les surfaces de façade, pignon, rampant, plafond plat et surface habitable.
                 </div>
-            </div>
-            <ul class="help-list">
-                <li>Surfaces et quantités</li>
-                <li>Répartition des éléments</li>
-                <li>Vérification d’ensemble avant clôture</li>
-            </ul>
-        </div>
-
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-red">📤</div>
-                <div>
-                    <div class="help-title">Export du dossier</div>
-                    <div class="help-text">
-                        L’onglet Export permet de générer les livrables de fin de mission.
-                    </div>
-                </div>
-            </div>
-            <ul class="help-list">
-                <li>Export Excel</li>
-                <li>Export ZIP des photos</li>
-                <li>Export JSON de sauvegarde complète</li>
-            </ul>
-            <div class="help-warning">
-                Vérifie les lots, les parois et les systèmes avant export. Le JSON sert aussi de sauvegarde de sécurité.
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-cyan">💾</div>
-                <div>
-                    <div class="help-title">Sauvegarde</div>
-                    <div class="help-text">
-                        Le bouton “Sauvegarder” en haut de l’écran enregistre l’état courant du dossier.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-blue">🪟</div>
+                    <div>
+                        <div class="help-acc-title">Onglet Fenêtres</div>
+                        <div class="help-acc-sub">Une saisie rapide et homogène des menuiseries.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <div class="help-note">
-                Pense à sauvegarder régulièrement pendant la visite, surtout avant une pause, un changement de bâtiment ou un export.
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Choisir lot et niveau</li>
+                    <li>Orientation, type, matériau, vitrage, fermeture</li>
+                    <li>Dimensions L × H ou diamètre selon le type</li>
+                    <li>Quantité et nombre de motifs / vantaux</li>
+                </ul>
+                <div class="help-note">
+                    Utilise la bibliothèque de repères pour accélérer la saisie des menuiseries répétitives.
+                </div>
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-orange">⚠️</div>
-                <div>
-                    <div class="help-title">Erreurs fréquentes à éviter</div>
-                    <div class="help-text">
-                        Quelques points de vigilance pour garder un dossier exploitable.
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-yellow">🚪</div>
+                    <div>
+                        <div class="help-acc-title">Portes, plafonds et planchers</div>
+                        <div class="help-acc-sub">Même logique de description, avec vigilance sur la cohérence thermique.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Créer des parois sans avoir créé le lot</li>
-                <li>Se tromper de niveau actif</li>
-                <li>Oublier la quantité sur les menuiseries</li>
-                <li>Saisir des dimensions incohérentes</li>
-                <li>Exporter sans contrôle final</li>
-            </ul>
-            <div class="help-danger">
-                L’application aide à structurer, mais elle ne remplace pas la vigilance métier du diagnostiqueur.
+            <div class="help-acc-body">
+                <div class="help-text">
+                    Garde une description homogène des éléments pour éviter les incohérences lors de la reprise dans ADN.
+                </div>
             </div>
         </div>
 
-        <div class="help-card">
-            <div class="help-head">
-                <div class="help-icon help-icon-blue">💡</div>
-                <div>
-                    <div class="help-title">Bonnes pratiques terrain</div>
-                    <div class="help-text">
-                        Pour gagner du temps sans perdre en qualité :
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-green">🖥️</div>
+                    <div>
+                        <div class="help-acc-title">Mode Bureau</div>
+                        <div class="help-acc-sub">Compléter et saisir rapidement après la visite.</div>
                     </div>
                 </div>
+                <div class="help-chevron">⌄</div>
             </div>
-            <ul class="help-list">
-                <li>Saisir au fur et à mesure de la visite</li>
-                <li>Prendre des photos utiles et lisibles</li>
-                <li>Utiliser la calculatrice intégrée</li>
-                <li>Contrôler les totaux avant export</li>
-                <li>Faire un export JSON de sauvegarde avant envoi</li>
-            </ul>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Choisir le lot cible</li>
+                    <li>Garder des paramètres stables</li>
+                    <li>Enchaîner les dimensions rapidement</li>
+                    <li>Contrôler la liste générée en bas d’écran</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-purple">📊</div>
+                    <div>
+                        <div class="help-acc-title">Synthèse BIM et Totaux</div>
+                        <div class="help-acc-sub">Contrôler la cohérence générale avant clôture.</div>
+                    </div>
+                </div>
+                <div class="help-chevron">⌄</div>
+            </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Surfaces et quantités</li>
+                    <li>Répartition des éléments</li>
+                    <li>Vérification d’ensemble avant export</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-red">📤</div>
+                    <div>
+                        <div class="help-acc-title">Export du dossier</div>
+                        <div class="help-acc-sub">Les livrables de fin de mission.</div>
+                    </div>
+                </div>
+                <div class="help-chevron">⌄</div>
+            </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Export Excel</li>
+                    <li>Export ZIP des photos</li>
+                    <li>Export JSON de sauvegarde complète</li>
+                </ul>
+                <div class="help-warning">
+                    Vérifie les lots, les parois et les systèmes avant export. Le JSON sert aussi de sauvegarde de sécurité.
+                </div>
+            </div>
+        </div>
+
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-cyan">💾</div>
+                    <div>
+                        <div class="help-acc-title">Sauvegarde</div>
+                        <div class="help-acc-sub">Un réflexe à conserver pendant toute la mission.</div>
+                    </div>
+                </div>
+                <div class="help-chevron">⌄</div>
+            </div>
+            <div class="help-acc-body">
+                <div class="help-text">
+                    Le bouton “Sauvegarder” en haut de l’écran enregistre l’état courant du dossier.
+                </div>
+                <div class="help-note">
+                    Pense à sauvegarder régulièrement pendant la visite, surtout avant une pause, un changement de bâtiment ou un export.
+                </div>
+            </div>
+        </div>
+
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-orange">⚠️</div>
+                    <div>
+                        <div class="help-acc-title">Erreurs fréquentes à éviter</div>
+                        <div class="help-acc-sub">Les oublis qui pénalisent le plus la qualité du dossier.</div>
+                    </div>
+                </div>
+                <div class="help-chevron">⌄</div>
+            </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Créer des parois sans avoir créé le lot</li>
+                    <li>Se tromper de niveau actif</li>
+                    <li>Oublier la quantité sur les menuiseries</li>
+                    <li>Saisir des dimensions incohérentes</li>
+                    <li>Exporter sans contrôle final</li>
+                </ul>
+                <div class="help-danger">
+                    L’application aide à structurer, mais elle ne remplace pas la vigilance métier du diagnostiqueur.
+                </div>
+            </div>
+        </div>
+
+        <div class="help-acc-item">
+            <div class="help-acc-head" onclick="this.parentElement.classList.toggle('open')">
+                <div class="help-acc-left">
+                    <div class="help-icon help-icon-blue">💡</div>
+                    <div>
+                        <div class="help-acc-title">Bonnes pratiques terrain</div>
+                        <div class="help-acc-sub">Quelques réflexes simples pour gagner du temps sans perdre en qualité.</div>
+                    </div>
+                </div>
+                <div class="help-chevron">⌄</div>
+            </div>
+            <div class="help-acc-body">
+                <ul class="help-list">
+                    <li>Saisir au fur et à mesure de la visite</li>
+                    <li>Prendre des photos utiles et lisibles</li>
+                    <li>Utiliser la calculatrice intégrée</li>
+                    <li>Contrôler les totaux avant export</li>
+                    <li>Faire un export JSON de sauvegarde avant envoi</li>
+                </ul>
+            </div>
         </div>
 
     </div>
