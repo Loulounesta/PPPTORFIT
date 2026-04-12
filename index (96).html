@@ -1682,7 +1682,7 @@ function renderBureauList() {
         if(tabId === 'accueil') updateDashboard();
         if(tabId === 'bim') renderBIM();
         if(tabId === 'totaux') renderTotauxTable();
-        if(tabId === 'bureau') renderBureauTarget(); renderBureauList();
+        if(tabId === 'bureau') { renderBureauTarget(); renderBureauList();}        
         if(['murs','fen','portes','plafonds','planchers'].includes(tabId)) {
             verifierAptActif(tabId);
             renderElementsList(tabId);
