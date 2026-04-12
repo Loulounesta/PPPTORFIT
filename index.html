@@ -1287,9 +1287,9 @@
         <div class="fr"><span class="fl">Nom Copro</span><input type="text" id="copro-nom" placeholder="ex: Les Lilas" oninput="saveCoproData()"></div>
         <div class="fr"><span class="fl">Adresse</span><input type="text" id="copro-adresse" placeholder="Rue et numéro" oninput="saveCoproData()"></div>
         <div class="fr"><span class="fl">Code Postal</span><input type="text" inputmode="numeric" pattern="[0-9]*" id="copro-cp" placeholder="ex: 75000" oninput="saveCoproData()"></div>
-        <div class="fr"><span class="fl">Ville</span><input type="text" id="copro-ville" placeholder="Ville" oninput="saveCoproData()"></div>        <div class="fr"><span class="fl">Année constr.</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-annee" placeholder="ex: 1975" oninput="saveCoproData()"></div>
-        <div class="fr"><span class="fl">Nb bâtiments</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-batiments" placeholder="ex: 3" oninput="saveCoproData(); updateBatimentOptions('apt-bat');"></div>
-        <div class="fr"><span class="fl">Nb d'étages</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-etages" placeholder="ex: 4" oninput="saveCoproData(); updateEtageOptions('apt-etage');"></div>
+        <div class="fr"><span class="fl">Ville</span><input type="text" id="copro-ville" placeholder="Ville" oninput="saveCoproData()"></div>        <div class="fr"><span class="fl">Année constr.</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-annee" placeholder="ex: 1975" oninput="saveCoproData()"></div>
+        <div class="fr"><span class="fl">Nb bâtiments</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-batiments" placeholder="ex: 3" oninput="saveCoproData(); updateBatimentOptions('apt-bat');"></div>
+        <div class="fr"><span class="fl">Nb d'étages</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-etages" placeholder="ex: 4" oninput="saveCoproData(); updateEtageOptions('apt-etage');"></div>
     </div>
 
     <div class="coll-acc-hd" onclick="toggleAcc('docs-acc', this)"><span>📂 Documents & Justificatifs</span> <span style="color:var(--acc);">▼</span></div>
@@ -1323,8 +1323,8 @@
             </div>
             <div class="fr"><span class="fl">Générateur</span><select id="col-chauf-gen" onchange="checkChaudiereECS('col'); saveCoproData()"><option value="">—</option></select></div>
             <div class="fr"><span class="fl">Émetteur</span><select id="col-chauf-emetteur" onchange="saveCoproData()"><option value="">—</option></select></div>
-            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="decimal" step="any" id="col-chauf-annee" oninput="saveCoproData()"></div>
-            <div class="fr"><span class="fl">Puiss. (kW)</span><input type="number" inputmode="decimal" step="any" id="col-chauf-puissance" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="numeric" id="col-chauf-annee" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Puiss. (kW)</span><input type="number" inputmode="numeric" id="col-chauf-puissance" oninput="saveCoproData()"></div>
         </div>
     </div>
 
@@ -1342,7 +1342,7 @@
                 </div>
             </div>
             <div class="fr"><span class="fl">Type/Gén.</span><select id="col-ecs-type" onchange="saveCoproData()"><option value="">—</option></select></div>
-            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="decimal" step="any" id="col-ecs-annee" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="numeric" id="col-ecs-annee" oninput="saveCoproData()"></div>
             <div class="fr"><span class="fl">Volume (L)</span><input type="number" inputmode="decimal" step="any" id="col-ecs-vol" oninput="saveCoproData()"></div>
         </div>
     </div>
