@@ -121,6 +121,162 @@
         
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
+        /* === SAFE UX PATCH : ONGLET MURS === */
+.safe-section-title{
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#64748b;
+    text-transform:uppercase;
+    margin:0 0 10px 4px;
+}
+
+.safe-context-card,
+.safe-action-card,
+.safe-list-card{
+    background:var(--sur);
+    border:1px solid var(--bor);
+    border-radius:var(--r);
+    padding:16px;
+    margin-bottom:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.safe-context-card{
+    background:linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+    border-color:#BFDBFE;
+}
+
+.safe-context-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.safe-context-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--tx);
+    letter-spacing:-0.3px;
+}
+
+.safe-context-sub{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:600;
+}
+
+.safe-mini-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#DBEAFE;
+    color:#1D4ED8;
+    border:1px solid #BFDBFE;
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.safe-group{
+    margin-bottom:16px;
+}
+
+.safe-group:last-child{
+    margin-bottom:0;
+}
+
+.safe-subcard{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:14px;
+}
+
+.safe-subcard:last-child{
+    margin-bottom:0;
+}
+
+.safe-subhead{
+    padding:12px 16px;
+    background:#F8FAFC;
+    border-bottom:1px solid var(--bor);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.8px;
+    color:var(--tx2);
+    text-transform:uppercase;
+}
+
+.safe-subhint{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    font-weight:600;
+    color:#94A3B8;
+    text-transform:none;
+    letter-spacing:0;
+}
+
+.safe-dim-wrap{
+    background:linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+}
+
+.safe-action-card{
+    text-align:center;
+    border:1px solid #BFDBFE;
+    background:linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.safe-action-note{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.safe-list-card{
+    padding:0;
+    overflow:hidden;
+}
+
+.safe-list-head{
+    padding:14px 16px;
+    background:#0F172A;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+}
+
+.safe-list-body{
+    padding:16px;
+}
+
+#vw-murs .appt-target-sel{
+    margin-bottom:0;
+}
+
+#vw-murs #murs-niv-container{
+    margin-top:12px;
+}
+
+#vw-murs .canvas-container{
+    margin-top:12px;
+    margin-bottom:16px;
+}
+
+#vw-murs #btn-save-murs{
+    margin-top:0;
+}
+    
+    
     </style>
 </head>
 <body>
@@ -283,15 +439,30 @@
 </div>
 
 <div id="vw-murs" class="vw">
-    <select id="murs-target" class="appt-target-sel" onchange="changeTargetApt(this.value, 'murs')"></select>
-    <div id="murs-niv-container"></div>
-    
-    <div class="coll-acc-hd" onclick="toggleAcc('calc-geometrique', this)" style="margin-bottom:16px; margin-top:0;"><span>🧮 Outil de calcul géométrique</span> <span style="color:var(--acc);">▼</span></div>
+    <div class="safe-section-title">Contexte de saisie</div>
+    <div class="safe-context-card">
+        <div class="safe-context-head">
+            <div>
+                <div class="safe-context-title">Mur en cours de saisie</div>
+                <div class="safe-context-sub">Sélectionnez le lot et vérifiez le niveau avant d’enregistrer.</div>
+            </div>
+            <div class="safe-mini-badge">🧱 Onglet Murs</div>
+        </div>
+
+        <select id="murs-target" class="appt-target-sel" onchange="changeTargetApt(this.value, 'murs')"></select>
+        <div id="murs-niv-container"></div>
+    </div>
+
+    <div class="safe-section-title">Préparation et contrôle</div>
+
+    <div class="coll-acc-hd" onclick="toggleAcc('calc-geometrique', this)" style="margin-bottom:12px; margin-top:0;">
+        <span>🧮 Préparer les surfaces</span>
+        <span style="color:var(--acc);">▼</span>
+    </div>
     <div class="coll-acc-body" id="calc-geometrique">
-        
         <div style="background:#fff; border:1px solid var(--bor); border-radius:12px; padding:16px; margin-bottom:16px; box-shadow: 0 4px 12px rgba(15,23,42,0.02);">
             <div style="text-align:center; margin-bottom:12px; font-weight:800; color:var(--tx);">Schéma des prises de mesure</div>
-            
+
             <svg viewBox="0 0 320 180" style="width:100%; max-width:320px; margin:0 auto; display:block; overflow:visible;">
                 <defs>
                     <marker id="arrowB" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#3B82F6" /></marker>
@@ -334,7 +505,12 @@
                 <div style="grid-column: span 2;"><b style="color:#8B5CF6;">Proj.</b> = Longueur horizontale sous la pente du toit (Rampant)</div>
             </div>
         </div>
+
         <div class="card" style="padding:16px;">
+            <div style="font-size:12px; font-weight:900; color:var(--acc); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.6px;">
+                Pignon, façade, rampant, surface habitable
+            </div>
+
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:12px;">
                 <input type="number" class="calc-input" id="calc-L" placeholder="L (Façade)" style="border-left:4px solid #0D9488;" oninput="runCalc()">
                 <input type="number" class="calc-input" id="calc-l" placeholder="l (Pignon)" style="border-left:4px solid #F59E0B;" oninput="runCalc()">
@@ -342,42 +518,43 @@
                 <input type="number" class="calc-input" id="calc-H" placeholder="H (Faîtage)" style="border-left:4px solid #16A34A;" oninput="runCalc()">
                 <input type="number" class="calc-input" id="calc-proj" placeholder="Proj. Rampant" style="border-left:4px solid #8B5CF6; grid-column: span 2;" oninput="runCalc()">
             </div>
-            
+
             <div id="calc-res" style="display:none; background:#F8FAFC; padding:12px; border-radius:8px; border:1px solid var(--bor); font-size:13px;">
                 <div style="font-size:11px; color:#64748b; margin-bottom:10px; text-transform:uppercase; font-weight:800; letter-spacing:0.5px;">Résultats des surfaces :</div>
-                
+
                 <div style="display:flex; justify-content:space-between; margin-bottom:8px; align-items:center;">
-                    <span>Façade <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(L × h)</span>:</span> 
+                    <span>Façade <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(L × h)</span>:</span>
                     <div style="display:flex; align-items:center;"><b id="res-mur" style="margin-right:10px; font-size:14px;"></b> <button class="btn-xs" style="background:#E0E7FF; color:#4338CA; padding:6px 10px;" onclick="addCalc('mur')">➕ Mur</button></div>
                 </div>
-                
+
                 <div style="display:flex; justify-content:space-between; margin-bottom:8px; align-items:center;">
-                    <span>Pignon <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Face complète)</span>:</span> 
+                    <span>Pignon <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Face complète)</span>:</span>
                     <div style="display:flex; align-items:center;"><b id="res-pig" style="margin-right:10px; font-size:14px;"></b> <button class="btn-xs" style="background:#E0E7FF; color:#4338CA; padding:6px 10px;" onclick="addCalc('pig')">➕ Mur</button></div>
                 </div>
-                
+
                 <div style="display:flex; justify-content:space-between; margin-bottom:8px; align-items:center;">
-                    <span>Rampant <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Toit incliné x1)</span>:</span> 
+                    <span>Rampant <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Toit incliné x1)</span>:</span>
                     <div style="display:flex; align-items:center;"><b id="res-ramp" style="margin-right:10px; font-size:14px;"></b> <button class="btn-xs" style="background:#E0E7FF; color:#4338CA; padding:6px 10px;" onclick="addCalc('ramp')">➕ Plafond</button></div>
                 </div>
-                
+
                 <div id="row-calc-plat" style="display:flex; justify-content:space-between; margin-bottom:8px; align-items:center;">
-                    <span>Plafond plat <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Haut)</span>:</span> 
+                    <span>Plafond plat <span style="font-size:10px;color:var(--tx2); font-weight:bold;">(Haut)</span>:</span>
                     <div style="display:flex; align-items:center;"><b id="res-plat" style="margin-right:10px; font-size:14px;"></b> <button class="btn-xs" style="background:#E0E7FF; color:#4338CA; padding:6px 10px;" onclick="addCalc('plat')">➕ Plafond</button></div>
                 </div>
-                
+
                 <hr style="border:0; border-top:1px solid var(--bor); margin:12px 0 10px;">
+
                 <div style="display:flex; justify-content:space-between; color:var(--ok); align-items:center;">
-                    <span style="font-weight:bold;">Surf. Habitable (≥1.80m):</span> 
+                    <span style="font-weight:bold;">Surf. Habitable (≥1.80m):</span>
                     <div style="display:flex; align-items:center;"><b id="res-shab" style="margin-right:10px; font-size:15px;"></b> <button class="btn-xs" style="background:var(--ok-l); color:var(--ok); border:1px solid #BBF7D0; padding:6px 10px;" onclick="applyHabSurface()">✔️ Appliquer</button></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="canvas-container" id="croquis-container" style="display:none;">
+
+    <div id="croquis-container" class="canvas-container" style="display:none;">
         <div class="croquis-header">
-            <span class="croquis-title">📐 Topographie du niveau</span>
+            <span class="croquis-title">📐 Visualisation du niveau</span>
             <div style="display:flex; align-items:center; gap:8px;">
                 <button class="btn-xs" style="background:#F1F5F9; color:var(--tx2); border:1px solid var(--bor);" onclick="exporterCroquis()">💾 Joindre aux Docs</button>
                 <span class="croquis-badge">↻</span>
@@ -387,29 +564,64 @@
         <div id="croquis-msg" style="text-align:center; font-size:13px; font-weight:600; margin-top:16px;"></div>
     </div>
 
-    <div class="card">
-        <div class="fr"><span class="fl">Orientation</span><select id="m-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
-        <div class="fr"><span class="fl">Donne sur</span><select id="m-donne"></select></div>
-        <div class="fr"><span class="fl">Matériau</span><select id="m-mat"></select></div>
-        <div class="fr"><span class="fl">Ép. Mur (cm)</span><input type="number" inputmode="numeric" id="m-ep" placeholder="ex: 20"></div>
-        <div class="dim-block">
-            <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (m)</div>
-            <div class="dim-inputs"><input type="number" id="m-l" placeholder="L"> <span>X</span> <input type="number" id="m-h" placeholder="H"></div>
+    <div class="safe-section-title">Saisie du mur</div>
+
+    <div class="safe-subcard">
+        <div class="safe-subhead">
+            Contexte et composition
+            <span class="safe-subhint">Orientation, destination, matériau, épaisseur.</span>
         </div>
-        <div class="fr"><span class="fl">Isolant</span><select id="m-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="m-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
-        
-        <div class="fr"><span class="fl">Doublage</span>
-            <select id="m-doub">
-                <option value="ABSENT">Absent</option>
-                <option value="Inconnu">Inconnu</option>
-                <option value="Plâtre + Isolant (ITI)">Isolant + Plaque de plâtre</option>
-                <option value="Contre-cloison maçonnée">Contre-cloison maçonnée</option>
-                <option value="Lame d'air">Lame d'air seule</option>
-            </select>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="fr"><span class="fl">Orientation</span><select id="m-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
+            <div class="fr"><span class="fl">Donne sur</span><select id="m-donne"></select></div>
+            <div class="fr"><span class="fl">Matériau</span><select id="m-mat"></select></div>
+            <div class="fr"><span class="fl">Ép. Mur (cm)</span><input type="number" inputmode="numeric" id="m-ep" placeholder="ex: 20"></div>
         </div>
     </div>
-    <button class="btn-p" id="btn-save-murs" onclick="sauverParoi('murs')">Enregistrer ce mur</button>
-    <div id="list-murs" style="margin-top:20px;"></div>
+
+    <div class="safe-subcard safe-dim-wrap">
+        <div class="safe-subhead">
+            Dimensions
+            <span class="safe-subhint">Renseignez la longueur et la hauteur du mur.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="dim-block">
+                <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (m)</div>
+                <div class="dim-inputs"><input type="number" id="m-l" placeholder="L"> <span>X</span> <input type="number" id="m-h" placeholder="H"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="safe-subcard">
+        <div class="safe-subhead">
+            Isolation et doublage
+            <span class="safe-subhint">Thermique et composition intérieure / extérieure.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="fr"><span class="fl">Isolant</span><select id="m-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="m-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+            <div class="fr"><span class="fl">Doublage</span>
+                <select id="m-doub">
+                    <option value="ABSENT">Absent</option>
+                    <option value="Inconnu">Inconnu</option>
+                    <option value="Plâtre + Isolant (ITI)">Isolant + Plaque de plâtre</option>
+                    <option value="Contre-cloison maçonnée">Contre-cloison maçonnée</option>
+                    <option value="Lame d'air">Lame d'air seule</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="safe-action-card">
+        <div class="safe-action-note">Enregistrement dans le lot sélectionné</div>
+        <button class="btn-p" id="btn-save-murs" onclick="sauverParoi('murs')">Enregistrer ce mur</button>
+    </div>
+
+    <div class="safe-list-card">
+        <div class="safe-list-head">Murs déjà saisis</div>
+        <div class="safe-list-body">
+            <div id="list-murs"></div>
+        </div>
+    </div>
 </div>
 
 <div id="vw-fen" class="vw">
