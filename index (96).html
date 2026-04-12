@@ -122,6 +122,166 @@
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
 
+        /* === SAFE UX PATCH : ACCUEIL === */
+.safe-home-hero{
+    background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color:white;
+    padding:24px;
+    border-radius:24px;
+    border:none;
+    box-shadow:0 12px 32px rgba(15,23,42,0.18);
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+}
+
+.safe-home-hero::after{
+    content:"";
+    position:absolute;
+    right:-40px;
+    top:-40px;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:rgba(56,189,248,0.12);
+}
+
+.safe-home-eyebrow{
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#94A3B8;
+    margin-bottom:8px;
+}
+
+.safe-home-title{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-0.6px;
+    margin-bottom:6px;
+    position:relative;
+    z-index:1;
+}
+
+.safe-home-sub{
+    font-size:14px;
+    color:#CBD5E1;
+    font-weight:600;
+    position:relative;
+    z-index:1;
+}
+
+.safe-home-addr{
+    margin-top:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:#38BDF8;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    position:relative;
+    z-index:1;
+}
+
+.safe-home-addr:hover{
+    text-decoration:underline;
+}
+
+.safe-home-kpis{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:22px;
+    position:relative;
+    z-index:1;
+}
+
+.safe-home-kpi{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:16px;
+    border-radius:16px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.safe-home-kpi-num{
+    font-size:30px;
+    font-weight:900;
+    color:#FFF;
+    line-height:1;
+}
+
+.safe-home-kpi-num.accent{
+    color:#38BDF8;
+}
+
+.safe-home-kpi-lbl{
+    margin-top:6px;
+    font-size:11px;
+    color:#94A3B8;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+}
+
+.safe-home-next{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.safe-home-next-title{
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#64748b;
+    margin-bottom:8px;
+}
+
+.safe-home-next-text{
+    font-size:14px;
+    color:var(--tx);
+    font-weight:700;
+    line-height:1.5;
+}
+
+.safe-home-next-sub{
+    margin-top:6px;
+    font-size:13px;
+    color:var(--tx2);
+    line-height:1.5;
+}
+
+.safe-home-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.safe-home-btn-secondary{
+    background:#fff;
+    color:var(--tx);
+    border:1px solid var(--bor);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:14px;
+    font-weight:800;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(15,23,42,0.03);
+}
+
+.safe-home-btn-secondary:active{
+    transform:scale(0.98);
+}
+        
         /* === SAFE UX PATCH : MODE BUREAU === */
 .safe-bur-context-card,
 .safe-bur-entry-card,
@@ -625,31 +785,42 @@
 </div>
 
 <div id="vw-accueil" class="vw on">
-    <div class="card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color:white; padding:24px; border:none; box-shadow: 0 10px 30px rgba(15,23,42,0.15);">
-        <div style="font-size:22px; font-weight:900; margin-bottom:5px; letter-spacing:-0.5px;">Synthèse du Projet</div>
-        <div id="acc-copro-name" style="font-size:16px; color:#94A3B8; font-weight:600;">Aucune copropriété saisie</div>
-        <a id="acc-copro-addr" href="#" target="_blank" style="display:none;">📍 <span>Adresse</span></a>
-        
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top: 24px;">
-            <div style="background:rgba(255,255,255,0.08); padding:16px; border-radius:12px; text-align:center; backdrop-filter: blur(10px);">
-                <div style="font-size:32px; font-weight:900; color:#FFF;" id="tdb-appts">0</div>
-                <div style="font-size:12px; color:#94A3B8; font-weight:700; text-transform:uppercase; margin-top:4px;">Lots</div>
+    <div class="safe-home-hero">
+        <div class="safe-home-eyebrow">Tableau de bord mission</div>
+        <div class="safe-home-title">Synthèse du projet</div>
+        <div id="acc-copro-name" class="safe-home-sub">Aucune copropriété saisie</div>
+        <a id="acc-copro-addr" href="#" target="_blank" style="display:none;" class="safe-home-addr">📍 <span>Adresse</span></a>
+
+        <div class="safe-home-kpis">
+            <div class="safe-home-kpi">
+                <div class="safe-home-kpi-num" id="tdb-appts">0</div>
+                <div class="safe-home-kpi-lbl">Lots</div>
             </div>
-            <div style="background:rgba(255,255,255,0.08); padding:16px; border-radius:12px; text-align:center; backdrop-filter: blur(10px);">
-                <div style="font-size:32px; font-weight:900; color:#38BDF8;" id="tdb-surf">0</div>
-                <div style="font-size:12px; color:#94A3B8; font-weight:700; text-transform:uppercase; margin-top:4px;">m² Total</div>
+            <div class="safe-home-kpi">
+                <div class="safe-home-kpi-num accent" id="tdb-surf">0</div>
+                <div class="safe-home-kpi-lbl">m² total</div>
             </div>
-            <div style="background:rgba(255,255,255,0.08); padding:16px; border-radius:12px; text-align:center; backdrop-filter: blur(10px);">
-                <div style="font-size:32px; font-weight:900; color:#FFF;" id="tdb-murs">0</div>
-                <div style="font-size:12px; color:#94A3B8; font-weight:700; text-transform:uppercase; margin-top:4px;">Parois saisies</div>
+            <div class="safe-home-kpi">
+                <div class="safe-home-kpi-num" id="tdb-murs">0</div>
+                <div class="safe-home-kpi-lbl">Parois saisies</div>
             </div>
-            <div style="background:rgba(255,255,255,0.08); padding:16px; border-radius:12px; text-align:center; backdrop-filter: blur(10px);">
-                <div style="font-size:32px; font-weight:900; color:#FFF;" id="tdb-sys">0</div>
-                <div style="font-size:12px; color:#94A3B8; font-weight:700; text-transform:uppercase; margin-top:4px;">Systèmes</div>
+            <div class="safe-home-kpi">
+                <div class="safe-home-kpi-num" id="tdb-sys">0</div>
+                <div class="safe-home-kpi-lbl">Systèmes</div>
             </div>
         </div>
     </div>
-    <button class="btn-p" onclick="goTab('copro')">Commencer la saisie ➡️</button>
+
+    <div class="safe-home-next">
+        <div class="safe-home-next-title">Prochaine action</div>
+        <div class="safe-home-next-text">Compléter l’identification de la copropriété puis créer vos lots.</div>
+        <div class="safe-home-next-sub">Commencez par l’onglet Copro pour renseigner le dossier, l’adresse, l’année et la structure générale de l’immeuble.</div>
+    </div>
+
+    <div class="safe-home-actions">
+        <button class="btn-p" onclick="goTab('copro')">Commencer la saisie ➡️</button>
+        <button class="safe-home-btn-secondary" onclick="goTab('aide')">Consulter l’aide ❓</button>
+    </div>
 </div>
 
 <div id="vw-copro" class="vw">
