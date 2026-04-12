@@ -2733,11 +2733,7 @@ function getShortMat(mat) {
         fill('m-mat', ADN.MURS); fill('m-donne', ADN.DONNE_SUR_MURS); fill('f-type', ADN.FEN_TYPE); fill('f-mat', ADN.FEN_MATIERE); fill('f-vit', ADN.FEN_VITRAGE); fill('f-fer', ADN.FEN_FERMETURE); fill('p-type', ADN.PLAFONDS); fill('p-donne', ADN.DONNE_SUR_PLAFOND); fill('s-type', ADN.PLANCHERS); fill('s-donne', ADN.DONNE_SUR_PLANCHER); fill('bur-mat', ADN.MURS); fill('bur-donne', ADN.DONNE_SUR_MURS);
     }
 
-    function renderBibliFens() {
-        const sel = document.getElementById('f-bibli'); if(!sel) return;
-        let html = '<option value="">-- Modèles sauvegardés --</option>';
-        if(db.modelesFens) { db.modelesFens.forEach(m => { html += `<option value="${m.id}">${m.nom}</option>`; }); }
-        sel.innerHTML = html;
+    
     }
 
     function renderBibliFens() {
