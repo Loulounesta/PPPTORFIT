@@ -121,6 +121,177 @@
         
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
+        
+        /* === SAFE UX PATCH : ONGLET FENÊTRES === */
+.safe-fen-context-card,
+.safe-fen-action-card,
+.safe-fen-list-card{
+    background:var(--sur);
+    border:1px solid var(--bor);
+    border-radius:var(--r);
+    padding:16px;
+    margin-bottom:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.safe-fen-context-card{
+    background:linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+    border-color:#BFDBFE;
+}
+
+.safe-fen-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.safe-fen-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--tx);
+    letter-spacing:-0.3px;
+}
+
+.safe-fen-sub{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:600;
+}
+
+.safe-fen-mini-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#DBEAFE;
+    color:#1D4ED8;
+    border:1px solid #BFDBFE;
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.safe-fen-subcard{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:14px;
+    box-shadow:0 4px 12px rgba(15,23,42,0.02);
+}
+
+.safe-fen-subcard:last-child{
+    margin-bottom:0;
+}
+
+.safe-fen-subhead{
+    padding:12px 16px;
+    background:#F8FAFC;
+    border-bottom:1px solid var(--bor);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.8px;
+    color:var(--tx2);
+    text-transform:uppercase;
+}
+
+.safe-fen-subhint{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    font-weight:600;
+    color:#94A3B8;
+    text-transform:none;
+    letter-spacing:0;
+}
+
+.safe-fen-bibli-wrap{
+    padding:14px 16px 12px;
+    background:linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.safe-fen-bibli-title{
+    font-size:12px;
+    font-weight:900;
+    color:var(--acc);
+    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+
+.safe-fen-bibli-sub{
+    font-size:12px;
+    color:var(--tx2);
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+#f-bibli-container{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:6px;
+}
+
+#f-bibli-container::-webkit-scrollbar{
+    height:6px;
+}
+#f-bibli-container::-webkit-scrollbar-thumb{
+    background:#CBD5E1;
+    border-radius:999px;
+}
+
+.safe-fen-dim-highlight{
+    background:linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+}
+
+.safe-fen-action-card{
+    text-align:center;
+    border:1px solid #BFDBFE;
+    background:linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.safe-fen-action-note{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.safe-fen-list-card{
+    padding:0;
+    overflow:hidden;
+}
+
+.safe-fen-list-head{
+    padding:14px 16px;
+    background:#0F172A;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+}
+
+.safe-fen-list-body{
+    padding:16px;
+}
+
+#vw-fen .appt-target-sel{
+    margin-bottom:0;
+}
+
+#vw-fen #fen-niv-container{
+    margin-top:12px;
+}
+
+#vw-fen #btn-save-fens{
+    margin-top:0;
+}
+        
         /* === SAFE UX PATCH : ONGLET MURS === */
 .safe-section-title{
     font-size:12px;
@@ -625,32 +796,85 @@
 </div>
 
 <div id="vw-fen" class="vw">
-    <select id="fen-target" class="appt-target-sel" onchange="changeTargetApt(this.value, 'fen')"></select>
-    <div id="fen-niv-container"></div>
-    <div class="card">
-        <div style="font-size:12px; font-weight:900; color:var(--acc); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">📚 Légende de vos repères plan</div>
-        <div id="f-bibli-container" style="display:flex; overflow-x:auto; gap:10px; padding-bottom:12px; margin-bottom:12px; border-bottom:1px dashed var(--bor);">
-            </div>        <div class="fr"><span class="fl">Orientation</span><select id="f-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
-        <div class="fr"><span class="fl">Type</span><select id="f-type" onchange="toggleFenType()"></select></div>
-        <div class="fr"><span class="fl">Matériau</span><select id="f-mat"></select></div>
-        <div class="fr"><span class="fl">Vitrage</span><select id="f-vit"></select></div>
-        <div class="fr"><span class="fl">Lame (mm)</span><input type="number" inputmode="numeric" id="f-ep" placeholder="ex: 16"></div>
-        <div class="fr"><span class="fl">Fermeture</span><select id="f-fer"></select></div>
-        
-        <div class="dim-block" id="f-dim-lh">
-            <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (cm)</div>
-            <div class="dim-inputs"><input type="number" id="f-l" placeholder="L"> <span>X</span> <input type="number" id="f-h" placeholder="H"></div>
+    <div class="safe-section-title">Contexte de saisie</div>
+    <div class="safe-fen-context-card">
+        <div class="safe-fen-head">
+            <div>
+                <div class="safe-fen-title">Fenêtre en cours de saisie</div>
+                <div class="safe-fen-sub">Sélectionnez le lot et vérifiez le niveau avant d’enregistrer la menuiserie.</div>
+            </div>
+            <div class="safe-fen-mini-badge">🪟 Onglet Fenêtres</div>
         </div>
-        <div class="dim-block" id="f-dim-diam" style="display:none;">
-            <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Diamètre (cm)</div>
-            <div class="dim-inputs"><input type="number" id="f-diam" placeholder="Ø"></div>
-        </div>
-        
-        <div class="fr"><span class="fl">Quantité</span><input type="number" inputmode="numeric" id="f-nb" value="1"></div>
-        <div class="fr"><span class="fl">Motifs</span><input type="number" inputmode="numeric" id="f-motifs" value="1" title="Nombre de motifs / vantaux"></div>
+
+        <select id="fen-target" class="appt-target-sel" onchange="changeTargetApt(this.value, 'fen')"></select>
+        <div id="fen-niv-container"></div>
     </div>
-    <button class="btn-p" id="btn-save-fens" onclick="sauverParoi('fens')">Enregistrer</button>
-    <div id="list-fens" style="margin-top:20px;"></div>
+
+    <div class="safe-section-title">Repères et description</div>
+
+    <div class="safe-fen-subcard">
+        <div class="safe-fen-bibli-wrap">
+            <div class="safe-fen-bibli-title">📚 Légende de vos repères plan</div>
+            <div class="safe-fen-bibli-sub">Retrouvez ici vos modèles et repères déjà utilisés pour accélérer la saisie.</div>
+            <div id="f-bibli-container"></div>
+        </div>
+    </div>
+
+    <div class="safe-fen-subcard">
+        <div class="safe-fen-subhead">
+            Type de menuiserie
+            <span class="safe-fen-subhint">Orientation, type, matériau, vitrage, fermeture.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="fr"><span class="fl">Orientation</span><select id="f-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
+            <div class="fr"><span class="fl">Type</span><select id="f-type" onchange="toggleFenType()"></select></div>
+            <div class="fr"><span class="fl">Matériau</span><select id="f-mat"></select></div>
+            <div class="fr"><span class="fl">Vitrage</span><select id="f-vit"></select></div>
+            <div class="fr"><span class="fl">Lame (mm)</span><input type="number" inputmode="numeric" id="f-ep" placeholder="ex: 16"></div>
+            <div class="fr"><span class="fl">Fermeture</span><select id="f-fer"></select></div>
+        </div>
+    </div>
+
+    <div class="safe-fen-subcard safe-fen-dim-highlight">
+        <div class="safe-fen-subhead">
+            Dimensions
+            <span class="safe-fen-subhint">Le formulaire bascule automatiquement selon le type : L × H ou diamètre.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="dim-block" id="f-dim-lh">
+                <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (cm)</div>
+                <div class="dim-inputs"><input type="number" id="f-l" placeholder="L"> <span>X</span> <input type="number" id="f-h" placeholder="H"></div>
+            </div>
+
+            <div class="dim-block" id="f-dim-diam" style="display:none;">
+                <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Diamètre (cm)</div>
+                <div class="dim-inputs"><input type="number" id="f-diam" placeholder="Ø"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="safe-fen-subcard">
+        <div class="safe-fen-subhead">
+            Quantité et composition
+            <span class="safe-fen-subhint">Nombre d’éléments et nombre de motifs / vantaux.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="fr"><span class="fl">Quantité</span><input type="number" inputmode="numeric" id="f-nb" value="1"></div>
+            <div class="fr"><span class="fl">Motifs</span><input type="number" inputmode="numeric" id="f-motifs" value="1" title="Nombre de motifs / vantaux"></div>
+        </div>
+    </div>
+
+    <div class="safe-fen-action-card">
+        <div class="safe-fen-action-note">Enregistrement dans le lot sélectionné</div>
+        <button class="btn-p" id="btn-save-fens" onclick="sauverParoi('fens')">Enregistrer</button>
+    </div>
+
+    <div class="safe-fen-list-card">
+        <div class="safe-fen-list-head">Fenêtres déjà saisies</div>
+        <div class="safe-fen-list-body">
+            <div id="list-fens" style="margin-top:0;"></div>
+        </div>
+    </div>
 </div>
 
 <div id="vw-portes" class="vw">
