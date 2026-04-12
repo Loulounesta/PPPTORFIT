@@ -899,7 +899,8 @@
 
     <div class="safe-home-next">
         <div class="safe-home-next-title">Prochaine action</div>
-        <div class="safe-home-next-text">Compléter l’identification de la copropriété puis créer vos lots.</div>
+<div id="home-next-text" class="safe-home-next-text"></div>
+<div id="home-next-sub" class="safe-home-next-sub"></div>
         <div class="safe-home-next-sub">Commencez par l’onglet Copro pour renseigner le dossier, l’adresse, l’année et la structure générale de l’immeuble.</div>
     </div>
 
@@ -1533,6 +1534,43 @@ function renderBureauTarget() {
     sel.innerHTML = html;
 }
 
+function updateHomeNextStep(){
+    const txt = document.getElementById('home-next-text');
+    const sub = document.getElementById('home-next-sub');
+
+    if(!txt || !sub) return;
+
+    // sécurité
+    const copro = db.copro || {};
+    const appts = db.appts || [];
+    const murs = db.murs || [];
+
+    // 1️⃣ PAS DE COPRO
+    if(!copro.nom || !copro.adresse){
+        txt.innerText = "Renseigner la copropriété";
+        sub.innerText = "Complétez le nom, l’adresse et les informations générales du bâtiment.";
+        return;
+    }
+
+    // 2️⃣ PAS DE LOTS
+    if(appts.length === 0){
+        txt.innerText = "Créer vos lots";
+        sub.innerText = "Ajoutez les appartements ou locaux pour structurer le projet.";
+        return;
+    }
+
+    // 3️⃣ PAS DE MURS
+    if(murs.length === 0){
+        txt.innerText = "Saisir les parois";
+        sub.innerText = "Commencez par les murs pour construire la base thermique.";
+        return;
+    }
+
+    // 4️⃣ AVANCÉ
+    txt.innerText = "Finaliser le dossier";
+    sub.innerText = "Ajoutez les menuiseries, systèmes et exportez vers ADN.";
+}
+    
 // Fonction pour sauvegarder un mur à la volée (Mode PC)
 function sauverMurBureau() {
     let targetId = document.getElementById('bur-target').value;
@@ -1634,7 +1672,7 @@ function renderBureauList() {
     // --- DASHBOARD ---
     function updateDashboard() {
         document.getElementById('acc-copro-name').textContent = db.copro.nom || "Aucune copropriété saisie";
-        const addrEl = document.getElementById('acc-copro-addr');
+        const addrEl = document.getElementById('acc-copro-addr'); updateHomeNextStep();
         
         // Construction de l'adresse complète pour l'affichage et Maps
         const parts = [db.copro.adresse, db.copro.cp, db.copro.ville].filter(Boolean);
