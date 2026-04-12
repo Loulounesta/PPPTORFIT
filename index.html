@@ -2731,7 +2731,10 @@ function getShortMat(mat) {
     }
 
     function exportData() { const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db)); const a = document.createElement('a'); a.setAttribute("href", dataStr); a.setAttribute("download", "MyDiag_Backup_" + Date.now() + ".json"); document.body.appendChild(a); a.click(); a.remove(); }
-
+    // Export JSON (alias pour compatibilité UI)
+    function exportJSON() {
+             exportData();
+    }
     // Traducteur pour générer le code simplifié Annalyssimmo
     function genererCodeFen(f) {
         let rep = f.nom || "F?";
