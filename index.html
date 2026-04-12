@@ -1648,6 +1648,20 @@
             <button class="btn-p" onclick="exportJSON()">🧾 Export JSON</button>
         </div>
 
+        <div class="safe-exp-card">
+    <div class="safe-exp-head">Réinitialisation</div>
+
+    <div class="safe-exp-action">
+        <button class="btn-p" style="background:#EF4444;" onclick="resetAllData()">
+            🗑️ Tout effacer
+        </button>
+    </div>
+
+    <div class="safe-exp-warning">
+        ⚠️ Cette action supprime définitivement toutes les données du dossier.
+    </div>
+</div>
+        
         <div class="safe-exp-warning">
             Vérifiez que tous les lots et parois sont correctement renseignés avant export.
         </div>
@@ -1971,6 +1985,18 @@ function renderBureauTarget() {
     sel.innerHTML = html;
 }
 
+function resetAllData() {
+    const code = prompt("Tapez 'SUPPRIMER' pour confirmer");
+
+    if (code !== "SUPPRIMER") {
+        alert("Annulé");
+        return;
+    }
+
+    localStorage.clear();
+    location.reload();
+}
+    
 function updateHomeNextStep(){
     const txt = document.getElementById('home-next-text');
     const sub = document.getElementById('home-next-sub');
