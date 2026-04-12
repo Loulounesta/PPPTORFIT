@@ -3028,7 +3028,12 @@ function getShortMat(mat) {
 
     function sauverParoi(type) {
         if(!curAppt) curAppt = 'copro';
-        let el = editParoiId ? db[type].find(x => x.id === editParoiId) : { id: Date.now(), aid: curAppt }; el.nivInt = curNivInt; 
+let el = editParoiId
+    ? db[type].find(x => x.id === editParoiId)
+    : { id: Date.now(), aid: String(curAppt ?? 'copro') };
+
+el.aid = String(curAppt ?? 'copro');
+el.nivInt = Number(curNivInt ?? 0);
         if(type === 'murs') { 
             let oldOri = el.ori; el.ori = document.getElementById('m-ori').value; el.donne = document.getElementById('m-donne').value; el.mat = document.getElementById('m-mat').value; el.l = document.getElementById('m-l').value; el.h = document.getElementById('m-h').value; el.ep = document.getElementById('m-ep').value; el.doub = document.getElementById('m-doub').value; el.iso = document.getElementById('m-iso').value; el.isoEp = document.getElementById('m-iso-ep').value; 
             if (el.vectX !== undefined && oldOri !== el.ori) { delete el.vectX; delete el.vectY; }
@@ -3107,8 +3112,8 @@ function getShortMat(mat) {
         let cont, data, type;
         if(tabId === 'murs') { cont = document.getElementById('list-murs'); data = db.murs; type = 'murs'; } else if(tabId === 'fen' || tabId === 'fens') { cont = document.getElementById('list-fens'); data = db.fens; type = 'fens'; } else if(tabId === 'portes') { cont = document.getElementById('list-portes'); data = db.portes; type = 'portes'; } else if(tabId === 'plafonds' || tabId === 'plfs') { cont = document.getElementById('list-plfs'); data = db.plfs; type = 'plfs'; } else if(tabId === 'planchers' || tabId === 'plas') { cont = document.getElementById('list-plas'); data = db.plas; type = 'plas'; }
         
-        cont.innerHTML = data.filter(x => x.aid === curAppt && (x.nivInt || 0) === curNivInt).map(x => {
-            let dimText = ""; let titleText = x.mat || x.type;
+  cont.innerHTML = data.filter(x =>    String(x.aid ?? 'copro') === String(curAppt ?? 'copro') && Number(x.nivInt ?? 0) === Number(curNivInt ?? 0)).map(x => {
+        let dimText = ""; let titleText = x.mat || x.type;
             if (type === 'fens') {
                 if (x.type === 'Hublot') { dimText = `Ø: ${x.diam||'?'}cm (Surf: ${x.surf||'?'}m²) | Lame: ${x.ep||'?'}mm | Qté: ${x.nb||1} (Motifs: ${x.motifs||1})`; } else { dimText = `Dim: ${x.l||'?'}x${x.h||'?'}cm | Lame: ${x.ep||'?'}mm | Qté: ${x.nb||1} (Motifs: ${x.motifs||1})`; }
                 let shortFenMat = (x.mat || '').replace("Menuiserie ", ""); if(shortFenMat === "métallique avec rupture de pont thermique") shortFenMat = "Métal (avec RPT)"; if(shortFenMat === "métallique sans rupture de pont thermique") shortFenMat = "Métal (sans RPT)"; shortFenMat = shortFenMat.charAt(0).toUpperCase() + shortFenMat.slice(1); titleText = `${x.nom ? x.nom + ' - ' : ''}${shortFenMat}`;
