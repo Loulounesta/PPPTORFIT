@@ -1287,9 +1287,9 @@
         <div class="fr"><span class="fl">Nom Copro</span><input type="text" id="copro-nom" placeholder="ex: Les Lilas" oninput="saveCoproData()"></div>
         <div class="fr"><span class="fl">Adresse</span><input type="text" id="copro-adresse" placeholder="Rue et numéro" oninput="saveCoproData()"></div>
         <div class="fr"><span class="fl">Code Postal</span><input type="text" inputmode="numeric" pattern="[0-9]*" id="copro-cp" placeholder="ex: 75000" oninput="saveCoproData()"></div>
-        <div class="fr"><span class="fl">Ville</span><input type="text" id="copro-ville" placeholder="Ville" oninput="saveCoproData()"></div>        <div class="fr"><span class="fl">Année constr.</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-annee" placeholder="ex: 1975" oninput="saveCoproData()"></div>
-        <div class="fr"><span class="fl">Nb bâtiments</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-batiments" placeholder="ex: 3" oninput="saveCoproData(); updateBatimentOptions('apt-bat');"></div>
-        <div class="fr"><span class="fl">Nb d'étages</span><input type="number" inputmode="numeric" pattern="[0-9]*" id="copro-etages" placeholder="ex: 4" oninput="saveCoproData(); updateEtageOptions('apt-etage');"></div>
+        <div class="fr"><span class="fl">Ville</span><input type="text" id="copro-ville" placeholder="Ville" oninput="saveCoproData()"></div>        <div class="fr"><span class="fl">Année constr.</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-annee" placeholder="ex: 1975" oninput="saveCoproData()"></div>
+        <div class="fr"><span class="fl">Nb bâtiments</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-batiments" placeholder="ex: 3" oninput="saveCoproData(); updateBatimentOptions('apt-bat');"></div>
+        <div class="fr"><span class="fl">Nb d'étages</span><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="copro-etages" placeholder="ex: 4" oninput="saveCoproData(); updateEtageOptions('apt-etage');"></div>
     </div>
 
     <div class="coll-acc-hd" onclick="toggleAcc('docs-acc', this)"><span>📂 Documents & Justificatifs</span> <span style="color:var(--acc);">▼</span></div>
@@ -1323,8 +1323,8 @@
             </div>
             <div class="fr"><span class="fl">Générateur</span><select id="col-chauf-gen" onchange="checkChaudiereECS('col'); saveCoproData()"><option value="">—</option></select></div>
             <div class="fr"><span class="fl">Émetteur</span><select id="col-chauf-emetteur" onchange="saveCoproData()"><option value="">—</option></select></div>
-            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="numeric" id="col-chauf-annee" oninput="saveCoproData()"></div>
-            <div class="fr"><span class="fl">Puiss. (kW)</span><input type="number" inputmode="decimal" id="col-chauf-puissance" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="decimal" step="any" id="col-chauf-annee" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Puiss. (kW)</span><input type="number" inputmode="decimal" step="any" id="col-chauf-puissance" oninput="saveCoproData()"></div>
         </div>
     </div>
 
@@ -1342,8 +1342,8 @@
                 </div>
             </div>
             <div class="fr"><span class="fl">Type/Gén.</span><select id="col-ecs-type" onchange="saveCoproData()"><option value="">—</option></select></div>
-            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="numeric" id="col-ecs-annee" oninput="saveCoproData()"></div>
-            <div class="fr"><span class="fl">Volume (L)</span><input type="number" inputmode="numeric" id="col-ecs-vol" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Année</span><input type="number" inputmode="decimal" step="any" id="col-ecs-annee" oninput="saveCoproData()"></div>
+            <div class="fr"><span class="fl">Volume (L)</span><input type="number" inputmode="decimal" step="any" id="col-ecs-vol" oninput="saveCoproData()"></div>
         </div>
     </div>
 
@@ -1450,11 +1450,11 @@
             </div>
 
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:12px;">
-                <input type="number" class="calc-input" id="calc-L" placeholder="L (Façade)" style="border-left:4px solid #0D9488;" oninput="runCalc()">
-                <input type="number" class="calc-input" id="calc-l" placeholder="l (Pignon)" style="border-left:4px solid #F59E0B;" oninput="runCalc()">
-                <input type="number" class="calc-input" id="calc-h" placeholder="h (Sablière)" style="border-left:4px solid #3B82F6;" oninput="runCalc()">
-                <input type="number" class="calc-input" id="calc-H" placeholder="H (Faîtage)" style="border-left:4px solid #16A34A;" oninput="runCalc()">
-                <input type="number" class="calc-input" id="calc-proj" placeholder="Proj. Rampant" style="border-left:4px solid #8B5CF6; grid-column: span 2;" oninput="runCalc()">
+                <input type="number" inputmode="decimal" step="any" class="calc-input" id="calc-L" placeholder="L (Façade)" style="border-left:4px solid #0D9488;" oninput="runCalc()">
+                <input type="number" inputmode="decimal" step="any" class="calc-input" id="calc-l" placeholder="l (Pignon)" style="border-left:4px solid #F59E0B;" oninput="runCalc()">
+                <input type="number" inputmode="decimal" step="any" class="calc-input" id="calc-h" placeholder="h (Sablière)" style="border-left:4px solid #3B82F6;" oninput="runCalc()">
+                <input type="number" inputmode="decimal" step="any" class="calc-input" id="calc-H" placeholder="H (Faîtage)" style="border-left:4px solid #16A34A;" oninput="runCalc()">
+                <input type="number" inputmode="decimal" step="any" class="calc-input" id="calc-proj" placeholder="Proj. Rampant" style="border-left:4px solid #8B5CF6; grid-column: span 2;" oninput="runCalc()">
             </div>
 
             <div id="calc-res" style="display:none; background:#F8FAFC; padding:12px; border-radius:8px; border:1px solid var(--bor); font-size:13px;">
@@ -1513,7 +1513,7 @@
             <div class="fr"><span class="fl">Orientation</span><select id="m-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
             <div class="fr"><span class="fl">Donne sur</span><select id="m-donne"></select></div>
             <div class="fr"><span class="fl">Matériau</span><select id="m-mat"></select></div>
-            <div class="fr"><span class="fl">Ép. Mur (cm)</span><input type="number" inputmode="numeric" id="m-ep" placeholder="ex: 20"></div>
+            <div class="fr"><span class="fl">Ép. Mur (cm)</span><input type="number" inputmode="decimal" step="any" id="m-ep" placeholder="ex: 20"></div>
         </div>
     </div>
 
@@ -1525,7 +1525,7 @@
         <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
             <div class="dim-block">
                 <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (m)</div>
-                <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="m-l" placeholder="L"> <span>X</span> <input type="number" id="m-h" placeholder="H"></div>
+                <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="m-l" placeholder="L"> <span>X</span> <input type="number" inputmode="decimal" step="any" id="m-h" placeholder="H"></div>
             </div>
         </div>
     </div>
@@ -1536,7 +1536,7 @@
             <span class="safe-subhint">Thermique et composition intérieure / extérieure.</span>
         </div>
         <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
-            <div class="fr"><span class="fl">Isolant</span><select id="m-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="m-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+            <div class="fr"><span class="fl">Isolant</span><select id="m-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" inputmode="decimal" step="any" id="m-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
             <div class="fr"><span class="fl">Doublage</span>
                 <select id="m-doub">
                     <option value="ABSENT">Absent</option>
@@ -1597,7 +1597,7 @@
             <div class="fr"><span class="fl">Type</span><select id="f-type" onchange="toggleFenType()"></select></div>
             <div class="fr"><span class="fl">Matériau</span><select id="f-mat"></select></div>
             <div class="fr"><span class="fl">Vitrage</span><select id="f-vit"></select></div>
-            <div class="fr"><span class="fl">Lame (mm)</span><input type="number" inputmode="numeric" id="f-ep" placeholder="ex: 16"></div>
+            <div class="fr"><span class="fl">Lame (mm)</span><input type="number" inputmode="decimal" step="any" inputmode="numeric" id="f-ep" placeholder="ex: 16"></div>
             <div class="fr"><span class="fl">Fermeture</span><select id="f-fer"></select></div>
         </div>
     </div>
@@ -1610,12 +1610,12 @@
         <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
             <div class="dim-block" id="f-dim-lh">
                 <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (cm)</div>
-                <div class="dim-inputs"><input type="number" id="f-l" placeholder="L"> <span>X</span> <input type="number" id="f-h" placeholder="H"></div>
+                <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="f-l" placeholder="L"> <span>X</span> <input type="number" id="f-h" placeholder="H"></div>
             </div>
 
             <div class="dim-block" id="f-dim-diam" style="display:none;">
                 <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Diamètre (cm)</div>
-                <div class="dim-inputs"><input type="number" id="f-diam" placeholder="Ø"></div>
+                <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="f-diam" placeholder="Ø"></div>
             </div>
         </div>
     </div>
@@ -1626,8 +1626,8 @@
             <span class="safe-fen-subhint">Nombre d’éléments et nombre de motifs / vantaux.</span>
         </div>
         <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
-            <div class="fr"><span class="fl">Quantité</span><input type="number" inputmode="numeric" id="f-nb" value="1"></div>
-            <div class="fr"><span class="fl">Motifs</span><input type="number" inputmode="numeric" id="f-motifs" value="1" title="Nombre de motifs / vantaux"></div>
+            <div class="fr"><span class="fl">Quantité</span><input type="number" inputmode="decimal" step="any" id="f-nb" value="1"></div>
+            <div class="fr"><span class="fl">Motifs</span><input type="number" inputmode="decimal" step="any" id="f-motifs" value="1" title="Nombre de motifs / vantaux"></div>
         </div>
     </div>
 
@@ -1654,7 +1654,7 @@
         <div class="fr"><span class="fl">Sas double</span><select id="po-sas"><option>Non</option><option>Oui (Porte + Sas)</option></select></div>
         <div class="dim-block">
             <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x H (m)</div>
-            <div class="dim-inputs"><input type="number" id="po-l" placeholder="L"> <span>X</span> <input type="number" id="po-h" placeholder="H"></div>
+            <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="po-l" placeholder="L"> <span>X</span> <input type="number" inputmode="decimal" step="any" id="po-h" placeholder="H"></div>
         </div>
     </div>
     <button class="btn-p" id="btn-save-portes" onclick="sauverParoi('portes')">Enregistrer</button>
@@ -1668,10 +1668,10 @@
         <div class="fr"><span class="fl">Donne sur</span><select id="p-donne"></select></div>
         <div class="dim-block">
             <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x larg (m)</div>
-            <div class="dim-inputs"><input type="number" id="p-l" placeholder="L"> <span>X</span> <input type="number" id="p-larg" placeholder="larg"></div>
+            <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="p-l" placeholder="L"> <span>X</span> <input type="number" inputmode="decimal" step="any" id="p-larg" placeholder="larg"></div>
         </div>
-        <div class="fr"><span class="fl">Surface (m²)</span><input type="number" id="p-s" placeholder="ou S directe"></div>
-        <div class="fr"><span class="fl">Isolant</span><select id="p-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="p-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+        <div class="fr"><span class="fl">Surface (m²)</span><input type="number" inputmode="decimal" step="any" id="p-s" placeholder="ou S directe"></div>
+        <div class="fr"><span class="fl">Isolant</span><select id="p-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" inputmode="decimal" step="any" id="p-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
     </div>
     <button class="btn-p" id="btn-save-plfs" onclick="sauverParoi('plfs')">Enregistrer</button>
     <div id="list-plfs" style="margin-top:20px;"></div>
@@ -1684,10 +1684,10 @@
         <div class="fr"><span class="fl">Donne sur</span><select id="s-donne"></select></div>
         <div class="dim-block">
             <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions L x larg (m)</div>
-            <div class="dim-inputs"><input type="number" id="s-l" placeholder="L"> <span>X</span> <input type="number" id="s-larg" placeholder="larg"></div>
+            <div class="dim-inputs"><input type="number" inputmode="decimal" step="any" id="s-l" placeholder="L"> <span>X</span> <input type="number" inputmode="decimal" step="any" id="s-larg" placeholder="larg"></div>
         </div>
-        <div class="fr"><span class="fl">Surface (m²)</span><input type="number" id="s-s" placeholder="ou S directe"></div>
-        <div class="fr"><span class="fl">Isolant</span><select id="s-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="s-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+        <div class="fr"><span class="fl">Surface (m²)</span><input type="number" inputmode="decimal" step="any" id="s-s" placeholder="ou S directe"></div>
+        <div class="fr"><span class="fl">Isolant</span><select id="s-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" inputmode="decimal" step="any" id="s-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
     </div>
     <button class="btn-p" id="btn-save-plas" onclick="sauverParoi('plas')">Enregistrer</button>
     <div id="list-plas" style="margin-top:20px;"></div>
@@ -1732,7 +1732,7 @@
             <div class="fr"><span class="fl">Orientation</span><select id="bur-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
             <div class="fr"><span class="fl">Matériau</span><select id="bur-mat"></select></div>
             <div class="fr"><span class="fl">Donne sur</span><select id="bur-donne"></select></div>
-            <div class="fr"><span class="fl">Isolant / Ép.</span><select id="bur-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="bur-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+            <div class="fr"><span class="fl">Isolant / Ép.</span><select id="bur-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" inputmode="decimal" step="any" id="bur-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
         </div>
     </div>
 
@@ -1745,9 +1745,9 @@
             <div class="safe-bur-enter-tip">Astuce : appuyez sur Entrée pour passer de L à H puis enregistrer sans lever les mains du clavier.</div>
 
             <div class="dim-inputs" style="margin-bottom:12px;">
-                <input type="number" id="bur-l" placeholder="Longueur (L)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') document.getElementById('bur-h').focus();">
+                <input type="number" inputmode="decimal" step="any" id="bur-l" placeholder="Longueur (L)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') document.getElementById('bur-h').focus();">
                 <span>X</span>
-                <input type="number" id="bur-h" placeholder="Hauteur (H)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') sauverMurBureau();">
+                <input type="number" inputmode="decimal" step="any" id="bur-h" placeholder="Hauteur (H)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') sauverMurBureau();">
             </div>
 
             <button class="btn-p" onclick="sauverMurBureau()">Ajouter ce mur ➕</button>
@@ -3134,7 +3134,7 @@ function getShortMat(mat) {
                             </div>
                             <select id="ifc-gen-${a.id}" onchange="checkChaudiereECS('ind', '${a.id}')" style="width:100%; padding:8px; margin-bottom:5px; border-radius:6px; border:1px solid var(--bor); background:#F8FAFC;"><option value="">Générateur</option></select>
                             <select id="ifc-emetteur-${a.id}" style="width:100%; padding:8px; margin-bottom:5px; border-radius:6px; border:1px solid var(--bor); background:#F8FAFC;"><option value="">Émetteur</option></select>
-                            <div style="display:flex; gap:5px; margin-bottom:5px;"><input type="number" inputmode="numeric" pattern="[0-9]*" id="ifc-annee-${a.id}" placeholder="Année" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"><input type="number" inputmode="decimal" step="any" id="ifc-puissance-${a.id}" placeholder="Puiss. kW" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"></div>
+                            <div style="display:flex; gap:5px; margin-bottom:5px;"><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="ifc-annee-${a.id}" placeholder="Année" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"><input type="number" inputmode="decimal" step="any" id="ifc-puissance-${a.id}" placeholder="Puiss. kW" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"></div>
                             <button id="btn-chauf-${a.id}" class="btn-s" style="padding:10px; width:100%; background:var(--acc-l); color:var(--acc); font-weight:bold; border:1px dashed var(--acc); border-radius:8px;" onclick="ajouterChauf('${a.id}')">Ajouter Chauffage</button>
                         </div>
                     </div>
@@ -3151,7 +3151,7 @@ function getShortMat(mat) {
                                 <button class="btn-xs" style="background:var(--acc-l); color:var(--acc); border:1px solid #BFDBFE; padding:8px 12px; font-size:16px;" onclick="triggerUpload('ecsIndTemp', '${a.id}')">📷</button>
                             </div>
                             <select id="ife-type-${a.id}" style="width:100%; padding:8px; margin-bottom:5px; border-radius:6px; border:1px solid var(--bor); background:#F8FAFC;"><option value="">Type</option></select>
-                            <div style="display:flex; gap:5px; margin-bottom:5px;"><input type="number" inputmode="numeric" pattern="[0-9]*" id="ife-annee-${a.id}" placeholder="Année" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"><input type="number" inputmode="numeric" pattern="[0-9]*" id="ife-vol-${a.id}" placeholder="Vol (L)" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"></div>
+                            <div style="display:flex; gap:5px; margin-bottom:5px;"><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="ife-annee-${a.id}" placeholder="Année" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"><input type="number" inputmode="decimal" step="any" pattern="[0-9]*" id="ife-vol-${a.id}" placeholder="Vol (L)" style="flex:1; padding:8px; border-radius:6px; border:1px solid var(--bor);"></div>
                             <button id="btn-ecs-${a.id}" class="btn-s" style="padding:10px; width:100%; background:var(--acc-l); color:var(--acc); font-weight:bold; border:1px dashed var(--acc); border-radius:8px;" onclick="ajouterEcs('${a.id}')">Ajouter ECS</button>
                         </div>
                     </div>
