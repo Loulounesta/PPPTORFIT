@@ -1985,15 +1985,20 @@ function renderBureauTarget() {
 }
 
 async function resetAllData() {
-    const code = prompt("Tapez 'SUPPRIMER' pour confirmer");
-    if (code !== "SUPPRIMER") {
-        alert("Annulé");
-        return;
+    if(confirm("Voulez-vous télécharger une sauvegarde de sécurité (Backup JSON) avant d'effacer le projet ?\n\nCliquez sur OK pour sauvegarder, ou Annuler pour ignorer.")) {
+        exportJSON();
     }
-
-    await localforage.clear();
-    localStorage.clear();
-    location.reload();
+    
+    setTimeout(async () => {
+        const code = prompt("⚠️ ATTENTION : Tapez 'SUPPRIMER' en majuscules pour confirmer l'effacement total.");
+        if (code === "SUPPRIMER") {
+            await localforage.clear();
+            localStorage.clear();
+            location.reload();
+        } else if (code !== null) {
+            alert("Action annulée : le mot de passe est incorrect.");
+        }
+    }, 500);
 }
     
 function updateHomeNextStep(){
