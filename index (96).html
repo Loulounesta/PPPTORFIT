@@ -121,6 +121,145 @@
         
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
+
+        /* === SAFE UX PATCH : MODE BUREAU === */
+.safe-bur-context-card,
+.safe-bur-entry-card,
+.safe-bur-list-card{
+    background:var(--sur);
+    border:1px solid var(--bor);
+    border-radius:var(--r);
+    padding:16px;
+    margin-bottom:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.04);
+}
+
+.safe-bur-context-card{
+    background:linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+    border-color:#BFDBFE;
+}
+
+.safe-bur-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.safe-bur-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--tx);
+    letter-spacing:-0.3px;
+}
+
+.safe-bur-sub{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:600;
+}
+
+.safe-bur-mini-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#DBEAFE;
+    color:#1D4ED8;
+    border:1px solid #BFDBFE;
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.safe-bur-subcard{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:14px;
+    box-shadow:0 4px 12px rgba(15,23,42,0.02);
+}
+
+.safe-bur-subcard:last-child{
+    margin-bottom:0;
+}
+
+.safe-bur-subhead{
+    padding:12px 16px;
+    background:#F8FAFC;
+    border-bottom:1px solid var(--bor);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.8px;
+    color:var(--tx2);
+    text-transform:uppercase;
+}
+
+.safe-bur-subhint{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    font-weight:600;
+    color:#94A3B8;
+    text-transform:none;
+    letter-spacing:0;
+}
+
+.safe-bur-dim-zone{
+    background:linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+    border:1px solid #BFDBFE;
+}
+
+.safe-bur-dim-zone .dim-inputs input{
+    border-width:2px;
+}
+
+.safe-bur-enter-tip{
+    font-size:12px;
+    color:var(--tx2);
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.safe-bur-action-row{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.safe-bur-action-row .btn-p{
+    margin-top:0;
+}
+
+.safe-bur-list-card{
+    padding:0;
+    overflow:hidden;
+}
+
+.safe-bur-list-head{
+    padding:14px 16px;
+    background:#0F172A;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+}
+
+.safe-bur-list-body{
+    padding:16px;
+}
+
+#vw-bureau #bur-list{
+    margin-bottom:0;
+}
+
+#vw-bureau .sl{
+    margin-bottom:10px;
+}
         
         /* === SAFE UX PATCH : ONGLET FENÊTRES === */
 .safe-fen-context-card,
@@ -938,32 +1077,61 @@
     <div id="totaux-table-container" class="tbl-container"></div>
 </div>
 <div id="vw-bureau" class="vw">
-    <div class="sl">Saisie Rapide Multi-Lots (Sur Plan)</div>
-    
-    <div class="card" style="border: 2px solid var(--acc); box-shadow: 0 10px 25px rgba(37,99,235,0.1);">
-        <div style="background:var(--acc); color:white; padding:12px 16px; font-weight:800; font-size:14px;">
-            ⚡ Ajout à la volée
-        </div>
-        
-        <div class="fr"><span class="fl">Affecter au lot</span><select id="bur-target" style="font-weight:800; color:var(--acc);"></select></div>
-        <div class="fr"><span class="fl">Orientation</span><select id="bur-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
-        <div class="fr"><span class="fl">Matériau</span><select id="bur-mat"></select></div>
-        <div class="fr"><span class="fl">Donne sur</span><select id="bur-donne"></select></div>
-        <div class="fr"><span class="fl">Isolant / Ép.</span><select id="bur-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="bur-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
-        
-        <div style="padding:16px; background:#F8FAFC; border-top:1px solid var(--bor);">
-            <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:8px;">Dimensions (m) - <span style="font-weight:normal;">Appuyez sur Entrée pour valider</span></div>
-            <div class="dim-inputs" style="margin-bottom:12px;">
-                <input type="number" id="bur-l" placeholder="Longueur (L)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') document.getElementById('bur-h').focus();"> 
-                <span>X</span> 
-                <input type="number" id="bur-h" placeholder="Hauteur (H)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') sauverMurBureau();">
+    <div class="safe-section-title">Contexte de saisie rapide</div>
+    <div class="safe-bur-context-card">
+        <div class="safe-bur-head">
+            <div>
+                <div class="safe-bur-title">Mode Bureau</div>
+                <div class="safe-bur-sub">Ajoutez des murs à la volée, lot par lot, à partir du plan ou des notes de visite.</div>
             </div>
-            <button class="btn-p" style="margin-top:0;" onclick="sauverMurBureau()">Ajouter ce mur ➕</button>
+            <div class="safe-bur-mini-badge">🖥️ Saisie rapide</div>
+        </div>
+
+        <div class="fr" style="padding-left:0; padding-right:0; border-bottom:none;">
+            <span class="fl">Affecter au lot</span>
+            <select id="bur-target" style="font-weight:800; color:var(--acc);"></select>
         </div>
     </div>
 
-    <div class="sl" style="margin-top:30px;">Tous les murs de la copropriété</div>
-    <div id="bur-list" style="margin-bottom:40px;"></div>
+    <div class="safe-section-title">Paramètres du mur</div>
+
+    <div class="safe-bur-subcard">
+        <div class="safe-bur-subhead">
+            Caractéristiques conservées
+            <span class="safe-bur-subhint">Ces champs restent stables pendant votre saisie en série.</span>
+        </div>
+        <div class="card" style="margin:0; box-shadow:none; border:none; border-radius:0;">
+            <div class="fr"><span class="fl">Orientation</span><select id="bur-ori"><option>Nord</option><option>Est</option><option>Sud</option><option>Ouest</option></select></div>
+            <div class="fr"><span class="fl">Matériau</span><select id="bur-mat"></select></div>
+            <div class="fr"><span class="fl">Donne sur</span><select id="bur-donne"></select></div>
+            <div class="fr"><span class="fl">Isolant / Ép.</span><select id="bur-iso" style="flex:1;"><option>Non</option><option>ITI</option><option>ITE</option></select><input type="number" id="bur-iso-ep" placeholder="cm" style="flex:0 0 70px;"></div>
+        </div>
+    </div>
+
+    <div class="safe-bur-subcard safe-bur-dim-zone">
+        <div class="safe-bur-subhead">
+            Saisie express
+            <span class="safe-bur-subhint">Tapez les dimensions puis validez immédiatement.</span>
+        </div>
+        <div style="padding:16px;">
+            <div class="safe-bur-enter-tip">Astuce : appuyez sur Entrée pour passer de L à H puis enregistrer sans lever les mains du clavier.</div>
+
+            <div class="dim-inputs" style="margin-bottom:12px;">
+                <input type="number" id="bur-l" placeholder="Longueur (L)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') document.getElementById('bur-h').focus();">
+                <span>X</span>
+                <input type="number" id="bur-h" placeholder="Hauteur (H)" style="border-color:#0D9488; color:#0D9488;" onkeypress="if(event.key === 'Enter') sauverMurBureau();">
+            </div>
+
+            <button class="btn-p" onclick="sauverMurBureau()">Ajouter ce mur ➕</button>
+        </div>
+    </div>
+
+    <div class="safe-list-card">
+        <div class="safe-list-head">Tous les murs de la copropriété</div>
+        <div class="safe-list-body">
+            <div id="bur-list"></div>
+        </div>
+    </div>
 </div>
 <div id="vw-export" class="vw">
     <div class="card" style="padding:24px; text-align:center;">
