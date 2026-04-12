@@ -2123,27 +2123,6 @@ function renderBureauList() {
         document.getElementById('tdb-murs').textContent = totalParois;
         document.getElementById('tdb-sys').textContent = db.chaufs.length + db.ecss.length;
     }
-    function updateHomeNextStep(){
-    const txt = document.getElementById('home-next-text');
-    const sub = document.getElementById('home-next-sub');
-
-    if(!txt || !sub) return;
-
-    const copro = db.copro || {};
-    const appts = db.appts || [];
-    const murs = db.murs || [];
-
-    if(!copro.nom || !copro.adresse){
-        txt.innerText = "Renseigner la copropriété";
-        sub.innerText = "Complétez le nom, l’adresse et les informations générales du bâtiment.";
-        return;
-    }
-
-    if(appts.length === 0){
-        txt.innerText = "Créer vos lots";
-        sub.innerText = "Ajoutez les appartements ou locaux pour structurer le projet.";
-        return;
-    }
 
     if(murs.length === 0){
         txt.innerText = "Saisir les parois";
