@@ -122,6 +122,92 @@
         .calc-input { width:100%; padding:10px; border:1px solid var(--bor); border-radius:8px; background:#F8FAFC; color:var(--acc); font-weight:bold; font-size:14px; text-align:center;}
         .calc-input::placeholder { color: #94A3B8; font-weight:normal; }
 
+        /* === SAFE UX PATCH : EXPORT === */
+.safe-exp-hero{
+    background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color:white;
+    padding:22px;
+    border-radius:20px;
+    margin-bottom:16px;
+    box-shadow:0 12px 32px rgba(15,23,42,0.18);
+}
+
+.safe-exp-title{
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:6px;
+}
+
+.safe-exp-sub{
+    font-size:13px;
+    color:#CBD5E1;
+    font-weight:600;
+}
+
+.safe-exp-card{
+    background:#fff;
+    border:1px solid var(--bor);
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 6px 18px rgba(15,23,42,0.04);
+}
+
+.safe-exp-head{
+    font-size:13px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.safe-exp-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid var(--bor);
+}
+
+.safe-exp-row:last-child{
+    border-bottom:none;
+}
+
+.safe-exp-label{
+    font-size:14px;
+    font-weight:700;
+}
+
+.safe-exp-desc{
+    font-size:12px;
+    color:var(--tx2);
+}
+
+.safe-exp-status{
+    font-size:11px;
+    font-weight:800;
+    padding:4px 8px;
+    border-radius:999px;
+    background:#DCFCE7;
+    color:#166534;
+}
+
+.safe-exp-action{
+    text-align:center;
+    margin-top:12px;
+}
+
+.safe-exp-warning{
+    font-size:12px;
+    color:#B45309;
+    background:#FFFBEB;
+    border:1px solid #FDE68A;
+    padding:10px;
+    border-radius:10px;
+    margin-top:10px;
+}
+        
         /* === SAFE UX PATCH : ACCUEIL === */
 .safe-home-hero{
     background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
@@ -1305,24 +1391,60 @@
     </div>
 </div>
 <div id="vw-export" class="vw">
-    <div class="card" style="padding:24px; text-align:center;">
-        <div style="font-size:20px; font-weight:900; margin-bottom:16px; color:var(--tx);">Phase finale du diagnostic</div>
-        <div style="font-size:14px; color:var(--tx2); margin-bottom:24px; line-height:1.6;">
-            Exportez vos relevés au format adapté pour préparer le transfert vers votre logiciel de certification.
-        </div>
-        
-        <button class="btn-p" onclick="exportExcel()" style="background:var(--ok);">📊 EXPORTER EXCEL</button>
-        <button class="btn-p" onclick="exportZip()" style="background:var(--warn); margin-top:12px;">📸 EXPORTER PHOTOS (ZIP)</button>
-        <button class="btn-p" onclick="exportData()" style="background:#475569; margin-top:24px;">📥 BACKUP JSON</button>
-        
-        <hr style="border:0; border-top:1px solid var(--bor); margin:32px 0 24px;">
-        <div style="font-size:14px; color:var(--tx2); margin-bottom:16px; font-weight:800; text-transform:uppercase;">✉️ Communications</div>
-        
-        <button class="btn-p" onclick="envoyerMailExport()" style="background:#0284C7;">📧 PRÉPARER L'E-MAIL D'EXPORT</button>
-        <button class="btn-p" onclick="envoyerMailRDV()" style="background:#8B5CF6; margin-top:12px;">📅 DEMANDE DE RDV (ÉCHANTILLONS)</button>
-        
-        <button class="btn" style="background:var(--dan-l); color:var(--dan); margin-top:40px; border:1px solid #FECACA; width:100%; padding:14px; font-weight:bold; border-radius:10px;" onclick="resetProjet()">🗑️ RESET TOTAL DU PROJET</button>
+
+    <div class="safe-exp-hero">
+        <div class="safe-exp-title">Export du dossier</div>
+        <div class="safe-exp-sub">Générez vos livrables prêts pour ADN Analysimmo</div>
     </div>
+
+    <div class="safe-exp-card">
+        <div class="safe-exp-head">Contenu du dossier</div>
+
+        <div class="safe-exp-row">
+            <div>
+                <div class="safe-exp-label">Données techniques</div>
+                <div class="safe-exp-desc">Murs, fenêtres, systèmes, surfaces</div>
+            </div>
+            <div class="safe-exp-status">OK</div>
+        </div>
+
+        <div class="safe-exp-row">
+            <div>
+                <div class="safe-exp-label">Photos terrain</div>
+                <div class="safe-exp-desc">Images liées aux éléments</div>
+            </div>
+            <div class="safe-exp-status">OK</div>
+        </div>
+
+        <div class="safe-exp-row">
+            <div>
+                <div class="safe-exp-label">Structure ADN</div>
+                <div class="safe-exp-desc">Compatible import logiciel métier</div>
+            </div>
+            <div class="safe-exp-status">OK</div>
+        </div>
+    </div>
+
+    <div class="safe-exp-card">
+        <div class="safe-exp-head">Génération des fichiers</div>
+
+        <div class="safe-exp-action">
+            <button class="btn-p" onclick="exportExcel()">📊 Export Excel</button>
+        </div>
+
+        <div class="safe-exp-action">
+            <button class="btn-p" onclick="exportZipPhotos()">📸 Export photos (ZIP)</button>
+        </div>
+
+        <div class="safe-exp-action">
+            <button class="btn-p" onclick="exportJSON()">🧾 Export JSON</button>
+        </div>
+
+        <div class="safe-exp-warning">
+            Vérifiez que tous les lots et parois sont correctement renseignés avant export.
+        </div>
+    </div>
+
 </div>
 
 <div id="sys-toast" class="toast">Action effectuée ✓</div>
