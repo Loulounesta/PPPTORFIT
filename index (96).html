@@ -1691,7 +1691,39 @@ function renderBureauList() {
         document.getElementById('tdb-murs').textContent = totalParois;
         document.getElementById('tdb-sys').textContent = db.chaufs.length + db.ecss.length;
     }
+    function updateHomeNextStep(){
+    const txt = document.getElementById('home-next-text');
+    const sub = document.getElementById('home-next-sub');
 
+    if(!txt || !sub) return;
+
+    const copro = db.copro || {};
+    const appts = db.appts || [];
+    const murs = db.murs || [];
+
+    if(!copro.nom || !copro.adresse){
+        txt.innerText = "Renseigner la copropriété";
+        sub.innerText = "Complétez le nom, l’adresse et les informations générales du bâtiment.";
+        return;
+    }
+
+    if(appts.length === 0){
+        txt.innerText = "Créer vos lots";
+        sub.innerText = "Ajoutez les appartements ou locaux pour structurer le projet.";
+        return;
+    }
+
+    if(murs.length === 0){
+        txt.innerText = "Saisir les parois";
+        sub.innerText = "Commencez par les murs pour construire la base thermique.";
+        return;
+    }
+
+    txt.innerText = "Finaliser le dossier";
+    sub.innerText = "Ajoutez les menuiseries, systèmes et exportez vers ADN.";
+} 
+
+    
     function saveCoproData() {
         db.copro = { 
             ref: document.getElementById('copro-ref').value, 
@@ -1703,7 +1735,8 @@ function renderBureauList() {
             batiments: document.getElementById('copro-batiments').value, 
             etages: document.getElementById('copro-etages').value
         };
-        updateDashboard(); 
+updateDashboard();
+updateHomeNextStep();
         sauvegarderLocal();
     }
 
@@ -1716,6 +1749,7 @@ function renderBureauList() {
         if (tabEl) tabEl.classList.add('on');
         
         if(tabId === 'accueil') updateDashboard();
+updateHomeNextStep();
         if(tabId === 'bim') renderBIM();
         if(tabId === 'totaux') renderTotauxTable();
 if(tabId === 'bureau') {
@@ -1822,6 +1856,7 @@ if(tabId === 'bureau') {
         if(data) db = data;
         renderDocs();
         updateDashboard();
+updateHomeNextStep();
         // Ajout de copro-cp et copro-ville dans la boucle de chargement
         ['copro-ref','copro-nom','copro-adresse','copro-cp','copro-ville','copro-annee','copro-batiments','copro-etages'].forEach(id => {
             let k = id.replace('copro-',''); if(db.copro[k]) document.getElementById(id).value = db.copro[k];
