@@ -1748,14 +1748,17 @@ updateHomeNextStep();
         const tabEl = document.querySelector(`.tab[onclick*="${tabId}"]`);
         if (tabEl) tabEl.classList.add('on');
         
-        if(tabId === 'accueil') updateDashboard();
-updateHomeNextStep();
+        if(tabId === 'accueil') {
+            updateDashboard();
+            updateHomeNextStep();
+        }
         if(tabId === 'bim') renderBIM();
         if(tabId === 'totaux') renderTotauxTable();
-if(tabId === 'bureau') {
-    renderBureauTarget();
-    renderBureauList();
-}        if(['murs','fen','portes','plafonds','planchers'].includes(tabId)) {
+        if(tabId === 'bureau') {
+            renderBureauTarget();
+            renderBureauList();
+        }        
+        if(['murs','fen','portes','plafonds','planchers'].includes(tabId)) {
             verifierAptActif(tabId);
             renderElementsList(tabId);
             if(tabId === 'murs') drawCroquis();
